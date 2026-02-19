@@ -1,6 +1,7 @@
 /**
- * Fetch Stripe charges/payment intents for Amberscript.
- * Uses Stripe REST API (no SDK needed).
+ * Fetch Stripe charges for Amberscript.
+ * Only grabs: date, metadata, description, currency, amount.
+ * Uses Stripe REST API with expand=[] to minimize payload.
  * Outputs: raw/stripe-charges.json
  */
 
@@ -40,7 +41,16 @@ async function fetchAllCharges(since) {
     const data = await retry(() => stripeGet('/charges', params));
     for (const charge of data.data) {
       if (charge.status !== 'succeeded') continue;
-      charges.push(charge);
+      // Only keep the fields we need
+      charges.push({
+        id: charge.id,
+        created: charge.created,
+        amount: charge.amount,
+        currency: charge.currency,
+        description: charge.description || '',
+        metadata: charge.metadata || {},
+        invoice: charge.invoice || null,
+      });
     }
 
     if (!data.has_more) break;
@@ -53,10 +63,9 @@ async function fetchAllCharges(since) {
 
 function classifyChargeType(charge) {
   const desc = (charge.description || '').toLowerCase();
-  const invoiceId = charge.invoice;
+  const meta = charge.metadata || {};
 
-  if (invoiceId) {
-    // Invoice-based: likely subscription or manual invoice
+  if (charge.invoice) {
     if (desc.includes('subscription') || desc.includes('premium')) return 'subscription';
     return 'invoice';
   }
@@ -65,31 +74,29 @@ function classifyChargeType(charge) {
   return 'one-time';
 }
 
-function main_process() {
-  return async () => {
-    const { start } = getDateRange(365);
-    console.log(`Fetching Stripe charges since ${start}`);
+async function main() {
+  const { start } = getDateRange();
+  console.log(`Fetching Stripe charges since ${start}`);
 
-    const charges = await fetchAllCharges(start);
-    console.log(`Fetched ${charges.length} successful charges`);
+  const charges = await fetchAllCharges(start);
+  console.log(`Fetched ${charges.length} successful charges`);
 
-    const output = charges.map(c => ({
-      id: c.id,
-      week: getWeekStart(new Date(c.created * 1000)),
-      date: new Date(c.created * 1000).toISOString().slice(0, 10),
-      amount: c.amount / 100,
-      currency: (c.currency || 'eur').toUpperCase(),
-      type: classifyChargeType(c),
-      country: c.billing_details?.address?.country || '',
-      description: c.description || '',
-    }));
+  const output = charges.map(c => ({
+    id: c.id,
+    week: getWeekStart(new Date(c.created * 1000)),
+    date: new Date(c.created * 1000).toISOString().slice(0, 10),
+    amount: c.amount / 100,
+    currency: (c.currency || 'eur').toUpperCase(),
+    type: classifyChargeType(c),
+    description: c.description,
+    metadata: c.metadata,
+  }));
 
-    saveRaw('stripe-charges.json', output);
-    console.log(`Done: ${output.length} charges saved`);
-  };
+  saveRaw('stripe-charges.json', output);
+  console.log(`Done: ${output.length} charges saved`);
 }
 
-main_process()().catch(err => {
+main().catch(err => {
   console.error(err);
   process.exit(1);
 });
