@@ -27,7 +27,7 @@ export function formatDate(date) {
 /**
  * Get date range: last N days from today
  */
-export function getDateRange(daysBack = 365) {
+export function getDateRange(daysBack = 90) {
   const end = new Date();
   const start = new Date();
   start.setDate(start.getDate() - daysBack);
