@@ -1,34 +1,39 @@
 /**
  * Fetch GA4 form submissions (generate_lead) and purchases.
- * Uses Google Analytics Data API v1beta.
+ * Uses Google Analytics Data API v1beta with OAuth (same creds as Google Ads).
  * Outputs: raw/ga4.json
  */
 
 import { google } from 'googleapis';
-import { getDateRange, getWeekStart, classifyChannel, classifyGeo, saveRaw, retry } from './utils.mjs';
+import { getDateRange, classifyChannel, classifyGeo, saveRaw, retry } from './utils.mjs';
 
-const GA4_PROPERTY = process.env.GA4_PROPERTY_ID || ''; // e.g., "properties/123456789"
-const GA4_CREDENTIALS_JSON = process.env.GA4_CREDENTIALS;
+// GA4 property for Amberscript (measurement ID G-FR5QG4NGRG)
+// You can find the numeric property ID in GA4 Admin > Property Settings
+const GA4_PROPERTY = process.env.GA4_PROPERTY_ID || '';
 
-if (!GA4_CREDENTIALS_JSON) {
-  console.error('Missing GA4_CREDENTIALS (service account JSON)');
+const {
+  GOOGLE_ADS_CLIENT_ID,
+  GOOGLE_ADS_CLIENT_SECRET,
+  GOOGLE_ADS_REFRESH_TOKEN,
+} = process.env;
+
+if (!GOOGLE_ADS_REFRESH_TOKEN) {
+  console.error('Missing Google OAuth credentials (GOOGLE_ADS_CLIENT_ID, GOOGLE_ADS_CLIENT_SECRET, GOOGLE_ADS_REFRESH_TOKEN)');
   process.exit(1);
 }
 
-let credentials;
-try {
-  credentials = JSON.parse(GA4_CREDENTIALS_JSON);
-} catch {
-  console.error('GA4_CREDENTIALS is not valid JSON');
+if (!GA4_PROPERTY) {
+  console.error('Missing GA4_PROPERTY_ID (e.g., "properties/123456789"). Find it in GA4 Admin > Property Settings.');
   process.exit(1);
 }
 
 async function getAnalyticsClient() {
-  const auth = new google.auth.GoogleAuth({
-    credentials,
-    scopes: ['https://www.googleapis.com/auth/analytics.readonly'],
-  });
-  return google.analyticsdata({ version: 'v1beta', auth });
+  const oauth2Client = new google.auth.OAuth2(
+    GOOGLE_ADS_CLIENT_ID,
+    GOOGLE_ADS_CLIENT_SECRET,
+  );
+  oauth2Client.setCredentials({ refresh_token: GOOGLE_ADS_REFRESH_TOKEN });
+  return google.analyticsdata({ version: 'v1beta', auth: oauth2Client });
 }
 
 async function runReport(client, propertyId, eventName, startDate, endDate) {
@@ -112,14 +117,13 @@ async function main() {
   console.log(`Fetching GA4 data: ${start} to ${end}`);
 
   const client = await getAnalyticsClient();
-  const propertyId = GA4_PROPERTY || `properties/${credentials.property_id || ''}`;
 
   console.log('  Fetching generate_lead events...');
-  const leads = await runReport(client, propertyId, 'generate_lead', start, end);
+  const leads = await runReport(client, GA4_PROPERTY, 'generate_lead', start, end);
   console.log(`    ${leads.length} rows`);
 
   console.log('  Fetching purchase events...');
-  const purchases = await runReport(client, propertyId, 'purchase', start, end);
+  const purchases = await runReport(client, GA4_PROPERTY, 'purchase', start, end);
   console.log(`    ${purchases.length} rows`);
 
   const output = {

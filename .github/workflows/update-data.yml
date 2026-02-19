@@ -35,7 +35,10 @@ jobs:
       - name: Fetch GA4 Data
         run: node scripts/fetch-ga4.mjs
         env:
-          GA4_CREDENTIALS: ${{ secrets.GA4_CREDENTIALS }}
+          GOOGLE_ADS_CLIENT_ID: ${{ secrets.GOOGLE_ADS_CLIENT_ID }}
+          GOOGLE_ADS_CLIENT_SECRET: ${{ secrets.GOOGLE_ADS_CLIENT_SECRET }}
+          GOOGLE_ADS_REFRESH_TOKEN: ${{ secrets.GOOGLE_ADS_REFRESH_TOKEN }}
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
       - name: Aggregate Data
         run: node scripts/aggregate.mjs
       - uses: stefanzweifel/git-auto-commit-action@v5
