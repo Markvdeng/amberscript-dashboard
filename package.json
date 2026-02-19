@@ -1,0 +1,20 @@
+{
+  "name": "amberscript-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Amberscript Marketing Dashboard - automated data collection & static dashboard",
+  "scripts": {
+    "fetch:google-ads": "node scripts/fetch-google-ads.mjs",
+    "fetch:stripe-charges": "node scripts/fetch-stripe-charges.mjs",
+    "fetch:stripe-subs": "node scripts/fetch-stripe-subs.mjs",
+    "fetch:hubspot": "node scripts/fetch-hubspot-deals.mjs",
+    "fetch:ga4": "node scripts/fetch-ga4.mjs",
+    "fetch:all": "npm run fetch:google-ads && npm run fetch:stripe-charges && npm run fetch:stripe-subs && npm run fetch:hubspot && npm run fetch:ga4",
+    "aggregate": "node scripts/aggregate.mjs",
+    "update": "npm run fetch:all && npm run aggregate"
+  },
+  "dependencies": {
+    "googleapis": "^144.0.0"
+  }
+}

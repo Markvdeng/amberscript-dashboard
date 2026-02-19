@@ -1,0 +1,44 @@
+name: Update Dashboard Data
+on:
+  schedule:
+    - cron: '0 7 * * *' # Daily at 7 AM UTC (8 AM CET)
+  workflow_dispatch: {} # Manual trigger
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - name: Fetch Google Ads
+        run: node scripts/fetch-google-ads.mjs
+        env:
+          GOOGLE_ADS_DEVELOPER_TOKEN: ${{ secrets.GOOGLE_ADS_DEVELOPER_TOKEN }}
+          GOOGLE_ADS_CLIENT_ID: ${{ secrets.GOOGLE_ADS_CLIENT_ID }}
+          GOOGLE_ADS_CLIENT_SECRET: ${{ secrets.GOOGLE_ADS_CLIENT_SECRET }}
+          GOOGLE_ADS_REFRESH_TOKEN: ${{ secrets.GOOGLE_ADS_REFRESH_TOKEN }}
+      - name: Fetch Stripe Charges
+        run: node scripts/fetch-stripe-charges.mjs
+        env:
+          STRIPE_AMBERSCRIPT_API_KEY: ${{ secrets.STRIPE_AMBERSCRIPT_API_KEY }}
+      - name: Fetch Stripe Subscriptions
+        run: node scripts/fetch-stripe-subs.mjs
+        env:
+          STRIPE_AMBERSCRIPT_API_KEY: ${{ secrets.STRIPE_AMBERSCRIPT_API_KEY }}
+      - name: Fetch HubSpot Deals
+        run: node scripts/fetch-hubspot-deals.mjs
+        env:
+          HUBSPOT_AMBERSCRIPT_TOKEN: ${{ secrets.HUBSPOT_AMBERSCRIPT_TOKEN }}
+      - name: Fetch GA4 Data
+        run: node scripts/fetch-ga4.mjs
+        env:
+          GA4_CREDENTIALS: ${{ secrets.GA4_CREDENTIALS }}
+      - name: Aggregate Data
+        run: node scripts/aggregate.mjs
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'data: daily update'
+          file_pattern: data.json

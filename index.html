@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amberscript Marketing Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            amber: {
+              primary: '#1A7B6B',
+              dark: '#155F54',
+              accent: '#FBA929',
+              bg: '#F5F5F5',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background: #F5F5F5; }
+    .kpi-card { transition: transform 0.15s ease; }
+    .kpi-card:hover { transform: translateY(-2px); }
+    .chart-container { position: relative; min-height: 300px; }
+    .funnel-bar { transition: width 0.6s ease; }
+    select, input[type="date"] { font-size: 0.875rem; }
+  </style>
+</head>
+<body class="font-sans text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-amber-primary text-white">
+    <div class="max-w-7xl mx-auto px-4 py-5 sm:px-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+      <div>
+        <h1 class="text-2xl font-bold tracking-tight">Amberscript Marketing Dashboard</h1>
+        <p class="text-white/70 text-sm mt-0.5" id="lastUpdated">Loading...</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <select id="dateRange" class="bg-white/10 border border-white/20 text-white rounded-lg px-3 py-1.5 text-sm">
+          <option value="4">Last 4 weeks</option>
+          <option value="8">Last 8 weeks</option>
+          <option value="13" selected>Last 13 weeks (quarter)</option>
+          <option value="26">Last 26 weeks (half year)</option>
+          <option value="52">Last 52 weeks (year)</option>
+          <option value="0">All time</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6 space-y-6">
+
+    <!-- 1. KPI Row -->
+    <section id="kpiSection" class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
+    </section>
+
+    <!-- 2. Funnel Chart -->
+    <section class="bg-white rounded-xl shadow-sm p-6">
+      <h2 class="text-lg font-semibold text-gray-900 mb-4">Sales Funnel</h2>
+      <div id="funnelChart" class="space-y-3"></div>
+    </section>
+
+    <!-- 3. Trend Charts -->
+    <section class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div class="bg-white rounded-xl shadow-sm p-6">
+        <h2 class="text-lg font-semibold text-gray-900 mb-4">Weekly Leads & MQLs</h2>
+        <div class="chart-container"><canvas id="funnelTrendChart"></canvas></div>
+      </div>
+      <div class="bg-white rounded-xl shadow-sm p-6">
+        <h2 class="text-lg font-semibold text-gray-900 mb-4">Weekly Ad Spend & Stripe Revenue</h2>
+        <div class="chart-container"><canvas id="revenueTrendChart"></canvas></div>
+      </div>
+    </section>
+
+    <!-- 4. Channel Breakdown -->
+    <section class="bg-white rounded-xl shadow-sm p-6">
+      <h2 class="text-lg font-semibold text-gray-900 mb-4">Leads by Channel</h2>
+      <div class="chart-container"><canvas id="channelChart"></canvas></div>
+    </section>
+
+    <!-- 5. Geo Breakdown -->
+    <section class="bg-white rounded-xl shadow-sm p-6">
+      <h2 class="text-lg font-semibold text-gray-900 mb-4">Performance by Country</h2>
+      <div class="overflow-x-auto">
+        <table id="geoTable" class="w-full text-sm">
+          <thead class="text-left text-gray-500 border-b">
+            <tr>
+              <th class="pb-2 font-medium">Country</th>
+              <th class="pb-2 font-medium text-right">Leads</th>
+              <th class="pb-2 font-medium text-right">MQLs</th>
+              <th class="pb-2 font-medium text-right">SQLs</th>
+              <th class="pb-2 font-medium text-right">Deals</th>
+              <th class="pb-2 font-medium text-right">Revenue</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 6. Self-Service Revenue -->
+    <section class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div class="bg-white rounded-xl shadow-sm p-6">
+        <h2 class="text-lg font-semibold text-gray-900 mb-4">Stripe Revenue by Type</h2>
+        <div class="chart-container"><canvas id="stripeTypeChart"></canvas></div>
+      </div>
+      <div class="bg-white rounded-xl shadow-sm p-6">
+        <h2 class="text-lg font-semibold text-gray-900 mb-4">New Subscriptions</h2>
+        <div class="chart-container"><canvas id="subsChart"></canvas></div>
+      </div>
+    </section>
+
+    <!-- 7. Machine-Made vs Human-Made -->
+    <section class="bg-white rounded-xl shadow-sm p-6">
+      <h2 class="text-lg font-semibold text-gray-900 mb-4">Machine-Made vs Human-Made Ad Spend</h2>
+      <div class="chart-container"><canvas id="mmVsHmChart"></canvas></div>
+    </section>
+
+    <!-- 8. Monthly Summary Table -->
+    <section class="bg-white rounded-xl shadow-sm p-6">
+      <h2 class="text-lg font-semibold text-gray-900 mb-4">Monthly Summary</h2>
+      <div class="overflow-x-auto">
+        <table id="monthlyTable" class="w-full text-sm">
+          <thead class="text-left text-gray-500 border-b">
+            <tr>
+              <th class="pb-2 font-medium">Month</th>
+              <th class="pb-2 font-medium text-right">Ad Spend</th>
+              <th class="pb-2 font-medium text-right">Leads</th>
+              <th class="pb-2 font-medium text-right">MQLs</th>
+              <th class="pb-2 font-medium text-right">SQLs</th>
+              <th class="pb-2 font-medium text-right">Deals</th>
+              <th class="pb-2 font-medium text-right">Deal Rev</th>
+              <th class="pb-2 font-medium text-right">Stripe Rev</th>
+              <th class="pb-2 font-medium text-right">Lead&#8594;MQL</th>
+              <th class="pb-2 font-medium text-right">MQL&#8594;SQL</th>
+              <th class="pb-2 font-medium text-right">SQL&#8594;Deal</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 9. Payment Health -->
+    <section class="bg-white rounded-xl shadow-sm p-6">
+      <h2 class="text-lg font-semibold text-gray-900 mb-4">Payment Health</h2>
+      <div id="paymentHealth" class="grid grid-cols-2 sm:grid-cols-4 gap-4"></div>
+    </section>
+
+  </main>
+
+  <footer class="max-w-7xl mx-auto px-4 sm:px-6 py-8 text-center text-gray-400 text-xs">
+    Auto-updated daily via GitHub Actions. Data from Google Ads, HubSpot, Stripe, GA4.
+  </footer>
+
+<script>
+// ==========================================
+// Dashboard Logic
+// ==========================================
+
+let DATA = null;
+let charts = {};
+
+const COLORS = {
+  primary: '#1A7B6B',
+  primaryLight: '#1A7B6B33',
+  accent: '#FBA929',
+  accentLight: '#FBA92933',
+  red: '#EF4444',
+  blue: '#3B82F6',
+  purple: '#8B5CF6',
+  green: '#10B981',
+  orange: '#F97316',
+  gray: '#6B7280',
+  channels: {
+    'Direct': '#1A7B6B',
+    'Paid Search Brand': '#3B82F6',
+    'Paid Search Generic': '#8B5CF6',
+    'Organic': '#10B981',
+    'Referral': '#F97316',
+    'Email': '#FBA929',
+    'Other': '#6B7280',
+  },
+};
+
+// Format helpers
+const fmt = {
+  currency: (n) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'EUR', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(n),
+  number: (n) => new Intl.NumberFormat('en-US').format(n),
+  pct: (n) => n.toFixed(1) + '%',
+  shortDate: (d) => {
+    const date = new Date(d);
+    return date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
+  },
+  monthLabel: (m) => {
+    const [y, mo] = m.split('-');
+    return new Date(parseInt(y), parseInt(mo) - 1).toLocaleDateString('en-GB', { month: 'short', year: '2-digit' });
+  },
+};
+
+// Load data
+async function loadData() {
+  try {
+    const res = await fetch('data.json');
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    DATA = await res.json();
+    render();
+  } catch (err) {
+    document.getElementById('lastUpdated').textContent = 'Error loading data: ' + err.message;
+    console.error(err);
+  }
+}
+
+// Filter weeks by selected range
+function getFilteredWeeks() {
+  const weeksBack = parseInt(document.getElementById('dateRange').value);
+  const allWeeks = DATA.weekly.ads.map(r => r.week).filter(Boolean);
+  if (weeksBack === 0 || !allWeeks.length) return allWeeks;
+  return allWeeks.slice(-weeksBack);
+}
+
+function filterByWeeks(arr, weeks) {
+  const set = new Set(weeks);
+  return arr.filter(r => set.has(r.week));
+}
+
+// Main render
+function render() {
+  const weeks = getFilteredWeeks();
+
+  document.getElementById('lastUpdated').textContent =
+    `Last updated: ${new Date(DATA.updatedAt).toLocaleString('en-GB')} | ${DATA.dateRange.start} to ${DATA.dateRange.end}`;
+
+  renderKPIs(weeks);
+  renderFunnel(weeks);
+  renderFunnelTrend(weeks);
+  renderRevenueTrend(weeks);
+  renderChannelChart(weeks);
+  renderGeoTable(weeks);
+  renderStripeTypeChart(weeks);
+  renderSubsChart(weeks);
+  renderMmVsHm(weeks);
+  renderMonthlyTable();
+  renderPaymentHealth(weeks);
+}
+
+// 1. KPIs
+function renderKPIs(weeks) {
+  const funnel = filterByWeeks(DATA.weekly.funnel, weeks);
+  const ads = filterByWeeks(DATA.weekly.ads, weeks);
+  const stripe = filterByWeeks(DATA.weekly.stripe, weeks);
+
+  const leads = funnel.reduce((s, r) => s + r.leads, 0);
+  const mqls = funnel.reduce((s, r) => s + r.mqls, 0);
+  const sqls = funnel.reduce((s, r) => s + r.sqls, 0);
+  const deals = funnel.reduce((s, r) => s + r.closedWon, 0);
+  const dealRev = funnel.reduce((s, r) => s + r.closedRevenue, 0);
+  const stripeRev = stripe.reduce((s, r) => s + r.totalRevenue, 0);
+  const adsCost = ads.reduce((s, r) => s + r.totalCost, 0);
+  const roas = adsCost > 0 ? (stripeRev / adsCost).toFixed(2) : '-';
+
+  const kpis = [
+    { label: 'Leads', value: fmt.number(leads), color: 'text-gray-900' },
+    { label: 'MQLs', value: fmt.number(mqls), color: 'text-blue-600' },
+    { label: 'SQLs', value: fmt.number(sqls), color: 'text-purple-600' },
+    { label: 'Deals', value: fmt.number(deals), color: 'text-green-600' },
+    { label: 'Deal Revenue', value: fmt.currency(dealRev), color: 'text-green-600' },
+    { label: 'Stripe Revenue', value: fmt.currency(stripeRev), color: 'text-amber-600' },
+    { label: 'Google Ads Cost', value: fmt.currency(adsCost), color: 'text-red-500' },
+    { label: 'ROAS', value: roas + 'x', color: 'text-amber-primary' },
+  ];
+
+  document.getElementById('kpiSection').innerHTML = kpis.map(k => `
+    <div class="kpi-card bg-white rounded-xl shadow-sm p-4">
+      <p class="text-xs text-gray-500 font-medium uppercase tracking-wide">${k.label}</p>
+      <p class="text-xl font-bold ${k.color} mt-1">${k.value}</p>
+    </div>
+  `).join('');
+}
+
+// 2. Funnel
+function renderFunnel(weeks) {
+  const funnel = filterByWeeks(DATA.weekly.funnel, weeks);
+  const leads = funnel.reduce((s, r) => s + r.leads, 0);
+  const mqls = funnel.reduce((s, r) => s + r.mqls, 0);
+  const sqls = funnel.reduce((s, r) => s + r.sqls, 0);
+  const deals = funnel.reduce((s, r) => s + r.closedWon, 0);
+
+  const max = Math.max(leads, 1);
+  const stages = [
+    { label: 'Leads', count: leads, color: '#6B7280', pct: 100 },
+    { label: 'MQLs', count: mqls, color: '#3B82F6', pct: (mqls / max * 100) },
+    { label: 'SQLs', count: sqls, color: '#8B5CF6', pct: (sqls / max * 100) },
+    { label: 'Closed Won', count: deals, color: '#10B981', pct: (deals / max * 100) },
+  ];
+
+  const convRates = [];
+  if (leads > 0) convRates.push(`Lead→MQL: ${(mqls / leads * 100).toFixed(1)}%`);
+  if (mqls > 0) convRates.push(`MQL→SQL: ${(sqls / mqls * 100).toFixed(1)}%`);
+  if (sqls > 0) convRates.push(`SQL→Deal: ${(deals / sqls * 100).toFixed(1)}%`);
+
+  document.getElementById('funnelChart').innerHTML = stages.map(s => `
+    <div class="flex items-center gap-3">
+      <span class="text-sm font-medium text-gray-600 w-24">${s.label}</span>
+      <div class="flex-1 bg-gray-100 rounded-full h-8 overflow-hidden">
+        <div class="funnel-bar h-full rounded-full flex items-center px-3" style="width: ${Math.max(s.pct, 4)}%; background: ${s.color}">
+          <span class="text-white text-xs font-semibold">${fmt.number(s.count)}</span>
+        </div>
+      </div>
+    </div>
+  `).join('') + `
+    <div class="flex gap-4 mt-2 text-xs text-gray-500">
+      ${convRates.map(r => `<span>${r}</span>`).join('')}
+    </div>
+  `;
+}
+
+// 3. Funnel Trend
+function renderFunnelTrend(weeks) {
+  const funnel = filterByWeeks(DATA.weekly.funnel, weeks);
+  destroyChart('funnelTrendChart');
+
+  charts.funnelTrendChart = new Chart(document.getElementById('funnelTrendChart'), {
+    type: 'line',
+    data: {
+      labels: funnel.map(r => fmt.shortDate(r.week)),
+      datasets: [
+        { label: 'Leads', data: funnel.map(r => r.leads), borderColor: '#6B7280', backgroundColor: '#6B728033', tension: 0.3, fill: false },
+        { label: 'MQLs', data: funnel.map(r => r.mqls), borderColor: '#3B82F6', backgroundColor: '#3B82F633', tension: 0.3, fill: false },
+        { label: 'SQLs', data: funnel.map(r => r.sqls), borderColor: '#8B5CF6', backgroundColor: '#8B5CF633', tension: 0.3, fill: false },
+        { label: 'Deals', data: funnel.map(r => r.closedWon), borderColor: '#10B981', backgroundColor: '#10B98133', tension: 0.3, fill: false },
+      ],
+    },
+    options: chartOptions(''),
+  });
+}
+
+// 4. Revenue Trend
+function renderRevenueTrend(weeks) {
+  const ads = filterByWeeks(DATA.weekly.ads, weeks);
+  const stripe = filterByWeeks(DATA.weekly.stripe, weeks);
+
+  // Align to same weeks
+  const weekSet = new Set(weeks);
+  const labels = weeks.map(w => fmt.shortDate(w));
+
+  const adsMap = Object.fromEntries(ads.map(r => [r.week, r.totalCost]));
+  const stripeMap = Object.fromEntries(stripe.map(r => [r.week, r.totalRevenue]));
+
+  destroyChart('revenueTrendChart');
+  charts.revenueTrendChart = new Chart(document.getElementById('revenueTrendChart'), {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [
+        { label: 'Ad Spend', data: weeks.map(w => adsMap[w] || 0), backgroundColor: '#EF444466', borderColor: '#EF4444', borderWidth: 1 },
+        { label: 'Stripe Revenue', data: weeks.map(w => stripeMap[w] || 0), backgroundColor: '#10B98166', borderColor: '#10B981', borderWidth: 1 },
+      ],
+    },
+    options: chartOptions('EUR'),
+  });
+}
+
+// 5. Channel Chart
+function renderChannelChart(weeks) {
+  const funnel = filterByWeeks(DATA.weekly.funnel, weeks);
+  const channelTotals = {};
+  for (const row of funnel) {
+    for (const [ch, data] of Object.entries(row.byChannel || {})) {
+      if (!channelTotals[ch]) channelTotals[ch] = { leads: 0, mqls: 0, sqls: 0, deals: 0 };
+      channelTotals[ch].leads += data.leads;
+      channelTotals[ch].mqls += data.mqls;
+      channelTotals[ch].sqls += data.sqls;
+      channelTotals[ch].deals += data.deals;
+    }
+  }
+
+  const channels = Object.keys(channelTotals).sort((a, b) => channelTotals[b].leads - channelTotals[a].leads);
+
+  destroyChart('channelChart');
+  charts.channelChart = new Chart(document.getElementById('channelChart'), {
+    type: 'bar',
+    data: {
+      labels: channels,
+      datasets: [
+        { label: 'Leads', data: channels.map(c => channelTotals[c].leads), backgroundColor: '#6B728099' },
+        { label: 'MQLs', data: channels.map(c => channelTotals[c].mqls), backgroundColor: '#3B82F699' },
+        { label: 'SQLs', data: channels.map(c => channelTotals[c].sqls), backgroundColor: '#8B5CF699' },
+        { label: 'Deals', data: channels.map(c => channelTotals[c].deals), backgroundColor: '#10B98199' },
+      ],
+    },
+    options: { ...chartOptions(''), scales: { x: { stacked: false }, y: { stacked: false, beginAtZero: true } } },
+  });
+}
+
+// 6. Geo Table
+function renderGeoTable(weeks) {
+  const funnel = filterByWeeks(DATA.weekly.funnel, weeks);
+  const geoTotals = {};
+  for (const row of funnel) {
+    for (const [geo, data] of Object.entries(row.byGeo || {})) {
+      if (!geoTotals[geo]) geoTotals[geo] = { leads: 0, mqls: 0, sqls: 0, deals: 0, revenue: 0 };
+      geoTotals[geo].leads += data.leads;
+      geoTotals[geo].mqls += data.mqls;
+      geoTotals[geo].sqls += data.sqls;
+      geoTotals[geo].deals += data.deals;
+      geoTotals[geo].revenue += data.revenue;
+    }
+  }
+
+  const geos = Object.keys(geoTotals).sort((a, b) => geoTotals[b].leads - geoTotals[a].leads);
+  const tbody = document.querySelector('#geoTable tbody');
+  tbody.innerHTML = geos.map(g => {
+    const d = geoTotals[g];
+    return `
+      <tr class="border-b border-gray-50 hover:bg-gray-50">
+        <td class="py-2 font-medium">${g}</td>
+        <td class="py-2 text-right">${fmt.number(d.leads)}</td>
+        <td class="py-2 text-right">${fmt.number(d.mqls)}</td>
+        <td class="py-2 text-right">${fmt.number(d.sqls)}</td>
+        <td class="py-2 text-right">${fmt.number(d.deals)}</td>
+        <td class="py-2 text-right">${fmt.currency(d.revenue)}</td>
+      </tr>
+    `;
+  }).join('');
+}
+
+// 7a. Stripe Revenue by Type
+function renderStripeTypeChart(weeks) {
+  const stripe = filterByWeeks(DATA.weekly.stripe, weeks);
+  const typeTotals = {};
+  for (const row of stripe) {
+    for (const [type, data] of Object.entries(row.byType || {})) {
+      if (!typeTotals[type]) typeTotals[type] = 0;
+      typeTotals[type] += data.revenue;
+    }
+  }
+
+  const types = Object.keys(typeTotals).sort((a, b) => typeTotals[b] - typeTotals[a]);
+  const typeColors = ['#1A7B6B', '#3B82F6', '#FBA929', '#8B5CF6', '#F97316', '#6B7280'];
+
+  destroyChart('stripeTypeChart');
+  charts.stripeTypeChart = new Chart(document.getElementById('stripeTypeChart'), {
+    type: 'doughnut',
+    data: {
+      labels: types.map(t => t.charAt(0).toUpperCase() + t.slice(1)),
+      datasets: [{
+        data: types.map(t => Math.round(typeTotals[t])),
+        backgroundColor: types.map((_, i) => typeColors[i % typeColors.length]),
+      }],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'right' },
+        tooltip: { callbacks: { label: (ctx) => `${ctx.label}: ${fmt.currency(ctx.raw)}` } },
+      },
+    },
+  });
+}
+
+// 7b. Subscriptions Chart
+function renderSubsChart(weeks) {
+  const subs = filterByWeeks(DATA.weekly.subscriptions, weeks);
+  destroyChart('subsChart');
+
+  charts.subsChart = new Chart(document.getElementById('subsChart'), {
+    type: 'bar',
+    data: {
+      labels: subs.map(r => fmt.shortDate(r.week)),
+      datasets: [
+        { label: 'Monthly', data: subs.map(r => r.monthly), backgroundColor: '#3B82F699' },
+        { label: 'Yearly', data: subs.map(r => r.yearly), backgroundColor: '#10B98199' },
+      ],
+    },
+    options: { ...chartOptions(''), scales: { x: { stacked: true }, y: { stacked: true, beginAtZero: true } } },
+  });
+}
+
+// 8. Machine-Made vs Human-Made
+function renderMmVsHm(weeks) {
+  const ads = filterByWeeks(DATA.weekly.ads, weeks);
+  destroyChart('mmVsHmChart');
+
+  charts.mmVsHmChart = new Chart(document.getElementById('mmVsHmChart'), {
+    type: 'bar',
+    data: {
+      labels: ads.map(r => fmt.shortDate(r.week)),
+      datasets: [
+        { label: 'Machine-Made', data: ads.map(r => r.mmCost), backgroundColor: '#3B82F666', borderColor: '#3B82F6', borderWidth: 1 },
+        { label: 'Human-Made', data: ads.map(r => r.hmCost), backgroundColor: '#8B5CF666', borderColor: '#8B5CF6', borderWidth: 1 },
+        { label: 'AmberNotes', data: ads.map(r => r.notesCost), backgroundColor: '#FBA92966', borderColor: '#FBA929', borderWidth: 1 },
+      ],
+    },
+    options: { ...chartOptions('EUR'), scales: { x: { stacked: true }, y: { stacked: true, beginAtZero: true } } },
+  });
+}
+
+// 9a. Monthly Table
+function renderMonthlyTable() {
+  const tbody = document.querySelector('#monthlyTable tbody');
+  const months = DATA.monthly || [];
+  tbody.innerHTML = months.map(m => `
+    <tr class="border-b border-gray-50 hover:bg-gray-50">
+      <td class="py-2 font-medium">${fmt.monthLabel(m.month)}</td>
+      <td class="py-2 text-right">${fmt.currency(m.adsCost)}</td>
+      <td class="py-2 text-right">${fmt.number(m.leads)}</td>
+      <td class="py-2 text-right">${fmt.number(m.mqls)}</td>
+      <td class="py-2 text-right">${fmt.number(m.sqls)}</td>
+      <td class="py-2 text-right">${fmt.number(m.closedWon)}</td>
+      <td class="py-2 text-right">${fmt.currency(m.closedRevenue)}</td>
+      <td class="py-2 text-right">${fmt.currency(m.stripeRevenue)}</td>
+      <td class="py-2 text-right">${fmt.pct(m.leadToMql)}</td>
+      <td class="py-2 text-right">${fmt.pct(m.mqlToSql)}</td>
+      <td class="py-2 text-right">${fmt.pct(m.sqlToDeal)}</td>
+    </tr>
+  `).join('');
+}
+
+// 9b. Payment Health
+function renderPaymentHealth(weeks) {
+  const stripe = filterByWeeks(DATA.weekly.stripe, weeks);
+  const totalPayments = stripe.reduce((s, r) => s + r.count, 0);
+  const totalRevenue = stripe.reduce((s, r) => s + r.totalRevenue, 0);
+
+  // Count currency breakdown
+  const currencies = {};
+  for (const row of stripe) {
+    for (const [cur, data] of Object.entries(row.byCurrency || {})) {
+      if (!currencies[cur]) currencies[cur] = { count: 0, revenue: 0 };
+      currencies[cur].count += data.count;
+      currencies[cur].revenue += data.revenue;
+    }
+  }
+
+  const items = [
+    { label: 'Total Payments', value: fmt.number(totalPayments), sub: 'in period' },
+    { label: 'Total Revenue', value: fmt.currency(totalRevenue), sub: 'all currencies' },
+    ...Object.entries(currencies).map(([cur, data]) => ({
+      label: cur, value: fmt.number(data.count) + ' payments', sub: new Intl.NumberFormat('en-US', { style: 'currency', currency: cur.toLowerCase() === 'eur' ? 'EUR' : cur, minimumFractionDigits: 0 }).format(data.revenue),
+    })),
+  ];
+
+  document.getElementById('paymentHealth').innerHTML = items.map(i => `
+    <div class="bg-gray-50 rounded-lg p-4">
+      <p class="text-xs text-gray-500 font-medium uppercase">${i.label}</p>
+      <p class="text-lg font-bold text-gray-900 mt-1">${i.value}</p>
+      <p class="text-xs text-gray-400 mt-0.5">${i.sub}</p>
+    </div>
+  `).join('');
+}
+
+// Chart helpers
+function chartOptions(prefix) {
+  return {
+    responsive: true,
+    maintainAspectRatio: false,
+    interaction: { mode: 'index', intersect: false },
+    plugins: {
+      legend: { position: 'top', labels: { usePointStyle: true, pointStyleWidth: 10 } },
+      tooltip: {
+        callbacks: {
+          label: (ctx) => {
+            const val = typeof ctx.raw === 'number' ? (prefix ? `${prefix} ${ctx.raw.toLocaleString()}` : ctx.raw.toLocaleString()) : ctx.raw;
+            return `${ctx.dataset.label}: ${val}`;
+          },
+        },
+      },
+    },
+    scales: {
+      x: { grid: { display: false } },
+      y: { beginAtZero: true, grid: { color: '#f3f4f6' } },
+    },
+  };
+}
+
+function destroyChart(id) {
+  if (charts[id]) {
+    charts[id].destroy();
+    delete charts[id];
+  }
+}
+
+// Event listeners
+document.getElementById('dateRange').addEventListener('change', () => {
+  if (DATA) render();
+});
+
+// Init
+loadData();
+</script>
+
+</body>
+</html>
