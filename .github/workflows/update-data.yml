@@ -33,6 +33,7 @@ jobs:
         env:
           HUBSPOT_AMBERSCRIPT_TOKEN: ${{ secrets.HUBSPOT_AMBERSCRIPT_TOKEN }}
       - name: Fetch GA4 Data
+        continue-on-error: true # GA4 needs analytics scope on OAuth token (not yet configured)
         run: node scripts/fetch-ga4.mjs
         env:
           GOOGLE_ADS_CLIENT_ID: ${{ secrets.GOOGLE_ADS_CLIENT_ID }}
