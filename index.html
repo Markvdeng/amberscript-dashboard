@@ -405,23 +405,6 @@
       <div id="selfServeSection">
         <h3 class="sub-title">Self-Serve</h3>
 
-        <!-- Self-Serve Summary -->
-        <section class="card mb-6">
-          <div class="flex items-center justify-between mb-4">
-            <span class="summary-header">Summary</span>
-            <div class="flex" id="selfServeSummaryToggle">
-              <button class="toggle-btn active" data-view="monthly" onclick="toggleSelfServeSummary('monthly')">Monthly</button>
-              <button class="toggle-btn" data-view="weekly" onclick="toggleSelfServeSummary('weekly')">Weekly</button>
-            </div>
-          </div>
-          <div class="overflow-x-auto">
-            <table class="w-full">
-              <thead class="text-left border-b border-as-border"><tr id="selfServeSummaryHead"></tr></thead>
-              <tbody id="selfServeSummaryBody"></tbody>
-            </table>
-          </div>
-        </section>
-
         <!-- Filters -->
         <div class="flex flex-wrap items-center gap-2 mb-5" id="selfServeFilters">
           <select id="filterProduct" class="filter-select" onchange="onFilterChange()">
@@ -439,18 +422,75 @@
           </select>
         </div>
 
+        <!-- Self-Serve Summary -->
+        <section class="card mb-6">
+          <div class="flex items-center justify-between mb-4">
+            <span class="summary-header">Summary</span>
+            <div class="flex" id="selfServeSummaryToggle">
+              <button class="toggle-btn active" data-view="monthly" onclick="toggleSelfServeSummary('monthly')">Monthly</button>
+              <button class="toggle-btn" data-view="weekly" onclick="toggleSelfServeSummary('weekly')">Weekly</button>
+            </div>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full">
+              <thead class="text-left border-b border-as-border"><tr id="selfServeSummaryHead"></tr></thead>
+              <tbody id="selfServeSummaryBody"></tbody>
+            </table>
+          </div>
+        </section>
+
         <!-- KPIs -->
         <div id="selfServeKPIs" class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6"></div>
 
-        <!-- Charts -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div class="card">
-            <span class="summary-header">Revenue Trend</span>
-            <div class="chart-container mt-3"><canvas id="selfServeRevenueChart"></canvas></div>
+        <!-- Revenue Trend -->
+        <div class="card mb-6">
+          <span class="summary-header">Revenue Trend</span>
+          <div class="chart-container mt-3"><canvas id="selfServeRevenueChart"></canvas></div>
+        </div>
+
+        <!-- Breakdown tables -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+          <div class="card flex flex-col">
+            <span class="summary-header">By Country</span>
+            <div class="overflow-x-auto mt-3 flex-1">
+              <table id="ssCountryTable" class="w-full">
+                <thead class="text-left border-b border-as-border"><tr></tr></thead>
+                <tbody></tbody>
+              </table>
+            </div>
+            <div id="ssCountryTableTotal" class="overflow-x-auto mt-auto"></div>
           </div>
-          <div class="card">
-            <span class="summary-header">Revenue by Channel</span>
-            <div class="chart-container mt-3"><canvas id="selfServeChannelChart"></canvas></div>
+          <div class="card flex flex-col">
+            <span class="summary-header">By Channel</span>
+            <div class="overflow-x-auto mt-3 flex-1">
+              <table id="ssChannelTable" class="w-full">
+                <thead class="text-left border-b border-as-border"><tr></tr></thead>
+                <tbody></tbody>
+              </table>
+            </div>
+            <div id="ssChannelTableTotal" class="overflow-x-auto mt-auto"></div>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div class="card flex flex-col">
+            <span class="summary-header">By Product</span>
+            <div class="overflow-x-auto mt-3 flex-1">
+              <table id="ssProductTable" class="w-full">
+                <thead class="text-left border-b border-as-border"><tr></tr></thead>
+                <tbody></tbody>
+              </table>
+            </div>
+            <div id="ssProductTableTotal" class="overflow-x-auto mt-auto"></div>
+          </div>
+          <div class="card flex flex-col">
+            <span class="summary-header">By Plan Type</span>
+            <div class="overflow-x-auto mt-3 flex-1">
+              <table id="ssPlanTable" class="w-full">
+                <thead class="text-left border-b border-as-border"><tr></tr></thead>
+                <tbody></tbody>
+              </table>
+            </div>
+            <div id="ssPlanTableTotal" class="overflow-x-auto mt-auto"></div>
           </div>
         </div>
       </div>
@@ -522,6 +562,10 @@ const tableSortState = {
   productTable: { col: 'revenue', dir: 'desc' },
   ownerTable: { col: 'revenue', dir: 'desc' },
   geoTable: { col: 'revenue', dir: 'desc' },
+  ssCountryTable: { col: 'revenue', dir: 'desc' },
+  ssChannelTable: { col: 'revenue', dir: 'desc' },
+  ssProductTable: { col: 'revenue', dir: 'desc' },
+  ssPlanTable: { col: 'revenue', dir: 'desc' },
 };
 
 const CHANNEL_COLORS = {
@@ -648,7 +692,9 @@ function onFilterChange() {
     subtypeEl.value = 'all';
   }
 
-  renderSelfServe(getFilteredWeeks());
+  const weeks = getFilteredWeeks();
+  renderSelfServeSummary(weeks);
+  renderSelfServe(weeks);
 }
 
 function toggleInboundSummary(view) {
@@ -784,76 +830,64 @@ function renderInboundSummary(weeks) {
 
 // ===== SELF-SERVE SUMMARY =====
 function renderSelfServeSummary(weeks) {
-  const bu = getCurrentBU();
   const head = document.getElementById('selfServeSummaryHead');
   const body = document.getElementById('selfServeSummaryBody');
-
-  function getMmCost(weekList, adsMap) {
-    let cost = 0;
-    for (const w of weekList) {
-      const a = adsMap[w];
-      if (!a) continue;
-      cost += (a.byBU?.Transcription?.mmCost || 0);
-    }
-    return cost;
-  }
+  const segKey = getSegmentKey();
+  const product = document.getElementById('filterProduct').value;
+  const planType = document.getElementById('filterPlanType').value;
 
   const ads = filterByWeeks(DATA.weekly.ads, weeks);
   const adsMap = Object.fromEntries(ads.map(r => [r.week, r]));
 
+  function getMmCost(weekList) {
+    let cost = 0;
+    for (const w of weekList) { cost += (adsMap[w]?.byBU?.Transcription?.mmCost || 0); }
+    return cost;
+  }
+  function getStripeMetrics(weekList) {
+    const stripe = filterByWeeks(DATA.weekly.stripe, weekList);
+    let payments = 0, revenue = 0, newSubs = 0;
+    for (const s of stripe) {
+      const seg = s.seg || {};
+      payments += (seg[segKey] || {}).count || 0;
+      revenue += (seg[segKey] || {}).revenue || 0;
+      const subKey = `${product}.sub.creation`;
+      if (planType === 'all' || planType === 'sub') {
+        newSubs += (seg[subKey] || {}).count || 0;
+      }
+    }
+    return { payments, revenue, newSubs };
+  }
+
+  const ssHead = (label) => `
+    <th class="pb-2">${label}</th>
+    <th class="pb-2 text-center">MM Spend</th>
+    <th class="pb-2 text-center">Payments</th>
+    <th class="pb-2 text-center">Revenue</th>
+    <th class="pb-2 text-center">New Subs</th>
+  `;
+  function ssRow(label, weekList) {
+    const mmCost = getMmCost(weekList);
+    const m = getStripeMetrics(weekList);
+    return `<tr class="border-b border-as-border/40 hover-row">
+      <td class="py-2.5 font-semibold text-sm">${label}</td>
+      <td class="py-2.5 text-center text-as-secondary">${fmt.currency(mmCost)}</td>
+      <td class="py-2.5 text-center text-as-secondary">${fmt.number(m.payments)}</td>
+      <td class="py-2.5 text-center font-semibold">${fmt.currency(m.revenue)}</td>
+      <td class="py-2.5 text-center text-as-secondary">${fmt.number(m.newSubs)}</td>
+    </tr>`;
+  }
+
   if (selfServeSummaryView === 'monthly') {
     const allMonths = [...new Set(weeks.map(w => w.slice(0, 7)))].sort();
-    head.innerHTML = `
-      <th class="pb-2">Month</th>
-      <th class="pb-2 text-center">MM Spend</th>
-      <th class="pb-2 text-center">Payments</th>
-      <th class="pb-2 text-center">Revenue</th>
-      <th class="pb-2 text-center">New Subs</th>
-      <th class="pb-2 text-center">Active Subs</th>
-    `;
+    head.innerHTML = ssHead('Month');
     body.innerHTML = allMonths.map(month => {
       const monthWeeks = weeks.filter(w => w.slice(0, 7) === month);
-      const mmCost = getMmCost(monthWeeks, adsMap);
-      const stripe = filterByWeeks(DATA.weekly.stripe, monthWeeks);
-      let payments = 0, revenue = 0, newSubs = 0;
-      for (const s of stripe) {
-        const seg = s.seg || {};
-        payments += (seg['all.all.all'] || {}).count || 0;
-        revenue += (seg['all.all.all'] || {}).revenue || 0;
-        newSubs += (seg['all.sub.creation'] || {}).count || 0;
-      }
-      return `<tr class="border-b border-as-border/40 hover-row">
-        <td class="py-2.5 font-semibold text-sm">${fmt.monthLabel(month)}</td>
-        <td class="py-2.5 text-center text-as-secondary">${fmt.currency(mmCost)}</td>
-        <td class="py-2.5 text-center text-as-secondary">${fmt.number(payments)}</td>
-        <td class="py-2.5 text-right font-semibold">${fmt.currency(revenue)}</td>
-        <td class="py-2.5 text-center text-as-secondary">${fmt.number(newSubs)}</td>
-        <td class="py-2.5 text-center text-as-muted">-</td>
-      </tr>`;
+      return ssRow(fmt.monthLabel(month), monthWeeks);
     }).join('');
   } else {
-    head.innerHTML = `
-      <th class="pb-2">Week</th>
-      <th class="pb-2 text-center">MM Spend</th>
-      <th class="pb-2 text-center">Payments</th>
-      <th class="pb-2 text-center">Revenue</th>
-      <th class="pb-2 text-center">New Subs</th>
-    `;
-    body.innerHTML = weeks.map(w => {
-      const mmCost = getMmCost([w], adsMap);
-      const s = filterByWeeks(DATA.weekly.stripe, [w])[0] || {};
-      const seg = s.seg || {};
-      const payments = (seg['all.all.all'] || {}).count || 0;
-      const revenue = (seg['all.all.all'] || {}).revenue || 0;
-      const newSubs = (seg['all.sub.creation'] || {}).count || 0;
-      return `<tr class="border-b border-as-border/40 hover-row">
-        <td class="py-2.5 font-semibold text-sm">${fmt.shortDate(w)}</td>
-        <td class="py-2.5 text-center text-as-secondary">${fmt.currency(mmCost)}</td>
-        <td class="py-2.5 text-center text-as-secondary">${fmt.number(payments)}</td>
-        <td class="py-2.5 text-right font-semibold">${fmt.currency(revenue)}</td>
-        <td class="py-2.5 text-center text-as-secondary">${fmt.number(newSubs)}</td>
-      </tr>`;
-    }).join('');
+    head.innerHTML = ssHead('Week');
+    body.innerHTML = weeks.map(w => ssRow(fmt.shortDate(w), [w])).join('');
   }
 }
 
@@ -876,13 +910,15 @@ function renderSelfServe(weeks) {
     }
   }
 
+  const aov = totalPayments > 0 ? fmt.currency(Math.round(totalRevenue / totalPayments)) : '-';
   document.getElementById('selfServeKPIs').innerHTML = [
     { label: 'Payments', value: fmt.number(totalPayments), color: '#0F1419' },
     { label: 'Revenue', value: fmt.currency(totalRevenue), color: '#1A7B6B' },
+    { label: 'AOV', value: aov, color: '#E69100' },
     { label: 'New Subscriptions', value: fmt.number(newSubs), color: '#7B1FA2' },
-    { label: 'Active Subscriptions', value: '-', color: '#8899A6' },
   ].map(k => kpiCard(k.label, k.value, k.color)).join('');
 
+  // Revenue trend chart
   destroyChart('selfServeRevenueChart');
   charts.selfServeRevenueChart = new Chart(document.getElementById('selfServeRevenueChart'), {
     type: 'bar',
@@ -900,26 +936,74 @@ function renderSelfServe(weeks) {
     options: chartOptions('EUR'),
   });
 
-  destroyChart('selfServeChannelChart');
-  const channelTotals = {};
+  // Breakdown tables
+  renderSSBreakdown(stripe, 'ssCountryTable', 'Country', 'byCountry');
+  renderSSBreakdown(stripe, 'ssChannelTable', 'Channel', 'byChannel');
+  renderSSBreakdown(stripe, 'ssProductTable', 'Product', 'byProduct');
+  renderSSBreakdown(stripe, 'ssPlanTable', 'Plan Type', 'byPlanType');
+}
+
+function renderSSBreakdown(stripe, tableId, labelCol, dataKey) {
+  const totals = {};
   for (const row of stripe) {
-    for (const [ch, data] of Object.entries(row.byChannel || {})) {
-      channelTotals[ch] = (channelTotals[ch] || 0) + data.revenue;
+    for (const [k, data] of Object.entries(row[dataKey] || {})) {
+      if (!totals[k]) totals[k] = { payments: 0, revenue: 0 };
+      totals[k].payments += data.count || 0;
+      totals[k].revenue += data.revenue || 0;
     }
   }
-  const channels = Object.keys(channelTotals).sort((a, b) => channelTotals[b] - channelTotals[a]);
-  charts.selfServeChannelChart = new Chart(document.getElementById('selfServeChannelChart'), {
-    type: 'doughnut',
-    data: {
-      labels: channels,
-      datasets: [{
-        data: channels.map(c => Math.round(channelTotals[c])),
-        backgroundColor: channels.map(c => CHANNEL_COLORS[c] || '#8899A6'),
-        borderWidth: 0,
-      }],
-    },
-    options: doughnutOptions(),
+
+  const ss = tableSortState[tableId];
+  const keys = Object.keys(totals).sort((a, b) => {
+    let va, vb;
+    switch (ss.col) {
+      case 'name': return ss.dir === 'asc' ? a.localeCompare(b) : b.localeCompare(a);
+      case 'payments': va = totals[a].payments; vb = totals[b].payments; break;
+      case 'aov': va = totals[a].payments > 0 ? totals[a].revenue / totals[a].payments : 0; vb = totals[b].payments > 0 ? totals[b].revenue / totals[b].payments : 0; break;
+      default: va = totals[a].revenue; vb = totals[b].revenue;
+    }
+    return ss.dir === 'desc' ? vb - va : va - vb;
   });
+
+  const sum = { payments: 0, revenue: 0 };
+  for (const k of keys) { sum.payments += totals[k].payments; sum.revenue += totals[k].revenue; }
+  const sumAov = sum.payments > 0 ? fmt.currency(Math.round(sum.revenue / sum.payments)) : '-';
+
+  const si = (col) => sortIndicator(tableId, col);
+  document.querySelector(`#${tableId} thead tr`).innerHTML = `
+    <th class="pb-2 sortable" onclick="sortSSTable('${tableId}','name')">${labelCol}${si('name')}</th>
+    <th class="pb-2 text-center sortable" onclick="sortSSTable('${tableId}','payments')">Payments${si('payments')}</th>
+    <th class="pb-2 text-center sortable" onclick="sortSSTable('${tableId}','revenue')">Revenue${si('revenue')}</th>
+    <th class="pb-2 text-center sortable" onclick="sortSSTable('${tableId}','aov')">AOV${si('aov')}</th>`;
+
+  const rows = keys.map(k => {
+    const d = totals[k];
+    const aov = d.payments > 0 ? fmt.currency(Math.round(d.revenue / d.payments)) : '-';
+    return `<tr class="border-b border-as-border/40 hover-row">
+      <td class="py-2 font-medium text-sm">${k}</td>
+      <td class="py-2 text-center text-as-secondary">${fmt.number(d.payments)}</td>
+      <td class="py-2 text-center font-semibold">${fmt.currency(d.revenue)}</td>
+      <td class="py-2 text-center text-as-secondary">${aov}</td>
+    </tr>`;
+  }).join('');
+
+  document.querySelector(`#${tableId} tbody`).innerHTML = rows;
+  document.getElementById(`${tableId}Total`).innerHTML = `<table class="w-full">
+    <colgroup><col><col style="width:20%"><col style="width:22%"><col style="width:18%"></colgroup>
+    <tr class="border-t-2 border-as-border">
+      <td class="py-2 font-bold text-sm">Total</td>
+      <td class="py-2 text-center font-bold text-sm">${fmt.number(sum.payments)}</td>
+      <td class="py-2 text-center font-bold text-sm">${fmt.currency(sum.revenue)}</td>
+      <td class="py-2 text-center font-bold text-sm">${sumAov}</td>
+    </tr>
+  </table>`;
+}
+
+function sortSSTable(tableId, col) {
+  const s = tableSortState[tableId];
+  if (s.col === col) { s.dir = s.dir === 'desc' ? 'asc' : 'desc'; }
+  else { s.col = col; s.dir = col === 'name' ? 'asc' : 'desc'; }
+  renderSelfServe(getFilteredWeeks());
 }
 
 // ===== INBOUND FILTER LOGIC =====
