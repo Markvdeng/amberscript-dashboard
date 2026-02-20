@@ -62,17 +62,25 @@
         <h1 class="text-xl font-medium tracking-tight">Amberscript Marketing Dashboard</h1>
         <p class="text-white/60 text-xs mt-1" id="lastUpdated">Loading...</p>
       </div>
-      <select id="dateRange" class="bg-white/10 border border-white/20 text-white rounded-card px-3 py-1.5 text-sm">
-        <option value="this-week">This week</option>
-        <option value="last-week">Last week</option>
-        <option value="last-2-weeks">Last 2 weeks</option>
-        <option value="last-4-weeks" selected>Last 4 weeks</option>
-        <option value="this-month">This month</option>
-        <option value="last-month">Last month</option>
-        <option value="last-2-months">Last 2 months</option>
-        <option value="last-4-months">Last 4 months</option>
-        <option value="all">All time</option>
-      </select>
+      <div class="flex items-center gap-3">
+        <select id="buFilter" class="bg-white/10 border border-white/20 text-white rounded-card px-3 py-1.5 text-sm">
+          <option value="all">All Business Units</option>
+          <option value="Transcription">Transcription (BUT)</option>
+          <option value="Media">Media (BUM)</option>
+          <option value="Innovations">Innovations (BUNS)</option>
+        </select>
+        <select id="dateRange" class="bg-white/10 border border-white/20 text-white rounded-card px-3 py-1.5 text-sm">
+          <option value="this-week">This week</option>
+          <option value="last-week">Last week</option>
+          <option value="last-2-weeks">Last 2 weeks</option>
+          <option value="last-4-weeks" selected>Last 4 weeks</option>
+          <option value="this-month">This month</option>
+          <option value="last-month">Last month</option>
+          <option value="last-2-months">Last 2 months</option>
+          <option value="last-4-months">Last 4 months</option>
+          <option value="all">All time</option>
+        </select>
+      </div>
     </div>
   </header>
 
@@ -200,7 +208,7 @@
       </div>
 
       <!-- ---- Self-Serve (Stripe) ---- -->
-      <div>
+      <div id="selfServeSection">
         <h3 class="sub-title">Self-Serve</h3>
 
         <!-- Self-Serve Summary -->
@@ -348,6 +356,20 @@ function filterByWeeks(arr, weeks) {
   return arr.filter(r => set.has(r.week));
 }
 
+// ===== BUSINESS UNIT =====
+function getCurrentBU() {
+  return document.getElementById('buFilter').value;
+}
+
+function getBU(product) {
+  if (!product) return 'Transcription';
+  const media = ['Human-Made Subtitles', 'Machine-Made Subtitles', 'Translated Subtitles', 'Translations', 'Subtitles'];
+  const innovations = ['Amber Notes', 'AI Meeting Notes', 'Meeting Notes'];
+  if (media.includes(product)) return 'Media';
+  if (innovations.includes(product)) return 'Innovations';
+  return 'Transcription';
+}
+
 // ===== INTERACTIONS =====
 function getSegmentKey() {
   const product = document.getElementById('filterProduct').value;
@@ -406,23 +428,64 @@ function toggleSelfServeSummary(view) {
 // ===== MAIN RENDER =====
 function render() {
   const weeks = getFilteredWeeks();
+  const bu = getCurrentBU();
   document.getElementById('lastUpdated').textContent =
     `Last updated: ${new Date(DATA.updatedAt).toLocaleString('en-GB')} | ${DATA.dateRange.start} to ${DATA.dateRange.end}`;
 
+  // Self-Serve is Transcription only (all Stripe is self-serve transcription)
+  const showSelfServe = bu === 'all' || bu === 'Transcription';
+  document.getElementById('selfServeSection').classList.toggle('hidden', !showSelfServe);
+
   populateInboundFilters();
   renderInboundSummary(weeks);
-  renderSelfServeSummary(weeks);
-  renderSelfServe(weeks);
+  if (showSelfServe) {
+    renderSelfServeSummary(weeks);
+    renderSelfServe(weeks);
+  }
   renderInbound(weeks);
   renderGoogleAds(weeks);
 }
 
 // ===== INBOUND SUMMARY =====
 function renderInboundSummary(weeks) {
+  const bu = getCurrentBU();
   const head = document.getElementById('inboundSummaryHead');
   const body = document.getElementById('inboundSummaryBody');
+  const allDeals = DATA.deals || [];
+  const allForms = DATA.ga4Forms || [];
+  const ads = filterByWeeks(DATA.weekly.ads, weeks);
+  const adsMap = Object.fromEntries(ads.map(r => [r.week, r]));
+
+  // Helper: get HM cost for a set of weeks, respecting BU filter
+  function getHmCost(weekList) {
+    let cost = 0;
+    for (const w of weekList) {
+      const a = adsMap[w];
+      if (!a) continue;
+      cost += bu === 'all' ? (a.hmCost || 0) : (a.byBU?.[bu]?.hmCost || 0);
+    }
+    return cost;
+  }
+
+  // Helper: compute funnel from deals + forms for a set of weeks
+  function computeFunnel(weekList) {
+    const ws = new Set(weekList);
+    const deals = allDeals.filter(d => ws.has(d.week) && (bu === 'all' || d.bu === bu));
+    const forms = (bu === 'all' || bu === 'Transcription')
+      ? allForms.filter(f => ws.has(f.week))
+      : [];
+    const leads = forms.reduce((s, r) => s + r.count, 0);
+    const mqls = deals.length;
+    const mqlsFL = deals.filter(d => d.formId).length;
+    const sqls = deals.filter(d => ['SQL', 'Customer'].includes(d.lifecycleStage)).length;
+    const sqlsFL = deals.filter(d => d.formId && ['SQL', 'Customer'].includes(d.lifecycleStage)).length;
+    const won = deals.filter(d => d.status === 'Won').length;
+    const wonRev = deals.filter(d => d.status === 'Won').reduce((s, d) => s + (d.amount || 0), 0);
+    return { leads, mqls, mqlsFL, sqls, sqlsFL, won, wonRev };
+  }
 
   if (inboundSummaryView === 'monthly') {
+    const allMonths = [...new Set(weeks.map(w => w.slice(0, 7)))].sort();
     head.innerHTML = `
       <th class="pb-2">Month</th>
       <th class="pb-2 text-right">HM Spend</th>
@@ -437,29 +500,29 @@ function renderInboundSummary(weeks) {
       <th class="pb-2 text-right">MQL>SQL</th>
       <th class="pb-2 text-right">SQL>Won</th>
     `;
-    body.innerHTML = (DATA.monthly || []).map(m => {
-      const leadToMql = m.leads > 0 ? (m.mqlsFromLeads / m.leads * 100).toFixed(1) + '%' : '-';
+    body.innerHTML = allMonths.map(month => {
+      const monthWeeks = weeks.filter(w => w.slice(0, 7) === month);
+      const hmCost = getHmCost(monthWeeks);
+      const f = computeFunnel(monthWeeks);
+      const l2m = f.leads > 0 ? (f.mqlsFL / f.leads * 100).toFixed(1) + '%' : '-';
+      const m2s = f.mqls > 0 ? (f.sqls / f.mqls * 100).toFixed(1) + '%' : '-';
+      const s2w = f.sqls > 0 ? (f.won / f.sqls * 100).toFixed(1) + '%' : '-';
       return `<tr class="border-b border-as-border/30 hover:bg-as-bg">
-        <td class="py-2 font-medium">${fmt.monthLabel(m.month)}</td>
-        <td class="py-2 text-right text-as-secondary">${fmt.currency(m.hmCost)}</td>
-        <td class="py-2 text-right text-as-secondary">${fmt.number(m.leads)}</td>
-        <td class="py-2 text-right text-as-secondary">${fmt.number(m.mqls)}</td>
-        <td class="py-2 text-right text-as-muted">${fmt.number(m.mqlsFromLeads)}</td>
-        <td class="py-2 text-right text-as-secondary">${fmt.number(m.sqls)}</td>
-        <td class="py-2 text-right text-as-muted">${fmt.number(m.sqlsFromLeads)}</td>
-        <td class="py-2 text-right text-as-secondary">${fmt.number(m.won)}</td>
-        <td class="py-2 text-right font-medium">${fmt.currency(m.wonRevenue)}</td>
-        <td class="py-2 text-right text-as-secondary">${leadToMql}</td>
-        <td class="py-2 text-right text-as-secondary">${fmt.pct(m.mqlToSql)}</td>
-        <td class="py-2 text-right text-as-secondary">${fmt.pct(m.sqlToWon)}</td>
+        <td class="py-2 font-medium">${fmt.monthLabel(month)}</td>
+        <td class="py-2 text-right text-as-secondary">${fmt.currency(hmCost)}</td>
+        <td class="py-2 text-right text-as-secondary">${fmt.number(f.leads)}</td>
+        <td class="py-2 text-right text-as-secondary">${fmt.number(f.mqls)}</td>
+        <td class="py-2 text-right text-as-muted">${fmt.number(f.mqlsFL)}</td>
+        <td class="py-2 text-right text-as-secondary">${fmt.number(f.sqls)}</td>
+        <td class="py-2 text-right text-as-muted">${fmt.number(f.sqlsFL)}</td>
+        <td class="py-2 text-right text-as-secondary">${fmt.number(f.won)}</td>
+        <td class="py-2 text-right font-medium">${fmt.currency(f.wonRev)}</td>
+        <td class="py-2 text-right text-as-secondary">${l2m}</td>
+        <td class="py-2 text-right text-as-secondary">${m2s}</td>
+        <td class="py-2 text-right text-as-secondary">${s2w}</td>
       </tr>`;
     }).join('');
   } else {
-    const ads = filterByWeeks(DATA.weekly.ads, weeks);
-    const funnel = filterByWeeks(DATA.weekly.funnel, weeks);
-    const adsMap = Object.fromEntries(ads.map(r => [r.week, r]));
-    const funnelMap = Object.fromEntries(funnel.map(r => [r.week, r]));
-
     head.innerHTML = `
       <th class="pb-2">Week</th>
       <th class="pb-2 text-right">HM Spend</th>
@@ -472,18 +535,18 @@ function renderInboundSummary(weeks) {
       <th class="pb-2 text-right">Revenue</th>
     `;
     body.innerHTML = weeks.map(w => {
-      const a = adsMap[w] || {};
-      const f = funnelMap[w] || {};
+      const hmCost = getHmCost([w]);
+      const f = computeFunnel([w]);
       return `<tr class="border-b border-as-border/30 hover:bg-as-bg">
         <td class="py-2 font-medium">${fmt.shortDate(w)}</td>
-        <td class="py-2 text-right text-as-secondary">${fmt.currency(a.hmCost || 0)}</td>
-        <td class="py-2 text-right text-as-secondary">${fmt.number(f.leads || 0)}</td>
-        <td class="py-2 text-right text-as-secondary">${fmt.number(f.mqls || 0)}</td>
-        <td class="py-2 text-right text-as-muted">${fmt.number(f.mqlsFromLeads || 0)}</td>
-        <td class="py-2 text-right text-as-secondary">${fmt.number(f.sqls || 0)}</td>
-        <td class="py-2 text-right text-as-muted">${fmt.number(f.sqlsFromLeads || 0)}</td>
-        <td class="py-2 text-right text-as-secondary">${fmt.number(f.won || 0)}</td>
-        <td class="py-2 text-right font-medium">${fmt.currency(f.wonRevenue || 0)}</td>
+        <td class="py-2 text-right text-as-secondary">${fmt.currency(hmCost)}</td>
+        <td class="py-2 text-right text-as-secondary">${fmt.number(f.leads)}</td>
+        <td class="py-2 text-right text-as-secondary">${fmt.number(f.mqls)}</td>
+        <td class="py-2 text-right text-as-muted">${fmt.number(f.mqlsFL)}</td>
+        <td class="py-2 text-right text-as-secondary">${fmt.number(f.sqls)}</td>
+        <td class="py-2 text-right text-as-muted">${fmt.number(f.sqlsFL)}</td>
+        <td class="py-2 text-right text-as-secondary">${fmt.number(f.won)}</td>
+        <td class="py-2 text-right font-medium">${fmt.currency(f.wonRev)}</td>
       </tr>`;
     }).join('');
   }
@@ -491,10 +554,27 @@ function renderInboundSummary(weeks) {
 
 // ===== SELF-SERVE SUMMARY =====
 function renderSelfServeSummary(weeks) {
+  const bu = getCurrentBU();
   const head = document.getElementById('selfServeSummaryHead');
   const body = document.getElementById('selfServeSummaryBody');
 
+  // Helper: get MM cost for a set of weeks (Transcription BU only for self-serve)
+  function getMmCost(weekList, adsMap) {
+    let cost = 0;
+    for (const w of weekList) {
+      const a = adsMap[w];
+      if (!a) continue;
+      // Self-serve is all Transcription, so use Transcription MM cost when BU=all or Transcription
+      cost += (bu === 'all') ? (a.mmCost || 0) : (a.byBU?.Transcription?.mmCost || 0);
+    }
+    return cost;
+  }
+
+  const ads = filterByWeeks(DATA.weekly.ads, weeks);
+  const adsMap = Object.fromEntries(ads.map(r => [r.week, r]));
+
   if (selfServeSummaryView === 'monthly') {
+    const allMonths = [...new Set(weeks.map(w => w.slice(0, 7)))].sort();
     head.innerHTML = `
       <th class="pb-2">Month</th>
       <th class="pb-2 text-right">MM Spend</th>
@@ -503,14 +583,21 @@ function renderSelfServeSummary(weeks) {
       <th class="pb-2 text-right">New Subs</th>
       <th class="pb-2 text-right">Active Subs</th>
     `;
-    body.innerHTML = (DATA.monthly || []).map(m => {
-      const seg = m.stripeSeg || {};
-      const payments = (seg['all.all.all'] || {}).count || 0;
-      const revenue = (seg['all.all.all'] || {}).revenue || 0;
-      const newSubs = (seg['all.sub.creation'] || {}).count || 0;
+    body.innerHTML = allMonths.map(month => {
+      const monthWeeks = weeks.filter(w => w.slice(0, 7) === month);
+      const mmCost = getMmCost(monthWeeks, adsMap);
+      // Aggregate stripe segments for the month
+      const stripe = filterByWeeks(DATA.weekly.stripe, monthWeeks);
+      let payments = 0, revenue = 0, newSubs = 0;
+      for (const s of stripe) {
+        const seg = s.seg || {};
+        payments += (seg['all.all.all'] || {}).count || 0;
+        revenue += (seg['all.all.all'] || {}).revenue || 0;
+        newSubs += (seg['all.sub.creation'] || {}).count || 0;
+      }
       return `<tr class="border-b border-as-border/30 hover:bg-as-bg">
-        <td class="py-2 font-medium">${fmt.monthLabel(m.month)}</td>
-        <td class="py-2 text-right text-as-secondary">${fmt.currency(m.mmCost)}</td>
+        <td class="py-2 font-medium">${fmt.monthLabel(month)}</td>
+        <td class="py-2 text-right text-as-secondary">${fmt.currency(mmCost)}</td>
         <td class="py-2 text-right text-as-secondary">${fmt.number(payments)}</td>
         <td class="py-2 text-right font-medium">${fmt.currency(revenue)}</td>
         <td class="py-2 text-right text-as-secondary">${fmt.number(newSubs)}</td>
@@ -518,11 +605,6 @@ function renderSelfServeSummary(weeks) {
       </tr>`;
     }).join('');
   } else {
-    const ads = filterByWeeks(DATA.weekly.ads, weeks);
-    const stripe = filterByWeeks(DATA.weekly.stripe, weeks);
-    const adsMap = Object.fromEntries(ads.map(r => [r.week, r]));
-    const stripeMap = Object.fromEntries(stripe.map(r => [r.week, r]));
-
     head.innerHTML = `
       <th class="pb-2">Week</th>
       <th class="pb-2 text-right">MM Spend</th>
@@ -531,15 +613,15 @@ function renderSelfServeSummary(weeks) {
       <th class="pb-2 text-right">New Subs</th>
     `;
     body.innerHTML = weeks.map(w => {
-      const a = adsMap[w] || {};
-      const s = stripeMap[w] || {};
+      const mmCost = getMmCost([w], adsMap);
+      const s = filterByWeeks(DATA.weekly.stripe, [w])[0] || {};
       const seg = s.seg || {};
       const payments = (seg['all.all.all'] || {}).count || 0;
       const revenue = (seg['all.all.all'] || {}).revenue || 0;
       const newSubs = (seg['all.sub.creation'] || {}).count || 0;
       return `<tr class="border-b border-as-border/30 hover:bg-as-bg">
         <td class="py-2 font-medium">${fmt.shortDate(w)}</td>
-        <td class="py-2 text-right text-as-secondary">${fmt.currency(a.mmCost || 0)}</td>
+        <td class="py-2 text-right text-as-secondary">${fmt.currency(mmCost)}</td>
         <td class="py-2 text-right text-as-secondary">${fmt.number(payments)}</td>
         <td class="py-2 text-right font-medium">${fmt.currency(revenue)}</td>
         <td class="py-2 text-right text-as-secondary">${fmt.number(newSubs)}</td>
@@ -695,6 +777,7 @@ function onInboundFilterChange() {
 }
 
 function getFilteredDeals(weekSet) {
+  const bu = getCurrentBU();
   const product = document.getElementById('inbProductFilter').value;
   const style = document.getElementById('inbStyleFilter').value;
   const options = document.getElementById('inbOptionsFilter').value;
@@ -702,6 +785,7 @@ function getFilteredDeals(weekSet) {
 
   return (DATA.deals || []).filter(d => {
     if (!weekSet.has(d.week)) return false;
+    if (bu !== 'all' && d.bu !== bu) return false;
     if (product !== 'all' && d.product !== product) return false;
     if (style !== 'all' && d.transcriptionStyle !== style) return false;
     if (options !== 'all' && d.additionalOptions !== options) return false;
@@ -711,6 +795,9 @@ function getFilteredDeals(weekSet) {
 }
 
 function getFilteredForms(weekSet) {
+  const bu = getCurrentBU();
+  // GA4 forms are all Transcription BU (from offerte.amberscript.com)
+  if (bu !== 'all' && bu !== 'Transcription') return [];
   const country = document.getElementById('inbCountryFilter').value;
   return (DATA.ga4Forms || []).filter(f => {
     if (!weekSet.has(f.week)) return false;
@@ -848,14 +935,27 @@ function renderBreakdownTable(deals, tableId, keyFn) {
 
 // ===== GOOGLE ADS =====
 function renderGoogleAds(weeks) {
+  const bu = getCurrentBU();
   const ads = filterByWeeks(DATA.weekly.ads, weeks);
   const stripe = filterByWeeks(DATA.weekly.stripe, weeks);
 
-  const totalCost = ads.reduce((s, r) => s + r.totalCost, 0);
-  const stripeRev = stripe.reduce((s, r) => s + r.totalRevenue, 0);
-  const roas = totalCost > 0 ? (stripeRev / totalCost).toFixed(1) + 'x' : '-';
-  const mmCost = ads.reduce((s, r) => s + r.mmCost, 0);
-  const hmCost = ads.reduce((s, r) => s + r.hmCost, 0);
+  let totalCost, mmCost, hmCost, brandCost;
+  if (bu === 'all') {
+    totalCost = ads.reduce((s, r) => s + r.totalCost, 0);
+    mmCost = ads.reduce((s, r) => s + r.mmCost, 0);
+    hmCost = ads.reduce((s, r) => s + r.hmCost, 0);
+    brandCost = ads.reduce((s, r) => s + r.brandCost, 0);
+  } else {
+    totalCost = ads.reduce((s, r) => s + (r.byBU?.[bu]?.totalCost || 0), 0);
+    mmCost = ads.reduce((s, r) => s + (r.byBU?.[bu]?.mmCost || 0), 0);
+    hmCost = ads.reduce((s, r) => s + (r.byBU?.[bu]?.hmCost || 0), 0);
+    brandCost = ads.reduce((s, r) => s + (r.byBU?.[bu]?.brandCost || 0), 0);
+  }
+
+  // ROAS only meaningful for Transcription (all Stripe is self-serve transcription)
+  const stripeRev = (bu === 'all' || bu === 'Transcription')
+    ? stripe.reduce((s, r) => s + r.totalRevenue, 0) : 0;
+  const roas = totalCost > 0 && stripeRev > 0 ? (stripeRev / totalCost).toFixed(1) + 'x' : '-';
 
   document.getElementById('adsKPIs').innerHTML = [
     { label: 'Total Spend', value: fmt.currency(totalCost), color: '#EF4444' },
@@ -869,25 +969,26 @@ function renderGoogleAds(weeks) {
     </div>
   `).join('');
 
-  // MM vs HM
+  // MM vs HM stacked chart
   destroyChart('mmVsHmChart');
   charts.mmVsHmChart = new Chart(document.getElementById('mmVsHmChart'), {
     type: 'bar',
     data: {
       labels: ads.map(r => fmt.shortDate(r.week)),
       datasets: [
-        { label: 'Machine-Made', data: ads.map(r => r.mmCost), backgroundColor: '#1A7B6B44', borderColor: '#1A7B6B', borderWidth: 1 },
-        { label: 'Human-Made', data: ads.map(r => r.hmCost), backgroundColor: '#7B1FA244', borderColor: '#7B1FA2', borderWidth: 1 },
-        { label: 'Brand', data: ads.map(r => r.brandCost), backgroundColor: '#F5A62344', borderColor: '#F5A623', borderWidth: 1 },
+        { label: 'Machine-Made', data: ads.map(r => bu === 'all' ? r.mmCost : (r.byBU?.[bu]?.mmCost || 0)), backgroundColor: '#1A7B6B44', borderColor: '#1A7B6B', borderWidth: 1 },
+        { label: 'Human-Made', data: ads.map(r => bu === 'all' ? r.hmCost : (r.byBU?.[bu]?.hmCost || 0)), backgroundColor: '#7B1FA244', borderColor: '#7B1FA2', borderWidth: 1 },
+        { label: 'Brand', data: ads.map(r => bu === 'all' ? r.brandCost : (r.byBU?.[bu]?.brandCost || 0)), backgroundColor: '#F5A62344', borderColor: '#F5A623', borderWidth: 1 },
       ],
     },
     options: { ...chartOptions('EUR'), scales: { x: { stacked: true }, y: { stacked: true, beginAtZero: true } } },
   });
 
-  // By product
+  // By product (filtered by BU)
   const productTotals = {};
   for (const row of ads) {
     for (const [prod, cost] of Object.entries(row.byProduct || {})) {
+      if (bu !== 'all' && getBU(prod) !== bu) continue;
       productTotals[prod] = (productTotals[prod] || 0) + cost;
     }
   }
@@ -942,6 +1043,7 @@ function destroyChart(id) {
 
 // ===== EVENTS =====
 document.getElementById('dateRange').addEventListener('change', () => { if (DATA) render(); });
+document.getElementById('buFilter').addEventListener('change', () => { if (DATA) render(); });
 
 loadData();
 </script>

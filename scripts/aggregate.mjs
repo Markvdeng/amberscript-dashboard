@@ -45,6 +45,16 @@ function groupBy(arr, keyFn) {
   return map;
 }
 
+// Business Unit classification
+function getBU(product) {
+  if (!product) return 'Transcription';
+  const media = ['Human-Made Subtitles', 'Machine-Made Subtitles', 'Translated Subtitles', 'Translations', 'Subtitles'];
+  const innovations = ['Amber Notes', 'AI Meeting Notes', 'Meeting Notes'];
+  if (media.includes(product)) return 'Media';
+  if (innovations.includes(product)) return 'Innovations';
+  return 'Transcription';
+}
+
 function main() {
   console.log('Aggregating data...');
 
@@ -157,8 +167,18 @@ function main() {
       byCountry[r.country] = (byCountry[r.country] || 0) + r.cost;
     }
     const byProduct = {};
+    const byBU = {};
     for (const r of rows) {
       byProduct[r.product] = (byProduct[r.product] || 0) + r.cost;
+      const bu = getBU(r.product);
+      if (!byBU[bu]) byBU[bu] = { totalCost: 0, mmCost: 0, hmCost: 0, brandCost: 0 };
+      byBU[bu].totalCost += r.cost;
+      if (r.userType === 'Machine-Made') byBU[bu].mmCost += r.cost;
+      if (r.userType === 'Human-Made') byBU[bu].hmCost += r.cost;
+      if (r.campaignType === 'Brand') byBU[bu].brandCost += r.cost;
+    }
+    for (const bu of Object.keys(byBU)) {
+      byBU[bu] = { totalCost: round(byBU[bu].totalCost), mmCost: round(byBU[bu].mmCost), hmCost: round(byBU[bu].hmCost), brandCost: round(byBU[bu].brandCost) };
     }
 
     return {
@@ -169,6 +189,7 @@ function main() {
       brandCost: round(brandCost),
       byCountry: Object.fromEntries(Object.entries(byCountry).map(([k, v]) => [k, round(v)])),
       byProduct: Object.fromEntries(Object.entries(byProduct).map(([k, v]) => [k, round(v)])),
+      byBU,
     };
   });
 
@@ -317,6 +338,7 @@ function main() {
   const deals = hubspotDeals.map(d => ({
     week: d.createWeek,
     product: d.product || '',
+    bu: getBU(d.product),
     transcriptionStyle: d.transcriptionStyle || '',
     additionalOptions: d.additionalOptions || '',
     country: d.country || '',
