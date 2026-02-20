@@ -309,6 +309,34 @@
     </div>
   </div>
 
+  <!-- AI Chat Panel -->
+  <div id="chatPanel" class="fixed bottom-6 right-6 z-40 flex flex-col items-end">
+    <div id="chatWindow" class="hidden mb-3 w-[420px] max-h-[600px] bg-white rounded-xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden">
+      <div class="flex items-center justify-between px-4 py-3 border-b border-gray-200" style="background: linear-gradient(135deg, #005a50 0%, #1A7B6B 100%);">
+        <span class="text-white font-semibold text-sm">Ask about the data</span>
+        <button onclick="toggleChat()" class="text-white/60 hover:text-white"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></button>
+      </div>
+      <div id="chatMessages" class="flex-1 overflow-y-auto p-4 space-y-3" style="min-height:300px;max-height:440px;">
+        <div class="text-xs text-gray-400 text-center py-2">Ask questions about your dashboard data. Uses the current date range filter.</div>
+      </div>
+      <div class="border-t border-gray-200 p-3">
+        <div id="chatKeyPrompt" class="text-xs text-gray-500 mb-2 hidden">
+          <input id="chatApiKey" type="password" placeholder="Enter Anthropic API key" class="w-full px-3 py-1.5 border border-gray-300 rounded-lg text-xs focus:outline-none focus:border-as-primary">
+          <button onclick="saveChatKey()" class="mt-1 px-3 py-1 bg-as-primary text-white text-xs rounded-lg hover:opacity-90">Save key</button>
+        </div>
+        <div class="flex gap-2">
+          <input id="chatInput" type="text" placeholder="e.g. What's the trend in MRR?" class="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-as-primary" onkeydown="if(event.key==='Enter')sendChat()">
+          <button onclick="sendChat()" class="px-3 py-2 bg-as-primary text-white rounded-lg hover:opacity-90 transition-opacity">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <button onclick="toggleChat()" id="chatToggle" class="w-14 h-14 rounded-full shadow-lg flex items-center justify-center text-white hover:scale-105 transition-transform" style="background: linear-gradient(135deg, #005a50 0%, #1A7B6B 100%);">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+    </button>
+  </div>
+
   <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8">
 
     <!-- ============================================ -->
@@ -1768,6 +1796,140 @@ function doughnutOptions() {
 
 function destroyChart(id) {
   if (charts[id]) { charts[id].destroy(); delete charts[id]; }
+}
+
+// ===== AI CHAT =====
+const CHAT_WORKER_URL = 'https://dashboard-chat.amberscript.com';
+let chatOpen = false;
+
+function toggleChat() {
+  chatOpen = !chatOpen;
+  document.getElementById('chatWindow').classList.toggle('hidden', !chatOpen);
+  if (chatOpen) {
+    const key = localStorage.getItem('amberscript_chat_key');
+    document.getElementById('chatKeyPrompt').classList.toggle('hidden', !!key);
+    document.getElementById('chatInput').focus();
+  }
+}
+function saveChatKey() {
+  const key = document.getElementById('chatApiKey').value.trim();
+  if (key) {
+    localStorage.setItem('amberscript_chat_key', key);
+    document.getElementById('chatKeyPrompt').classList.add('hidden');
+    document.getElementById('chatInput').focus();
+  }
+}
+
+function buildChatContext() {
+  if (!DATA) return 'No data loaded.';
+  const weeks = getFilteredWeeks();
+  const weekSet = new Set(weeks);
+  const range = `${weeks[0] || '?'} to ${weeks[weeks.length - 1] || '?'}`;
+
+  // Summary stats
+  const deals = (DATA.deals || []).filter(d => weekSet.has(d.week));
+  const closedDeals = deals.filter(d => d.status === 'Won');
+  const stripe = filterByWeeks(DATA.weekly.stripe, weeks);
+  const ads = filterByWeeks(DATA.weekly.ads, weeks);
+  const subs = filterByWeeks(DATA.weekly.subs || [], weeks);
+  const forms = (DATA.ga4Forms || []).filter(f => weekSet.has(f.week));
+
+  const totalLeads = forms.reduce((s, f) => s + f.count, 0);
+  const totalMQLs = deals.length;
+  const totalSQLs = deals.filter(d => ['SQL', 'Customer'].includes(d.lifecycleStage)).length;
+  const totalWon = closedDeals.length;
+  const totalDealRev = closedDeals.reduce((s, d) => s + d.amount, 0);
+  const totalStripeRev = stripe.reduce((s, r) => s + r.totalRevenue, 0);
+  const totalAdsCost = ads.reduce((s, r) => s + r.totalCost, 0);
+  const totalNewSubs = subs.reduce((s, r) => s + r.newSubs, 0);
+  const totalChurned = subs.reduce((s, r) => s + r.churnedSubs, 0);
+  const totalNetMrr = subs.reduce((s, r) => s + r.netMrr, 0);
+  const snap = DATA.subSnapshot;
+
+  let ctx = `Amberscript Marketing Dashboard Data (${range}):\n`;
+  ctx += `\nINBOUND FUNNEL: ${totalLeads} leads, ${totalMQLs} MQLs, ${totalSQLs} SQLs, ${totalWon} won deals, deal revenue: ${totalDealRev.toFixed(0)} EUR\n`;
+  ctx += `SELF-SERVE: ${stripe.reduce((s, r) => s + r.count, 0)} payments, ${totalStripeRev.toFixed(0)} EUR revenue\n`;
+  ctx += `SUBSCRIPTIONS: ${totalNewSubs} new, ${totalChurned} churned, net MRR change: ${totalNetMrr.toFixed(0)} EUR\n`;
+  if (snap) ctx += `CURRENT MRR: ${snap.mrr} EUR (${snap.totalActiveSubs} active subs, monthly: ${snap.mrrByPlan.monthly}, yearly: ${snap.mrrByPlan.yearly})\n`;
+  ctx += `GOOGLE ADS: ${totalAdsCost.toFixed(0)} EUR total spend\n`;
+
+  // Weekly breakdown
+  ctx += `\nWEEKLY DATA:\n`;
+  for (const w of weeks) {
+    const ad = ads.find(a => a.week === w) || {};
+    const st = stripe.find(s => s.week === w) || {};
+    const su = subs.find(s => s.week === w) || {};
+    const wDeals = deals.filter(d => d.week === w);
+    const wForms = forms.filter(f => f.week === w);
+    ctx += `${w}: ads=${(ad.totalCost||0).toFixed(0)}, leads=${wForms.reduce((s,f)=>s+f.count,0)}, mqls=${wDeals.length}, sqls=${wDeals.filter(d=>['SQL','Customer'].includes(d.lifecycleStage)).length}, won=${wDeals.filter(d=>d.status==='Won').length}, dealRev=${wDeals.filter(d=>d.status==='Won').reduce((s,d)=>s+d.amount,0).toFixed(0)}, payments=${st.count||0}, stripeRev=${(st.totalRevenue||0).toFixed(0)}, newSubs=${su.newSubs||0}, churned=${su.churnedSubs||0}, netMrr=${(su.netMrr||0).toFixed(0)}\n`;
+  }
+
+  // Deal breakdown by product
+  const byProduct = {};
+  for (const d of deals) { const p = d.product || 'Unknown'; if (!byProduct[p]) byProduct[p] = { mqls: 0, won: 0, rev: 0 }; byProduct[p].mqls++; if (d.status === 'Won') { byProduct[p].won++; byProduct[p].rev += d.amount; } }
+  ctx += `\nBY PRODUCT:\n`;
+  for (const [p, v] of Object.entries(byProduct)) ctx += `${p}: ${v.mqls} mqls, ${v.won} won, ${v.rev.toFixed(0)} EUR\n`;
+
+  // By country
+  const byCountry = {};
+  for (const d of deals) { const c = d.country || 'Unknown'; if (!byCountry[c]) byCountry[c] = { mqls: 0, won: 0, rev: 0 }; byCountry[c].mqls++; if (d.status === 'Won') { byCountry[c].won++; byCountry[c].rev += d.amount; } }
+  ctx += `\nBY COUNTRY:\n`;
+  for (const [c, v] of Object.entries(byCountry).sort((a,b) => b[1].rev - a[1].rev)) ctx += `${c}: ${v.mqls} mqls, ${v.won} won, ${v.rev.toFixed(0)} EUR\n`;
+
+  return ctx;
+}
+
+function addChatMsg(role, text) {
+  const el = document.getElementById('chatMessages');
+  const isUser = role === 'user';
+  const div = document.createElement('div');
+  div.className = `flex ${isUser ? 'justify-end' : 'justify-start'}`;
+  div.innerHTML = `<div class="max-w-[85%] px-3 py-2 rounded-lg text-sm ${isUser ? 'bg-as-primary text-white' : 'bg-gray-100 text-gray-800'}" style="white-space:pre-wrap;">${text}</div>`;
+  el.appendChild(div);
+  el.scrollTop = el.scrollHeight;
+  return div.querySelector('div');
+}
+
+async function sendChat() {
+  const input = document.getElementById('chatInput');
+  const q = input.value.trim();
+  if (!q) return;
+
+  const key = localStorage.getItem('amberscript_chat_key');
+  if (!key) {
+    document.getElementById('chatKeyPrompt').classList.remove('hidden');
+    return;
+  }
+
+  input.value = '';
+  addChatMsg('user', q);
+  const bubble = addChatMsg('assistant', '...');
+
+  try {
+    const context = buildChatContext();
+    const res = await fetch(CHAT_WORKER_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        key,
+        messages: [
+          { role: 'user', content: `Here is the current dashboard data:\n\n${context}\n\nQuestion: ${q}` }
+        ],
+        system: 'You are a marketing data analyst for Amberscript, a speech-to-text SaaS company. Answer questions about the dashboard data concisely. Use numbers and percentages. Keep answers short (2-5 sentences) unless detailed analysis is requested. Format currency as EUR.',
+      }),
+    });
+
+    if (!res.ok) {
+      const err = await res.text();
+      bubble.textContent = `Error: ${res.status} - ${err}`;
+      return;
+    }
+
+    const data = await res.json();
+    bubble.textContent = data.content || data.error || 'No response';
+  } catch (e) {
+    bubble.textContent = `Error: ${e.message}`;
+  }
 }
 
 // ===== RAW DATA OVERLAY =====
