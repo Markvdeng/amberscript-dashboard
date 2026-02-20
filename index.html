@@ -344,8 +344,8 @@
                 <tr>
                   <th class="pb-2">Product</th>
                   <th class="pb-2 text-right">Leads</th>
-                  <th class="pb-2 text-right">MQLs</th>
-                  <th class="pb-2 text-right">SQLs</th>
+                  <th class="pb-2 text-right">MQL<span style="text-transform:none">s</span></th>
+                  <th class="pb-2 text-right">SQL<span style="text-transform:none">s</span></th>
                   <th class="pb-2 text-right" title="By close date (by create date in brackets)">Won</th>
                   <th class="pb-2 text-right" title="By close date (by create date in brackets)">Revenue</th>
                 </tr>
@@ -364,8 +364,8 @@
                 <thead class="text-left border-b border-as-border">
                   <tr>
                     <th class="pb-2">Owner</th>
-                    <th class="pb-2 text-right">MQLs</th>
-                    <th class="pb-2 text-right">SQLs</th>
+                    <th class="pb-2 text-right">MQL<span style="text-transform:none">s</span></th>
+                    <th class="pb-2 text-right">SQL<span style="text-transform:none">s</span></th>
                     <th class="pb-2 text-right" title="By close date (by create date in brackets)">Won</th>
                     <th class="pb-2 text-right" title="By close date (by create date in brackets)">Revenue</th>
                   </tr>
@@ -382,8 +382,8 @@
                 <thead class="text-left border-b border-as-border">
                   <tr>
                     <th class="pb-2">Country</th>
-                    <th class="pb-2 text-right">MQLs</th>
-                    <th class="pb-2 text-right">SQLs</th>
+                    <th class="pb-2 text-right">MQL<span style="text-transform:none">s</span></th>
+                    <th class="pb-2 text-right">SQL<span style="text-transform:none">s</span></th>
                     <th class="pb-2 text-right" title="By close date (by create date in brackets)">Won</th>
                     <th class="pb-2 text-right" title="By close date (by create date in brackets)">Revenue</th>
                   </tr>
@@ -728,9 +728,9 @@ function renderInboundSummary(weeks) {
       <th class="pb-2">${label}</th>
       <th class="pb-2 text-right">Spend</th>
       <th class="pb-2 text-right ${g}">Leads</th>
-      <th class="pb-2 text-right">MQLs</th>
+      <th class="pb-2 text-right">MQL<span style="text-transform:none">s</span></th>
       <th class="pb-2 text-right">L&gt;MQL</th>
-      <th class="pb-2 text-right ${g}">SQLs</th>
+      <th class="pb-2 text-right ${g}">SQL<span style="text-transform:none">s</span></th>
       <th class="pb-2 text-right">MQL&gt;SQL</th>
       <th class="pb-2 text-right ${g}" title="By close date (by create date in brackets)">Won</th>
       <th class="pb-2 text-right">SQL&gt;Won</th>
@@ -1054,8 +1054,8 @@ function renderInbound(weeks) {
 
   document.getElementById('inboundKPIs').innerHTML = [
     { label: 'Leads (GA4)', value: fmt.number(leads), color: '#005a50' },
-    { label: 'MQLs', value: `${fmt.number(mqls)} <span class="text-[0.6875rem] text-as-muted font-normal">(${fmt.number(mqlsFromLeads)} from leads)</span>`, color: '#0F6B5E' },
-    { label: 'SQLs', value: `${fmt.number(sqls)} <span class="text-[0.6875rem] text-as-muted font-normal">(${fmt.number(sqlsFromLeads)} from leads)</span>`, color: '#1A7B6B' },
+    { label: 'MQL<span style="text-transform:none">s</span>', value: `${fmt.number(mqls)} <span class="text-[0.6875rem] text-as-muted font-normal">(${fmt.number(mqlsFromLeads)} from leads)</span>`, color: '#0F6B5E' },
+    { label: 'SQL<span style="text-transform:none">s</span>', value: `${fmt.number(sqls)} <span class="text-[0.6875rem] text-as-muted font-normal">(${fmt.number(sqlsFromLeads)} from leads)</span>`, color: '#1A7B6B' },
     { label: 'Won Deals', value: fmt.number(wonClose), color: '#F5A623', sub: `${fmt.number(won)} by create date` },
     { label: 'Deal Revenue', value: fmt.currency(wonRevClose), color: '#F5A623', sub: `${fmt.currency(wonRev)} by create date` },
     { label: 'Deal AOV', value: aov, color: '#E69100' },
@@ -1065,8 +1065,8 @@ function renderInbound(weeks) {
   const max = Math.max(leads, 1);
   const stages = [
     { label: 'Leads', count: leads, color: '#005a50', pct: 100 },
-    { label: 'MQLs', count: mqls, color: '#0F6B5E', pct: (mqls / max * 100) },
-    { label: 'SQLs', count: sqls, color: '#1A7B6B', pct: (sqls / max * 100) },
+    { label: 'MQL<span style="text-transform:none">s</span>', count: mqls, color: '#0F6B5E', pct: (mqls / max * 100) },
+    { label: 'SQL<span style="text-transform:none">s</span>', count: sqls, color: '#1A7B6B', pct: (sqls / max * 100) },
     { label: 'Won', count: won, color: '#F5A623', pct: (won / max * 100) },
   ];
   const l2m = leads > 0 ? (mqls/leads*100).toFixed(1) + '%' : '-';
