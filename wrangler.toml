@@ -1,0 +1,9 @@
+name = "dashboard-chat"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+account_id = "0340a767c6ca270dee71385b507a002a"
+
+# Custom domain - automatically creates DNS record + SSL
+[[routes]]
+pattern = "dashboard-chat.amberscript.com"
+custom_domain = true
