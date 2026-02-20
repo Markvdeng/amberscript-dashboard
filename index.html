@@ -43,10 +43,7 @@
     .funnel-bar { transition: width 0.6s ease; }
     .section-title { font-size: 1.25rem; font-weight: 500; color: #1A1A1A; border-bottom: 2px solid #1A7B6B; padding-bottom: 8px; margin-bottom: 24px; }
     .sub-title { font-size: 1rem; font-weight: 500; color: #666666; margin-bottom: 16px; }
-    .pill { display: inline-block; padding: 6px 14px; border-radius: 20px; font-size: 0.8125rem; font-weight: 500; cursor: pointer; border: 1px solid #E0E0E0; color: #666666; background: #fff; transition: all 0.15s ease; }
-    .pill:hover { border-color: #1A7B6B; color: #1A7B6B; }
-    .pill.active { background: #1A7B6B; color: #fff; border-color: #1A7B6B; }
-    .pill-group { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+    .hidden { display: none !important; }
     .toggle-btn { padding: 4px 12px; font-size: 0.8125rem; font-weight: 500; border: 1px solid #E0E0E0; cursor: pointer; color: #666; background: #fff; }
     .toggle-btn:first-child { border-radius: 6px 0 0 6px; }
     .toggle-btn:last-child { border-radius: 0 6px 6px 0; }
@@ -111,16 +108,20 @@
         <h3 class="sub-title">Self-Serve</h3>
 
         <!-- Filters -->
-        <div class="pill-group" id="selfServeFilters">
-          <span class="pill active" data-filter="all" onclick="setFilter('all')">All</span>
-          <span class="pill" data-filter="prepaid" onclick="setFilter('prepaid')">Prepaid</span>
-          <span class="pill" data-filter="prepaid-topup" onclick="setFilter('prepaid-topup')">Top-Up</span>
-          <span class="pill" data-filter="prepaid-job" onclick="setFilter('prepaid-job')">Job Creation</span>
-          <span class="pill" data-filter="subscription" onclick="setFilter('subscription')">Subscription</span>
-          <span class="pill" data-filter="sub-update" onclick="setFilter('sub-update')">Sub Update</span>
-          <span class="pill" data-filter="sub-creation" onclick="setFilter('sub-creation')">Sub Creation</span>
-          <span class="pill" data-filter="human-made" onclick="setFilter('human-made')">Human-Made</span>
-          <span class="pill" data-filter="invoice" onclick="setFilter('invoice')">Invoice</span>
+        <div class="flex flex-wrap items-center gap-3 mb-5" id="selfServeFilters">
+          <select id="filterProduct" class="border border-as-border rounded-card px-3 py-1.5 text-sm bg-white text-as-text" onchange="onFilterChange()">
+            <option value="all">All</option>
+            <option value="mm">Machine-Made</option>
+            <option value="hm">Human-Made</option>
+            <option value="inv">Invoice</option>
+          </select>
+          <select id="filterPlanType" class="border border-as-border rounded-card px-3 py-1.5 text-sm bg-white text-as-text" onchange="onFilterChange()">
+            <option value="all">All Types</option>
+            <option value="prepaid">Prepaid</option>
+            <option value="sub">Subscription</option>
+          </select>
+          <select id="filterSubtype" class="border border-as-border rounded-card px-3 py-1.5 text-sm bg-white text-as-text hidden" onchange="onFilterChange()">
+          </select>
         </div>
 
         <!-- KPIs -->
@@ -214,7 +215,6 @@
 <script>
 let DATA = null;
 let charts = {};
-let currentFilter = 'all';
 let summaryView = 'monthly';
 
 const CHANNEL_COLORS = {
@@ -280,11 +280,41 @@ function filterByWeeks(arr, weeks) {
 }
 
 // ===== INTERACTIONS =====
-function setFilter(filter) {
-  currentFilter = filter;
-  document.querySelectorAll('#selfServeFilters .pill').forEach(p => {
-    p.classList.toggle('active', p.dataset.filter === filter);
-  });
+function getSegmentKey() {
+  const product = document.getElementById('filterProduct').value;
+  const planType = document.getElementById('filterPlanType').value;
+  const subtype = document.getElementById('filterSubtype').value || 'all';
+  return `${product}.${planType}.${subtype}`;
+}
+
+function onFilterChange() {
+  const product = document.getElementById('filterProduct').value;
+  const planTypeEl = document.getElementById('filterPlanType');
+  const subtypeEl = document.getElementById('filterSubtype');
+
+  // Show/hide plan type dropdown
+  if (product === 'hm' || product === 'inv') {
+    planTypeEl.classList.add('hidden');
+    planTypeEl.value = 'all';
+    subtypeEl.classList.add('hidden');
+    subtypeEl.value = 'all';
+  } else {
+    planTypeEl.classList.remove('hidden');
+  }
+
+  // Show/hide and populate subtype dropdown
+  const planType = planTypeEl.value;
+  if (planType === 'prepaid') {
+    subtypeEl.innerHTML = '<option value="all">All Prepaid</option><option value="topup">Top-Up</option><option value="job">Job Creation</option>';
+    subtypeEl.classList.remove('hidden');
+  } else if (planType === 'sub') {
+    subtypeEl.innerHTML = '<option value="all">All Subscriptions</option><option value="update">Update</option><option value="creation">Creation</option>';
+    subtypeEl.classList.remove('hidden');
+  } else {
+    subtypeEl.classList.add('hidden');
+    subtypeEl.value = 'all';
+  }
+
   renderSelfServe(getFilteredWeeks());
 }
 
@@ -389,18 +419,21 @@ function renderSummaryTable(weeks) {
 // ===== SELF-SERVE (Stripe) =====
 function renderSelfServe(weeks) {
   const stripe = filterByWeeks(DATA.weekly.stripe, weeks);
-  const f = currentFilter;
+  const segKey = getSegmentKey();
 
   // KPIs from segment
   let totalPayments = 0, totalRevenue = 0, newSubs = 0;
+  const product = document.getElementById('filterProduct').value;
+  const planType = document.getElementById('filterPlanType').value;
   for (const row of stripe) {
     const seg = row.seg || {};
-    const s = seg[f] || { count: 0, revenue: 0 };
+    const s = seg[segKey] || { count: 0, revenue: 0 };
     totalPayments += s.count;
     totalRevenue += s.revenue;
-    // New subs: sub-creation segment count
-    if (f === 'all' || f === 'subscription' || f === 'sub-creation') {
-      newSubs += (seg['sub-creation'] || { count: 0 }).count;
+    // New subs count (within current product filter)
+    const subCreationKey = `${product}.sub.creation`;
+    if (planType === 'all' || planType === 'sub') {
+      newSubs += (seg[subCreationKey] || { count: 0 }).count;
     }
   }
 
@@ -424,7 +457,7 @@ function renderSelfServe(weeks) {
       labels: stripe.map(r => fmt.shortDate(r.week)),
       datasets: [{
         label: 'Revenue',
-        data: stripe.map(r => (r.seg?.[f] || { revenue: 0 }).revenue),
+        data: stripe.map(r => (r.seg?.[segKey] || { revenue: 0 }).revenue),
         backgroundColor: '#1A7B6B44',
         borderColor: '#1A7B6B',
         borderWidth: 1,

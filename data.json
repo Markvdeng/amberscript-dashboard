@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-20T06:25:31.710Z",
+  "updatedAt": "2026-02-20T06:37:07.152Z",
   "dateRange": {
     "start": "2025-11-17",
     "end": "2026-02-16"
@@ -29,39 +29,67 @@
       "sqlToWon": 60.7,
       "stripeRevenue": 25581.83,
       "stripeSeg": {
-        "all": {
+        "all.all.all": {
           "count": 714,
           "revenue": 25581.83
         },
-        "prepaid": {
+        "all.prepaid.all": {
           "count": 568,
           "revenue": 17441.46
         },
-        "prepaid-topup": {
+        "all.prepaid.topup": {
           "count": 144,
           "revenue": 3811.49
         },
-        "prepaid-job": {
+        "all.prepaid.job": {
           "count": 424,
           "revenue": 13629.97
         },
-        "subscription": {
+        "all.sub.all": {
           "count": 145,
           "revenue": 7665.37
         },
-        "sub-update": {
+        "all.sub.update": {
           "count": 131,
           "revenue": 6142.05
         },
-        "sub-creation": {
+        "all.sub.creation": {
           "count": 14,
           "revenue": 1523.32
         },
-        "human-made": {
+        "mm.all.all": {
+          "count": 682,
+          "revenue": 20209.53
+        },
+        "mm.prepaid.all": {
+          "count": 537,
+          "revenue": 12544.16
+        },
+        "mm.prepaid.topup": {
+          "count": 144,
+          "revenue": 3811.49
+        },
+        "mm.prepaid.job": {
+          "count": 393,
+          "revenue": 8732.67
+        },
+        "mm.sub.all": {
+          "count": 145,
+          "revenue": 7665.37
+        },
+        "mm.sub.update": {
+          "count": 131,
+          "revenue": 6142.05
+        },
+        "mm.sub.creation": {
+          "count": 14,
+          "revenue": 1523.32
+        },
+        "hm.all.all": {
           "count": 31,
           "revenue": 4897.3
         },
-        "invoice": {
+        "inv.all.all": {
           "count": 1,
           "revenue": 475
         }
@@ -82,39 +110,67 @@
       "sqlToWon": 36.9,
       "stripeRevenue": 87164.93,
       "stripeSeg": {
-        "all": {
+        "all.all.all": {
           "count": 2270,
           "revenue": 87164.93
         },
-        "prepaid": {
+        "all.prepaid.all": {
           "count": 1692,
           "revenue": 55660.62
         },
-        "prepaid-topup": {
+        "all.prepaid.topup": {
           "count": 460,
           "revenue": 15600.46
         },
-        "prepaid-job": {
+        "all.prepaid.job": {
           "count": 1232,
           "revenue": 40060.16
         },
-        "subscription": {
+        "all.sub.all": {
           "count": 577,
           "revenue": 31254.31
         },
-        "sub-update": {
+        "all.sub.update": {
           "count": 527,
           "revenue": 24162.48
         },
-        "sub-creation": {
+        "all.sub.creation": {
           "count": 50,
           "revenue": 7091.83
         },
-        "human-made": {
+        "mm.all.all": {
+          "count": 2187,
+          "revenue": 68653.46
+        },
+        "mm.prepaid.all": {
+          "count": 1610,
+          "revenue": 37399.15
+        },
+        "mm.prepaid.topup": {
+          "count": 460,
+          "revenue": 15600.46
+        },
+        "mm.prepaid.job": {
+          "count": 1150,
+          "revenue": 21798.69
+        },
+        "mm.sub.all": {
+          "count": 577,
+          "revenue": 31254.31
+        },
+        "mm.sub.update": {
+          "count": 527,
+          "revenue": 24162.48
+        },
+        "mm.sub.creation": {
+          "count": 50,
+          "revenue": 7091.83
+        },
+        "hm.all.all": {
           "count": 82,
           "revenue": 18261.47
         },
-        "invoice": {
+        "inv.all.all": {
           "count": 1,
           "revenue": 250
         }
@@ -135,39 +191,67 @@
       "sqlToWon": 31.3,
       "stripeRevenue": 77232.71,
       "stripeSeg": {
-        "all": {
+        "all.all.all": {
           "count": 1994,
           "revenue": 77232.71
         },
-        "prepaid": {
+        "all.prepaid.all": {
           "count": 1546,
           "revenue": 51637.62
         },
-        "prepaid-topup": {
+        "all.prepaid.topup": {
           "count": 450,
           "revenue": 15498.75
         },
-        "prepaid-job": {
+        "all.prepaid.job": {
           "count": 1096,
           "revenue": 36138.87
         },
-        "subscription": {
+        "all.sub.all": {
           "count": 446,
           "revenue": 25107.29
         },
-        "sub-update": {
+        "all.sub.update": {
           "count": 397,
           "revenue": 17844.52
         },
-        "sub-creation": {
+        "all.sub.creation": {
           "count": 49,
           "revenue": 7262.77
         },
-        "human-made": {
+        "mm.all.all": {
+          "count": 1924,
+          "revenue": 60699.32
+        },
+        "mm.prepaid.all": {
+          "count": 1478,
+          "revenue": 35592.03
+        },
+        "mm.prepaid.topup": {
+          "count": 450,
+          "revenue": 15498.75
+        },
+        "mm.prepaid.job": {
+          "count": 1028,
+          "revenue": 20093.28
+        },
+        "mm.sub.all": {
+          "count": 446,
+          "revenue": 25107.29
+        },
+        "mm.sub.update": {
+          "count": 397,
+          "revenue": 17844.52
+        },
+        "mm.sub.creation": {
+          "count": 49,
+          "revenue": 7262.77
+        },
+        "hm.all.all": {
           "count": 68,
           "revenue": 16045.59
         },
-        "invoice": {
+        "inv.all.all": {
           "count": 2,
           "revenue": 487.8
         }
@@ -188,39 +272,67 @@
       "sqlToWon": 22.7,
       "stripeRevenue": 47666.24,
       "stripeSeg": {
-        "all": {
+        "all.all.all": {
           "count": 1282,
           "revenue": 47666.24
         },
-        "prepaid": {
+        "all.prepaid.all": {
           "count": 987,
           "revenue": 30706.88
         },
-        "prepaid-topup": {
+        "all.prepaid.topup": {
           "count": 290,
           "revenue": 8772.05
         },
-        "prepaid-job": {
+        "all.prepaid.job": {
           "count": 697,
           "revenue": 21934.83
         },
-        "subscription": {
+        "all.sub.all": {
           "count": 292,
           "revenue": 16577.81
         },
-        "sub-update": {
+        "all.sub.update": {
           "count": 269,
           "revenue": 12263.44
         },
-        "sub-creation": {
+        "all.sub.creation": {
           "count": 23,
           "revenue": 4314.37
         },
-        "human-made": {
+        "mm.all.all": {
+          "count": 1236,
+          "revenue": 38226.54
+        },
+        "mm.prepaid.all": {
+          "count": 944,
+          "revenue": 21648.73
+        },
+        "mm.prepaid.topup": {
+          "count": 290,
+          "revenue": 8772.05
+        },
+        "mm.prepaid.job": {
+          "count": 654,
+          "revenue": 12876.68
+        },
+        "mm.sub.all": {
+          "count": 292,
+          "revenue": 16577.81
+        },
+        "mm.sub.update": {
+          "count": 269,
+          "revenue": 12263.44
+        },
+        "mm.sub.creation": {
+          "count": 23,
+          "revenue": 4314.37
+        },
+        "hm.all.all": {
           "count": 43,
           "revenue": 9058.15
         },
-        "invoice": {
+        "inv.all.all": {
           "count": 3,
           "revenue": 381.55
         }
@@ -1394,39 +1506,67 @@
         "totalRevenue": 5542.17,
         "count": 182,
         "seg": {
-          "all": {
+          "all.all.all": {
             "count": 182,
             "revenue": 5542.17
           },
-          "prepaid": {
+          "all.prepaid.all": {
             "count": 131,
             "revenue": 3157.19
           },
-          "prepaid-topup": {
+          "all.prepaid.topup": {
             "count": 36,
             "revenue": 854.27
           },
-          "prepaid-job": {
+          "all.prepaid.job": {
             "count": 95,
             "revenue": 2302.92
           },
-          "subscription": {
+          "all.sub.all": {
             "count": 51,
             "revenue": 2384.98
           },
-          "sub-update": {
+          "all.sub.update": {
             "count": 47,
             "revenue": 2184.98
           },
-          "sub-creation": {
+          "all.sub.creation": {
             "count": 4,
             "revenue": 200
           },
-          "human-made": {
+          "mm.all.all": {
+            "count": 181,
+            "revenue": 5399.37
+          },
+          "mm.prepaid.all": {
+            "count": 130,
+            "revenue": 3014.39
+          },
+          "mm.prepaid.topup": {
+            "count": 36,
+            "revenue": 854.27
+          },
+          "mm.prepaid.job": {
+            "count": 94,
+            "revenue": 2160.12
+          },
+          "mm.sub.all": {
+            "count": 51,
+            "revenue": 2384.98
+          },
+          "mm.sub.update": {
+            "count": 47,
+            "revenue": 2184.98
+          },
+          "mm.sub.creation": {
+            "count": 4,
+            "revenue": 200
+          },
+          "hm.all.all": {
             "count": 1,
             "revenue": 142.8
           },
-          "invoice": {
+          "inv.all.all": {
             "count": 0,
             "revenue": 0
           }
@@ -1567,39 +1707,67 @@
         "totalRevenue": 20039.66,
         "count": 532,
         "seg": {
-          "all": {
+          "all.all.all": {
             "count": 532,
             "revenue": 20039.66
           },
-          "prepaid": {
+          "all.prepaid.all": {
             "count": 437,
             "revenue": 14284.27
           },
-          "prepaid-topup": {
+          "all.prepaid.topup": {
             "count": 108,
             "revenue": 2957.22
           },
-          "prepaid-job": {
+          "all.prepaid.job": {
             "count": 329,
             "revenue": 11327.05
           },
-          "subscription": {
+          "all.sub.all": {
             "count": 94,
             "revenue": 5280.39
           },
-          "sub-update": {
+          "all.sub.update": {
             "count": 84,
             "revenue": 3957.07
           },
-          "sub-creation": {
+          "all.sub.creation": {
             "count": 10,
             "revenue": 1323.32
           },
-          "human-made": {
+          "mm.all.all": {
+            "count": 501,
+            "revenue": 14810.16
+          },
+          "mm.prepaid.all": {
+            "count": 407,
+            "revenue": 9529.77
+          },
+          "mm.prepaid.topup": {
+            "count": 108,
+            "revenue": 2957.22
+          },
+          "mm.prepaid.job": {
+            "count": 299,
+            "revenue": 6572.55
+          },
+          "mm.sub.all": {
+            "count": 94,
+            "revenue": 5280.39
+          },
+          "mm.sub.update": {
+            "count": 84,
+            "revenue": 3957.07
+          },
+          "mm.sub.creation": {
+            "count": 10,
+            "revenue": 1323.32
+          },
+          "hm.all.all": {
             "count": 30,
             "revenue": 4754.5
           },
-          "invoice": {
+          "inv.all.all": {
             "count": 1,
             "revenue": 475
           }
@@ -1752,39 +1920,67 @@
         "totalRevenue": 21464.41,
         "count": 569,
         "seg": {
-          "all": {
+          "all.all.all": {
             "count": 569,
             "revenue": 21464.41
           },
-          "prepaid": {
+          "all.prepaid.all": {
             "count": 436,
             "revenue": 13461
           },
-          "prepaid-topup": {
+          "all.prepaid.topup": {
             "count": 113,
             "revenue": 4320.9
           },
-          "prepaid-job": {
+          "all.prepaid.job": {
             "count": 323,
             "revenue": 9140.1
           },
-          "subscription": {
+          "all.sub.all": {
             "count": 132,
             "revenue": 7753.41
           },
-          "sub-update": {
+          "all.sub.update": {
             "count": 114,
             "revenue": 5117.6
           },
-          "sub-creation": {
+          "all.sub.creation": {
             "count": 18,
             "revenue": 2635.81
           },
-          "human-made": {
+          "mm.all.all": {
+            "count": 548,
+            "revenue": 17511.97
+          },
+          "mm.prepaid.all": {
+            "count": 416,
+            "revenue": 9758.56
+          },
+          "mm.prepaid.topup": {
+            "count": 113,
+            "revenue": 4320.9
+          },
+          "mm.prepaid.job": {
+            "count": 303,
+            "revenue": 5437.66
+          },
+          "mm.sub.all": {
+            "count": 132,
+            "revenue": 7753.41
+          },
+          "mm.sub.update": {
+            "count": 114,
+            "revenue": 5117.6
+          },
+          "mm.sub.creation": {
+            "count": 18,
+            "revenue": 2635.81
+          },
+          "hm.all.all": {
             "count": 20,
             "revenue": 3702.44
           },
-          "invoice": {
+          "inv.all.all": {
             "count": 1,
             "revenue": 250
           }
@@ -1957,39 +2153,67 @@
         "totalRevenue": 23987.88,
         "count": 591,
         "seg": {
-          "all": {
+          "all.all.all": {
             "count": 591,
             "revenue": 23987.88
           },
-          "prepaid": {
+          "all.prepaid.all": {
             "count": 450,
             "revenue": 15913.22
           },
-          "prepaid-topup": {
+          "all.prepaid.topup": {
             "count": 131,
             "revenue": 4607.46
           },
-          "prepaid-job": {
+          "all.prepaid.job": {
             "count": 319,
             "revenue": 11305.76
           },
-          "subscription": {
+          "all.sub.all": {
             "count": 141,
             "revenue": 8074.66
           },
-          "sub-update": {
+          "all.sub.update": {
             "count": 125,
             "revenue": 5564.66
           },
-          "sub-creation": {
+          "all.sub.creation": {
             "count": 16,
             "revenue": 2510
           },
-          "human-made": {
+          "mm.all.all": {
+            "count": 569,
+            "revenue": 18733.89
+          },
+          "mm.prepaid.all": {
+            "count": 428,
+            "revenue": 10659.23
+          },
+          "mm.prepaid.topup": {
+            "count": 131,
+            "revenue": 4607.46
+          },
+          "mm.prepaid.job": {
+            "count": 297,
+            "revenue": 6051.77
+          },
+          "mm.sub.all": {
+            "count": 141,
+            "revenue": 8074.66
+          },
+          "mm.sub.update": {
+            "count": 125,
+            "revenue": 5564.66
+          },
+          "mm.sub.creation": {
+            "count": 16,
+            "revenue": 2510
+          },
+          "hm.all.all": {
             "count": 22,
             "revenue": 5253.99
           },
-          "invoice": {
+          "inv.all.all": {
             "count": 0,
             "revenue": 0
           }
@@ -2166,39 +2390,67 @@
         "totalRevenue": 20532.94,
         "count": 537,
         "seg": {
-          "all": {
+          "all.all.all": {
             "count": 537,
             "revenue": 20532.94
           },
-          "prepaid": {
+          "all.prepaid.all": {
             "count": 416,
             "revenue": 14042.62
           },
-          "prepaid-topup": {
+          "all.prepaid.topup": {
             "count": 124,
             "revenue": 4688.67
           },
-          "prepaid-job": {
+          "all.prepaid.job": {
             "count": 292,
             "revenue": 9353.95
           },
-          "subscription": {
+          "all.sub.all": {
             "count": 121,
             "revenue": 6490.32
           },
-          "sub-update": {
+          "all.sub.update": {
             "count": 111,
             "revenue": 5148.3
           },
-          "sub-creation": {
+          "all.sub.creation": {
             "count": 10,
             "revenue": 1342.02
           },
-          "human-made": {
+          "mm.all.all": {
+            "count": 521,
+            "revenue": 16264.41
+          },
+          "mm.prepaid.all": {
+            "count": 400,
+            "revenue": 9774.09
+          },
+          "mm.prepaid.topup": {
+            "count": 124,
+            "revenue": 4688.67
+          },
+          "mm.prepaid.job": {
+            "count": 276,
+            "revenue": 5085.42
+          },
+          "mm.sub.all": {
+            "count": 121,
+            "revenue": 6490.32
+          },
+          "mm.sub.update": {
+            "count": 111,
+            "revenue": 5148.3
+          },
+          "mm.sub.creation": {
+            "count": 10,
+            "revenue": 1342.02
+          },
+          "hm.all.all": {
             "count": 16,
             "revenue": 4268.53
           },
-          "invoice": {
+          "inv.all.all": {
             "count": 0,
             "revenue": 0
           }
@@ -2359,39 +2611,67 @@
         "totalRevenue": 11307.12,
         "count": 294,
         "seg": {
-          "all": {
+          "all.all.all": {
             "count": 294,
             "revenue": 11307.12
           },
-          "prepaid": {
+          "all.prepaid.all": {
             "count": 201,
             "revenue": 6687.57
           },
-          "prepaid-topup": {
+          "all.prepaid.topup": {
             "count": 44,
             "revenue": 1110.4
           },
-          "prepaid-job": {
+          "all.prepaid.job": {
             "count": 157,
             "revenue": 5577.17
           },
-          "subscription": {
+          "all.sub.all": {
             "count": 93,
             "revenue": 4619.55
           },
-          "sub-update": {
+          "all.sub.update": {
             "count": 91,
             "revenue": 4547.55
           },
-          "sub-creation": {
+          "all.sub.creation": {
             "count": 2,
             "revenue": 72
           },
-          "human-made": {
+          "mm.all.all": {
+            "count": 282,
+            "revenue": 8383.08
+          },
+          "mm.prepaid.all": {
+            "count": 189,
+            "revenue": 3763.53
+          },
+          "mm.prepaid.topup": {
+            "count": 44,
+            "revenue": 1110.4
+          },
+          "mm.prepaid.job": {
+            "count": 145,
+            "revenue": 2653.13
+          },
+          "mm.sub.all": {
+            "count": 93,
+            "revenue": 4619.55
+          },
+          "mm.sub.update": {
+            "count": 91,
+            "revenue": 4547.55
+          },
+          "mm.sub.creation": {
+            "count": 2,
+            "revenue": 72
+          },
+          "hm.all.all": {
             "count": 12,
             "revenue": 2924.04
           },
-          "invoice": {
+          "inv.all.all": {
             "count": 0,
             "revenue": 0
           }
@@ -2544,39 +2824,67 @@
         "totalRevenue": 9872.58,
         "count": 279,
         "seg": {
-          "all": {
+          "all.all.all": {
             "count": 279,
             "revenue": 9872.58
           },
-          "prepaid": {
+          "all.prepaid.all": {
             "count": 189,
             "revenue": 5556.21
           },
-          "prepaid-topup": {
+          "all.prepaid.topup": {
             "count": 48,
             "revenue": 873.03
           },
-          "prepaid-job": {
+          "all.prepaid.job": {
             "count": 141,
             "revenue": 4683.18
           },
-          "subscription": {
+          "all.sub.all": {
             "count": 90,
             "revenue": 4316.37
           },
-          "sub-update": {
+          "all.sub.update": {
             "count": 86,
             "revenue": 3784.37
           },
-          "sub-creation": {
+          "all.sub.creation": {
             "count": 4,
             "revenue": 532
           },
-          "human-made": {
+          "mm.all.all": {
+            "count": 267,
+            "revenue": 7760.11
+          },
+          "mm.prepaid.all": {
+            "count": 177,
+            "revenue": 3443.74
+          },
+          "mm.prepaid.topup": {
+            "count": 48,
+            "revenue": 873.03
+          },
+          "mm.prepaid.job": {
+            "count": 129,
+            "revenue": 2570.71
+          },
+          "mm.sub.all": {
+            "count": 90,
+            "revenue": 4316.37
+          },
+          "mm.sub.update": {
+            "count": 86,
+            "revenue": 3784.37
+          },
+          "mm.sub.creation": {
+            "count": 4,
+            "revenue": 532
+          },
+          "hm.all.all": {
             "count": 12,
             "revenue": 2112.47
           },
-          "invoice": {
+          "inv.all.all": {
             "count": 0,
             "revenue": 0
           }
@@ -2713,39 +3021,67 @@
         "totalRevenue": 18317.94,
         "count": 491,
         "seg": {
-          "all": {
+          "all.all.all": {
             "count": 491,
             "revenue": 18317.94
           },
-          "prepaid": {
+          "all.prepaid.all": {
             "count": 353,
             "revenue": 10200.5
           },
-          "prepaid-topup": {
+          "all.prepaid.topup": {
             "count": 96,
             "revenue": 2995.12
           },
-          "prepaid-job": {
+          "all.prepaid.job": {
             "count": 257,
             "revenue": 7205.38
           },
-          "subscription": {
+          "all.sub.all": {
             "count": 137,
             "revenue": 8104.64
           },
-          "sub-update": {
+          "all.sub.update": {
             "count": 124,
             "revenue": 5435.64
           },
-          "sub-creation": {
+          "all.sub.creation": {
             "count": 13,
             "revenue": 2669
           },
-          "human-made": {
+          "mm.all.all": {
+            "count": 482,
+            "revenue": 15850.24
+          },
+          "mm.prepaid.all": {
+            "count": 345,
+            "revenue": 7745.6
+          },
+          "mm.prepaid.topup": {
+            "count": 96,
+            "revenue": 2995.12
+          },
+          "mm.prepaid.job": {
+            "count": 249,
+            "revenue": 4750.48
+          },
+          "mm.sub.all": {
+            "count": 137,
+            "revenue": 8104.64
+          },
+          "mm.sub.update": {
+            "count": 124,
+            "revenue": 5435.64
+          },
+          "mm.sub.creation": {
+            "count": 13,
+            "revenue": 2669
+          },
+          "hm.all.all": {
             "count": 8,
             "revenue": 2454.9
           },
-          "invoice": {
+          "inv.all.all": {
             "count": 1,
             "revenue": 12.8
           }
@@ -2918,39 +3254,67 @@
         "totalRevenue": 23188.02,
         "count": 533,
         "seg": {
-          "all": {
+          "all.all.all": {
             "count": 533,
             "revenue": 23188.02
           },
-          "prepaid": {
+          "all.prepaid.all": {
             "count": 407,
             "revenue": 16896.47
           },
-          "prepaid-topup": {
+          "all.prepaid.topup": {
             "count": 125,
             "revenue": 4350.88
           },
-          "prepaid-job": {
+          "all.prepaid.job": {
             "count": 282,
             "revenue": 12545.59
           },
-          "subscription": {
+          "all.sub.all": {
             "count": 126,
             "revenue": 6291.55
           },
-          "sub-update": {
+          "all.sub.update": {
             "count": 115,
             "revenue": 5349.55
           },
-          "sub-creation": {
+          "all.sub.creation": {
             "count": 11,
             "revenue": 942
           },
-          "human-made": {
+          "mm.all.all": {
+            "count": 507,
+            "revenue": 15183.88
+          },
+          "mm.prepaid.all": {
+            "count": 381,
+            "revenue": 8892.33
+          },
+          "mm.prepaid.topup": {
+            "count": 125,
+            "revenue": 4350.88
+          },
+          "mm.prepaid.job": {
+            "count": 256,
+            "revenue": 4541.45
+          },
+          "mm.sub.all": {
+            "count": 126,
+            "revenue": 6291.55
+          },
+          "mm.sub.update": {
+            "count": 115,
+            "revenue": 5349.55
+          },
+          "mm.sub.creation": {
+            "count": 11,
+            "revenue": 942
+          },
+          "hm.all.all": {
             "count": 26,
             "revenue": 8004.14
           },
-          "invoice": {
+          "inv.all.all": {
             "count": 0,
             "revenue": 0
           }
@@ -3111,39 +3475,67 @@
         "totalRevenue": 18280.33,
         "count": 494,
         "seg": {
-          "all": {
+          "all.all.all": {
             "count": 494,
             "revenue": 18280.33
           },
-          "prepaid": {
+          "all.prepaid.all": {
             "count": 385,
             "revenue": 11591.56
           },
-          "prepaid-topup": {
+          "all.prepaid.topup": {
             "count": 128,
             "revenue": 3857.11
           },
-          "prepaid-job": {
+          "all.prepaid.job": {
             "count": 257,
             "revenue": 7734.45
           },
-          "subscription": {
+          "all.sub.all": {
             "count": 108,
             "revenue": 6213.77
           },
-          "sub-update": {
+          "all.sub.update": {
             "count": 92,
             "revenue": 3809
           },
-          "sub-creation": {
+          "all.sub.creation": {
             "count": 16,
             "revenue": 2404.77
           },
-          "human-made": {
+          "mm.all.all": {
+            "count": 478,
+            "revenue": 15125.93
+          },
+          "mm.prepaid.all": {
+            "count": 370,
+            "revenue": 8912.16
+          },
+          "mm.prepaid.topup": {
+            "count": 128,
+            "revenue": 3857.11
+          },
+          "mm.prepaid.job": {
+            "count": 242,
+            "revenue": 5055.05
+          },
+          "mm.sub.all": {
+            "count": 108,
+            "revenue": 6213.77
+          },
+          "mm.sub.update": {
+            "count": 92,
+            "revenue": 3809
+          },
+          "mm.sub.creation": {
+            "count": 16,
+            "revenue": 2404.77
+          },
+          "hm.all.all": {
             "count": 15,
             "revenue": 2679.4
           },
-          "invoice": {
+          "inv.all.all": {
             "count": 1,
             "revenue": 475
           }
@@ -3316,39 +3708,67 @@
         "totalRevenue": 17446.42,
         "count": 476,
         "seg": {
-          "all": {
+          "all.all.all": {
             "count": 476,
             "revenue": 17446.42
           },
-          "prepaid": {
+          "all.prepaid.all": {
             "count": 401,
             "revenue": 12949.09
           },
-          "prepaid-topup": {
+          "all.prepaid.topup": {
             "count": 101,
             "revenue": 4295.64
           },
-          "prepaid-job": {
+          "all.prepaid.job": {
             "count": 300,
             "revenue": 8653.45
           },
-          "subscription": {
+          "all.sub.all": {
             "count": 75,
             "revenue": 4497.33
           },
-          "sub-update": {
+          "all.sub.update": {
             "count": 66,
             "revenue": 3250.33
           },
-          "sub-creation": {
+          "all.sub.creation": {
             "count": 9,
             "revenue": 1247
           },
-          "human-made": {
+          "mm.all.all": {
+            "count": 457,
+            "revenue": 14539.27
+          },
+          "mm.prepaid.all": {
+            "count": 382,
+            "revenue": 10041.94
+          },
+          "mm.prepaid.topup": {
+            "count": 101,
+            "revenue": 4295.64
+          },
+          "mm.prepaid.job": {
+            "count": 281,
+            "revenue": 5746.3
+          },
+          "mm.sub.all": {
+            "count": 75,
+            "revenue": 4497.33
+          },
+          "mm.sub.update": {
+            "count": 66,
+            "revenue": 3250.33
+          },
+          "mm.sub.creation": {
+            "count": 9,
+            "revenue": 1247
+          },
+          "hm.all.all": {
             "count": 19,
             "revenue": 2907.15
           },
-          "invoice": {
+          "inv.all.all": {
             "count": 0,
             "revenue": 0
           }
@@ -3509,39 +3929,67 @@
         "totalRevenue": 18640.52,
         "count": 484,
         "seg": {
-          "all": {
+          "all.all.all": {
             "count": 484,
             "revenue": 18640.52
           },
-          "prepaid": {
+          "all.prepaid.all": {
             "count": 358,
             "revenue": 11195.22
           },
-          "prepaid-topup": {
+          "all.prepaid.topup": {
             "count": 107,
             "revenue": 3521.31
           },
-          "prepaid-job": {
+          "all.prepaid.job": {
             "count": 251,
             "revenue": 7673.91
           },
-          "subscription": {
+          "all.sub.all": {
             "count": 124,
             "revenue": 7113.75
           },
-          "sub-update": {
+          "all.sub.update": {
             "count": 115,
             "revenue": 5270.75
           },
-          "sub-creation": {
+          "all.sub.creation": {
             "count": 9,
             "revenue": 1843
           },
-          "human-made": {
+          "mm.all.all": {
+            "count": 467,
+            "revenue": 15557.35
+          },
+          "mm.prepaid.all": {
+            "count": 343,
+            "revenue": 8443.6
+          },
+          "mm.prepaid.topup": {
+            "count": 107,
+            "revenue": 3521.31
+          },
+          "mm.prepaid.job": {
+            "count": 236,
+            "revenue": 4922.29
+          },
+          "mm.sub.all": {
+            "count": 124,
+            "revenue": 7113.75
+          },
+          "mm.sub.update": {
+            "count": 115,
+            "revenue": 5270.75
+          },
+          "mm.sub.creation": {
+            "count": 9,
+            "revenue": 1843
+          },
+          "hm.all.all": {
             "count": 15,
             "revenue": 2751.62
           },
-          "invoice": {
+          "inv.all.all": {
             "count": 2,
             "revenue": 331.55
           }
@@ -3710,39 +4158,67 @@
         "totalRevenue": 18499.37,
         "count": 507,
         "seg": {
-          "all": {
+          "all.all.all": {
             "count": 507,
             "revenue": 18499.37
           },
-          "prepaid": {
+          "all.prepaid.all": {
             "count": 389,
             "revenue": 11694.72
           },
-          "prepaid-topup": {
+          "all.prepaid.topup": {
             "count": 120,
             "revenue": 3352.7
           },
-          "prepaid-job": {
+          "all.prepaid.job": {
             "count": 269,
             "revenue": 8342.02
           },
-          "subscription": {
+          "all.sub.all": {
             "count": 118,
             "revenue": 6804.65
           },
-          "sub-update": {
+          "all.sub.update": {
             "count": 110,
             "revenue": 5210.65
           },
-          "sub-creation": {
+          "all.sub.creation": {
             "count": 8,
             "revenue": 1594
           },
-          "human-made": {
+          "mm.all.all": {
+            "count": 491,
+            "revenue": 14789.5
+          },
+          "mm.prepaid.all": {
+            "count": 373,
+            "revenue": 7984.85
+          },
+          "mm.prepaid.topup": {
+            "count": 120,
+            "revenue": 3352.7
+          },
+          "mm.prepaid.job": {
+            "count": 253,
+            "revenue": 4632.15
+          },
+          "mm.sub.all": {
+            "count": 118,
+            "revenue": 6804.65
+          },
+          "mm.sub.update": {
+            "count": 110,
+            "revenue": 5210.65
+          },
+          "mm.sub.creation": {
+            "count": 8,
+            "revenue": 1594
+          },
+          "hm.all.all": {
             "count": 16,
             "revenue": 3709.87
           },
-          "invoice": {
+          "inv.all.all": {
             "count": 0,
             "revenue": 0
           }
@@ -3907,39 +4383,67 @@
         "totalRevenue": 10526.35,
         "count": 291,
         "seg": {
-          "all": {
+          "all.all.all": {
             "count": 291,
             "revenue": 10526.35
           },
-          "prepaid": {
+          "all.prepaid.all": {
             "count": 240,
             "revenue": 7816.94
           },
-          "prepaid-topup": {
+          "all.prepaid.topup": {
             "count": 63,
             "revenue": 1898.04
           },
-          "prepaid-job": {
+          "all.prepaid.job": {
             "count": 177,
             "revenue": 5918.9
           },
-          "subscription": {
+          "all.sub.all": {
             "count": 50,
             "revenue": 2659.41
           },
-          "sub-update": {
+          "all.sub.update": {
             "count": 44,
             "revenue": 1782.04
           },
-          "sub-creation": {
+          "all.sub.creation": {
             "count": 6,
             "revenue": 877.37
           },
-          "human-made": {
+          "mm.all.all": {
+            "count": 278,
+            "revenue": 7879.69
+          },
+          "mm.prepaid.all": {
+            "count": 228,
+            "revenue": 5220.28
+          },
+          "mm.prepaid.topup": {
+            "count": 63,
+            "revenue": 1898.04
+          },
+          "mm.prepaid.job": {
+            "count": 165,
+            "revenue": 3322.24
+          },
+          "mm.sub.all": {
+            "count": 50,
+            "revenue": 2659.41
+          },
+          "mm.sub.update": {
+            "count": 44,
+            "revenue": 1782.04
+          },
+          "mm.sub.creation": {
+            "count": 6,
+            "revenue": 877.37
+          },
+          "hm.all.all": {
             "count": 12,
             "revenue": 2596.66
           },
-          "invoice": {
+          "inv.all.all": {
             "count": 1,
             "revenue": 50
           }

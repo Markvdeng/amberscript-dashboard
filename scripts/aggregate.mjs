@@ -231,18 +231,8 @@ function main() {
       addTo(byChannel, r.channel, r);
     }
 
-    // Pre-computed filter segments for dashboard
-    const seg = {
-      all:              cr(rows),
-      prepaid:          cr(rows.filter(r => r.planType === 'Prepaid')),
-      'prepaid-topup':  cr(rows.filter(r => r.planType === 'Prepaid' && r.planSubtype === 'Top-Up')),
-      'prepaid-job':    cr(rows.filter(r => r.planType === 'Prepaid' && r.planSubtype === 'Job Creation')),
-      subscription:     cr(rows.filter(r => r.planType === 'Subscription')),
-      'sub-update':     cr(rows.filter(r => r.planType === 'Subscription' && r.planSubtype === 'Update')),
-      'sub-creation':   cr(rows.filter(r => r.planType === 'Subscription' && r.planSubtype === 'Creation')),
-      'human-made':     cr(rows.filter(r => r.product === 'Human-Made')),
-      invoice:          cr(rows.filter(r => r.planType === 'Invoice')),
-    };
+    // Pre-computed filter segments for dashboard cascading dropdowns
+    const seg = computeSegments(rows);
 
     return {
       week, totalRevenue: round(totalRevenue), count: rows.length,
@@ -295,17 +285,7 @@ function main() {
     // Stripe
     const chargeRows = monthWeeks.flatMap(w => chargesByWeek[w] || []);
     const stripeRevenue = round(chargeRows.reduce((s, r) => s + r.amount, 0));
-    const stripeSeg = {
-      all:              cr(chargeRows),
-      prepaid:          cr(chargeRows.filter(r => r.planType === 'Prepaid')),
-      'prepaid-topup':  cr(chargeRows.filter(r => r.planType === 'Prepaid' && r.planSubtype === 'Top-Up')),
-      'prepaid-job':    cr(chargeRows.filter(r => r.planType === 'Prepaid' && r.planSubtype === 'Job Creation')),
-      subscription:     cr(chargeRows.filter(r => r.planType === 'Subscription')),
-      'sub-update':     cr(chargeRows.filter(r => r.planType === 'Subscription' && r.planSubtype === 'Update')),
-      'sub-creation':   cr(chargeRows.filter(r => r.planType === 'Subscription' && r.planSubtype === 'Creation')),
-      'human-made':     cr(chargeRows.filter(r => r.product === 'Human-Made')),
-      invoice:          cr(chargeRows.filter(r => r.planType === 'Invoice')),
-    };
+    const stripeSeg = computeSegments(chargeRows);
 
     // GA4
     const formRows = monthWeeks.flatMap(w => formsByWeek[w] || []);
@@ -356,6 +336,36 @@ function cr(rows) {
   return {
     count: rows.length,
     revenue: round(rows.reduce((s, r) => s + r.amount, 0)),
+  };
+}
+
+// Pre-compute all filter segment combinations for cascading dropdowns
+// Dropdown 1 (product): all | machine-made | human-made | invoice
+// Dropdown 2 (plan type, when product=all or machine-made): all | prepaid | subscription
+// Dropdown 3 (subtype): all | topup/job (prepaid) or update/creation (subscription)
+function computeSegments(rows) {
+  const mm = rows.filter(r => r.product === 'Machine-Made' && r.planType !== 'Invoice');
+  return {
+    // Product = All
+    'all.all.all':        cr(rows),
+    'all.prepaid.all':    cr(rows.filter(r => r.planType === 'Prepaid')),
+    'all.prepaid.topup':  cr(rows.filter(r => r.planType === 'Prepaid' && r.planSubtype === 'Top-Up')),
+    'all.prepaid.job':    cr(rows.filter(r => r.planType === 'Prepaid' && r.planSubtype === 'Job Creation')),
+    'all.sub.all':        cr(rows.filter(r => r.planType === 'Subscription')),
+    'all.sub.update':     cr(rows.filter(r => r.planType === 'Subscription' && r.planSubtype === 'Update')),
+    'all.sub.creation':   cr(rows.filter(r => r.planType === 'Subscription' && r.planSubtype === 'Creation')),
+    // Product = Machine-Made (excludes invoice)
+    'mm.all.all':         cr(mm),
+    'mm.prepaid.all':     cr(mm.filter(r => r.planType === 'Prepaid')),
+    'mm.prepaid.topup':   cr(mm.filter(r => r.planType === 'Prepaid' && r.planSubtype === 'Top-Up')),
+    'mm.prepaid.job':     cr(mm.filter(r => r.planType === 'Prepaid' && r.planSubtype === 'Job Creation')),
+    'mm.sub.all':         cr(mm.filter(r => r.planType === 'Subscription')),
+    'mm.sub.update':      cr(mm.filter(r => r.planType === 'Subscription' && r.planSubtype === 'Update')),
+    'mm.sub.creation':    cr(mm.filter(r => r.planType === 'Subscription' && r.planSubtype === 'Creation')),
+    // Product = Human-Made
+    'hm.all.all':         cr(rows.filter(r => r.product === 'Human-Made')),
+    // Product = Invoice
+    'inv.all.all':        cr(rows.filter(r => r.planType === 'Invoice')),
   };
 }
 
