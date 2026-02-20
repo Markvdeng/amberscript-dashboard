@@ -158,6 +158,22 @@ function main() {
   }
   console.log(`  Stripe→GA4 matched: ${stripeMatched}/${stripeCharges.length}`);
 
+  // Backfill missing charge countries from subscription metadata
+  const customerCountry = {};
+  for (const sub of stripeSubs) {
+    if (sub.customerId && sub.country) {
+      customerCountry[sub.customerId] = sub.country;
+    }
+  }
+  let countryBackfilled = 0;
+  for (const charge of stripeCharges) {
+    if (!charge.country && charge.customerId && customerCountry[charge.customerId]) {
+      charge.country = customerCountry[charge.customerId];
+      countryBackfilled++;
+    }
+  }
+  console.log(`  Country backfilled from subs: ${countryBackfilled}/${stripeCharges.filter(c => !c.country).length + countryBackfilled} missing`);
+
   // === COLLECT ALL WEEKS ===
   const allWeeks = new Set();
   googleAds.forEach(r => allWeeks.add(r.week));

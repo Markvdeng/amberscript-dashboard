@@ -73,6 +73,7 @@ async function fetchAllCharges(since) {
         product,
         planType,
         planSubtype,
+        customerId: c.customer || '',
         paymentIdentifier: meta.paymentIdentifier || '',
         uploadBatchId: meta.uploadBatchId || '',
       });
