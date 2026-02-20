@@ -64,7 +64,18 @@ function main() {
   const hubspotDeals = loadRaw('hubspot-deals.json') || [];
   const ga4Raw = loadRaw('ga4.json') || { formSubmissions: [], purchases: [] };
   const ga4 = Array.isArray(ga4Raw) ? { formSubmissions: [], purchases: [] } : ga4Raw;
-  const formSubmissions = ga4.formSubmissions || [];
+  const FORM_PRODUCT_IDS = {
+    '48': 'Translated Subtitles',
+    '50': 'Machine-Made Transcription',
+    '51': 'Human-Made Transcription',
+    '52': 'Machine-Made Subtitles',
+    '53': 'Human-Made Subtitles',
+    '58': 'Other',
+  };
+  const formSubmissions = (ga4.formSubmissions || []).map(f => ({
+    ...f,
+    product: FORM_PRODUCT_IDS[f.product] || f.product,
+  }));
   const ga4Purchases = ga4.purchases || [];
 
   console.log(`  Google Ads: ${googleAds.length} rows`);
