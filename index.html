@@ -364,7 +364,7 @@
             <span class="summary-header">By Deal Owner</span>
             <div class="overflow-x-auto mt-3 flex-1">
               <table id="ownerTable" class="w-full">
-                <colgroup><col><col style="width:14%"><col style="width:14%"><col style="width:20%"><col style="width:26%"></colgroup>
+                <colgroup><col><col style="width:12%"><col style="width:12%"><col style="width:12%"><col style="width:22%"><col style="width:14%"></colgroup>
                 <thead class="text-left border-b border-as-border">
                   <tr>
                     <th class="pb-2">Owner</th>
@@ -383,7 +383,7 @@
             <span class="summary-header">By Country</span>
             <div class="overflow-x-auto mt-3 flex-1">
               <table id="geoTable" class="w-full">
-                <colgroup><col><col style="width:14%"><col style="width:14%"><col style="width:20%"><col style="width:26%"></colgroup>
+                <colgroup><col><col style="width:12%"><col style="width:12%"><col style="width:12%"><col style="width:22%"><col style="width:14%"></colgroup>
                 <thead class="text-left border-b border-as-border">
                   <tr>
                     <th class="pb-2">Country</th>
@@ -1168,12 +1168,14 @@ function renderProductTable(deals, closedDeals, forms) {
   }
   function cells(t, ct, leads, size) {
     const cls = size === 'sm' ? 'text-sm' : 'text-xs';
+    const aov = ct.won > 0 ? fmt.currency(Math.round(ct.wonRevenue / ct.won)) : '-';
     return `
       <td class="py-1.5 text-center text-as-secondary ${cls}">${fmt.number(leads)}</td>
       <td class="py-1.5 text-center text-as-secondary ${cls}">${fmt.number(t.mqls)}</td>
       <td class="py-1.5 text-center text-as-secondary ${cls}">${fmt.number(t.sqls)}</td>
-      <td class="py-1.5 text-center text-as-secondary ${cls}">${fmt.number(ct.won)} <span class="text-as-muted">(${fmt.number(t.won)})</span></td>
-      <td class="py-1.5 text-right font-semibold ${cls}">${fmt.currency(ct.wonRevenue)} <span class="text-as-muted font-normal">(${fmt.currency(t.wonRevenue)})</span></td>`;
+      <td class="py-1.5 text-center text-as-secondary ${cls}">${fmt.number(ct.won)}</td>
+      <td class="py-1.5 text-right font-semibold ${cls}">${fmt.currency(ct.wonRevenue)}</td>
+      <td class="py-1.5 text-center text-as-secondary ${cls}">${aov}</td>`;
   }
 
   // Count leads by product from GA4 forms
@@ -1207,7 +1209,7 @@ function renderProductTable(deals, closedDeals, forms) {
   for (const p of Object.keys(byProduct)) {
     const t = tally(byProduct[p]);
     const ct = closeTally(closeByProduct[p] || []);
-    prodMetrics[p] = { leads: leadsByProduct[p] || 0, mqls: t.mqls, sqls: t.sqls, won: ct.won, revenue: ct.wonRevenue };
+    prodMetrics[p] = { leads: leadsByProduct[p] || 0, mqls: t.mqls, sqls: t.sqls, won: ct.won, revenue: ct.wonRevenue, aov: ct.won > 0 ? ct.wonRevenue / ct.won : 0 };
   }
   const ss = tableSortState.productTable;
   const products = Object.keys(byProduct).sort((a, b) => {
@@ -1219,6 +1221,7 @@ function renderProductTable(deals, closedDeals, forms) {
       case 'mqls': va = ma.mqls; vb = mb.mqls; break;
       case 'sqls': va = ma.sqls; vb = mb.sqls; break;
       case 'won': va = ma.won; vb = mb.won; break;
+      case 'aov': va = ma.aov; vb = mb.aov; break;
       default: va = ma.revenue; vb = mb.revenue;
     }
     return ss.dir === 'desc' ? vb - va : va - vb;
@@ -1286,21 +1289,24 @@ function renderProductTable(deals, closedDeals, forms) {
   }
   const total = tally(deals);
   const closeTotal = closeTally(closedDeals);
+  const totalAov = closeTotal.won > 0 ? fmt.currency(Math.round(closeTotal.wonRevenue / closeTotal.won)) : '-';
   html += `<tr class="border-t-2 border-as-border">
     <td class="py-2 text-sm font-bold">Total</td>
     <td class="py-2 text-center font-bold text-sm">${fmt.number(totalLeads)}</td>
     <td class="py-2 text-center font-bold text-sm">${fmt.number(total.mqls)}</td>
     <td class="py-2 text-center font-bold text-sm">${fmt.number(total.sqls)}</td>
-    <td class="py-2 text-center font-bold text-sm">${fmt.number(closeTotal.won)} <span class="font-normal text-as-muted">(${fmt.number(total.won)})</span></td>
-    <td class="py-2 text-right font-bold text-sm">${fmt.currency(closeTotal.wonRevenue)} <span class="font-normal text-as-muted">(${fmt.currency(total.wonRevenue)})</span></td>
+    <td class="py-2 text-center font-bold text-sm">${fmt.number(closeTotal.won)}</td>
+    <td class="py-2 text-right font-bold text-sm">${fmt.currency(closeTotal.wonRevenue)}</td>
+    <td class="py-2 text-center font-bold text-sm">${totalAov}</td>
   </tr>`;
   document.querySelector('#productTable thead tr').innerHTML = `
     <th class="pb-2 sortable" onclick="sortTableBy('productTable','name')">Product${sortIndicator('productTable','name')}</th>
     <th class="pb-2 text-center sortable" onclick="sortTableBy('productTable','leads')">Leads${sortIndicator('productTable','leads')}</th>
     <th class="pb-2 text-center sortable" onclick="sortTableBy('productTable','mqls')">MQL<span style="text-transform:none">s</span>${sortIndicator('productTable','mqls')}</th>
     <th class="pb-2 text-center sortable" onclick="sortTableBy('productTable','sqls')">SQL<span style="text-transform:none">s</span>${sortIndicator('productTable','sqls')}</th>
-    <th class="pb-2 text-center sortable" onclick="sortTableBy('productTable','won')" title="By close date (by create date in brackets)">Won${sortIndicator('productTable','won')}</th>
-    <th class="pb-2 text-center sortable" onclick="sortTableBy('productTable','revenue')" title="By close date (by create date in brackets)">Revenue${sortIndicator('productTable','revenue')}</th>`;
+    <th class="pb-2 text-center sortable" onclick="sortTableBy('productTable','won')">Won${sortIndicator('productTable','won')}</th>
+    <th class="pb-2 text-center sortable" onclick="sortTableBy('productTable','revenue')">Revenue${sortIndicator('productTable','revenue')}</th>
+    <th class="pb-2 text-center sortable" onclick="sortTableBy('productTable','aov')">AOV${sortIndicator('productTable','aov')}</th>`;
   document.querySelector('#productTable tbody').innerHTML = html;
 }
 
@@ -1340,6 +1346,7 @@ function renderBreakdownTable(deals, closedDeals, tableId, keyFn) {
       case 'mqls': va = totals[a].mqls; vb = totals[b].mqls; break;
       case 'sqls': va = totals[a].sqls; vb = totals[b].sqls; break;
       case 'won': va = totals[a].wonClose; vb = totals[b].wonClose; break;
+      case 'aov': va = totals[a].wonClose > 0 ? totals[a].wonRevClose / totals[a].wonClose : 0; vb = totals[b].wonClose > 0 ? totals[b].wonRevClose / totals[b].wonClose : 0; break;
       default: va = totals[a].wonRevClose; vb = totals[b].wonRevClose;
     }
     return ss.dir === 'desc' ? vb - va : va - vb;
@@ -1353,26 +1360,30 @@ function renderBreakdownTable(deals, closedDeals, tableId, keyFn) {
   const rows = keys.map((k, i) => {
     const d = totals[k];
     const extra = (isGeo && i >= SHOW_LIMIT) ? ' geo-extra-row hidden' : '';
+    const aov = d.wonClose > 0 ? fmt.currency(Math.round(d.wonRevClose / d.wonClose)) : '-';
     return `<tr class="border-b border-as-border/40 hover-row${extra}">
       <td class="py-2 font-medium text-sm">${k}</td>
       <td class="py-2 text-center text-as-secondary">${fmt.number(d.mqls)}</td>
       <td class="py-2 text-center text-as-secondary">${fmt.number(d.sqls)}</td>
-      <td class="py-2 text-center text-as-secondary">${fmt.number(d.wonClose)} <span class="text-as-muted">(${fmt.number(d.won)})</span></td>
-      <td class="py-2 text-right font-semibold">${fmt.currency(d.wonRevClose)} <span class="text-as-muted font-normal">(${fmt.currency(d.wonRevenue)})</span></td>
+      <td class="py-2 text-center text-as-secondary">${fmt.number(d.wonClose)}</td>
+      <td class="py-2 text-right font-semibold">${fmt.currency(d.wonRevClose)}</td>
+      <td class="py-2 text-center text-as-secondary">${aov}</td>
     </tr>`;
   }).join('');
 
   const showMore = (isGeo && keys.length > SHOW_LIMIT)
     ? `<tr class="geo-show-more border-b border-as-border/40 cursor-pointer hover-row" onclick="toggleGeoShowMore()">
-        <td colspan="5" class="py-2 text-center text-as-primary text-sm font-semibold">Show ${keys.length - SHOW_LIMIT} more countries <svg class="inline w-3 h-3 ml-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></td>
+        <td colspan="6" class="py-2 text-center text-as-primary text-sm font-semibold">Show ${keys.length - SHOW_LIMIT} more countries <svg class="inline w-3 h-3 ml-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></td>
       </tr>` : '';
 
+  const sumAov = sum.wonClose > 0 ? fmt.currency(Math.round(sum.wonRevClose / sum.wonClose)) : '-';
   const totalRow = `<tr class="border-t-2 border-as-border">
     <td class="py-2 font-bold text-sm">Total</td>
     <td class="py-2 text-center font-bold text-sm">${fmt.number(sum.mqls)}</td>
     <td class="py-2 text-center font-bold text-sm">${fmt.number(sum.sqls)}</td>
-    <td class="py-2 text-center font-bold text-sm">${fmt.number(sum.wonClose)} <span class="font-normal text-as-muted">(${fmt.number(sum.won)})</span></td>
-    <td class="py-2 text-right font-bold text-sm">${fmt.currency(sum.wonRevClose)} <span class="font-normal text-as-muted">(${fmt.currency(sum.wonRevenue)})</span></td>
+    <td class="py-2 text-center font-bold text-sm">${fmt.number(sum.wonClose)}</td>
+    <td class="py-2 text-right font-bold text-sm">${fmt.currency(sum.wonRevClose)}</td>
+    <td class="py-2 text-center font-bold text-sm">${sumAov}</td>
   </tr>`;
 
   const labelCol = tableId === 'ownerTable' ? 'Owner' : 'Country';
@@ -1380,11 +1391,12 @@ function renderBreakdownTable(deals, closedDeals, tableId, keyFn) {
     <th class="pb-2 sortable" onclick="sortTableBy('${tableId}','name')">${labelCol}${sortIndicator(tableId,'name')}</th>
     <th class="pb-2 text-center sortable" onclick="sortTableBy('${tableId}','mqls')">MQL<span style="text-transform:none">s</span>${sortIndicator(tableId,'mqls')}</th>
     <th class="pb-2 text-center sortable" onclick="sortTableBy('${tableId}','sqls')">SQL<span style="text-transform:none">s</span>${sortIndicator(tableId,'sqls')}</th>
-    <th class="pb-2 text-center sortable" onclick="sortTableBy('${tableId}','won')" title="By close date (by create date in brackets)">Won${sortIndicator(tableId,'won')}</th>
-    <th class="pb-2 text-center sortable" onclick="sortTableBy('${tableId}','revenue')" title="By close date (by create date in brackets)">Revenue${sortIndicator(tableId,'revenue')}</th>`;
+    <th class="pb-2 text-center sortable" onclick="sortTableBy('${tableId}','won')">Won${sortIndicator(tableId,'won')}</th>
+    <th class="pb-2 text-center sortable" onclick="sortTableBy('${tableId}','revenue')">Revenue${sortIndicator(tableId,'revenue')}</th>
+    <th class="pb-2 text-center sortable" onclick="sortTableBy('${tableId}','aov')">AOV${sortIndicator(tableId,'aov')}</th>`;
   document.querySelector(`#${tableId} tbody`).innerHTML = rows + showMore;
   document.getElementById(`${tableId}Total`).innerHTML = `<table class="w-full">
-    <colgroup><col><col style="width:14%"><col style="width:14%"><col style="width:20%"><col style="width:26%"></colgroup>
+    <colgroup><col><col style="width:12%"><col style="width:12%"><col style="width:12%"><col style="width:22%"><col style="width:14%"></colgroup>
     ${totalRow}
   </table>`;
 }
