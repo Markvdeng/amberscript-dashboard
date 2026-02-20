@@ -949,10 +949,12 @@ function populateInboundFilters() {
   const bu = getCurrentBU();
   const deals = DATA.deals.filter(d => d.bu === bu);
 
-  const products = [...new Set(deals.map(d => d.product).filter(Boolean))].sort();
+  const products = [...new Set(deals.map(d => d.product).filter(Boolean))].sort()
+    .filter(p => p !== 'Other');
   const prodEl = document.getElementById('inbProductFilter');
   prodEl.innerHTML = '<option value="all">All Products</option>' +
-    products.map(p => `<option value="${p}">${p}</option>`).join('');
+    products.map(p => `<option value="${p}">${p}</option>`).join('') +
+    '<option value="Other">Other</option>';
 
   const countries = [...new Set(deals.map(d => d.country).filter(Boolean))].sort();
   const countryEl = document.getElementById('inbCountryFilter');
