@@ -355,6 +355,8 @@ function main() {
     week: f.week,
     country: f.country || '',
     channel: f.channel || '',
+    product: f.product || '',
+    bu: getBU(f.product),
     count: f.count,
   }));
 

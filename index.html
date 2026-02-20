@@ -706,9 +706,7 @@ function renderInboundSummary(weeks) {
   function computeFunnel(weekList) {
     const ws = new Set(weekList);
     const deals = allDeals.filter(d => ws.has(d.week) && d.bu === bu);
-    const forms = bu === 'Transcription'
-      ? allForms.filter(f => ws.has(f.week))
-      : [];
+    const forms = allForms.filter(f => ws.has(f.week) && (!f.bu || f.bu === bu));
     const leads = forms.reduce((s, r) => s + r.count, 0);
     const mqls = deals.length;
     const mqlsFL = deals.filter(d => d.formId).length;
@@ -1011,10 +1009,10 @@ function getFilteredDeals(weekSet) {
 
 function getFilteredForms(weekSet) {
   const bu = getCurrentBU();
-  if (bu !== 'Transcription') return [];
   const country = document.getElementById('inbCountryFilter').value;
   return (DATA.ga4Forms || []).filter(f => {
     if (!weekSet.has(f.week)) return false;
+    if (f.bu && f.bu !== bu) return false;
     if (!matchCountry(f.country, country)) return false;
     return true;
   });
