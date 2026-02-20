@@ -137,6 +137,7 @@
       text-underline-offset: 3px;
     }
     td { font-size: 0.8125rem; }
+    td.text-right, th.text-right { text-align: right; }
     tr.hover-row:hover { background: #F7F8FA; }
 
     /* Header selects */
@@ -347,7 +348,7 @@
                   <th class="pb-2 text-center">MQL<span style="text-transform:none">s</span></th>
                   <th class="pb-2 text-center">SQL<span style="text-transform:none">s</span></th>
                   <th class="pb-2 text-center" title="By close date (by create date in brackets)">Won</th>
-                  <th class="pb-2 text-center" title="By close date (by create date in brackets)">Revenue</th>
+                  <th class="pb-2 text-right" title="By close date (by create date in brackets)">Revenue</th>
                 </tr>
               </thead>
               <tbody></tbody>
@@ -367,7 +368,7 @@
                     <th class="pb-2 text-center">MQL<span style="text-transform:none">s</span></th>
                     <th class="pb-2 text-center">SQL<span style="text-transform:none">s</span></th>
                     <th class="pb-2 text-center" title="By close date (by create date in brackets)">Won</th>
-                    <th class="pb-2 text-center" title="By close date (by create date in brackets)">Revenue</th>
+                    <th class="pb-2 text-right" title="By close date (by create date in brackets)">Revenue</th>
                   </tr>
                 </thead>
                 <tbody></tbody>
@@ -385,7 +386,7 @@
                     <th class="pb-2 text-center">MQL<span style="text-transform:none">s</span></th>
                     <th class="pb-2 text-center">SQL<span style="text-transform:none">s</span></th>
                     <th class="pb-2 text-center" title="By close date (by create date in brackets)">Won</th>
-                    <th class="pb-2 text-center" title="By close date (by create date in brackets)">Revenue</th>
+                    <th class="pb-2 text-right" title="By close date (by create date in brackets)">Revenue</th>
                   </tr>
                 </thead>
                 <tbody></tbody>
@@ -734,7 +735,7 @@ function renderInboundSummary(weeks) {
       <th class="pb-2 text-center">MQL&gt;SQL</th>
       <th class="pb-2 text-center ${g}" title="By close date (by create date in brackets)">Won</th>
       <th class="pb-2 text-center">SQL&gt;Won</th>
-      <th class="pb-2 text-center ${g}" title="By close date (by create date in brackets)">Revenue</th>
+      <th class="pb-2 text-right ${g}" title="By close date (by create date in brackets)">Revenue</th>
       <th class="pb-2 text-center ${g}">AOV</th>
   `;
   function summaryRow(label, hmCost, f) {
@@ -752,7 +753,7 @@ function renderInboundSummary(weeks) {
       <td class="py-2.5 text-center text-as-muted">${m2s}</td>
       <td class="py-2.5 text-center text-as-secondary ${g}">${fmt.number(f.wonClose)} <span class="text-as-muted">(${fmt.number(f.won)})</span></td>
       <td class="py-2.5 text-center text-as-muted">${s2w}</td>
-      <td class="py-2.5 text-center font-semibold ${g}">${fmt.currency(f.wonRevClose)} <span class="text-as-muted font-normal">(${fmt.currency(f.wonRev)})</span></td>
+      <td class="py-2.5 text-right font-semibold ${g}">${fmt.currency(f.wonRevClose)} <span class="text-as-muted font-normal">(${fmt.currency(f.wonRev)})</span></td>
       <td class="py-2.5 text-center text-as-secondary ${g}">${aov}</td>
     </tr>`;
   }
@@ -797,7 +798,7 @@ function renderSelfServeSummary(weeks) {
       <th class="pb-2">Month</th>
       <th class="pb-2 text-center">MM Spend</th>
       <th class="pb-2 text-center">Payments</th>
-      <th class="pb-2 text-center">Revenue</th>
+      <th class="pb-2 text-right">Revenue</th>
       <th class="pb-2 text-center">New Subs</th>
       <th class="pb-2 text-center">Active Subs</th>
     `;
@@ -816,7 +817,7 @@ function renderSelfServeSummary(weeks) {
         <td class="py-2.5 font-semibold text-sm">${fmt.monthLabel(month)}</td>
         <td class="py-2.5 text-center text-as-secondary">${fmt.currency(mmCost)}</td>
         <td class="py-2.5 text-center text-as-secondary">${fmt.number(payments)}</td>
-        <td class="py-2.5 text-center font-semibold">${fmt.currency(revenue)}</td>
+        <td class="py-2.5 text-right font-semibold">${fmt.currency(revenue)}</td>
         <td class="py-2.5 text-center text-as-secondary">${fmt.number(newSubs)}</td>
         <td class="py-2.5 text-center text-as-muted">-</td>
       </tr>`;
@@ -826,7 +827,7 @@ function renderSelfServeSummary(weeks) {
       <th class="pb-2">Week</th>
       <th class="pb-2 text-center">MM Spend</th>
       <th class="pb-2 text-center">Payments</th>
-      <th class="pb-2 text-center">Revenue</th>
+      <th class="pb-2 text-right">Revenue</th>
       <th class="pb-2 text-center">New Subs</th>
     `;
     body.innerHTML = weeks.map(w => {
@@ -840,7 +841,7 @@ function renderSelfServeSummary(weeks) {
         <td class="py-2.5 font-semibold text-sm">${fmt.shortDate(w)}</td>
         <td class="py-2.5 text-center text-as-secondary">${fmt.currency(mmCost)}</td>
         <td class="py-2.5 text-center text-as-secondary">${fmt.number(payments)}</td>
-        <td class="py-2.5 text-center font-semibold">${fmt.currency(revenue)}</td>
+        <td class="py-2.5 text-right font-semibold">${fmt.currency(revenue)}</td>
         <td class="py-2.5 text-center text-as-secondary">${fmt.number(newSubs)}</td>
       </tr>`;
     }).join('');
@@ -942,12 +943,10 @@ function populateInboundFilters() {
   const countryCounts = {};
   for (const d of deals) { if (d.country) countryCounts[d.country] = (countryCounts[d.country] || 0) + 1; }
   const countries = Object.keys(countryCounts).sort((a, b) => countryCounts[b] - countryCounts[a]);
-  const topCountries = countries.slice(0, 4);
-  const moreCountries = countries.slice(4);
   const countryEl = document.getElementById('inbCountryFilter');
   countryEl.innerHTML = '<option value="all">All Countries</option><option value="DACH">DACH (DE+AT+CH)</option>' +
-    topCountries.map(c => `<option value="${c}">${c}</option>`).join('') +
-    (moreCountries.length ? '<optgroup label="More">' + moreCountries.map(c => `<option value="${c}">${c}</option>`).join('') + '<option value="Other">Other</option></optgroup>' : '<option value="Other">Other</option>');
+    countries.map(c => `<option value="${c}">${c}</option>`).join('') +
+    '<option value="Other">Other</option>';
 }
 
 function onInboundFilterChange() {
@@ -1141,7 +1140,7 @@ function renderProductTable(deals, closedDeals, forms) {
       <td class="py-1.5 text-center text-as-secondary ${cls}">${fmt.number(t.mqls)}</td>
       <td class="py-1.5 text-center text-as-secondary ${cls}">${fmt.number(t.sqls)}</td>
       <td class="py-1.5 text-center text-as-secondary ${cls}">${fmt.number(ct.won)} <span class="text-as-muted">(${fmt.number(t.won)})</span></td>
-      <td class="py-1.5 text-center font-semibold ${cls}">${fmt.currency(ct.wonRevenue)} <span class="text-as-muted font-normal">(${fmt.currency(t.wonRevenue)})</span></td>`;
+      <td class="py-1.5 text-right font-semibold ${cls}">${fmt.currency(ct.wonRevenue)} <span class="text-as-muted font-normal">(${fmt.currency(t.wonRevenue)})</span></td>`;
   }
 
   // Count leads by product from GA4 forms
@@ -1243,7 +1242,7 @@ function renderProductTable(deals, closedDeals, forms) {
     <td class="py-2 text-center font-bold text-sm">${fmt.number(total.mqls)}</td>
     <td class="py-2 text-center font-bold text-sm">${fmt.number(total.sqls)}</td>
     <td class="py-2 text-center font-bold text-sm">${fmt.number(closeTotal.won)} <span class="font-normal text-as-muted">(${fmt.number(total.won)})</span></td>
-    <td class="py-2 text-center font-bold text-sm">${fmt.currency(closeTotal.wonRevenue)} <span class="font-normal text-as-muted">(${fmt.currency(total.wonRevenue)})</span></td>
+    <td class="py-2 text-right font-bold text-sm">${fmt.currency(closeTotal.wonRevenue)} <span class="font-normal text-as-muted">(${fmt.currency(total.wonRevenue)})</span></td>
   </tr>`;
   document.querySelector('#productTable tbody').innerHTML = html;
 }
@@ -1279,25 +1278,52 @@ function renderBreakdownTable(deals, closedDeals, tableId, keyFn) {
   const keys = Object.keys(totals).sort((a, b) => totals[b].mqls - totals[a].mqls);
   const sum = { mqls: 0, sqls: 0, won: 0, wonRevenue: 0, wonClose: 0, wonRevClose: 0 };
   for (const k of keys) { sum.mqls += totals[k].mqls; sum.sqls += totals[k].sqls; sum.won += totals[k].won; sum.wonRevenue += totals[k].wonRevenue; sum.wonClose += totals[k].wonClose; sum.wonRevClose += totals[k].wonRevClose; }
-  document.querySelector(`#${tableId} tbody`).innerHTML = keys.map(k => {
+
+  const isGeo = tableId === 'geoTable';
+  const SHOW_LIMIT = 4;
+
+  const rows = keys.map((k, i) => {
     const d = totals[k];
-    return `<tr class="border-b border-as-border/40 hover-row">
+    const extra = (isGeo && i >= SHOW_LIMIT) ? ' geo-extra-row hidden' : '';
+    return `<tr class="border-b border-as-border/40 hover-row${extra}">
       <td class="py-2 font-medium text-sm">${k}</td>
       <td class="py-2 text-center text-as-secondary">${fmt.number(d.mqls)}</td>
       <td class="py-2 text-center text-as-secondary">${fmt.number(d.sqls)}</td>
       <td class="py-2 text-center text-as-secondary">${fmt.number(d.wonClose)} <span class="text-as-muted">(${fmt.number(d.won)})</span></td>
-      <td class="py-2 text-center font-semibold">${fmt.currency(d.wonRevClose)} <span class="text-as-muted font-normal">(${fmt.currency(d.wonRevenue)})</span></td>
+      <td class="py-2 text-right font-semibold">${fmt.currency(d.wonRevClose)} <span class="text-as-muted font-normal">(${fmt.currency(d.wonRevenue)})</span></td>
     </tr>`;
   }).join('');
-  document.getElementById(`${tableId}Total`).innerHTML = `<table class="w-full">
-    <tr class="border-t-2 border-as-border">
-      <td class="py-2 font-bold text-sm">Total</td>
-      <td class="py-2 text-center font-bold text-sm">${fmt.number(sum.mqls)}</td>
-      <td class="py-2 text-center font-bold text-sm">${fmt.number(sum.sqls)}</td>
-      <td class="py-2 text-center font-bold text-sm">${fmt.number(sum.wonClose)} <span class="font-normal text-as-muted">(${fmt.number(sum.won)})</span></td>
-      <td class="py-2 text-center font-bold text-sm">${fmt.currency(sum.wonRevClose)} <span class="font-normal text-as-muted">(${fmt.currency(sum.wonRevenue)})</span></td>
-    </tr>
-  </table>`;
+
+  const showMore = (isGeo && keys.length > SHOW_LIMIT)
+    ? `<tr class="geo-show-more border-b border-as-border/40 cursor-pointer hover-row" onclick="toggleGeoShowMore()">
+        <td colspan="5" class="py-2 text-center text-as-primary text-sm font-semibold">Show ${keys.length - SHOW_LIMIT} more countries <svg class="inline w-3 h-3 ml-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></td>
+      </tr>` : '';
+
+  const totalRow = `<tr class="border-t-2 border-as-border">
+    <td class="py-2 font-bold text-sm">Total</td>
+    <td class="py-2 text-center font-bold text-sm">${fmt.number(sum.mqls)}</td>
+    <td class="py-2 text-center font-bold text-sm">${fmt.number(sum.sqls)}</td>
+    <td class="py-2 text-center font-bold text-sm">${fmt.number(sum.wonClose)} <span class="font-normal text-as-muted">(${fmt.number(sum.won)})</span></td>
+    <td class="py-2 text-right font-bold text-sm">${fmt.currency(sum.wonRevClose)} <span class="font-normal text-as-muted">(${fmt.currency(sum.wonRevenue)})</span></td>
+  </tr>`;
+
+  document.querySelector(`#${tableId} tbody`).innerHTML = rows + showMore + totalRow;
+  document.getElementById(`${tableId}Total`).innerHTML = '';
+}
+
+function toggleGeoShowMore() {
+  const rows = document.querySelectorAll('.geo-extra-row');
+  const btn = document.querySelector('.geo-show-more');
+  const isHidden = rows[0]?.classList.contains('hidden');
+  rows.forEach(r => r.classList.toggle('hidden'));
+  if (btn) {
+    const td = btn.querySelector('td');
+    if (isHidden) {
+      td.innerHTML = 'Show fewer <svg class="inline w-3 h-3 ml-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>';
+    } else {
+      td.innerHTML = `Show ${rows.length} more countries <svg class="inline w-3 h-3 ml-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>`;
+    }
+  }
 }
 
 // ===== GOOGLE ADS =====
