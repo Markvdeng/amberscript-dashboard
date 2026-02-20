@@ -1266,10 +1266,12 @@ function getFilteredDeals(weekSet) {
 
 function getFilteredForms(weekSet) {
   const bu = getCurrentBU();
+  const product = document.getElementById('inbProductFilter').value;
   const country = document.getElementById('inbCountryFilter').value;
   return (DATA.ga4Forms || []).filter(f => {
     if (!weekSet.has(f.week)) return false;
     if (f.bu && f.bu !== bu) return false;
+    if (product !== 'all' && f.product !== product) return false;
     if (!matchCountry(f.country, country)) return false;
     return true;
   });
