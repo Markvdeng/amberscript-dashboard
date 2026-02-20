@@ -345,6 +345,7 @@ function main() {
   // === DEAL-LEVEL DATA (for client-side filtering) ===
   const deals = hubspotDeals.map(d => ({
     week: d.createWeek,
+    closeWeek: d.closeWeek || '',
     product: d.product || '',
     bu: getBU(d.product),
     transcriptionStyle: d.transcriptionStyle || '',
