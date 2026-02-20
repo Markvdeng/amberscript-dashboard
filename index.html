@@ -1152,6 +1152,10 @@ function renderProductTable(deals) {
       }
     }
   }
+  const total = tally(deals);
+  html += `<tr class="border-t-2 border-as-border">
+    <td class="py-2 text-sm font-bold">Total</td>${cells(total, 'sm')}
+  </tr>`;
   document.querySelector('#productTable tbody').innerHTML = html;
 }
 
@@ -1178,6 +1182,8 @@ function renderBreakdownTable(deals, tableId, keyFn) {
     if (d.status === 'Won') { totals[key].won++; totals[key].wonRevenue += d.amount || 0; }
   }
   const keys = Object.keys(totals).sort((a, b) => totals[b].mqls - totals[a].mqls);
+  const sum = { mqls: 0, sqls: 0, won: 0, wonRevenue: 0 };
+  for (const k of keys) { sum.mqls += totals[k].mqls; sum.sqls += totals[k].sqls; sum.won += totals[k].won; sum.wonRevenue += totals[k].wonRevenue; }
   document.querySelector(`#${tableId} tbody`).innerHTML = keys.map(k => {
     const d = totals[k];
     return `<tr class="border-b border-as-border/40 hover-row">
@@ -1187,7 +1193,13 @@ function renderBreakdownTable(deals, tableId, keyFn) {
       <td class="py-2 text-right text-as-secondary">${fmt.number(d.won)}</td>
       <td class="py-2 text-right font-semibold">${fmt.currency(d.wonRevenue)}</td>
     </tr>`;
-  }).join('');
+  }).join('') + `<tr class="border-t-2 border-as-border">
+    <td class="py-2 font-bold text-sm">Total</td>
+    <td class="py-2 text-right font-bold text-sm">${fmt.number(sum.mqls)}</td>
+    <td class="py-2 text-right font-bold text-sm">${fmt.number(sum.sqls)}</td>
+    <td class="py-2 text-right font-bold text-sm">${fmt.number(sum.won)}</td>
+    <td class="py-2 text-right font-bold text-sm">${fmt.currency(sum.wonRevenue)}</td>
+  </tr>`;
 }
 
 // ===== GOOGLE ADS =====
