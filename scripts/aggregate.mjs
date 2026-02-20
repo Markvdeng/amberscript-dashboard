@@ -266,7 +266,7 @@ function main() {
     for (const r of rows) {
       addTo(byPlanType, r.planType, r);
       addTo(byProduct, r.product, r);
-      if (r.country) addTo(byCountry, r.country, r);
+      addTo(byCountry, r.country || 'Unknown', r);
       addTo(byCurrency, r.currency, r);
       addTo(byChannel, r.channel, r);
     }
