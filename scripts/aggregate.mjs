@@ -1,12 +1,22 @@
 /**
  * Aggregate all raw data sources into data.json for the dashboard.
  * Reads from raw/ directory, outputs data.json at project root.
+ *
+ * Data sources:
+ *   - Google Ads: cost per campaign per week (with country, product, userType)
+ *   - HubSpot: deals with lifecycle stages (MQL, SQL, Customer)
+ *   - GA4: form submissions (generate_lead) + purchases
+ *   - Stripe: charges with plan type, product, country
+ *
+ * Joins:
+ *   - HubSpot deal.formId → GA4 formSubmission.formId → channel attribution
+ *   - Stripe charge.paymentIdentifier/uploadBatchId → GA4 purchase.transactionId → channel attribution
  */
 
 import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { getMonth, getWeekStart } from './utils.mjs';
+import { getMonth } from './utils.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -15,20 +25,14 @@ const RAW = join(ROOT, 'raw');
 function loadRaw(file) {
   const path = join(RAW, file);
   if (!existsSync(path)) {
-    console.warn(`Missing raw/${file}, using empty array`);
-    return [];
+    console.warn(`  Missing raw/${file}, using empty`);
+    return null;
   }
   return JSON.parse(readFileSync(path, 'utf8'));
 }
 
-function sumBy(arr, keyFn, valueFn) {
-  const map = {};
-  for (const item of arr) {
-    const key = keyFn(item);
-    if (!map[key]) map[key] = 0;
-    map[key] += valueFn(item);
-  }
-  return map;
+function round(n, decimals = 2) {
+  return Math.round(n * Math.pow(10, decimals)) / Math.pow(10, decimals);
 }
 
 function groupBy(arr, keyFn) {
@@ -41,129 +45,213 @@ function groupBy(arr, keyFn) {
   return map;
 }
 
-function round(n, decimals = 2) {
-  return Math.round(n * Math.pow(10, decimals)) / Math.pow(10, decimals);
+function inc(obj, key, field, val = 1) {
+  if (!obj[key]) obj[key] = { count: 0, revenue: 0, leads: 0, sqls: 0, won: 0, wonRevenue: 0 };
+  obj[key][field] += val;
 }
 
 function main() {
   console.log('Aggregating data...');
 
-  // Load raw data
-  const googleAds = loadRaw('google-ads.json');
-  const stripeCharges = loadRaw('stripe-charges.json');
-  const stripeSubs = loadRaw('stripe-subs.json');
-  const hubspotDeals = loadRaw('hubspot-deals.json');
-  const ga4Raw = loadRaw('ga4.json');
+  // === LOAD RAW DATA ===
+  const googleAds = loadRaw('google-ads.json') || [];
+  const stripeCharges = loadRaw('stripe-charges.json') || [];
+  const hubspotDeals = loadRaw('hubspot-deals.json') || [];
+  const ga4Raw = loadRaw('ga4.json') || { formSubmissions: [], purchases: [] };
   const ga4 = Array.isArray(ga4Raw) ? { formSubmissions: [], purchases: [] } : ga4Raw;
+  const formSubmissions = ga4.formSubmissions || [];
+  const ga4Purchases = ga4.purchases || [];
 
-  // Collect all weeks
+  console.log(`  Google Ads: ${googleAds.length} rows`);
+  console.log(`  Stripe: ${stripeCharges.length} charges`);
+  console.log(`  HubSpot: ${hubspotDeals.length} deals`);
+  console.log(`  GA4: ${formSubmissions.length} form submissions, ${ga4Purchases.length} purchases`);
+
+  // === BUILD LOOKUP TABLES ===
+
+  // GA4 formId → channel (take the most common channel per formId)
+  const formChannelMap = {};
+  for (const f of formSubmissions) {
+    if (!f.formId) continue;
+    if (!formChannelMap[f.formId]) formChannelMap[f.formId] = {};
+    formChannelMap[f.formId][f.channel] = (formChannelMap[f.formId][f.channel] || 0) + f.count;
+  }
+  const formToChannel = {};
+  for (const [formId, channels] of Object.entries(formChannelMap)) {
+    formToChannel[formId] = Object.entries(channels).sort((a, b) => b[1] - a[1])[0][0];
+  }
+
+  // GA4 purchase transactionId → { channel, campaign }
+  const txLookup = {};
+  for (const p of ga4Purchases) {
+    if (p.transactionId) {
+      txLookup[p.transactionId] = { channel: p.channel, campaign: p.campaign };
+    }
+  }
+
+  // Enrich HubSpot deals with channel from GA4
+  for (const deal of hubspotDeals) {
+    deal.channel = deal.formId ? (formToChannel[deal.formId] || 'Unknown') : 'Unknown';
+  }
+
+  // Classify Stripe charges (handle both old and new raw format)
+  for (const charge of stripeCharges) {
+    // If old format (has metadata object but no planType), derive fields
+    if (!charge.planType && charge.metadata) {
+      const meta = charge.metadata;
+      const desc = charge.description || '';
+      const countryKey = Object.keys(meta).find(k => /^P1_[A-Z]{2}_\d+$/.test(k));
+      charge.country = charge.country || (countryKey ? countryKey.split('_')[1] : '');
+      charge.product = charge.product || (meta.jobType === 'perfect' ? 'Human-Made' : 'Machine-Made');
+      charge.planType = /subscription/i.test(desc) ? 'Subscription' : /invoice/i.test(desc) ? 'Invoice' : 'Prepaid';
+      if (charge.planType === 'Subscription') {
+        charge.planSubtype = /creation/i.test(desc) ? 'Creation' : 'Update';
+      } else if (charge.planType === 'Prepaid') {
+        charge.planSubtype = meta.uploadBatchId === 'addCredit' ? 'Top-Up' : 'Job Creation';
+      }
+      charge.paymentIdentifier = charge.paymentIdentifier || meta.paymentIdentifier || '';
+      charge.uploadBatchId = charge.uploadBatchId || meta.uploadBatchId || '';
+    }
+  }
+
+  // Enrich Stripe charges with channel from GA4 purchases
+  let stripeMatched = 0;
+  for (const charge of stripeCharges) {
+    const payId = charge.paymentIdentifier || '';
+    const upId = charge.uploadBatchId || '';
+    let match = null;
+    if (payId && txLookup[payId]) {
+      match = txLookup[payId];
+    } else if (upId && upId !== 'addCredit' && txLookup[upId]) {
+      match = txLookup[upId];
+    }
+    if (match) {
+      charge.channel = match.channel;
+      charge.campaign = match.campaign;
+      stripeMatched++;
+    } else {
+      charge.channel = charge.planType === 'Subscription' ? 'Subscription' : 'Unknown';
+      charge.campaign = '';
+    }
+  }
+  console.log(`  Stripe→GA4 matched: ${stripeMatched}/${stripeCharges.length}`);
+
+  // === COLLECT ALL WEEKS ===
   const allWeeks = new Set();
   googleAds.forEach(r => allWeeks.add(r.week));
   stripeCharges.forEach(r => allWeeks.add(r.week));
-  stripeSubs.forEach(r => allWeeks.add(r.week));
-  hubspotDeals.forEach(r => { if (r.week) allWeeks.add(r.week); });
-  (ga4.formSubmissions || []).forEach(r => { if (r.week) allWeeks.add(r.week); });
-  (ga4.purchases || []).forEach(r => { if (r.week) allWeeks.add(r.week); });
-
+  hubspotDeals.forEach(r => { if (r.createWeek) allWeeks.add(r.createWeek); });
+  formSubmissions.forEach(r => { if (r.week) allWeeks.add(r.week); });
+  ga4Purchases.forEach(r => { if (r.week) allWeeks.add(r.week); });
   const weeks = [...allWeeks].sort();
 
-  // === WEEKLY DATA ===
-
-  // Google Ads: weekly cost by productType
+  // === WEEKLY: GOOGLE ADS ===
   const adsByWeek = groupBy(googleAds, r => r.week);
   const weeklyAds = weeks.map(week => {
     const rows = adsByWeek[week] || [];
     const totalCost = rows.reduce((s, r) => s + r.cost, 0);
-    const mmCost = rows.filter(r => r.productType === 'Machine-Made').reduce((s, r) => s + r.cost, 0);
-    const hmCost = rows.filter(r => r.productType === 'Human-Made').reduce((s, r) => s + r.cost, 0);
-    const notesCost = rows.filter(r => r.productType === 'AmberNotes').reduce((s, r) => s + r.cost, 0);
-    const totalClicks = rows.reduce((s, r) => s + r.clicks, 0);
-    const totalConversions = rows.reduce((s, r) => s + r.conversions, 0);
-    return { week, totalCost: round(totalCost), mmCost: round(mmCost), hmCost: round(hmCost), notesCost: round(notesCost), clicks: totalClicks, conversions: round(totalConversions) };
-  });
+    const mmCost = rows.filter(r => r.userType === 'Machine-Made').reduce((s, r) => s + r.cost, 0);
+    const hmCost = rows.filter(r => r.userType === 'Human-Made').reduce((s, r) => s + r.cost, 0);
+    const brandCost = rows.filter(r => r.campaignType === 'Brand').reduce((s, r) => s + r.cost, 0);
 
-  // HubSpot: weekly funnel by channel and geo
-  const dealsByWeek = groupBy(hubspotDeals, r => r.week);
-  const weeklyFunnel = weeks.map(week => {
-    const rows = dealsByWeek[week] || [];
-    const leads = rows.filter(r => ['lead', 'MQL', 'SQL', 'closed-won', 'closed-lost'].includes(r.stage)).length;
-    const mqls = rows.filter(r => ['MQL', 'SQL', 'closed-won', 'closed-lost'].includes(r.stage)).length;
-    const sqls = rows.filter(r => ['SQL', 'closed-won', 'closed-lost'].includes(r.stage)).length;
-    const closedWon = rows.filter(r => r.stage === 'closed-won').length;
-    const closedRevenue = rows.filter(r => r.stage === 'closed-won').reduce((s, r) => s + r.amount, 0);
-
-    // By channel
-    const channels = {};
+    const byCountry = {};
     for (const r of rows) {
-      if (!channels[r.channel]) channels[r.channel] = { leads: 0, mqls: 0, sqls: 0, deals: 0, revenue: 0 };
-      channels[r.channel].leads++;
-      if (['MQL', 'SQL', 'closed-won', 'closed-lost'].includes(r.stage)) channels[r.channel].mqls++;
-      if (['SQL', 'closed-won', 'closed-lost'].includes(r.stage)) channels[r.channel].sqls++;
-      if (r.stage === 'closed-won') {
-        channels[r.channel].deals++;
-        channels[r.channel].revenue += r.amount;
-      }
+      byCountry[r.country] = (byCountry[r.country] || 0) + r.cost;
     }
-
-    // By geo
-    const geos = {};
+    const byProduct = {};
     for (const r of rows) {
-      if (!geos[r.geo]) geos[r.geo] = { leads: 0, mqls: 0, sqls: 0, deals: 0, revenue: 0 };
-      geos[r.geo].leads++;
-      if (['MQL', 'SQL', 'closed-won', 'closed-lost'].includes(r.stage)) geos[r.geo].mqls++;
-      if (['SQL', 'closed-won', 'closed-lost'].includes(r.stage)) geos[r.geo].sqls++;
-      if (r.stage === 'closed-won') {
-        geos[r.geo].deals++;
-        geos[r.geo].revenue += r.amount;
-      }
+      byProduct[r.product] = (byProduct[r.product] || 0) + r.cost;
     }
 
     return {
-      week, leads, mqls, sqls, closedWon, closedRevenue: round(closedRevenue),
-      byChannel: channels, byGeo: geos,
+      week,
+      totalCost: round(totalCost),
+      mmCost: round(mmCost),
+      hmCost: round(hmCost),
+      brandCost: round(brandCost),
+      byCountry: Object.fromEntries(Object.entries(byCountry).map(([k, v]) => [k, round(v)])),
+      byProduct: Object.fromEntries(Object.entries(byProduct).map(([k, v]) => [k, round(v)])),
     };
   });
 
-  // Stripe charges: weekly by type
+  // === WEEKLY: HUBSPOT FUNNEL ===
+  // Lifecycle: MQL → SQL → Customer. All deals are at least leads.
+  // SQLs = lifecycleStage in [SQL, Customer]
+  // Won = status === 'Won'
+  const dealsByWeek = groupBy(hubspotDeals, r => r.createWeek);
+  const weeklyFunnel = weeks.map(week => {
+    const rows = dealsByWeek[week] || [];
+    const leads = rows.length;
+    const sqls = rows.filter(r => ['SQL', 'Customer'].includes(r.lifecycleStage)).length;
+    const won = rows.filter(r => r.status === 'Won').length;
+    const wonRevenue = rows.filter(r => r.status === 'Won').reduce((s, r) => s + (r.amount || 0), 0);
+
+    const byChannel = {};
+    const byCountry = {};
+    for (const r of rows) {
+      const ch = r.channel || 'Unknown';
+      if (!byChannel[ch]) byChannel[ch] = { leads: 0, sqls: 0, won: 0, wonRevenue: 0 };
+      byChannel[ch].leads++;
+      if (['SQL', 'Customer'].includes(r.lifecycleStage)) byChannel[ch].sqls++;
+      if (r.status === 'Won') { byChannel[ch].won++; byChannel[ch].wonRevenue += r.amount || 0; }
+
+      // Country from form name (e.g. RequestQuote-nl → NL)
+      const lang = r.formId ? r.formId.match(/-([a-z]{2})_/)?.[1]?.toUpperCase() : '';
+      const country = lang || 'Unknown';
+      if (!byCountry[country]) byCountry[country] = { leads: 0, sqls: 0, won: 0, wonRevenue: 0 };
+      byCountry[country].leads++;
+      if (['SQL', 'Customer'].includes(r.lifecycleStage)) byCountry[country].sqls++;
+      if (r.status === 'Won') { byCountry[country].won++; byCountry[country].wonRevenue += r.amount || 0; }
+    }
+
+    return {
+      week, leads, sqls, won, wonRevenue: round(wonRevenue),
+      byChannel: roundObj(byChannel),
+      byCountry: roundObj(byCountry),
+    };
+  });
+
+  // === WEEKLY: STRIPE ===
   const chargesByWeek = groupBy(stripeCharges, r => r.week);
   const weeklyStripe = weeks.map(week => {
     const rows = chargesByWeek[week] || [];
     const totalRevenue = rows.reduce((s, r) => s + r.amount, 0);
-    const byType = {};
-    for (const r of rows) {
-      if (!byType[r.type]) byType[r.type] = { count: 0, revenue: 0 };
-      byType[r.type].count++;
-      byType[r.type].revenue += r.amount;
-    }
+
+    const byPlanType = {};
+    const byProduct = {};
+    const byCountry = {};
     const byCurrency = {};
+    const byChannel = {};
+
     for (const r of rows) {
-      if (!byCurrency[r.currency]) byCurrency[r.currency] = { count: 0, revenue: 0 };
-      byCurrency[r.currency].count++;
-      byCurrency[r.currency].revenue += r.amount;
+      addTo(byPlanType, r.planType, r);
+      addTo(byProduct, r.product, r);
+      if (r.country) addTo(byCountry, r.country, r);
+      addTo(byCurrency, r.currency, r);
+      addTo(byChannel, r.channel, r);
     }
-    return { week, totalRevenue: round(totalRevenue), count: rows.length, byType, byCurrency };
+
+    return {
+      week, totalRevenue: round(totalRevenue), count: rows.length,
+      byPlanType: roundCountRev(byPlanType),
+      byProduct: roundCountRev(byProduct),
+      byCountry: roundCountRev(byCountry),
+      byCurrency: roundCountRev(byCurrency),
+      byChannel: roundCountRev(byChannel),
+    };
   });
 
-  // Stripe subscriptions: weekly by plan
-  const subsByWeek = groupBy(stripeSubs, r => r.week);
-  const weeklySubs = weeks.map(week => {
-    const rows = subsByWeek[week] || [];
-    const monthly = rows.filter(r => r.planType === 'monthly').length;
-    const yearly = rows.filter(r => r.planType === 'yearly').length;
-    return { week, total: rows.length, monthly, yearly };
-  });
-
-  // GA4: weekly form submissions and purchases
-  const formsByWeek = groupBy(ga4.formSubmissions || [], r => r.week);
-  const purchasesByWeek = groupBy(ga4.purchases || [], r => r.week);
+  // === WEEKLY: GA4 ===
+  const formsByWeek = groupBy(formSubmissions, r => r.week);
+  const purchasesByWeek = groupBy(ga4Purchases, r => r.week);
   const weeklyGA4 = weeks.map(week => {
     const forms = formsByWeek[week] || [];
     const purchases = purchasesByWeek[week] || [];
     return {
       week,
       formSubmissions: forms.reduce((s, r) => s + r.count, 0),
-      purchases: purchases.reduce((s, r) => s + r.count, 0),
-      purchaseValue: round(purchases.reduce((s, r) => s + r.value, 0)),
+      purchases: purchases.reduce((s, r) => s + r.transactions, 0),
+      purchaseRevenue: round(purchases.reduce((s, r) => s + r.revenue, 0)),
     };
   });
 
@@ -175,68 +263,92 @@ function main() {
     // Ads
     const adRows = monthWeeks.flatMap(w => adsByWeek[w] || []);
     const adsCost = round(adRows.reduce((s, r) => s + r.cost, 0));
-    const mmCost = round(adRows.filter(r => r.productType === 'Machine-Made').reduce((s, r) => s + r.cost, 0));
-    const hmCost = round(adRows.filter(r => r.productType === 'Human-Made').reduce((s, r) => s + r.cost, 0));
+    const mmCost = round(adRows.filter(r => r.userType === 'Machine-Made').reduce((s, r) => s + r.cost, 0));
+    const hmCost = round(adRows.filter(r => r.userType === 'Human-Made').reduce((s, r) => s + r.cost, 0));
+    const brandCost = round(adRows.filter(r => r.campaignType === 'Brand').reduce((s, r) => s + r.cost, 0));
 
     // Funnel
     const dealRows = monthWeeks.flatMap(w => dealsByWeek[w] || []);
-    const leads = dealRows.filter(r => ['lead', 'MQL', 'SQL', 'closed-won', 'closed-lost'].includes(r.stage)).length;
-    const mqls = dealRows.filter(r => ['MQL', 'SQL', 'closed-won', 'closed-lost'].includes(r.stage)).length;
-    const sqls = dealRows.filter(r => ['SQL', 'closed-won', 'closed-lost'].includes(r.stage)).length;
-    const closedWon = dealRows.filter(r => r.stage === 'closed-won').length;
-    const closedRevenue = round(dealRows.filter(r => r.stage === 'closed-won').reduce((s, r) => s + r.amount, 0));
+    const leads = dealRows.length;
+    const sqls = dealRows.filter(r => ['SQL', 'Customer'].includes(r.lifecycleStage)).length;
+    const won = dealRows.filter(r => r.status === 'Won').length;
+    const wonRevenue = round(dealRows.filter(r => r.status === 'Won').reduce((s, r) => s + (r.amount || 0), 0));
 
     // Conversion rates
-    const leadToMql = leads > 0 ? round(mqls / leads * 100, 1) : 0;
-    const mqlToSql = mqls > 0 ? round(sqls / mqls * 100, 1) : 0;
-    const mqlToDeal = mqls > 0 ? round(closedWon / mqls * 100, 1) : 0;
-    const sqlToDeal = sqls > 0 ? round(closedWon / sqls * 100, 1) : 0;
+    const leadToSql = leads > 0 ? round(sqls / leads * 100, 1) : 0;
+    const sqlToWon = sqls > 0 ? round(won / sqls * 100, 1) : 0;
 
     // Stripe
     const chargeRows = monthWeeks.flatMap(w => chargesByWeek[w] || []);
     const stripeRevenue = round(chargeRows.reduce((s, r) => s + r.amount, 0));
 
-    // Deal AOV
-    const dealAOV = closedWon > 0 ? round(closedRevenue / closedWon) : 0;
+    // GA4
+    const formRows = monthWeeks.flatMap(w => formsByWeek[w] || []);
+    const formSubs = formRows.reduce((s, r) => s + r.count, 0);
 
     return {
-      month, adsCost, mmCost, hmCost,
-      leads, mqls, sqls, closedWon, closedRevenue,
-      leadToMql, mqlToSql, mqlToDeal, sqlToDeal,
-      stripeRevenue, dealAOV,
+      month, adsCost, mmCost, hmCost, brandCost,
+      leads, sqls, won, wonRevenue,
+      leadToSql, sqlToWon,
+      stripeRevenue, formSubmissions: formSubs,
     };
   });
 
-  // === KPIs (totals across all time) ===
-  const totalLeads = hubspotDeals.filter(r => ['lead', 'MQL', 'SQL', 'closed-won', 'closed-lost'].includes(r.stage)).length;
-  const totalMQLs = hubspotDeals.filter(r => ['MQL', 'SQL', 'closed-won', 'closed-lost'].includes(r.stage)).length;
-  const totalSQLs = hubspotDeals.filter(r => ['SQL', 'closed-won', 'closed-lost'].includes(r.stage)).length;
-  const totalDeals = hubspotDeals.filter(r => r.stage === 'closed-won').length;
-  const totalDealRevenue = round(hubspotDeals.filter(r => r.stage === 'closed-won').reduce((s, r) => s + r.amount, 0));
+  // === KPIs ===
+  const totalLeads = hubspotDeals.length;
+  const totalSQLs = hubspotDeals.filter(r => ['SQL', 'Customer'].includes(r.lifecycleStage)).length;
+  const totalWon = hubspotDeals.filter(r => r.status === 'Won').length;
+  const totalDealRevenue = round(hubspotDeals.filter(r => r.status === 'Won').reduce((s, r) => s + (r.amount || 0), 0));
   const totalStripeRevenue = round(stripeCharges.reduce((s, r) => s + r.amount, 0));
   const totalAdsCost = round(googleAds.reduce((s, r) => s + r.cost, 0));
   const roas = totalAdsCost > 0 ? round(totalStripeRevenue / totalAdsCost, 2) : 0;
+  const totalFormSubmissions = formSubmissions.reduce((s, r) => s + r.count, 0);
 
   // === BUILD OUTPUT ===
   const output = {
     updatedAt: new Date().toISOString(),
     dateRange: { start: weeks[0] || '', end: weeks[weeks.length - 1] || '' },
     kpis: {
-      totalLeads, totalMQLs, totalSQLs, totalDeals,
+      totalLeads, totalSQLs, totalWon,
       totalDealRevenue, totalStripeRevenue, totalAdsCost, roas,
+      totalFormSubmissions,
     },
     monthly: monthlyData,
     weekly: {
       ads: weeklyAds,
       funnel: weeklyFunnel,
       stripe: weeklyStripe,
-      subscriptions: weeklySubs,
       ga4: weeklyGA4,
     },
   };
 
   writeFileSync(join(ROOT, 'data.json'), JSON.stringify(output, null, 2));
   console.log(`data.json written: ${allMonths.length} months, ${weeks.length} weeks`);
+}
+
+// Helper: add count/revenue to a bucket
+function addTo(obj, key, charge) {
+  if (!obj[key]) obj[key] = { count: 0, revenue: 0 };
+  obj[key].count++;
+  obj[key].revenue += charge.amount;
+}
+
+// Helper: round revenue in { count, revenue } objects
+function roundCountRev(obj) {
+  const out = {};
+  for (const [k, v] of Object.entries(obj)) {
+    out[k] = { count: v.count, revenue: round(v.revenue) };
+  }
+  return out;
+}
+
+// Helper: round wonRevenue in funnel breakdown objects
+function roundObj(obj) {
+  const out = {};
+  for (const [k, v] of Object.entries(obj)) {
+    out[k] = { ...v, wonRevenue: round(v.wonRevenue || 0) };
+  }
+  return out;
 }
 
 main();

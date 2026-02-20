@@ -1,3196 +1,1374 @@
 {
-  "updatedAt": "2026-02-19T20:31:01.978Z",
+  "updatedAt": "2026-02-19T21:44:16.189Z",
   "dateRange": {
-    "start": "2025-02-17",
+    "start": "2025-11-17",
     "end": "2026-02-16"
   },
   "kpis": {
-    "totalLeads": 0,
-    "totalMQLs": 0,
-    "totalSQLs": 0,
-    "totalDeals": 0,
-    "totalDealRevenue": 0,
-    "totalStripeRevenue": 237505.71,
-    "totalAdsCost": 0,
-    "roas": 0
+    "totalLeads": 241,
+    "totalSQLs": 201,
+    "totalWon": 71,
+    "totalDealRevenue": 81460.84,
+    "totalStripeRevenue": 237645.71,
+    "totalAdsCost": 38298.36,
+    "roas": 6.21,
+    "totalFormSubmissions": 637
   },
   "monthly": [
     {
-      "month": "2025-02",
-      "adsCost": 0,
-      "mmCost": 0,
-      "hmCost": 0,
-      "leads": 0,
-      "mqls": 0,
-      "sqls": 0,
-      "closedWon": 0,
-      "closedRevenue": 0,
-      "leadToMql": 0,
-      "mqlToSql": 0,
-      "mqlToDeal": 0,
-      "sqlToDeal": 0,
-      "stripeRevenue": 0,
-      "dealAOV": 0
-    },
-    {
-      "month": "2025-03",
-      "adsCost": 0,
-      "mmCost": 0,
-      "hmCost": 0,
-      "leads": 0,
-      "mqls": 0,
-      "sqls": 0,
-      "closedWon": 0,
-      "closedRevenue": 0,
-      "leadToMql": 0,
-      "mqlToSql": 0,
-      "mqlToDeal": 0,
-      "sqlToDeal": 0,
-      "stripeRevenue": 0,
-      "dealAOV": 0
-    },
-    {
-      "month": "2025-04",
-      "adsCost": 0,
-      "mmCost": 0,
-      "hmCost": 0,
-      "leads": 0,
-      "mqls": 0,
-      "sqls": 0,
-      "closedWon": 0,
-      "closedRevenue": 0,
-      "leadToMql": 0,
-      "mqlToSql": 0,
-      "mqlToDeal": 0,
-      "sqlToDeal": 0,
-      "stripeRevenue": 0,
-      "dealAOV": 0
-    },
-    {
-      "month": "2025-05",
-      "adsCost": 0,
-      "mmCost": 0,
-      "hmCost": 0,
-      "leads": 0,
-      "mqls": 0,
-      "sqls": 0,
-      "closedWon": 0,
-      "closedRevenue": 0,
-      "leadToMql": 0,
-      "mqlToSql": 0,
-      "mqlToDeal": 0,
-      "sqlToDeal": 0,
-      "stripeRevenue": 0,
-      "dealAOV": 0
-    },
-    {
-      "month": "2025-06",
-      "adsCost": 0,
-      "mmCost": 0,
-      "hmCost": 0,
-      "leads": 0,
-      "mqls": 0,
-      "sqls": 0,
-      "closedWon": 0,
-      "closedRevenue": 0,
-      "leadToMql": 0,
-      "mqlToSql": 0,
-      "mqlToDeal": 0,
-      "sqlToDeal": 0,
-      "stripeRevenue": 0,
-      "dealAOV": 0
-    },
-    {
-      "month": "2025-07",
-      "adsCost": 0,
-      "mmCost": 0,
-      "hmCost": 0,
-      "leads": 0,
-      "mqls": 0,
-      "sqls": 0,
-      "closedWon": 0,
-      "closedRevenue": 0,
-      "leadToMql": 0,
-      "mqlToSql": 0,
-      "mqlToDeal": 0,
-      "sqlToDeal": 0,
-      "stripeRevenue": 0,
-      "dealAOV": 0
-    },
-    {
-      "month": "2025-08",
-      "adsCost": 0,
-      "mmCost": 0,
-      "hmCost": 0,
-      "leads": 0,
-      "mqls": 0,
-      "sqls": 0,
-      "closedWon": 0,
-      "closedRevenue": 0,
-      "leadToMql": 0,
-      "mqlToSql": 0,
-      "mqlToDeal": 0,
-      "sqlToDeal": 0,
-      "stripeRevenue": 0,
-      "dealAOV": 0
-    },
-    {
-      "month": "2025-09",
-      "adsCost": 0,
-      "mmCost": 0,
-      "hmCost": 0,
-      "leads": 0,
-      "mqls": 0,
-      "sqls": 0,
-      "closedWon": 0,
-      "closedRevenue": 0,
-      "leadToMql": 0,
-      "mqlToSql": 0,
-      "mqlToDeal": 0,
-      "sqlToDeal": 0,
-      "stripeRevenue": 0,
-      "dealAOV": 0
-    },
-    {
-      "month": "2025-10",
-      "adsCost": 0,
-      "mmCost": 0,
-      "hmCost": 0,
-      "leads": 0,
-      "mqls": 0,
-      "sqls": 0,
-      "closedWon": 0,
-      "closedRevenue": 0,
-      "leadToMql": 0,
-      "mqlToSql": 0,
-      "mqlToDeal": 0,
-      "sqlToDeal": 0,
-      "stripeRevenue": 0,
-      "dealAOV": 0
-    },
-    {
       "month": "2025-11",
-      "adsCost": 0,
-      "mmCost": 0,
-      "hmCost": 0,
-      "leads": 0,
-      "mqls": 0,
-      "sqls": 0,
-      "closedWon": 0,
-      "closedRevenue": 0,
-      "leadToMql": 0,
-      "mqlToSql": 0,
-      "mqlToDeal": 0,
-      "sqlToDeal": 0,
+      "adsCost": 2995.43,
+      "mmCost": 2141.84,
+      "hmCost": 499.91,
+      "brandCost": 32.39,
+      "leads": 32,
+      "sqls": 28,
+      "won": 17,
+      "wonRevenue": 36648.92,
+      "leadToSql": 87.5,
+      "sqlToWon": 60.7,
       "stripeRevenue": 25581.83,
-      "dealAOV": 0
+      "formSubmissions": 90
     },
     {
       "month": "2025-12",
-      "adsCost": 0,
-      "mmCost": 0,
-      "hmCost": 0,
-      "leads": 0,
-      "mqls": 0,
-      "sqls": 0,
-      "closedWon": 0,
-      "closedRevenue": 0,
-      "leadToMql": 0,
-      "mqlToSql": 0,
-      "mqlToDeal": 0,
-      "sqlToDeal": 0,
+      "adsCost": 14687.54,
+      "mmCost": 9492.53,
+      "hmCost": 3669.09,
+      "brandCost": 108.88,
+      "leads": 86,
+      "sqls": 65,
+      "won": 24,
+      "wonRevenue": 21105.97,
+      "leadToSql": 75.6,
+      "sqlToWon": 36.9,
       "stripeRevenue": 87164.93,
-      "dealAOV": 0
+      "formSubmissions": 258
     },
     {
       "month": "2026-01",
-      "adsCost": 0,
-      "mmCost": 0,
-      "hmCost": 0,
-      "leads": 0,
-      "mqls": 0,
-      "sqls": 0,
-      "closedWon": 0,
-      "closedRevenue": 0,
-      "leadToMql": 0,
-      "mqlToSql": 0,
-      "mqlToDeal": 0,
-      "sqlToDeal": 0,
+      "adsCost": 15131.08,
+      "mmCost": 7569.46,
+      "hmCost": 5733.72,
+      "brandCost": 105.2,
+      "leads": 73,
+      "sqls": 64,
+      "won": 20,
+      "wonRevenue": 18342.45,
+      "leadToSql": 87.7,
+      "sqlToWon": 31.3,
       "stripeRevenue": 77232.71,
-      "dealAOV": 0
+      "formSubmissions": 189
     },
     {
       "month": "2026-02",
-      "adsCost": 0,
-      "mmCost": 0,
-      "hmCost": 0,
-      "leads": 0,
-      "mqls": 0,
-      "sqls": 0,
-      "closedWon": 0,
-      "closedRevenue": 0,
-      "leadToMql": 0,
-      "mqlToSql": 0,
-      "mqlToDeal": 0,
-      "sqlToDeal": 0,
-      "stripeRevenue": 47526.24,
-      "dealAOV": 0
+      "adsCost": 5484.3,
+      "mmCost": 2026.73,
+      "hmCost": 2076.25,
+      "brandCost": 64.21,
+      "leads": 50,
+      "sqls": 44,
+      "won": 10,
+      "wonRevenue": 5363.5,
+      "leadToSql": 88,
+      "sqlToWon": 22.7,
+      "stripeRevenue": 47666.24,
+      "formSubmissions": 100
     }
   ],
   "weekly": {
     "ads": [
       {
-        "week": "2025-02-17",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
-        "week": "2025-02-24",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
-        "week": "2025-03-03",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
-        "week": "2025-03-10",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
-        "week": "2025-03-17",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
-        "week": "2025-03-24",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
-        "week": "2025-03-31",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
-        "week": "2025-04-07",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
-        "week": "2025-04-14",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
-        "week": "2025-04-21",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
-        "week": "2025-04-28",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
-        "week": "2025-05-05",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
-        "week": "2025-05-12",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
-        "week": "2025-05-19",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
-        "week": "2025-05-26",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
-        "week": "2025-06-02",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
-        "week": "2025-06-09",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
-        "week": "2025-06-16",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
-        "week": "2025-06-23",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
-        "week": "2025-06-30",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
-        "week": "2025-07-07",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
-        "week": "2025-07-14",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
-        "week": "2025-07-21",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
-        "week": "2025-07-28",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
-        "week": "2025-08-04",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
-        "week": "2025-08-11",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
-        "week": "2025-08-18",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
-        "week": "2025-08-25",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
-        "week": "2025-09-01",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
-        "week": "2025-09-08",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
-        "week": "2025-09-15",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
-        "week": "2025-09-22",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
-        "week": "2025-09-29",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
-        "week": "2025-10-06",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
-        "week": "2025-10-13",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
-        "week": "2025-10-20",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
-        "week": "2025-10-27",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
-        "week": "2025-11-03",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
-        "week": "2025-11-10",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
-      },
-      {
         "week": "2025-11-17",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
+        "totalCost": 626.1,
+        "mmCost": 458.73,
+        "hmCost": 80.93,
+        "brandCost": 7.49,
+        "byCountry": {
+          "NL": 101.82,
+          "DE": 443.64,
+          "FR": 0.71,
+          "IT": 0.98,
+          "EU": 78.95
+        },
+        "byProduct": {
+          "Brand": 7.49,
+          "Transcription": 476.41,
+          "Subtitles": 63.25,
+          "AI Meeting Notes": 27.33,
+          "Competitors": 1.56,
+          "Meeting Notes": 50.06
+        }
       },
       {
         "week": "2025-11-24",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
+        "totalCost": 2369.33,
+        "mmCost": 1683.11,
+        "hmCost": 418.98,
+        "brandCost": 24.91,
+        "byCountry": {
+          "NL": 707.78,
+          "DE": 1413.93,
+          "FR": 2.79,
+          "IT": 2.5,
+          "EU": 242.33
+        },
+        "byProduct": {
+          "Brand": 24.91,
+          "Transcription": 1883.46,
+          "Subtitles": 218.63,
+          "AI Meeting Notes": 110.39,
+          "Competitors": 2.65,
+          "Meeting Notes": 129.29
+        }
       },
       {
         "week": "2025-12-01",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
+        "totalCost": 2535.35,
+        "mmCost": 1668.72,
+        "hmCost": 535.07,
+        "brandCost": 28.03,
+        "byCountry": {
+          "NL": 793.8,
+          "DE": 1432.58,
+          "FR": 2.51,
+          "IT": 2.94,
+          "EU": 303.53
+        },
+        "byProduct": {
+          "Brand": 28.03,
+          "Transcription": 1942.16,
+          "Subtitles": 261.64,
+          "AI Meeting Notes": 141.53,
+          "Competitors": 14.6,
+          "Meeting Notes": 147.4
+        }
       },
       {
         "week": "2025-12-08",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
+        "totalCost": 2789.5,
+        "mmCost": 1504.3,
+        "hmCost": 944.94,
+        "brandCost": 30.94,
+        "byCountry": {
+          "NL": 912.39,
+          "DE": 1563,
+          "FR": 2.45,
+          "IT": 2.35,
+          "EU": 309.32
+        },
+        "byProduct": {
+          "Brand": 30.94,
+          "Transcription": 2192.81,
+          "Subtitles": 256.43,
+          "AI Meeting Notes": 140.13,
+          "Competitors": 25.49,
+          "Meeting Notes": 143.7
+        }
       },
       {
         "week": "2025-12-15",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
+        "totalCost": 5074.16,
+        "mmCost": 3569.4,
+        "hmCost": 1171.58,
+        "brandCost": 25.38,
+        "byCountry": {
+          "NL": 1505.71,
+          "DE": 3257.06,
+          "FR": 2,
+          "IT": 1.59,
+          "EU": 307.81
+        },
+        "byProduct": {
+          "Brand": 25.38,
+          "Transcription": 4526.78,
+          "Subtitles": 214.2,
+          "AI Meeting Notes": 150.53,
+          "Competitors": 29.18,
+          "Meeting Notes": 128.09
+        }
       },
       {
         "week": "2025-12-22",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
+        "totalCost": 2212.07,
+        "mmCost": 1563.95,
+        "hmCost": 399.06,
+        "brandCost": 11.1,
+        "byCountry": {
+          "NL": 463.85,
+          "DE": 1507.84,
+          "FR": 1.43,
+          "IT": 1,
+          "EU": 237.95
+        },
+        "byProduct": {
+          "Brand": 11.1,
+          "Transcription": 1963.02,
+          "AI Meeting Notes": 128.04,
+          "Competitors": 16.45,
+          "Meeting Notes": 93.45
+        }
       },
       {
         "week": "2025-12-29",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
+        "totalCost": 2076.46,
+        "mmCost": 1186.16,
+        "hmCost": 618.44,
+        "brandCost": 13.43,
+        "byCountry": {
+          "NL": 673.35,
+          "DE": 1142.67,
+          "FR": 0.94,
+          "IT": 1.06,
+          "EU": 258.44
+        },
+        "byProduct": {
+          "Brand": 13.43,
+          "Transcription": 1804.59,
+          "AI Meeting Notes": 135.44,
+          "Competitors": 21.44,
+          "Meeting Notes": 101.57
+        }
       },
       {
         "week": "2026-01-05",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
+        "totalCost": 3452.71,
+        "mmCost": 1514.63,
+        "hmCost": 1464.08,
+        "brandCost": 27.23,
+        "byCountry": {
+          "NL": 1124.48,
+          "DE": 1877.66,
+          "FR": 1.93,
+          "IT": 1.87,
+          "EU": 446.77
+        },
+        "byProduct": {
+          "Brand": 27.23,
+          "Transcription": 2978.71,
+          "AI Meeting Notes": 137.81,
+          "Competitors": 127.29,
+          "Meeting Notes": 181.67
+        }
       },
       {
         "week": "2026-01-12",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
+        "totalCost": 4711.43,
+        "mmCost": 2968.05,
+        "hmCost": 1330.5,
+        "brandCost": 29.14,
+        "byCountry": {
+          "NL": 1303.63,
+          "DE": 3020.31,
+          "FR": 1.77,
+          "IT": 1.99,
+          "EU": 383.73
+        },
+        "byProduct": {
+          "Brand": 29.14,
+          "Transcription": 4298.55,
+          "AI Meeting Notes": 137.65,
+          "Competitors": 102.73,
+          "Meeting Notes": 143.35
+        }
       },
       {
         "week": "2026-01-19",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
+        "totalCost": 4181.41,
+        "mmCost": 2028.79,
+        "hmCost": 1677.97,
+        "brandCost": 24.1,
+        "byCountry": {
+          "NL": 1280.7,
+          "DE": 2446.82,
+          "FR": 1.22,
+          "IT": 2.12,
+          "EU": 450.55
+        },
+        "byProduct": {
+          "Brand": 24.1,
+          "Transcription": 3706.75,
+          "AI Meeting Notes": 130.08,
+          "Competitors": 182.24,
+          "Meeting Notes": 138.22
+        }
       },
       {
         "week": "2026-01-26",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
+        "totalCost": 2785.54,
+        "mmCost": 1057.99,
+        "hmCost": 1261.18,
+        "brandCost": 24.72,
+        "byCountry": {
+          "NL": 999.38,
+          "DE": 1339.63,
+          "FR": 1.86,
+          "IT": 3.02,
+          "EU": 441.65
+        },
+        "byProduct": {
+          "Brand": 24.72,
+          "Transcription": 2319.17,
+          "AI Meeting Notes": 140.45,
+          "Competitors": 174.12,
+          "Meeting Notes": 127.08
+        }
       },
       {
         "week": "2026-02-02",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
+        "totalCost": 2322.21,
+        "mmCost": 609.42,
+        "hmCost": 1129.15,
+        "brandCost": 24.97,
+        "byCountry": {
+          "NL": 727.31,
+          "DE": 1031.72,
+          "FR": 1.96,
+          "IT": 2.55,
+          "EU": 558.68
+        },
+        "byProduct": {
+          "Brand": 24.97,
+          "Transcription": 1738.56,
+          "AI Meeting Notes": 160.78,
+          "Competitors": 237.61,
+          "Meeting Notes": 160.29
+        }
       },
       {
         "week": "2026-02-09",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
+        "totalCost": 1906.05,
+        "mmCost": 807.58,
+        "hmCost": 598.97,
+        "brandCost": 22.48,
+        "byCountry": {
+          "NL": 425.82,
+          "DE": 999.43,
+          "FR": 1.65,
+          "IT": 2.14,
+          "EU": 477.01
+        },
+        "byProduct": {
+          "Brand": 22.48,
+          "Transcription": 1406.55,
+          "AI Meeting Notes": 160.4,
+          "Competitors": 161.29,
+          "Meeting Notes": 155.33
+        }
       },
       {
         "week": "2026-02-16",
-        "totalCost": 0,
-        "mmCost": 0,
-        "hmCost": 0,
-        "notesCost": 0,
-        "clicks": 0,
-        "conversions": 0
+        "totalCost": 1256.04,
+        "mmCost": 609.74,
+        "hmCost": 348.13,
+        "brandCost": 16.75,
+        "byCountry": {
+          "NL": 451.75,
+          "DE": 519.88,
+          "FR": 1.59,
+          "IT": 1.4,
+          "EU": 281.43
+        },
+        "byProduct": {
+          "Brand": 16.75,
+          "Transcription": 957.87,
+          "AI Meeting Notes": 75.15,
+          "Competitors": 109.97,
+          "Meeting Notes": 96.31
+        }
       }
     ],
     "funnel": [
       {
-        "week": "2025-02-17",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 27,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "Paid Search Generic": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "Other": {
-            "leads": 13,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "IT": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "NL": {
-            "leads": 6,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "DE": {
-            "leads": 7,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "FR": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
-        "week": "2025-02-24",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 62,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "Paid Search Generic": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "Other": {
-            "leads": 29,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "FR": {
-            "leads": 2,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "DE": {
-            "leads": 17,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "NL": {
-            "leads": 11,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "IT": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "CH": {
-            "leads": 3,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
-        "week": "2025-03-03",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 103,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "Paid Search Generic": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "Other": {
-            "leads": 101,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "CH": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "NL": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "FR": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
-        "week": "2025-03-10",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 113,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "Paid Search Generic": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "Other": {
-            "leads": 114,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
-        "week": "2025-03-17",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 83,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "Paid Search Generic": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "Other": {
-            "leads": 84,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
-        "week": "2025-03-24",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 106,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "Direct": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "Other": {
-            "leads": 107,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
-        "week": "2025-03-31",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 79,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "Other": {
-            "leads": 79,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
-        "week": "2025-04-07",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 83,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "Other": {
-            "leads": 83,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
-        "week": "2025-04-14",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 74,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "Other": {
-            "leads": 65,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "NL": {
-            "leads": 7,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "DE": {
-            "leads": 2,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
-        "week": "2025-04-21",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 89,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "Direct": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "Other": {
-            "leads": 68,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "NL": {
-            "leads": 15,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "IT": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "DE": {
-            "leads": 6,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
-        "week": "2025-04-28",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 84,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "Paid Search Generic": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "Other": {
-            "leads": 85,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
-        "week": "2025-05-05",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 103,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "Other": {
-            "leads": 103,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
-        "week": "2025-05-12",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 108,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "Other": {
-            "leads": 108,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
-        "week": "2025-05-19",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 97,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "Direct": {
-            "leads": 2,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "Other": {
-            "leads": 99,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
-        "week": "2025-05-26",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 65,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "Paid Search Generic": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "Direct": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "Other": {
-            "leads": 67,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
-        "week": "2025-06-02",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 81,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "Direct": {
-            "leads": 2,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "Other": {
-            "leads": 68,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "NL": {
-            "leads": 4,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "DE": {
-            "leads": 10,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "FR": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
-        "week": "2025-06-09",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 61,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "Direct": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "Paid Search Generic": {
-            "leads": 2,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "Other": {
-            "leads": 46,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "DE": {
-            "leads": 11,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "NL": {
-            "leads": 6,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "AT": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
-        "week": "2025-06-16",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 63,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "Other": {
-            "leads": 63,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
-        "week": "2025-06-23",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 73,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "Paid Search Generic": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "Direct": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "Other": {
-            "leads": 75,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
-        "week": "2025-06-30",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 76,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "Direct": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "Paid Search Generic": {
-            "leads": 2,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "Other": {
-            "leads": 79,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
-        "week": "2025-07-07",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 59,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "Paid Search Generic": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "Direct": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "Other": {
-            "leads": 61,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
-        "week": "2025-07-14",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 76,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "Paid Search Generic": {
-            "leads": 3,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "Other": {
-            "leads": 75,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "FR": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "CH": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "NL": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "DE": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
-        "week": "2025-07-21",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 80,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "Paid Search Generic": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "Direct": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "Other": {
-            "leads": 52,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "IT": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "DE": {
-            "leads": 13,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "NL": {
-            "leads": 9,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "FR": {
-            "leads": 3,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "CH": {
-            "leads": 2,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "AT": {
-            "leads": 2,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
-        "week": "2025-07-28",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 66,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "Direct": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "Paid Search Generic": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "Other": {
-            "leads": 68,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
-        "week": "2025-08-04",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 42,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "Paid Search Generic": {
-            "leads": 2,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "Other": {
-            "leads": 44,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
-        "week": "2025-08-11",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 34,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "Paid Search Generic": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "Other": {
-            "leads": 35,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
-        "week": "2025-08-18",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 48,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "Other": {
-            "leads": 48,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
-        "week": "2025-08-25",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 45,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "Other": {
-            "leads": 45,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
-        "week": "2025-09-01",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 53,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "Paid Search Generic": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "Other": {
-            "leads": 54,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
-        "week": "2025-09-08",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 70,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "Paid Search Generic": {
-            "leads": 3,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "Direct": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "Other": {
-            "leads": 58,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "AT": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "DE": {
-            "leads": 4,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "IT": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "NL": {
-            "leads": 10,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
-        "week": "2025-09-15",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 70,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "NL": {
-            "leads": 8,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "Other": {
-            "leads": 49,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "CH": {
-            "leads": 2,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "DE": {
-            "leads": 8,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "FR": {
-            "leads": 2,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "IT": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
-        "week": "2025-09-22",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 69,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "Other": {
-            "leads": 58,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "NL": {
-            "leads": 6,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "DE": {
-            "leads": 3,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "CH": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "IT": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
-        "week": "2025-09-29",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 67,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "Direct": {
-            "leads": 2,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "Other": {
-            "leads": 69,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
-        "week": "2025-10-06",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 64,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "Other": {
-            "leads": 64,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
-        "week": "2025-10-13",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 73,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "Paid Search Generic": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "Other": {
-            "leads": 74,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
-        "week": "2025-10-20",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 84,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "Other": {
-            "leads": 84,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
-        "week": "2025-10-27",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 63,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "Other": {
-            "leads": 63,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
-        "week": "2025-11-03",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 71,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "Other": {
-            "leads": 25,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "DE": {
-            "leads": 23,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "NL": {
-            "leads": 20,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "FR": {
-            "leads": 2,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "AT": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
-        "week": "2025-11-10",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
-        "byChannel": {
-          "Other": {
-            "leads": 62,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        },
-        "byGeo": {
-          "Other": {
-            "leads": 47,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "DE": {
-            "leads": 6,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "NL": {
-            "leads": 7,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "IT": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "AT": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          }
-        }
-      },
-      {
         "week": "2025-11-17",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
+        "leads": 2,
+        "sqls": 2,
+        "won": 1,
+        "wonRevenue": 3744,
         "byChannel": {
-          "Other": {
-            "leads": 66,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+          "Unknown": {
+            "leads": 1,
+            "sqls": 1,
+            "won": 1,
+            "wonRevenue": 3744
+          },
+          "Paid Search": {
+            "leads": 1,
+            "sqls": 1,
+            "won": 0,
+            "wonRevenue": 0
           }
         },
-        "byGeo": {
-          "Other": {
-            "leads": 66,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+        "byCountry": {
+          "Unknown": {
+            "leads": 1,
+            "sqls": 1,
+            "won": 1,
+            "wonRevenue": 3744
+          },
+          "NL": {
+            "leads": 1,
+            "sqls": 1,
+            "won": 0,
+            "wonRevenue": 0
           }
         }
       },
       {
         "week": "2025-11-24",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
+        "leads": 30,
+        "sqls": 26,
+        "won": 16,
+        "wonRevenue": 32904.92,
         "byChannel": {
-          "Other": {
-            "leads": 81,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+          "Unknown": {
+            "leads": 17,
+            "sqls": 15,
+            "won": 12,
+            "wonRevenue": 25738.92
           },
-          "Paid Search Generic": {
+          "Direct": {
+            "leads": 9,
+            "sqls": 7,
+            "won": 3,
+            "wonRevenue": 6536
+          },
+          "Paid Search": {
+            "leads": 3,
+            "sqls": 3,
+            "won": 1,
+            "wonRevenue": 630
+          },
+          "Organic Search": {
             "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+            "sqls": 1,
+            "won": 0,
+            "wonRevenue": 0
           }
         },
-        "byGeo": {
-          "Other": {
-            "leads": 82,
-            "mqls": 0,
+        "byCountry": {
+          "Unknown": {
+            "leads": 14,
+            "sqls": 14,
+            "won": 11,
+            "wonRevenue": 23738.92
+          },
+          "ES": {
+            "leads": 1,
             "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+            "won": 0,
+            "wonRevenue": 0
+          },
+          "DE": {
+            "leads": 6,
+            "sqls": 5,
+            "won": 2,
+            "wonRevenue": 4536
+          },
+          "EN": {
+            "leads": 5,
+            "sqls": 4,
+            "won": 1,
+            "wonRevenue": 2000
+          },
+          "NL": {
+            "leads": 3,
+            "sqls": 2,
+            "won": 1,
+            "wonRevenue": 630
+          },
+          "IT": {
+            "leads": 1,
+            "sqls": 1,
+            "won": 1,
+            "wonRevenue": 2000
           }
         }
       },
       {
         "week": "2025-12-01",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
+        "leads": 18,
+        "sqls": 15,
+        "won": 6,
+        "wonRevenue": 6154.37,
         "byChannel": {
-          "Other": {
-            "leads": 64,
-            "mqls": 0,
+          "Unknown": {
+            "leads": 8,
+            "sqls": 8,
+            "won": 5,
+            "wonRevenue": 4054.37
+          },
+          "Direct": {
+            "leads": 3,
+            "sqls": 2,
+            "won": 1,
+            "wonRevenue": 2100
+          },
+          "Paid Search": {
+            "leads": 3,
+            "sqls": 3,
+            "won": 0,
+            "wonRevenue": 0
+          },
+          "Organic Search": {
+            "leads": 3,
+            "sqls": 2,
+            "won": 0,
+            "wonRevenue": 0
+          },
+          "Referral": {
+            "leads": 1,
             "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+            "won": 0,
+            "wonRevenue": 0
           }
         },
-        "byGeo": {
-          "Other": {
-            "leads": 64,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+        "byCountry": {
+          "Unknown": {
+            "leads": 5,
+            "sqls": 5,
+            "won": 2,
+            "wonRevenue": 614
+          },
+          "DE": {
+            "leads": 6,
+            "sqls": 6,
+            "won": 2,
+            "wonRevenue": 2906.47
+          },
+          "EN": {
+            "leads": 4,
+            "sqls": 1,
+            "won": 1,
+            "wonRevenue": 2100
+          },
+          "NL": {
+            "leads": 3,
+            "sqls": 3,
+            "won": 1,
+            "wonRevenue": 533.9
           }
         }
       },
       {
         "week": "2025-12-08",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
+        "leads": 35,
+        "sqls": 27,
+        "won": 10,
+        "wonRevenue": 7969.2,
         "byChannel": {
-          "Other": {
-            "leads": 92,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+          "Unknown": {
+            "leads": 16,
+            "sqls": 16,
+            "won": 8,
+            "wonRevenue": 5598
+          },
+          "Organic Search": {
+            "leads": 4,
+            "sqls": 1,
+            "won": 0,
+            "wonRevenue": 0
+          },
+          "Unassigned": {
+            "leads": 1,
+            "sqls": 1,
+            "won": 0,
+            "wonRevenue": 0
+          },
+          "Direct": {
+            "leads": 9,
+            "sqls": 5,
+            "won": 2,
+            "wonRevenue": 2371.2
+          },
+          "Referral": {
+            "leads": 2,
+            "sqls": 2,
+            "won": 0,
+            "wonRevenue": 0
+          },
+          "Paid Search": {
+            "leads": 3,
+            "sqls": 2,
+            "won": 0,
+            "wonRevenue": 0
           }
         },
-        "byGeo": {
-          "Other": {
-            "leads": 88,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+        "byCountry": {
+          "EN": {
+            "leads": 9,
+            "sqls": 4,
+            "won": 0,
+            "wonRevenue": 0
           },
-          "NL": {
-            "leads": 3,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+          "DE": {
+            "leads": 7,
+            "sqls": 7,
+            "won": 0,
+            "wonRevenue": 0
+          },
+          "Unknown": {
+            "leads": 13,
+            "sqls": 13,
+            "won": 7,
+            "wonRevenue": 5238
           },
           "FR": {
             "leads": 1,
-            "mqls": 0,
             "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+            "won": 0,
+            "wonRevenue": 0
+          },
+          "NL": {
+            "leads": 5,
+            "sqls": 3,
+            "won": 3,
+            "wonRevenue": 2731.2
           }
         }
       },
       {
         "week": "2025-12-15",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
+        "leads": 22,
+        "sqls": 15,
+        "won": 5,
+        "wonRevenue": 3629,
         "byChannel": {
-          "Other": {
-            "leads": 60,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+          "Unknown": {
+            "leads": 10,
+            "sqls": 9,
+            "won": 2,
+            "wonRevenue": 330
+          },
+          "Direct": {
+            "leads": 5,
+            "sqls": 3,
+            "won": 1,
+            "wonRevenue": 800
+          },
+          "Paid Search": {
+            "leads": 4,
+            "sqls": 1,
+            "won": 0,
+            "wonRevenue": 0
+          },
+          "Referral": {
+            "leads": 1,
+            "sqls": 1,
+            "won": 1,
+            "wonRevenue": 1239
+          },
+          "Organic Search": {
+            "leads": 2,
+            "sqls": 1,
+            "won": 1,
+            "wonRevenue": 1260
           }
         },
-        "byGeo": {
-          "IT": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+        "byCountry": {
+          "Unknown": {
+            "leads": 8,
+            "sqls": 8,
+            "won": 2,
+            "wonRevenue": 330
           },
-          "Other": {
-            "leads": 52,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+          "DE": {
+            "leads": 8,
+            "sqls": 7,
+            "won": 3,
+            "wonRevenue": 3299
           },
           "NL": {
             "leads": 3,
-            "mqls": 0,
             "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+            "won": 0,
+            "wonRevenue": 0
           },
-          "DE": {
-            "leads": 4,
-            "mqls": 0,
+          "FR": {
+            "leads": 1,
             "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+            "won": 0,
+            "wonRevenue": 0
+          },
+          "EN": {
+            "leads": 2,
+            "sqls": 0,
+            "won": 0,
+            "wonRevenue": 0
           }
         }
       },
       {
         "week": "2025-12-22",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
+        "leads": 7,
+        "sqls": 6,
+        "won": 3,
+        "wonRevenue": 3353.4,
         "byChannel": {
-          "Other": {
-            "leads": 19,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+          "Organic Search": {
+            "leads": 2,
+            "sqls": 1,
+            "won": 0,
+            "wonRevenue": 0
+          },
+          "Paid Search": {
+            "leads": 1,
+            "sqls": 1,
+            "won": 0,
+            "wonRevenue": 0
+          },
+          "Unknown": {
+            "leads": 4,
+            "sqls": 4,
+            "won": 3,
+            "wonRevenue": 3353.4
           }
         },
-        "byGeo": {
-          "Other": {
-            "leads": 15,
-            "mqls": 0,
+        "byCountry": {
+          "EN": {
+            "leads": 1,
             "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "NL": {
-            "leads": 3,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+            "won": 0,
+            "wonRevenue": 0
           },
           "DE": {
             "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+            "sqls": 1,
+            "won": 0,
+            "wonRevenue": 0
+          },
+          "Unknown": {
+            "leads": 4,
+            "sqls": 4,
+            "won": 3,
+            "wonRevenue": 3353.4
+          },
+          "NL": {
+            "leads": 1,
+            "sqls": 1,
+            "won": 0,
+            "wonRevenue": 0
           }
         }
       },
       {
         "week": "2025-12-29",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
+        "leads": 4,
+        "sqls": 2,
+        "won": 0,
+        "wonRevenue": 0,
         "byChannel": {
-          "Other": {
-            "leads": 9,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+          "Unknown": {
+            "leads": 1,
+            "sqls": 1,
+            "won": 0,
+            "wonRevenue": 0
+          },
+          "Paid Search": {
+            "leads": 3,
+            "sqls": 1,
+            "won": 0,
+            "wonRevenue": 0
           }
         },
-        "byGeo": {
-          "NL": {
+        "byCountry": {
+          "Unknown": {
             "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+            "sqls": 1,
+            "won": 0,
+            "wonRevenue": 0
           },
           "DE": {
             "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+            "sqls": 1,
+            "won": 0,
+            "wonRevenue": 0
           },
-          "Other": {
-            "leads": 6,
-            "mqls": 0,
+          "NL": {
+            "leads": 2,
             "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "IT": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+            "won": 0,
+            "wonRevenue": 0
           }
         }
       },
       {
         "week": "2026-01-05",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
+        "leads": 18,
+        "sqls": 14,
+        "won": 5,
+        "wonRevenue": 4687.1,
         "byChannel": {
-          "Other": {
-            "leads": 38,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+          "Unknown": {
+            "leads": 11,
+            "sqls": 11,
+            "won": 5,
+            "wonRevenue": 4687.1
           },
           "Direct": {
             "leads": 2,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+            "sqls": 1,
+            "won": 0,
+            "wonRevenue": 0
+          },
+          "Organic Search": {
+            "leads": 5,
+            "sqls": 2,
+            "won": 0,
+            "wonRevenue": 0
           }
         },
-        "byGeo": {
-          "Other": {
-            "leads": 30,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+        "byCountry": {
+          "Unknown": {
+            "leads": 10,
+            "sqls": 10,
+            "won": 4,
+            "wonRevenue": 3840
           },
           "DE": {
-            "leads": 6,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+            "leads": 2,
+            "sqls": 2,
+            "won": 0,
+            "wonRevenue": 0
           },
           "NL": {
-            "leads": 3,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+            "leads": 2,
+            "sqls": 2,
+            "won": 1,
+            "wonRevenue": 847.1
           },
-          "AT": {
-            "leads": 1,
-            "mqls": 0,
+          "EN": {
+            "leads": 3,
             "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+            "won": 0,
+            "wonRevenue": 0
+          },
+          "ES": {
+            "leads": 1,
+            "sqls": 0,
+            "won": 0,
+            "wonRevenue": 0
           }
         }
       },
       {
         "week": "2026-01-12",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
+        "leads": 21,
+        "sqls": 18,
+        "won": 6,
+        "wonRevenue": 2079.2,
         "byChannel": {
-          "Other": {
-            "leads": 66,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+          "Unknown": {
+            "leads": 13,
+            "sqls": 13,
+            "won": 5,
+            "wonRevenue": 1359.2
           },
-          "Paid Search Generic": {
+          "Paid Search": {
+            "leads": 2,
+            "sqls": 1,
+            "won": 0,
+            "wonRevenue": 0
+          },
+          "Organic Search": {
+            "leads": 3,
+            "sqls": 1,
+            "won": 1,
+            "wonRevenue": 720
+          },
+          "Direct": {
+            "leads": 2,
+            "sqls": 2,
+            "won": 0,
+            "wonRevenue": 0
+          },
+          "Referral": {
             "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+            "sqls": 1,
+            "won": 0,
+            "wonRevenue": 0
           }
         },
-        "byGeo": {
-          "Other": {
-            "leads": 63,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+        "byCountry": {
+          "Unknown": {
+            "leads": 13,
+            "sqls": 13,
+            "won": 5,
+            "wonRevenue": 1359.2
           },
           "DE": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+            "leads": 3,
+            "sqls": 2,
+            "won": 0,
+            "wonRevenue": 0
           },
-          "CH": {
+          "FR": {
             "leads": 1,
-            "mqls": 0,
             "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+            "won": 0,
+            "wonRevenue": 0
           },
           "NL": {
-            "leads": 2,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+            "leads": 3,
+            "sqls": 2,
+            "won": 0,
+            "wonRevenue": 0
+          },
+          "EN": {
+            "leads": 1,
+            "sqls": 1,
+            "won": 1,
+            "wonRevenue": 720
           }
         }
       },
       {
         "week": "2026-01-19",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
+        "leads": 16,
+        "sqls": 15,
+        "won": 5,
+        "wonRevenue": 7972.15,
         "byChannel": {
-          "Other": {
-            "leads": 62,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+          "Organic Search": {
+            "leads": 3,
+            "sqls": 2,
+            "won": 1,
+            "wonRevenue": 1440
+          },
+          "Paid Search": {
+            "leads": 3,
+            "sqls": 3,
+            "won": 1,
+            "wonRevenue": 1378.15
+          },
+          "Unknown": {
+            "leads": 9,
+            "sqls": 9,
+            "won": 3,
+            "wonRevenue": 5154
+          },
+          "Direct": {
+            "leads": 1,
+            "sqls": 1,
+            "won": 0,
+            "wonRevenue": 0
           }
         },
-        "byGeo": {
-          "Other": {
-            "leads": 62,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+        "byCountry": {
+          "NL": {
+            "leads": 4,
+            "sqls": 3,
+            "won": 2,
+            "wonRevenue": 2818.15
+          },
+          "Unknown": {
+            "leads": 6,
+            "sqls": 6,
+            "won": 2,
+            "wonRevenue": 998
+          },
+          "DE": {
+            "leads": 5,
+            "sqls": 5,
+            "won": 1,
+            "wonRevenue": 4156
+          },
+          "EN": {
+            "leads": 1,
+            "sqls": 1,
+            "won": 0,
+            "wonRevenue": 0
           }
         }
       },
       {
         "week": "2026-01-26",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
+        "leads": 18,
+        "sqls": 17,
+        "won": 4,
+        "wonRevenue": 3604,
         "byChannel": {
-          "Other": {
-            "leads": 78,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+          "Organic Search": {
+            "leads": 4,
+            "sqls": 3,
+            "won": 1,
+            "wonRevenue": 1522.5
+          },
+          "Referral": {
+            "leads": 1,
+            "sqls": 1,
+            "won": 0,
+            "wonRevenue": 0
+          },
+          "Direct": {
+            "leads": 6,
+            "sqls": 6,
+            "won": 0,
+            "wonRevenue": 0
+          },
+          "Unknown": {
+            "leads": 6,
+            "sqls": 6,
+            "won": 2,
+            "wonRevenue": 1381.5
+          },
+          "Paid Search": {
+            "leads": 1,
+            "sqls": 1,
+            "won": 1,
+            "wonRevenue": 700
           }
         },
-        "byGeo": {
-          "Other": {
-            "leads": 78,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+        "byCountry": {
+          "EN": {
+            "leads": 4,
+            "sqls": 3,
+            "won": 0,
+            "wonRevenue": 0
+          },
+          "DE": {
+            "leads": 3,
+            "sqls": 3,
+            "won": 1,
+            "wonRevenue": 700
+          },
+          "Unknown": {
+            "leads": 6,
+            "sqls": 6,
+            "won": 2,
+            "wonRevenue": 1381.5
+          },
+          "NL": {
+            "leads": 4,
+            "sqls": 4,
+            "won": 1,
+            "wonRevenue": 1522.5
+          },
+          "FR": {
+            "leads": 1,
+            "sqls": 1,
+            "won": 0,
+            "wonRevenue": 0
           }
         }
       },
       {
         "week": "2026-02-02",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
+        "leads": 18,
+        "sqls": 15,
+        "won": 5,
+        "wonRevenue": 3028,
         "byChannel": {
-          "Other": {
-            "leads": 77,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+          "Unknown": {
+            "leads": 9,
+            "sqls": 8,
+            "won": 3,
+            "wonRevenue": 1750.8
+          },
+          "Paid Search": {
+            "leads": 2,
+            "sqls": 2,
+            "won": 0,
+            "wonRevenue": 0
           },
           "Direct": {
-            "leads": 2,
-            "mqls": 0,
+            "leads": 3,
+            "sqls": 3,
+            "won": 0,
+            "wonRevenue": 0
+          },
+          "Organic Search": {
+            "leads": 3,
+            "sqls": 2,
+            "won": 2,
+            "wonRevenue": 1277.2
+          },
+          "Referral": {
+            "leads": 1,
             "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+            "won": 0,
+            "wonRevenue": 0
           }
         },
-        "byGeo": {
-          "Other": {
-            "leads": 77,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "DE": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+        "byCountry": {
+          "Unknown": {
+            "leads": 8,
+            "sqls": 8,
+            "won": 3,
+            "wonRevenue": 1750.8
           },
           "NL": {
-            "leads": 1,
-            "mqls": 0,
+            "leads": 6,
+            "sqls": 5,
+            "won": 1,
+            "wonRevenue": 877.2
+          },
+          "EN": {
+            "leads": 2,
             "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+            "won": 0,
+            "wonRevenue": 0
+          },
+          "DE": {
+            "leads": 2,
+            "sqls": 2,
+            "won": 1,
+            "wonRevenue": 400
           }
         }
       },
       {
         "week": "2026-02-09",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
+        "leads": 19,
+        "sqls": 16,
+        "won": 4,
+        "wonRevenue": 2028,
         "byChannel": {
-          "Other": {
-            "leads": 77,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+          "Unknown": {
+            "leads": 6,
+            "sqls": 5,
+            "won": 1,
+            "wonRevenue": 500
+          },
+          "Referral": {
+            "leads": 3,
+            "sqls": 3,
+            "won": 0,
+            "wonRevenue": 0
+          },
+          "Organic Search": {
+            "leads": 2,
+            "sqls": 1,
+            "won": 0,
+            "wonRevenue": 0
+          },
+          "Paid Search": {
+            "leads": 5,
+            "sqls": 5,
+            "won": 2,
+            "wonRevenue": 1398
+          },
+          "Direct": {
+            "leads": 3,
+            "sqls": 2,
+            "won": 1,
+            "wonRevenue": 130
           }
         },
-        "byGeo": {
-          "Other": {
-            "leads": 60,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+        "byCountry": {
+          "Unknown": {
+            "leads": 6,
+            "sqls": 5,
+            "won": 1,
+            "wonRevenue": 500
           },
           "DE": {
-            "leads": 8,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+            "leads": 6,
+            "sqls": 5,
+            "won": 1,
+            "wonRevenue": 130
           },
           "NL": {
-            "leads": 7,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+            "leads": 5,
+            "sqls": 5,
+            "won": 2,
+            "wonRevenue": 1398
           },
-          "FR": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
-          },
-          "AT": {
-            "leads": 1,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+          "EN": {
+            "leads": 2,
+            "sqls": 1,
+            "won": 0,
+            "wonRevenue": 0
           }
         }
       },
       {
         "week": "2026-02-16",
-        "leads": 0,
-        "mqls": 0,
-        "sqls": 0,
-        "closedWon": 0,
-        "closedRevenue": 0,
+        "leads": 13,
+        "sqls": 13,
+        "won": 1,
+        "wonRevenue": 307.5,
         "byChannel": {
-          "Other": {
-            "leads": 48,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+          "Unknown": {
+            "leads": 5,
+            "sqls": 5,
+            "won": 1,
+            "wonRevenue": 307.5
+          },
+          "Paid Search": {
+            "leads": 4,
+            "sqls": 4,
+            "won": 0,
+            "wonRevenue": 0
+          },
+          "Direct": {
+            "leads": 4,
+            "sqls": 4,
+            "won": 0,
+            "wonRevenue": 0
           }
         },
-        "byGeo": {
-          "Other": {
-            "leads": 38,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+        "byCountry": {
+          "EN": {
+            "leads": 3,
+            "sqls": 3,
+            "won": 0,
+            "wonRevenue": 0
+          },
+          "Unknown": {
+            "leads": 1,
+            "sqls": 1,
+            "won": 1,
+            "wonRevenue": 307.5
           },
           "DE": {
-            "leads": 4,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+            "leads": 6,
+            "sqls": 6,
+            "won": 0,
+            "wonRevenue": 0
           },
           "NL": {
-            "leads": 6,
-            "mqls": 0,
-            "sqls": 0,
-            "deals": 0,
-            "revenue": 0
+            "leads": 3,
+            "sqls": 3,
+            "won": 0,
+            "wonRevenue": 0
           }
         }
       }
     ],
     "stripe": [
       {
-        "week": "2025-02-17",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
-        "week": "2025-02-24",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
-        "week": "2025-03-03",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
-        "week": "2025-03-10",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
-        "week": "2025-03-17",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
-        "week": "2025-03-24",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
-        "week": "2025-03-31",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
-        "week": "2025-04-07",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
-        "week": "2025-04-14",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
-        "week": "2025-04-21",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
-        "week": "2025-04-28",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
-        "week": "2025-05-05",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
-        "week": "2025-05-12",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
-        "week": "2025-05-19",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
-        "week": "2025-05-26",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
-        "week": "2025-06-02",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
-        "week": "2025-06-09",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
-        "week": "2025-06-16",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
-        "week": "2025-06-23",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
-        "week": "2025-06-30",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
-        "week": "2025-07-07",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
-        "week": "2025-07-14",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
-        "week": "2025-07-21",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
-        "week": "2025-07-28",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
-        "week": "2025-08-04",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
-        "week": "2025-08-11",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
-        "week": "2025-08-18",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
-        "week": "2025-08-25",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
-        "week": "2025-09-01",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
-        "week": "2025-09-08",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
-        "week": "2025-09-15",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
-        "week": "2025-09-22",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
-        "week": "2025-09-29",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
-        "week": "2025-10-06",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
-        "week": "2025-10-13",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
-        "week": "2025-10-20",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
-        "week": "2025-10-27",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
-        "week": "2025-11-03",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
-        "week": "2025-11-10",
-        "totalRevenue": 0,
-        "count": 0,
-        "byType": {},
-        "byCurrency": {}
-      },
-      {
         "week": "2025-11-17",
         "totalRevenue": 5542.17,
         "count": 182,
-        "byType": {
-          "one-time": {
+        "byPlanType": {
+          "Prepaid": {
             "count": 131,
             "revenue": 3157.19
           },
-          "subscription": {
+          "Subscription": {
             "count": 51,
             "revenue": 2384.98
+          }
+        },
+        "byProduct": {
+          "Machine-Made": {
+            "count": 181,
+            "revenue": 5399.37
+          },
+          "Human-Made": {
+            "count": 1,
+            "revenue": 142.8
+          }
+        },
+        "byCountry": {
+          "NL": {
+            "count": 58,
+            "revenue": 1125
+          },
+          "IT": {
+            "count": 13,
+            "revenue": 306.6
+          },
+          "WO": {
+            "count": 3,
+            "revenue": 32
+          },
+          "DE": {
+            "count": 27,
+            "revenue": 865.88
+          },
+          "NO": {
+            "count": 1,
+            "revenue": 20
+          },
+          "FR": {
+            "count": 5,
+            "revenue": 224.45
+          },
+          "GB": {
+            "count": 4,
+            "revenue": 90
+          },
+          "CA": {
+            "count": 4,
+            "revenue": 190
+          },
+          "BE": {
+            "count": 3,
+            "revenue": 75
+          },
+          "HU": {
+            "count": 1,
+            "revenue": 30
+          },
+          "ES": {
+            "count": 2,
+            "revenue": 18.26
+          },
+          "LT": {
+            "count": 1,
+            "revenue": 15
+          },
+          "CH": {
+            "count": 2,
+            "revenue": 45
+          },
+          "AR": {
+            "count": 2,
+            "revenue": 10
+          },
+          "AT": {
+            "count": 2,
+            "revenue": 45
+          },
+          "DK": {
+            "count": 1,
+            "revenue": 40
           }
         },
         "byCurrency": {
           "EUR": {
             "count": 165,
-            "revenue": 5079.169999999999
+            "revenue": 5079.17
           },
           "USD": {
             "count": 17,
             "revenue": 463
+          }
+        },
+        "byChannel": {
+          "Paid Search": {
+            "count": 29,
+            "revenue": 713.02
+          },
+          "Organic Search": {
+            "count": 33,
+            "revenue": 817.83
+          },
+          "Referral": {
+            "count": 3,
+            "revenue": 45
+          },
+          "Unassigned": {
+            "count": 28,
+            "revenue": 550.48
+          },
+          "Subscription": {
+            "count": 51,
+            "revenue": 2384.98
+          },
+          "Direct": {
+            "count": 17,
+            "revenue": 417
+          },
+          "Unknown": {
+            "count": 20,
+            "revenue": 583.86
+          },
+          "Affiliates": {
+            "count": 1,
+            "revenue": 30
           }
         }
       },
@@ -3198,18 +1376,102 @@
         "week": "2025-11-24",
         "totalRevenue": 20039.66,
         "count": 532,
-        "byType": {
-          "one-time": {
+        "byPlanType": {
+          "Prepaid": {
             "count": 437,
-            "revenue": 14284.270000000002
+            "revenue": 14284.27
           },
-          "subscription": {
+          "Subscription": {
             "count": 94,
             "revenue": 5280.39
           },
-          "invoice": {
+          "Invoice": {
             "count": 1,
             "revenue": 475
+          }
+        },
+        "byProduct": {
+          "Machine-Made": {
+            "count": 502,
+            "revenue": 15285.16
+          },
+          "Human-Made": {
+            "count": 30,
+            "revenue": 4754.5
+          }
+        },
+        "byCountry": {
+          "WO": {
+            "count": 17,
+            "revenue": 537.6
+          },
+          "NL": {
+            "count": 174,
+            "revenue": 5052.6
+          },
+          "CA": {
+            "count": 6,
+            "revenue": 80
+          },
+          "IT": {
+            "count": 30,
+            "revenue": 727.8
+          },
+          "DE": {
+            "count": 97,
+            "revenue": 3395.9
+          },
+          "GB": {
+            "count": 10,
+            "revenue": 225
+          },
+          "CH": {
+            "count": 10,
+            "revenue": 1266.8
+          },
+          "FR": {
+            "count": 17,
+            "revenue": 293.32
+          },
+          "ES": {
+            "count": 13,
+            "revenue": 186.52
+          },
+          "BE": {
+            "count": 16,
+            "revenue": 677.96
+          },
+          "BR": {
+            "count": 1,
+            "revenue": 8
+          },
+          "MX": {
+            "count": 13,
+            "revenue": 136
+          },
+          "SI": {
+            "count": 2,
+            "revenue": 39.6
+          },
+          "AT": {
+            "count": 18,
+            "revenue": 834.05
+          },
+          "US": {
+            "count": 5,
+            "revenue": 60
+          },
+          "SE": {
+            "count": 1,
+            "revenue": 48
+          },
+          "EE": {
+            "count": 1,
+            "revenue": 12.1
+          },
+          "FI": {
+            "count": 1,
+            "revenue": 16
           }
         },
         "byCurrency": {
@@ -3219,7 +1481,41 @@
           },
           "EUR": {
             "count": 465,
-            "revenue": 18288.010000000006
+            "revenue": 18288.01
+          }
+        },
+        "byChannel": {
+          "Direct": {
+            "count": 117,
+            "revenue": 3839.59
+          },
+          "Unassigned": {
+            "count": 67,
+            "revenue": 1726.77
+          },
+          "Subscription": {
+            "count": 94,
+            "revenue": 5280.39
+          },
+          "Unknown": {
+            "count": 52,
+            "revenue": 2482.96
+          },
+          "Paid Search": {
+            "count": 99,
+            "revenue": 2997
+          },
+          "Organic Search": {
+            "count": 91,
+            "revenue": 3227.96
+          },
+          "Email": {
+            "count": 5,
+            "revenue": 354.99
+          },
+          "Referral": {
+            "count": 7,
+            "revenue": 130
           }
         }
       },
@@ -3227,28 +1523,166 @@
         "week": "2025-12-01",
         "totalRevenue": 21464.41,
         "count": 569,
-        "byType": {
-          "subscription": {
+        "byPlanType": {
+          "Subscription": {
             "count": 132,
             "revenue": 7753.41
           },
-          "one-time": {
+          "Prepaid": {
             "count": 436,
-            "revenue": 13461.000000000004
+            "revenue": 13461
           },
-          "invoice": {
+          "Invoice": {
             "count": 1,
             "revenue": 250
+          }
+        },
+        "byProduct": {
+          "Machine-Made": {
+            "count": 549,
+            "revenue": 17761.97
+          },
+          "Human-Made": {
+            "count": 20,
+            "revenue": 3702.44
+          }
+        },
+        "byCountry": {
+          "CA": {
+            "count": 6,
+            "revenue": 70
+          },
+          "US": {
+            "count": 4,
+            "revenue": 50
+          },
+          "NL": {
+            "count": 169,
+            "revenue": 4676.3
+          },
+          "CH": {
+            "count": 19,
+            "revenue": 941.7
+          },
+          "FR": {
+            "count": 24,
+            "revenue": 311.65
+          },
+          "DE": {
+            "count": 99,
+            "revenue": 3488.62
+          },
+          "BE": {
+            "count": 12,
+            "revenue": 270.8
+          },
+          "ES": {
+            "count": 18,
+            "revenue": 499.54
+          },
+          "IT": {
+            "count": 25,
+            "revenue": 1032.2
+          },
+          "WO": {
+            "count": 14,
+            "revenue": 866.3
+          },
+          "AT": {
+            "count": 18,
+            "revenue": 726.49
+          },
+          "HU": {
+            "count": 1,
+            "revenue": 10
+          },
+          "MX": {
+            "count": 6,
+            "revenue": 64
+          },
+          "RO": {
+            "count": 1,
+            "revenue": 24.8
+          },
+          "BR": {
+            "count": 4,
+            "revenue": 64
+          },
+          "GB": {
+            "count": 3,
+            "revenue": 75
+          },
+          "NO": {
+            "count": 1,
+            "revenue": 40
+          },
+          "AR": {
+            "count": 1,
+            "revenue": 5
+          },
+          "DK": {
+            "count": 2,
+            "revenue": 80
+          },
+          "PL": {
+            "count": 1,
+            "revenue": 30
+          },
+          "AU": {
+            "count": 2,
+            "revenue": 20
+          },
+          "LT": {
+            "count": 2,
+            "revenue": 49.6
           }
         },
         "byCurrency": {
           "EUR": {
             "count": 499,
-            "revenue": 19578.68000000001
+            "revenue": 19578.68
           },
           "USD": {
             "count": 70,
             "revenue": 1885.73
+          }
+        },
+        "byChannel": {
+          "Subscription": {
+            "count": 132,
+            "revenue": 7753.41
+          },
+          "Organic Search": {
+            "count": 90,
+            "revenue": 3562.99
+          },
+          "Direct": {
+            "count": 114,
+            "revenue": 3087.78
+          },
+          "Unassigned": {
+            "count": 61,
+            "revenue": 1510.87
+          },
+          "Paid Search": {
+            "count": 101,
+            "revenue": 3462.61
+          },
+          "Referral": {
+            "count": 14,
+            "revenue": 430
+          },
+          "Unknown": {
+            "count": 52,
+            "revenue": 1425.15
+          },
+          "Cross-network": {
+            "count": 1,
+            "revenue": 15
+          },
+          "Email": {
+            "count": 4,
+            "revenue": 216.6
           }
         }
       },
@@ -3256,14 +1690,122 @@
         "week": "2025-12-08",
         "totalRevenue": 23987.88,
         "count": 591,
-        "byType": {
-          "subscription": {
+        "byPlanType": {
+          "Subscription": {
             "count": 141,
-            "revenue": 8074.659999999997
+            "revenue": 8074.66
           },
-          "one-time": {
+          "Prepaid": {
             "count": 450,
-            "revenue": 15913.219999999998
+            "revenue": 15913.22
+          }
+        },
+        "byProduct": {
+          "Machine-Made": {
+            "count": 569,
+            "revenue": 18733.89
+          },
+          "Human-Made": {
+            "count": 22,
+            "revenue": 5253.99
+          }
+        },
+        "byCountry": {
+          "MX": {
+            "count": 7,
+            "revenue": 256
+          },
+          "IT": {
+            "count": 29,
+            "revenue": 815.2
+          },
+          "FR": {
+            "count": 27,
+            "revenue": 706.52
+          },
+          "NL": {
+            "count": 181,
+            "revenue": 4664.4
+          },
+          "DE": {
+            "count": 105,
+            "revenue": 6018.19
+          },
+          "WO": {
+            "count": 20,
+            "revenue": 528
+          },
+          "AR": {
+            "count": 2,
+            "revenue": 10
+          },
+          "CH": {
+            "count": 11,
+            "revenue": 1298.8
+          },
+          "ES": {
+            "count": 10,
+            "revenue": 110
+          },
+          "CA": {
+            "count": 2,
+            "revenue": 30
+          },
+          "AT": {
+            "count": 18,
+            "revenue": 556.74
+          },
+          "SE": {
+            "count": 4,
+            "revenue": 80
+          },
+          "NO": {
+            "count": 2,
+            "revenue": 60
+          },
+          "BE": {
+            "count": 12,
+            "revenue": 281.2
+          },
+          "SI": {
+            "count": 3,
+            "revenue": 57.3
+          },
+          "DK": {
+            "count": 2,
+            "revenue": 40
+          },
+          "US": {
+            "count": 4,
+            "revenue": 50
+          },
+          "FI": {
+            "count": 1,
+            "revenue": 100
+          },
+          "BR": {
+            "count": 1,
+            "revenue": 8
+          },
+          "AU": {
+            "count": 2,
+            "revenue": 20
+          },
+          "LV": {
+            "count": 1,
+            "revenue": 12.4
+          },
+          "PL": {
+            "count": 1,
+            "revenue": 15
+          },
+          "HU": {
+            "count": 1,
+            "revenue": 7.87
+          },
+          "JP": {
+            "count": 1,
+            "revenue": 20
           }
         },
         "byCurrency": {
@@ -3273,7 +1815,45 @@
           },
           "EUR": {
             "count": 516,
-            "revenue": 21840.790000000015
+            "revenue": 21840.79
+          }
+        },
+        "byChannel": {
+          "Subscription": {
+            "count": 141,
+            "revenue": 8074.66
+          },
+          "Direct": {
+            "count": 118,
+            "revenue": 2896.88
+          },
+          "Paid Search": {
+            "count": 97,
+            "revenue": 3857.49
+          },
+          "Organic Search": {
+            "count": 100,
+            "revenue": 2687.11
+          },
+          "Unassigned": {
+            "count": 84,
+            "revenue": 3401.69
+          },
+          "Referral": {
+            "count": 14,
+            "revenue": 482.22
+          },
+          "Unknown": {
+            "count": 35,
+            "revenue": 2414.61
+          },
+          "Affiliates": {
+            "count": 1,
+            "revenue": 25.22
+          },
+          "Email": {
+            "count": 1,
+            "revenue": 148
           }
         }
       },
@@ -3281,14 +1861,106 @@
         "week": "2025-12-15",
         "totalRevenue": 20532.94,
         "count": 537,
-        "byType": {
-          "subscription": {
+        "byPlanType": {
+          "Subscription": {
             "count": 121,
-            "revenue": 6490.319999999999
+            "revenue": 6490.32
           },
-          "one-time": {
+          "Prepaid": {
             "count": 416,
-            "revenue": 14042.619999999997
+            "revenue": 14042.62
+          }
+        },
+        "byProduct": {
+          "Machine-Made": {
+            "count": 521,
+            "revenue": 16264.41
+          },
+          "Human-Made": {
+            "count": 16,
+            "revenue": 4268.53
+          }
+        },
+        "byCountry": {
+          "AR": {
+            "count": 1,
+            "revenue": 5
+          },
+          "NL": {
+            "count": 151,
+            "revenue": 4753.4
+          },
+          "FR": {
+            "count": 23,
+            "revenue": 404.93
+          },
+          "WO": {
+            "count": 24,
+            "revenue": 854.5
+          },
+          "US": {
+            "count": 5,
+            "revenue": 80
+          },
+          "DE": {
+            "count": 102,
+            "revenue": 2796.33
+          },
+          "AT": {
+            "count": 13,
+            "revenue": 297.66
+          },
+          "ES": {
+            "count": 12,
+            "revenue": 736.12
+          },
+          "CZ": {
+            "count": 7,
+            "revenue": 234.2
+          },
+          "PT": {
+            "count": 4,
+            "revenue": 96.91
+          },
+          "BE": {
+            "count": 9,
+            "revenue": 144.8
+          },
+          "CH": {
+            "count": 17,
+            "revenue": 2325.2
+          },
+          "MX": {
+            "count": 6,
+            "revenue": 80
+          },
+          "IT": {
+            "count": 28,
+            "revenue": 489.27
+          },
+          "CA": {
+            "count": 5,
+            "revenue": 90
+          },
+          "GB": {
+            "count": 2,
+            "revenue": 60
+          },
+          "FI": {
+            "count": 1,
+            "revenue": 16
+          },
+          "SE": {
+            "count": 1,
+            "revenue": 16
+          },
+          "SI": {
+            "count": 1,
+            "revenue": 12.3
+          },
+          "AU": {
+            "count": 1,
+            "revenue": 500
           }
         },
         "byCurrency": {
@@ -3300,20 +1972,142 @@
             "count": 68,
             "revenue": 1997.97
           }
+        },
+        "byChannel": {
+          "Subscription": {
+            "count": 121,
+            "revenue": 6490.32
+          },
+          "Organic Search": {
+            "count": 101,
+            "revenue": 3273.48
+          },
+          "Unassigned": {
+            "count": 69,
+            "revenue": 1749.6
+          },
+          "Paid Search": {
+            "count": 85,
+            "revenue": 2614.33
+          },
+          "Referral": {
+            "count": 15,
+            "revenue": 340
+          },
+          "Direct": {
+            "count": 99,
+            "revenue": 4177.12
+          },
+          "Unknown": {
+            "count": 42,
+            "revenue": 1357.39
+          },
+          "Cross-network": {
+            "count": 1,
+            "revenue": 15
+          },
+          "Email": {
+            "count": 4,
+            "revenue": 515.7
+          }
         }
       },
       {
         "week": "2025-12-22",
         "totalRevenue": 11307.12,
         "count": 294,
-        "byType": {
-          "one-time": {
+        "byPlanType": {
+          "Prepaid": {
             "count": 201,
             "revenue": 6687.57
           },
-          "subscription": {
+          "Subscription": {
             "count": 93,
-            "revenue": 4619.549999999998
+            "revenue": 4619.55
+          }
+        },
+        "byProduct": {
+          "Machine-Made": {
+            "count": 282,
+            "revenue": 8383.08
+          },
+          "Human-Made": {
+            "count": 12,
+            "revenue": 2924.04
+          }
+        },
+        "byCountry": {
+          "SE": {
+            "count": 1,
+            "revenue": 80
+          },
+          "FR": {
+            "count": 18,
+            "revenue": 310
+          },
+          "CH": {
+            "count": 5,
+            "revenue": 75
+          },
+          "NL": {
+            "count": 68,
+            "revenue": 2949.8
+          },
+          "DE": {
+            "count": 42,
+            "revenue": 1726.67
+          },
+          "IT": {
+            "count": 12,
+            "revenue": 368.2
+          },
+          "WO": {
+            "count": 15,
+            "revenue": 249.6
+          },
+          "BE": {
+            "count": 8,
+            "revenue": 209.4
+          },
+          "AT": {
+            "count": 6,
+            "revenue": 180
+          },
+          "GB": {
+            "count": 1,
+            "revenue": 30
+          },
+          "MX": {
+            "count": 2,
+            "revenue": 88
+          },
+          "US": {
+            "count": 8,
+            "revenue": 90
+          },
+          "CA": {
+            "count": 2,
+            "revenue": 30
+          },
+          "EE": {
+            "count": 1,
+            "revenue": 12.1
+          },
+          "PT": {
+            "count": 2,
+            "revenue": 20
+          },
+          "ES": {
+            "count": 4,
+            "revenue": 60
+          },
+          "DK": {
+            "count": 1,
+            "revenue": 20
+          },
+          "BR": {
+            "count": 1,
+            "revenue": 8
           }
         },
         "byCurrency": {
@@ -3323,7 +2117,45 @@
           },
           "USD": {
             "count": 52,
-            "revenue": 1255.5800000000002
+            "revenue": 1255.58
+          }
+        },
+        "byChannel": {
+          "Direct": {
+            "count": 46,
+            "revenue": 1094.77
+          },
+          "Paid Search": {
+            "count": 57,
+            "revenue": 2813.25
+          },
+          "Subscription": {
+            "count": 93,
+            "revenue": 4619.55
+          },
+          "Unassigned": {
+            "count": 27,
+            "revenue": 443.8
+          },
+          "Organic Search": {
+            "count": 47,
+            "revenue": 1655.93
+          },
+          "Unknown": {
+            "count": 18,
+            "revenue": 470.22
+          },
+          "Referral": {
+            "count": 3,
+            "revenue": 35
+          },
+          "Cross-network": {
+            "count": 2,
+            "revenue": 45
+          },
+          "Email": {
+            "count": 1,
+            "revenue": 129.6
           }
         }
       },
@@ -3331,14 +2163,86 @@
         "week": "2025-12-29",
         "totalRevenue": 9872.58,
         "count": 279,
-        "byType": {
-          "subscription": {
+        "byPlanType": {
+          "Subscription": {
             "count": 90,
             "revenue": 4316.37
           },
-          "one-time": {
+          "Prepaid": {
             "count": 189,
             "revenue": 5556.21
+          }
+        },
+        "byProduct": {
+          "Machine-Made": {
+            "count": 267,
+            "revenue": 7760.11
+          },
+          "Human-Made": {
+            "count": 12,
+            "revenue": 2112.47
+          }
+        },
+        "byCountry": {
+          "DE": {
+            "count": 49,
+            "revenue": 1392.09
+          },
+          "US": {
+            "count": 3,
+            "revenue": 70
+          },
+          "NL": {
+            "count": 56,
+            "revenue": 2230.5
+          },
+          "FR": {
+            "count": 8,
+            "revenue": 104.99
+          },
+          "IT": {
+            "count": 11,
+            "revenue": 138.2
+          },
+          "WO": {
+            "count": 22,
+            "revenue": 232
+          },
+          "ES": {
+            "count": 3,
+            "revenue": 28.26
+          },
+          "BE": {
+            "count": 10,
+            "revenue": 319
+          },
+          "CA": {
+            "count": 2,
+            "revenue": 20
+          },
+          "PT": {
+            "count": 1,
+            "revenue": 8.13
+          },
+          "MX": {
+            "count": 3,
+            "revenue": 80
+          },
+          "CH": {
+            "count": 7,
+            "revenue": 236.2
+          },
+          "AT": {
+            "count": 6,
+            "revenue": 322.5
+          },
+          "GB": {
+            "count": 2,
+            "revenue": 45
+          },
+          "NO": {
+            "count": 2,
+            "revenue": 40
           }
         },
         "byCurrency": {
@@ -3348,7 +2252,41 @@
           },
           "EUR": {
             "count": 223,
-            "revenue": 8345.579999999998
+            "revenue": 8345.58
+          }
+        },
+        "byChannel": {
+          "Subscription": {
+            "count": 90,
+            "revenue": 4316.37
+          },
+          "Unknown": {
+            "count": 24,
+            "revenue": 762.56
+          },
+          "Organic Search": {
+            "count": 55,
+            "revenue": 1646.82
+          },
+          "Direct": {
+            "count": 43,
+            "revenue": 1559.06
+          },
+          "Paid Search": {
+            "count": 33,
+            "revenue": 602.62
+          },
+          "Unassigned": {
+            "count": 26,
+            "revenue": 547.95
+          },
+          "Referral": {
+            "count": 7,
+            "revenue": 422.2
+          },
+          "Email": {
+            "count": 1,
+            "revenue": 15
           }
         }
       },
@@ -3356,28 +2294,166 @@
         "week": "2026-01-05",
         "totalRevenue": 18317.94,
         "count": 491,
-        "byType": {
-          "one-time": {
+        "byPlanType": {
+          "Prepaid": {
             "count": 353,
             "revenue": 10200.5
           },
-          "subscription": {
+          "Subscription": {
             "count": 137,
-            "revenue": 8104.640000000001
+            "revenue": 8104.64
           },
-          "invoice": {
+          "Invoice": {
             "count": 1,
             "revenue": 12.8
+          }
+        },
+        "byProduct": {
+          "Machine-Made": {
+            "count": 483,
+            "revenue": 15863.04
+          },
+          "Human-Made": {
+            "count": 8,
+            "revenue": 2454.9
+          }
+        },
+        "byCountry": {
+          "DE": {
+            "count": 81,
+            "revenue": 1930.49
+          },
+          "IT": {
+            "count": 19,
+            "revenue": 313.8
+          },
+          "NL": {
+            "count": 135,
+            "revenue": 3270.3
+          },
+          "CA": {
+            "count": 5,
+            "revenue": 140
+          },
+          "FR": {
+            "count": 22,
+            "revenue": 344.99
+          },
+          "AT": {
+            "count": 20,
+            "revenue": 435
+          },
+          "WO": {
+            "count": 12,
+            "revenue": 128
+          },
+          "SE": {
+            "count": 1,
+            "revenue": 1227.4
+          },
+          "AR": {
+            "count": 2,
+            "revenue": 10
+          },
+          "BE": {
+            "count": 11,
+            "revenue": 497
+          },
+          "IE": {
+            "count": 1,
+            "revenue": 15
+          },
+          "MX": {
+            "count": 9,
+            "revenue": 160
+          },
+          "CZ": {
+            "count": 1,
+            "revenue": 49.6
+          },
+          "ES": {
+            "count": 6,
+            "revenue": 758.92
+          },
+          "GB": {
+            "count": 3,
+            "revenue": 75
+          },
+          "CH": {
+            "count": 14,
+            "revenue": 225
+          },
+          "RO": {
+            "count": 1,
+            "revenue": 12.4
+          },
+          "HU": {
+            "count": 1,
+            "revenue": 10
+          },
+          "SK": {
+            "count": 1,
+            "revenue": 97.6
+          },
+          "DK": {
+            "count": 5,
+            "revenue": 440
+          },
+          "US": {
+            "count": 2,
+            "revenue": 40
+          },
+          "FI": {
+            "count": 1,
+            "revenue": 20
           }
         },
         "byCurrency": {
           "EUR": {
             "count": 423,
-            "revenue": 16373.739999999998
+            "revenue": 16373.74
           },
           "USD": {
             "count": 68,
-            "revenue": 1944.1999999999998
+            "revenue": 1944.2
+          }
+        },
+        "byChannel": {
+          "Organic Search": {
+            "count": 64,
+            "revenue": 1956.48
+          },
+          "Unassigned": {
+            "count": 63,
+            "revenue": 1407.75
+          },
+          "Paid Search": {
+            "count": 98,
+            "revenue": 2098.29
+          },
+          "Subscription": {
+            "count": 137,
+            "revenue": 8104.64
+          },
+          "Direct": {
+            "count": 87,
+            "revenue": 3825.02
+          },
+          "Referral": {
+            "count": 6,
+            "revenue": 105
+          },
+          "Unknown": {
+            "count": 33,
+            "revenue": 695.96
+          },
+          "Email": {
+            "count": 2,
+            "revenue": 109.8
+          },
+          "Affiliates": {
+            "count": 1,
+            "revenue": 15
           }
         }
       },
@@ -3385,24 +2461,154 @@
         "week": "2026-01-12",
         "totalRevenue": 23188.02,
         "count": 533,
-        "byType": {
-          "one-time": {
+        "byPlanType": {
+          "Prepaid": {
             "count": 407,
-            "revenue": 16896.469999999998
+            "revenue": 16896.47
           },
-          "subscription": {
+          "Subscription": {
             "count": 126,
             "revenue": 6291.55
+          }
+        },
+        "byProduct": {
+          "Human-Made": {
+            "count": 26,
+            "revenue": 8004.14
+          },
+          "Machine-Made": {
+            "count": 507,
+            "revenue": 15183.88
+          }
+        },
+        "byCountry": {
+          "IT": {
+            "count": 20,
+            "revenue": 543.6
+          },
+          "FR": {
+            "count": 24,
+            "revenue": 398.31
+          },
+          "DE": {
+            "count": 113,
+            "revenue": 3127.97
+          },
+          "AT": {
+            "count": 20,
+            "revenue": 435.83
+          },
+          "NL": {
+            "count": 153,
+            "revenue": 10281.4
+          },
+          "ES": {
+            "count": 12,
+            "revenue": 248.26
+          },
+          "CH": {
+            "count": 23,
+            "revenue": 472
+          },
+          "CA": {
+            "count": 5,
+            "revenue": 319.3
+          },
+          "BE": {
+            "count": 6,
+            "revenue": 109.6
+          },
+          "SE": {
+            "count": 1,
+            "revenue": 20
+          },
+          "WO": {
+            "count": 10,
+            "revenue": 346.7
+          },
+          "US": {
+            "count": 4,
+            "revenue": 100
+          },
+          "MX": {
+            "count": 4,
+            "revenue": 72
+          },
+          "BR": {
+            "count": 2,
+            "revenue": 16
+          },
+          "RU": {
+            "count": 1,
+            "revenue": 10
+          },
+          "DK": {
+            "count": 1,
+            "revenue": 32
+          },
+          "PT": {
+            "count": 2,
+            "revenue": 50
+          },
+          "NO": {
+            "count": 1,
+            "revenue": 20
+          },
+          "SI": {
+            "count": 1,
+            "revenue": 123
           }
         },
         "byCurrency": {
           "EUR": {
             "count": 472,
-            "revenue": 21444.680000000004
+            "revenue": 21444.68
           },
           "USD": {
             "count": 61,
-            "revenue": 1743.3400000000001
+            "revenue": 1743.34
+          }
+        },
+        "byChannel": {
+          "Unassigned": {
+            "count": 53,
+            "revenue": 3449.23
+          },
+          "Subscription": {
+            "count": 126,
+            "revenue": 6291.55
+          },
+          "Organic Search": {
+            "count": 76,
+            "revenue": 2152.16
+          },
+          "Unknown": {
+            "count": 50,
+            "revenue": 1397.68
+          },
+          "Direct": {
+            "count": 111,
+            "revenue": 6383.9
+          },
+          "Paid Search": {
+            "count": 106,
+            "revenue": 3222.4
+          },
+          "Affiliates": {
+            "count": 1,
+            "revenue": 15
+          },
+          "Referral": {
+            "count": 8,
+            "revenue": 175
+          },
+          "Cross-network": {
+            "count": 1,
+            "revenue": 15
+          },
+          "Email": {
+            "count": 1,
+            "revenue": 86.1
           }
         }
       },
@@ -3410,18 +2616,118 @@
         "week": "2026-01-19",
         "totalRevenue": 18280.33,
         "count": 494,
-        "byType": {
-          "one-time": {
+        "byPlanType": {
+          "Prepaid": {
             "count": 385,
             "revenue": 11591.56
           },
-          "subscription": {
+          "Subscription": {
             "count": 108,
-            "revenue": 6213.7699999999995
+            "revenue": 6213.77
           },
-          "invoice": {
+          "Invoice": {
             "count": 1,
             "revenue": 475
+          }
+        },
+        "byProduct": {
+          "Machine-Made": {
+            "count": 479,
+            "revenue": 15600.93
+          },
+          "Human-Made": {
+            "count": 15,
+            "revenue": 2679.4
+          }
+        },
+        "byCountry": {
+          "US": {
+            "count": 12,
+            "revenue": 148
+          },
+          "NL": {
+            "count": 156,
+            "revenue": 4023.9
+          },
+          "IE": {
+            "count": 2,
+            "revenue": 30
+          },
+          "DE": {
+            "count": 84,
+            "revenue": 3800.94
+          },
+          "IT": {
+            "count": 21,
+            "revenue": 308.4
+          },
+          "BE": {
+            "count": 15,
+            "revenue": 286.4
+          },
+          "CH": {
+            "count": 8,
+            "revenue": 150
+          },
+          "FR": {
+            "count": 29,
+            "revenue": 775.39
+          },
+          "CA": {
+            "count": 5,
+            "revenue": 237.2
+          },
+          "ES": {
+            "count": 8,
+            "revenue": 243.46
+          },
+          "WO": {
+            "count": 8,
+            "revenue": 473.9
+          },
+          "NO": {
+            "count": 5,
+            "revenue": 140
+          },
+          "AT": {
+            "count": 14,
+            "revenue": 300
+          },
+          "HU": {
+            "count": 1,
+            "revenue": 7.87
+          },
+          "SE": {
+            "count": 3,
+            "revenue": 100
+          },
+          "MX": {
+            "count": 3,
+            "revenue": 72
+          },
+          "PT": {
+            "count": 1,
+            "revenue": 10
+          },
+          "AU": {
+            "count": 3,
+            "revenue": 50
+          },
+          "FI": {
+            "count": 1,
+            "revenue": 32
+          },
+          "PL": {
+            "count": 1,
+            "revenue": 15
+          },
+          "CZ": {
+            "count": 1,
+            "revenue": 62
+          },
+          "BR": {
+            "count": 1,
+            "revenue": 8
           }
         },
         "byCurrency": {
@@ -3431,7 +2737,45 @@
           },
           "EUR": {
             "count": 438,
-            "revenue": 15697.829999999996
+            "revenue": 15697.83
+          }
+        },
+        "byChannel": {
+          "Direct": {
+            "count": 104,
+            "revenue": 2546.82
+          },
+          "Subscription": {
+            "count": 108,
+            "revenue": 6213.77
+          },
+          "Organic Search": {
+            "count": 82,
+            "revenue": 3614.89
+          },
+          "Unassigned": {
+            "count": 63,
+            "revenue": 1804.44
+          },
+          "Unknown": {
+            "count": 52,
+            "revenue": 1972.68
+          },
+          "Referral": {
+            "count": 14,
+            "revenue": 300
+          },
+          "Paid Search": {
+            "count": 65,
+            "revenue": 1448.83
+          },
+          "Email": {
+            "count": 3,
+            "revenue": 333.9
+          },
+          "Affiliates": {
+            "count": 3,
+            "revenue": 45
           }
         }
       },
@@ -3439,14 +2783,110 @@
         "week": "2026-01-26",
         "totalRevenue": 17446.42,
         "count": 476,
-        "byType": {
-          "subscription": {
+        "byPlanType": {
+          "Subscription": {
             "count": 75,
-            "revenue": 4497.330000000001
+            "revenue": 4497.33
           },
-          "one-time": {
+          "Prepaid": {
             "count": 401,
-            "revenue": 12949.090000000002
+            "revenue": 12949.09
+          }
+        },
+        "byProduct": {
+          "Machine-Made": {
+            "count": 457,
+            "revenue": 14539.27
+          },
+          "Human-Made": {
+            "count": 19,
+            "revenue": 2907.15
+          }
+        },
+        "byCountry": {
+          "CH": {
+            "count": 9,
+            "revenue": 225
+          },
+          "DE": {
+            "count": 121,
+            "revenue": 3706.69
+          },
+          "NL": {
+            "count": 135,
+            "revenue": 4590.6
+          },
+          "FR": {
+            "count": 19,
+            "revenue": 528.66
+          },
+          "AT": {
+            "count": 10,
+            "revenue": 177.5
+          },
+          "IT": {
+            "count": 25,
+            "revenue": 295.6
+          },
+          "BE": {
+            "count": 17,
+            "revenue": 366
+          },
+          "ES": {
+            "count": 12,
+            "revenue": 741.24
+          },
+          "GB": {
+            "count": 3,
+            "revenue": 105
+          },
+          "SE": {
+            "count": 3,
+            "revenue": 92
+          },
+          "US": {
+            "count": 8,
+            "revenue": 170
+          },
+          "CA": {
+            "count": 11,
+            "revenue": 320
+          },
+          "MX": {
+            "count": 4,
+            "revenue": 152
+          },
+          "WO": {
+            "count": 10,
+            "revenue": 160
+          },
+          "BR": {
+            "count": 2,
+            "revenue": 32
+          },
+          "LV": {
+            "count": 1,
+            "revenue": 15
+          },
+          "LT": {
+            "count": 1,
+            "revenue": 15
+          },
+          "SI": {
+            "count": 2,
+            "revenue": 753
+          },
+          "PT": {
+            "count": 2,
+            "revenue": 190
+          },
+          "EE": {
+            "count": 1,
+            "revenue": 30
+          },
+          "SK": {
+            "count": 1,
+            "revenue": 15
           }
         },
         "byCurrency": {
@@ -3456,7 +2896,41 @@
           },
           "EUR": {
             "count": 419,
-            "revenue": 16004.420000000004
+            "revenue": 16004.42
+          }
+        },
+        "byChannel": {
+          "Subscription": {
+            "count": 75,
+            "revenue": 4497.33
+          },
+          "Organic Search": {
+            "count": 96,
+            "revenue": 3301.95
+          },
+          "Paid Search": {
+            "count": 77,
+            "revenue": 2611.01
+          },
+          "Unassigned": {
+            "count": 51,
+            "revenue": 2130.59
+          },
+          "Direct": {
+            "count": 118,
+            "revenue": 3410.22
+          },
+          "Unknown": {
+            "count": 51,
+            "revenue": 1233.71
+          },
+          "Referral": {
+            "count": 7,
+            "revenue": 127.61
+          },
+          "Email": {
+            "count": 1,
+            "revenue": 134
           }
         }
       },
@@ -3464,28 +2938,162 @@
         "week": "2026-02-02",
         "totalRevenue": 18640.52,
         "count": 484,
-        "byType": {
-          "one-time": {
+        "byPlanType": {
+          "Prepaid": {
             "count": 358,
             "revenue": 11195.22
           },
-          "subscription": {
+          "Subscription": {
             "count": 124,
-            "revenue": 7113.750000000001
+            "revenue": 7113.75
           },
-          "invoice": {
+          "Invoice": {
             "count": 2,
             "revenue": 331.55
+          }
+        },
+        "byProduct": {
+          "Machine-Made": {
+            "count": 469,
+            "revenue": 15888.9
+          },
+          "Human-Made": {
+            "count": 15,
+            "revenue": 2751.62
+          }
+        },
+        "byCountry": {
+          "DE": {
+            "count": 77,
+            "revenue": 3563.59
+          },
+          "BE": {
+            "count": 8,
+            "revenue": 198.98
+          },
+          "NL": {
+            "count": 140,
+            "revenue": 3810.42
+          },
+          "AT": {
+            "count": 12,
+            "revenue": 467.5
+          },
+          "IT": {
+            "count": 27,
+            "revenue": 985.18
+          },
+          "PT": {
+            "count": 1,
+            "revenue": 8.13
+          },
+          "ES": {
+            "count": 11,
+            "revenue": 133.04
+          },
+          "CH": {
+            "count": 13,
+            "revenue": 456.5
+          },
+          "WO": {
+            "count": 14,
+            "revenue": 176
+          },
+          "FR": {
+            "count": 17,
+            "revenue": 273.3
+          },
+          "CA": {
+            "count": 8,
+            "revenue": 340
+          },
+          "MX": {
+            "count": 6,
+            "revenue": 64
+          },
+          "LU": {
+            "count": 1,
+            "revenue": 34.18
+          },
+          "DK": {
+            "count": 3,
+            "revenue": 100
+          },
+          "BR": {
+            "count": 1,
+            "revenue": 24
+          },
+          "NO": {
+            "count": 2,
+            "revenue": 40
+          },
+          "AU": {
+            "count": 3,
+            "revenue": 50
+          },
+          "US": {
+            "count": 7,
+            "revenue": 100
+          },
+          "SE": {
+            "count": 3,
+            "revenue": 88
+          },
+          "GB": {
+            "count": 1,
+            "revenue": 30
+          },
+          "EE": {
+            "count": 1,
+            "revenue": 225
+          },
+          "CZ": {
+            "count": 1,
+            "revenue": 12.4
           }
         },
         "byCurrency": {
           "EUR": {
             "count": 415,
-            "revenue": 16768.969999999998
+            "revenue": 16768.97
           },
           "USD": {
             "count": 69,
             "revenue": 1871.55
+          }
+        },
+        "byChannel": {
+          "Unknown": {
+            "count": 49,
+            "revenue": 1968.23
+          },
+          "Subscription": {
+            "count": 124,
+            "revenue": 7113.75
+          },
+          "Direct": {
+            "count": 92,
+            "revenue": 3576.35
+          },
+          "Referral": {
+            "count": 8,
+            "revenue": 190
+          },
+          "Paid Search": {
+            "count": 59,
+            "revenue": 1542.08
+          },
+          "Organic Search": {
+            "count": 92,
+            "revenue": 2463.11
+          },
+          "Unassigned": {
+            "count": 59,
+            "revenue": 1453.8
+          },
+          "Email": {
+            "count": 1,
+            "revenue": 333.2
           }
         }
       },
@@ -3493,14 +3101,114 @@
         "week": "2026-02-09",
         "totalRevenue": 18499.37,
         "count": 507,
-        "byType": {
-          "subscription": {
+        "byPlanType": {
+          "Subscription": {
             "count": 118,
-            "revenue": 6804.650000000001
+            "revenue": 6804.65
           },
-          "one-time": {
+          "Prepaid": {
             "count": 389,
-            "revenue": 11694.720000000001
+            "revenue": 11694.72
+          }
+        },
+        "byProduct": {
+          "Machine-Made": {
+            "count": 491,
+            "revenue": 14789.5
+          },
+          "Human-Made": {
+            "count": 16,
+            "revenue": 3709.87
+          }
+        },
+        "byCountry": {
+          "NL": {
+            "count": 146,
+            "revenue": 5779.77
+          },
+          "KR": {
+            "count": 3,
+            "revenue": 140
+          },
+          "AT": {
+            "count": 14,
+            "revenue": 252.5
+          },
+          "DE": {
+            "count": 89,
+            "revenue": 2842.6
+          },
+          "BE": {
+            "count": 15,
+            "revenue": 279.12
+          },
+          "FR": {
+            "count": 20,
+            "revenue": 304.97
+          },
+          "CH": {
+            "count": 11,
+            "revenue": 403.5
+          },
+          "IT": {
+            "count": 35,
+            "revenue": 635.52
+          },
+          "ES": {
+            "count": 15,
+            "revenue": 188.26
+          },
+          "AR": {
+            "count": 2,
+            "revenue": 10
+          },
+          "AU": {
+            "count": 1,
+            "revenue": 10
+          },
+          "CA": {
+            "count": 5,
+            "revenue": 150
+          },
+          "WO": {
+            "count": 14,
+            "revenue": 176
+          },
+          "NO": {
+            "count": 1,
+            "revenue": 20
+          },
+          "FI": {
+            "count": 3,
+            "revenue": 224
+          },
+          "HU": {
+            "count": 1,
+            "revenue": 31.48
+          },
+          "US": {
+            "count": 7,
+            "revenue": 130
+          },
+          "GB": {
+            "count": 1,
+            "revenue": 15
+          },
+          "BR": {
+            "count": 1,
+            "revenue": 16
+          },
+          "SE": {
+            "count": 2,
+            "revenue": 40
+          },
+          "MX": {
+            "count": 1,
+            "revenue": 16
+          },
+          "SI": {
+            "count": 1,
+            "revenue": 15
           }
         },
         "byCurrency": {
@@ -3510,678 +3218,276 @@
           },
           "EUR": {
             "count": 439,
-            "revenue": 16376.139999999998
+            "revenue": 16376.14
+          }
+        },
+        "byChannel": {
+          "Subscription": {
+            "count": 118,
+            "revenue": 6804.65
+          },
+          "Unassigned": {
+            "count": 62,
+            "revenue": 1539.74
+          },
+          "Direct": {
+            "count": 119,
+            "revenue": 3307.75
+          },
+          "Organic Search": {
+            "count": 83,
+            "revenue": 2504.37
+          },
+          "Unknown": {
+            "count": 42,
+            "revenue": 824.9
+          },
+          "Paid Search": {
+            "count": 72,
+            "revenue": 2543.89
+          },
+          "Referral": {
+            "count": 9,
+            "revenue": 768.27
+          },
+          "Email": {
+            "count": 2,
+            "revenue": 205.8
           }
         }
       },
       {
         "week": "2026-02-16",
-        "totalRevenue": 10386.35,
-        "count": 286,
-        "byType": {
-          "one-time": {
-            "count": 236,
-            "revenue": 7716.940000000001
+        "totalRevenue": 10526.35,
+        "count": 291,
+        "byPlanType": {
+          "Subscription": {
+            "count": 50,
+            "revenue": 2659.41
           },
-          "subscription": {
-            "count": 49,
-            "revenue": 2619.41
+          "Prepaid": {
+            "count": 240,
+            "revenue": 7816.94
           },
-          "invoice": {
+          "Invoice": {
             "count": 1,
             "revenue": 50
           }
         },
+        "byProduct": {
+          "Machine-Made": {
+            "count": 279,
+            "revenue": 7929.69
+          },
+          "Human-Made": {
+            "count": 12,
+            "revenue": 2596.66
+          }
+        },
+        "byCountry": {
+          "NL": {
+            "count": 100,
+            "revenue": 3710.29
+          },
+          "DE": {
+            "count": 50,
+            "revenue": 1847.66
+          },
+          "CA": {
+            "count": 4,
+            "revenue": 150
+          },
+          "US": {
+            "count": 5,
+            "revenue": 50
+          },
+          "BE": {
+            "count": 8,
+            "revenue": 211.95
+          },
+          "FR": {
+            "count": 15,
+            "revenue": 198.31
+          },
+          "ES": {
+            "count": 13,
+            "revenue": 204.34
+          },
+          "CH": {
+            "count": 12,
+            "revenue": 433.75
+          },
+          "WO": {
+            "count": 10,
+            "revenue": 152
+          },
+          "IT": {
+            "count": 13,
+            "revenue": 149.14
+          },
+          "SE": {
+            "count": 2,
+            "revenue": 36
+          },
+          "AT": {
+            "count": 2,
+            "revenue": 431.36
+          },
+          "MX": {
+            "count": 2,
+            "revenue": 24
+          },
+          "DK": {
+            "count": 1,
+            "revenue": 60
+          },
+          "SK": {
+            "count": 1,
+            "revenue": 73.14
+          },
+          "NO": {
+            "count": 1,
+            "revenue": 80
+          },
+          "AR": {
+            "count": 1,
+            "revenue": 5
+          }
+        },
         "byCurrency": {
           "EUR": {
-            "count": 245,
-            "revenue": 9007.95
+            "count": 249,
+            "revenue": 9137.95
           },
           "USD": {
+            "count": 42,
+            "revenue": 1388.4
+          }
+        },
+        "byChannel": {
+          "Subscription": {
+            "count": 50,
+            "revenue": 2659.41
+          },
+          "Unknown": {
+            "count": 35,
+            "revenue": 2008.71
+          },
+          "Unassigned": {
+            "count": 79,
+            "revenue": 2316.72
+          },
+          "Direct": {
             "count": 41,
-            "revenue": 1378.4
+            "revenue": 1188.44
+          },
+          "Organic Search": {
+            "count": 41,
+            "revenue": 1182.74
+          },
+          "Paid Search": {
+            "count": 42,
+            "revenue": 1095.33
+          },
+          "Affiliates": {
+            "count": 1,
+            "revenue": 15
+          },
+          "Cross-network": {
+            "count": 1,
+            "revenue": 45
+          },
+          "Referral": {
+            "count": 1,
+            "revenue": 15
           }
         }
       }
     ],
-    "subscriptions": [
-      {
-        "week": "2025-02-17",
-        "total": 3,
-        "monthly": 2,
-        "yearly": 1
-      },
-      {
-        "week": "2025-02-24",
-        "total": 9,
-        "monthly": 8,
-        "yearly": 1
-      },
-      {
-        "week": "2025-03-03",
-        "total": 18,
-        "monthly": 16,
-        "yearly": 2
-      },
-      {
-        "week": "2025-03-10",
-        "total": 16,
-        "monthly": 15,
-        "yearly": 1
-      },
-      {
-        "week": "2025-03-17",
-        "total": 10,
-        "monthly": 9,
-        "yearly": 1
-      },
-      {
-        "week": "2025-03-24",
-        "total": 12,
-        "monthly": 10,
-        "yearly": 2
-      },
-      {
-        "week": "2025-03-31",
-        "total": 13,
-        "monthly": 9,
-        "yearly": 4
-      },
-      {
-        "week": "2025-04-07",
-        "total": 16,
-        "monthly": 16,
-        "yearly": 0
-      },
-      {
-        "week": "2025-04-14",
-        "total": 10,
-        "monthly": 8,
-        "yearly": 2
-      },
-      {
-        "week": "2025-04-21",
-        "total": 13,
-        "monthly": 10,
-        "yearly": 3
-      },
-      {
-        "week": "2025-04-28",
-        "total": 9,
-        "monthly": 8,
-        "yearly": 1
-      },
-      {
-        "week": "2025-05-05",
-        "total": 13,
-        "monthly": 12,
-        "yearly": 1
-      },
-      {
-        "week": "2025-05-12",
-        "total": 14,
-        "monthly": 11,
-        "yearly": 3
-      },
-      {
-        "week": "2025-05-19",
-        "total": 9,
-        "monthly": 8,
-        "yearly": 1
-      },
-      {
-        "week": "2025-05-26",
-        "total": 10,
-        "monthly": 10,
-        "yearly": 0
-      },
-      {
-        "week": "2025-06-02",
-        "total": 12,
-        "monthly": 10,
-        "yearly": 2
-      },
-      {
-        "week": "2025-06-09",
-        "total": 16,
-        "monthly": 12,
-        "yearly": 4
-      },
-      {
-        "week": "2025-06-16",
-        "total": 23,
-        "monthly": 21,
-        "yearly": 2
-      },
-      {
-        "week": "2025-06-23",
-        "total": 22,
-        "monthly": 20,
-        "yearly": 2
-      },
-      {
-        "week": "2025-06-30",
-        "total": 16,
-        "monthly": 15,
-        "yearly": 1
-      },
-      {
-        "week": "2025-07-07",
-        "total": 16,
-        "monthly": 15,
-        "yearly": 1
-      },
-      {
-        "week": "2025-07-14",
-        "total": 16,
-        "monthly": 14,
-        "yearly": 2
-      },
-      {
-        "week": "2025-07-21",
-        "total": 13,
-        "monthly": 12,
-        "yearly": 1
-      },
-      {
-        "week": "2025-07-28",
-        "total": 8,
-        "monthly": 5,
-        "yearly": 3
-      },
-      {
-        "week": "2025-08-04",
-        "total": 15,
-        "monthly": 10,
-        "yearly": 5
-      },
-      {
-        "week": "2025-08-11",
-        "total": 13,
-        "monthly": 11,
-        "yearly": 2
-      },
-      {
-        "week": "2025-08-18",
-        "total": 10,
-        "monthly": 5,
-        "yearly": 5
-      },
-      {
-        "week": "2025-08-25",
-        "total": 6,
-        "monthly": 5,
-        "yearly": 1
-      },
-      {
-        "week": "2025-09-01",
-        "total": 11,
-        "monthly": 9,
-        "yearly": 2
-      },
-      {
-        "week": "2025-09-08",
-        "total": 17,
-        "monthly": 12,
-        "yearly": 5
-      },
-      {
-        "week": "2025-09-15",
-        "total": 14,
-        "monthly": 13,
-        "yearly": 1
-      },
-      {
-        "week": "2025-09-22",
-        "total": 10,
-        "monthly": 7,
-        "yearly": 3
-      },
-      {
-        "week": "2025-09-29",
-        "total": 13,
-        "monthly": 9,
-        "yearly": 4
-      },
-      {
-        "week": "2025-10-06",
-        "total": 11,
-        "monthly": 7,
-        "yearly": 4
-      },
-      {
-        "week": "2025-10-13",
-        "total": 17,
-        "monthly": 13,
-        "yearly": 4
-      },
-      {
-        "week": "2025-10-20",
-        "total": 18,
-        "monthly": 15,
-        "yearly": 3
-      },
-      {
-        "week": "2025-10-27",
-        "total": 8,
-        "monthly": 5,
-        "yearly": 3
-      },
-      {
-        "week": "2025-11-03",
-        "total": 12,
-        "monthly": 8,
-        "yearly": 4
-      },
-      {
-        "week": "2025-11-10",
-        "total": 11,
-        "monthly": 8,
-        "yearly": 3
-      },
-      {
-        "week": "2025-11-17",
-        "total": 13,
-        "monthly": 11,
-        "yearly": 2
-      },
-      {
-        "week": "2025-11-24",
-        "total": 11,
-        "monthly": 9,
-        "yearly": 2
-      },
-      {
-        "week": "2025-12-01",
-        "total": 20,
-        "monthly": 15,
-        "yearly": 5
-      },
-      {
-        "week": "2025-12-08",
-        "total": 18,
-        "monthly": 12,
-        "yearly": 6
-      },
-      {
-        "week": "2025-12-15",
-        "total": 13,
-        "monthly": 9,
-        "yearly": 4
-      },
-      {
-        "week": "2025-12-22",
-        "total": 4,
-        "monthly": 4,
-        "yearly": 0
-      },
-      {
-        "week": "2025-12-29",
-        "total": 4,
-        "monthly": 3,
-        "yearly": 1
-      },
-      {
-        "week": "2026-01-05",
-        "total": 13,
-        "monthly": 8,
-        "yearly": 5
-      },
-      {
-        "week": "2026-01-12",
-        "total": 13,
-        "monthly": 12,
-        "yearly": 1
-      },
-      {
-        "week": "2026-01-19",
-        "total": 17,
-        "monthly": 13,
-        "yearly": 4
-      },
-      {
-        "week": "2026-01-26",
-        "total": 15,
-        "monthly": 13,
-        "yearly": 2
-      },
-      {
-        "week": "2026-02-02",
-        "total": 13,
-        "monthly": 9,
-        "yearly": 4
-      },
-      {
-        "week": "2026-02-09",
-        "total": 8,
-        "monthly": 5,
-        "yearly": 3
-      },
-      {
-        "week": "2026-02-16",
-        "total": 6,
-        "monthly": 4,
-        "yearly": 2
-      }
-    ],
     "ga4": [
       {
-        "week": "2025-02-17",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
-        "week": "2025-02-24",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
-        "week": "2025-03-03",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
-        "week": "2025-03-10",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
-        "week": "2025-03-17",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
-        "week": "2025-03-24",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
-        "week": "2025-03-31",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
-        "week": "2025-04-07",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
-        "week": "2025-04-14",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
-        "week": "2025-04-21",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
-        "week": "2025-04-28",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
-        "week": "2025-05-05",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
-        "week": "2025-05-12",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
-        "week": "2025-05-19",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
-        "week": "2025-05-26",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
-        "week": "2025-06-02",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
-        "week": "2025-06-09",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
-        "week": "2025-06-16",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
-        "week": "2025-06-23",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
-        "week": "2025-06-30",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
-        "week": "2025-07-07",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
-        "week": "2025-07-14",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
-        "week": "2025-07-21",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
-        "week": "2025-07-28",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
-        "week": "2025-08-04",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
-        "week": "2025-08-11",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
-        "week": "2025-08-18",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
-        "week": "2025-08-25",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
-        "week": "2025-09-01",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
-        "week": "2025-09-08",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
-        "week": "2025-09-15",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
-        "week": "2025-09-22",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
-        "week": "2025-09-29",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
-        "week": "2025-10-06",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
-        "week": "2025-10-13",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
-        "week": "2025-10-20",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
-        "week": "2025-10-27",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
-        "week": "2025-11-03",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
-        "week": "2025-11-10",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
-      },
-      {
         "week": "2025-11-17",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
+        "formSubmissions": 14,
+        "purchases": 112,
+        "purchaseRevenue": 2585.81
       },
       {
         "week": "2025-11-24",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
+        "formSubmissions": 76,
+        "purchases": 391,
+        "purchaseRevenue": 12845.83
       },
       {
         "week": "2025-12-01",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
+        "formSubmissions": 55,
+        "purchases": 399,
+        "purchaseRevenue": 13747.98
       },
       {
         "week": "2025-12-08",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
+        "formSubmissions": 81,
+        "purchases": 428,
+        "purchaseRevenue": 15728.27
       },
       {
         "week": "2025-12-15",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
+        "formSubmissions": 64,
+        "purchases": 385,
+        "purchaseRevenue": 13841.37
       },
       {
         "week": "2025-12-22",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
+        "formSubmissions": 23,
+        "purchases": 184,
+        "purchaseRevenue": 6207.84
       },
       {
         "week": "2025-12-29",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
+        "formSubmissions": 35,
+        "purchases": 170,
+        "purchaseRevenue": 5180.58
       },
       {
         "week": "2026-01-05",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
+        "formSubmissions": 50,
+        "purchases": 332,
+        "purchaseRevenue": 11591.3
       },
       {
         "week": "2026-01-12",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
+        "formSubmissions": 55,
+        "purchases": 366,
+        "purchaseRevenue": 16181.32
       },
       {
         "week": "2026-01-19",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
+        "formSubmissions": 44,
+        "purchases": 349,
+        "purchaseRevenue": 12300.65
       },
       {
         "week": "2026-01-26",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
+        "formSubmissions": 40,
+        "purchases": 357,
+        "purchaseRevenue": 12299.2
       },
       {
         "week": "2026-02-02",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
+        "formSubmissions": 37,
+        "purchases": 317,
+        "purchaseRevenue": 10063.31
       },
       {
         "week": "2026-02-09",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
+        "formSubmissions": 39,
+        "purchases": 357,
+        "purchaseRevenue": 12648.35
       },
       {
         "week": "2026-02-16",
-        "formSubmissions": 0,
-        "purchases": 0,
-        "purchaseValue": 0
+        "formSubmissions": 24,
+        "purchases": 212,
+        "purchaseRevenue": 6484
       }
     ]
   }
