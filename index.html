@@ -719,71 +719,49 @@ function renderInboundSummary(weeks) {
     return `${fmt.number(mqls)} <span class="text-as-muted">(${fmt.number(mqlsFL)})</span>`;
   }
 
+  // col-gap adds left padding to visually group related columns
+  const g = 'pl-5'; // group separator
+  const summaryHead = (label) => `
+      <th class="pb-2">${label}</th>
+      <th class="pb-2 text-right">Spend</th>
+      <th class="pb-2 text-right ${g}">Leads</th>
+      <th class="pb-2 text-right">MQLs</th>
+      <th class="pb-2 text-right">L&gt;MQL</th>
+      <th class="pb-2 text-right ${g}">SQLs</th>
+      <th class="pb-2 text-right">MQL&gt;SQL</th>
+      <th class="pb-2 text-right ${g}">Won</th>
+      <th class="pb-2 text-right">SQL&gt;Won</th>
+      <th class="pb-2 text-right ${g}">Revenue</th>
+  `;
+  function summaryRow(label, hmCost, f) {
+    const l2m = f.leads > 0 ? (f.mqlsFL / f.leads * 100).toFixed(1) + '%' : '-';
+    const m2s = f.mqls > 0 ? (f.sqls / f.mqls * 100).toFixed(1) + '%' : '-';
+    const s2w = f.sqls > 0 ? (f.won / f.sqls * 100).toFixed(1) + '%' : '-';
+    return `<tr class="border-b border-as-border/40 hover-row">
+      <td class="py-2.5 font-semibold text-sm">${label}</td>
+      <td class="py-2.5 text-right text-as-secondary">${fmt.currency(hmCost)}</td>
+      <td class="py-2.5 text-right text-as-secondary ${g}">${fmt.number(f.leads)}</td>
+      <td class="py-2.5 text-right text-as-secondary">${mqlCell(f.mqls, f.mqlsFL)}</td>
+      <td class="py-2.5 text-right text-as-muted">${l2m}</td>
+      <td class="py-2.5 text-right text-as-secondary ${g}">${fmt.number(f.sqls)}</td>
+      <td class="py-2.5 text-right text-as-muted">${m2s}</td>
+      <td class="py-2.5 text-right text-as-secondary ${g}">${fmt.number(f.won)}</td>
+      <td class="py-2.5 text-right text-as-muted">${s2w}</td>
+      <td class="py-2.5 text-right font-semibold ${g}">${fmt.currency(f.wonRev)}</td>
+    </tr>`;
+  }
+
   if (inboundSummaryView === 'monthly') {
     const allMonths = [...new Set(weeks.map(w => w.slice(0, 7)))].sort();
-    head.innerHTML = `
-      <th class="pb-2">Month</th>
-      <th class="pb-2 text-right">Spend</th>
-      <th class="pb-2 text-right">Leads</th>
-      <th class="pb-2 text-right">MQLs</th>
-      <th class="pb-2 text-right">L&gt;MQL</th>
-      <th class="pb-2 text-right">SQLs</th>
-      <th class="pb-2 text-right">MQL&gt;SQL</th>
-      <th class="pb-2 text-right">Won</th>
-      <th class="pb-2 text-right">SQL&gt;Won</th>
-      <th class="pb-2 text-right">Revenue</th>
-    `;
+    head.innerHTML = summaryHead('Month');
     body.innerHTML = allMonths.map(month => {
       const monthWeeks = weeks.filter(w => w.slice(0, 7) === month);
-      const hmCost = getHmCost(monthWeeks);
-      const f = computeFunnel(monthWeeks);
-      const l2m = f.leads > 0 ? (f.mqlsFL / f.leads * 100).toFixed(1) + '%' : '-';
-      const m2s = f.mqls > 0 ? (f.sqls / f.mqls * 100).toFixed(1) + '%' : '-';
-      const s2w = f.sqls > 0 ? (f.won / f.sqls * 100).toFixed(1) + '%' : '-';
-      return `<tr class="border-b border-as-border/40 hover-row">
-        <td class="py-2.5 font-semibold text-sm">${fmt.monthLabel(month)}</td>
-        <td class="py-2.5 text-right text-as-secondary">${fmt.currency(hmCost)}</td>
-        <td class="py-2.5 text-right text-as-secondary">${fmt.number(f.leads)}</td>
-        <td class="py-2.5 text-right text-as-secondary">${mqlCell(f.mqls, f.mqlsFL)}</td>
-        <td class="py-2.5 text-right text-as-muted">${l2m}</td>
-        <td class="py-2.5 text-right text-as-secondary">${fmt.number(f.sqls)}</td>
-        <td class="py-2.5 text-right text-as-muted">${m2s}</td>
-        <td class="py-2.5 text-right text-as-secondary">${fmt.number(f.won)}</td>
-        <td class="py-2.5 text-right text-as-muted">${s2w}</td>
-        <td class="py-2.5 text-right font-semibold">${fmt.currency(f.wonRev)}</td>
-      </tr>`;
+      return summaryRow(fmt.monthLabel(month), getHmCost(monthWeeks), computeFunnel(monthWeeks));
     }).join('');
   } else {
-    head.innerHTML = `
-      <th class="pb-2">Week</th>
-      <th class="pb-2 text-right">Spend</th>
-      <th class="pb-2 text-right">Leads</th>
-      <th class="pb-2 text-right">MQLs</th>
-      <th class="pb-2 text-right">L&gt;MQL</th>
-      <th class="pb-2 text-right">SQLs</th>
-      <th class="pb-2 text-right">MQL&gt;SQL</th>
-      <th class="pb-2 text-right">Won</th>
-      <th class="pb-2 text-right">SQL&gt;Won</th>
-      <th class="pb-2 text-right">Revenue</th>
-    `;
+    head.innerHTML = summaryHead('Week');
     body.innerHTML = weeks.map(w => {
-      const hmCost = getHmCost([w]);
-      const f = computeFunnel([w]);
-      const l2m = f.leads > 0 ? (f.mqlsFL / f.leads * 100).toFixed(1) + '%' : '-';
-      const m2s = f.mqls > 0 ? (f.sqls / f.mqls * 100).toFixed(1) + '%' : '-';
-      const s2w = f.sqls > 0 ? (f.won / f.sqls * 100).toFixed(1) + '%' : '-';
-      return `<tr class="border-b border-as-border/40 hover-row">
-        <td class="py-2.5 font-semibold text-sm">${fmt.shortDate(w)}</td>
-        <td class="py-2.5 text-right text-as-secondary">${fmt.currency(hmCost)}</td>
-        <td class="py-2.5 text-right text-as-secondary">${fmt.number(f.leads)}</td>
-        <td class="py-2.5 text-right text-as-secondary">${mqlCell(f.mqls, f.mqlsFL)}</td>
-        <td class="py-2.5 text-right text-as-muted">${l2m}</td>
-        <td class="py-2.5 text-right text-as-secondary">${fmt.number(f.sqls)}</td>
-        <td class="py-2.5 text-right text-as-muted">${m2s}</td>
-        <td class="py-2.5 text-right text-as-secondary">${fmt.number(f.won)}</td>
-        <td class="py-2.5 text-right text-as-muted">${s2w}</td>
-        <td class="py-2.5 text-right font-semibold">${fmt.currency(f.wonRev)}</td>
-      </tr>`;
+      return summaryRow(fmt.shortDate(w), getHmCost([w]), computeFunnel([w]));
     }).join('');
   }
 }
