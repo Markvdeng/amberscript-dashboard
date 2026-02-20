@@ -1178,8 +1178,10 @@ function onInboundFilterChange() {
 
   if (product === 'Human-Made Transcription') {
     const styles = [...new Set((DATA.deals || []).map(d => d.transcriptionStyle).filter(Boolean))].sort();
+    const prevStyle = styleEl.value;
     styleEl.innerHTML = '<option value="all">All Styles</option>' +
       styles.map(s => `<option value="${s}">${s}</option>`).join('');
+    if (styles.includes(prevStyle)) styleEl.value = prevStyle;
     styleEl.classList.remove('hidden');
   } else {
     styleEl.classList.add('hidden');
@@ -1194,8 +1196,10 @@ function onInboundFilterChange() {
       d.product === product && d.transcriptionStyle === style && d.additionalOptions
     ).map(d => d.additionalOptions))].sort();
     if (opts.length > 0) {
+      const prevOpt = optionsEl.value;
       optionsEl.innerHTML = '<option value="all">All Options</option>' +
         opts.map(o => `<option value="${o}">${o}</option>`).join('');
+      if (opts.includes(prevOpt)) optionsEl.value = prevOpt;
       optionsEl.classList.remove('hidden');
     } else {
       optionsEl.classList.add('hidden');
