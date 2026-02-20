@@ -329,37 +329,27 @@
           <div id="funnelChart" class="space-y-2 mt-4"></div>
         </div>
 
-        <!-- Charts -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div class="card">
-            <span class="summary-header">Weekly Funnel Trend</span>
-            <div class="chart-container mt-3"><canvas id="funnelTrendChart"></canvas></div>
-          </div>
-          <div class="card">
-            <span class="summary-header">MQLs by Channel</span>
-            <div class="chart-container mt-3"><canvas id="channelChart"></canvas></div>
+        <!-- By Product (full width, nested breakdown) -->
+        <div class="card mb-6">
+          <span class="summary-header">By Product</span>
+          <div class="overflow-x-auto mt-3">
+            <table id="productTable" class="w-full">
+              <thead class="text-left border-b border-as-border">
+                <tr>
+                  <th class="pb-2">Product</th>
+                  <th class="pb-2 text-right">MQLs</th>
+                  <th class="pb-2 text-right">SQLs</th>
+                  <th class="pb-2 text-right">Won</th>
+                  <th class="pb-2 text-right">Revenue</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
           </div>
         </div>
 
-        <!-- Breakdown Tables -->
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
-          <div class="card">
-            <span class="summary-header">By Product</span>
-            <div class="overflow-x-auto mt-3">
-              <table id="productTable" class="w-full">
-                <thead class="text-left border-b border-as-border">
-                  <tr>
-                    <th class="pb-2">Product</th>
-                    <th class="pb-2 text-right">MQLs</th>
-                    <th class="pb-2 text-right">SQLs</th>
-                    <th class="pb-2 text-right">Won</th>
-                    <th class="pb-2 text-right">Revenue</th>
-                  </tr>
-                </thead>
-                <tbody></tbody>
-              </table>
-            </div>
-          </div>
+        <!-- Owner + Country side by side -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div class="card">
             <span class="summary-header">By Deal Owner</span>
             <div class="overflow-x-auto mt-3">
@@ -1080,56 +1070,75 @@ function renderInbound(weeks) {
       </tbody>
     </table>`;
 
-  // Funnel trend
-  const dealsByWeek = {};
-  const formsByWeek = {};
-  for (const d of deals) { (dealsByWeek[d.week] = dealsByWeek[d.week] || []).push(d); }
-  for (const f of forms) { (formsByWeek[f.week] = formsByWeek[f.week] || []).push(f); }
-
-  const trendWeeks = weeks.filter(w => dealsByWeek[w] || formsByWeek[w]);
-  destroyChart('funnelTrendChart');
-  charts.funnelTrendChart = new Chart(document.getElementById('funnelTrendChart'), {
-    type: 'line',
-    data: {
-      labels: trendWeeks.map(w => fmt.shortDate(w)),
-      datasets: [
-        { label: 'Leads', data: trendWeeks.map(w => (formsByWeek[w] || []).reduce((s, r) => s + r.count, 0)), borderColor: '#005a50', backgroundColor: 'rgba(0,90,80,0.08)', tension: 0.3, fill: true, borderWidth: 2, pointRadius: 3 },
-        { label: 'MQLs', data: trendWeeks.map(w => (dealsByWeek[w] || []).length), borderColor: '#0F6B5E', backgroundColor: 'rgba(15,107,94,0.08)', tension: 0.3, fill: true, borderWidth: 2, pointRadius: 3 },
-        { label: 'SQLs', data: trendWeeks.map(w => (dealsByWeek[w] || []).filter(d => ['SQL','Customer'].includes(d.lifecycleStage)).length), borderColor: '#1A7B6B', tension: 0.3, fill: false, borderWidth: 2, pointRadius: 3 },
-        { label: 'Won', data: trendWeeks.map(w => (dealsByWeek[w] || []).filter(d => d.status === 'Won').length), borderColor: '#F5A623', tension: 0.3, fill: false, borderWidth: 2, pointRadius: 3 },
-      ],
-    },
-    options: chartOptions(''),
-  });
-
-  // Channel chart
-  const channelTotals = {};
-  for (const d of deals) {
-    const ch = d.channel || 'Unknown';
-    if (!channelTotals[ch]) channelTotals[ch] = { mqls: 0, sqls: 0, won: 0 };
-    channelTotals[ch].mqls++;
-    if (['SQL', 'Customer'].includes(d.lifecycleStage)) channelTotals[ch].sqls++;
-    if (d.status === 'Won') channelTotals[ch].won++;
-  }
-  const chKeys = Object.keys(channelTotals).sort((a, b) => channelTotals[b].mqls - channelTotals[a].mqls);
-  destroyChart('channelChart');
-  charts.channelChart = new Chart(document.getElementById('channelChart'), {
-    type: 'bar',
-    data: {
-      labels: chKeys,
-      datasets: [
-        { label: 'MQLs', data: chKeys.map(c => channelTotals[c].mqls), backgroundColor: 'rgba(15,107,94,0.7)', borderRadius: 3 },
-        { label: 'SQLs', data: chKeys.map(c => channelTotals[c].sqls), backgroundColor: 'rgba(26,123,107,0.7)', borderRadius: 3 },
-        { label: 'Won', data: chKeys.map(c => channelTotals[c].won), backgroundColor: 'rgba(245,166,35,0.7)', borderRadius: 3 },
-      ],
-    },
-    options: chartOptions(''),
-  });
-
   // Breakdown tables
-  renderBreakdownTable(deals, 'productTable', d => d.product || 'Other');
+  renderProductTable(deals);
   renderBreakdownTable(deals, 'ownerTable', d => d.ownerName || 'Unknown');
   renderBreakdownTable(deals, 'geoTable', d => d.country || 'Unknown');
+}
+
+function renderProductTable(deals) {
+  function tally(list) {
+    const t = { mqls: 0, sqls: 0, won: 0, wonRevenue: 0 };
+    for (const d of list) {
+      t.mqls++;
+      if (['SQL', 'Customer'].includes(d.lifecycleStage)) t.sqls++;
+      if (d.status === 'Won') { t.won++; t.wonRevenue += d.amount || 0; }
+    }
+    return t;
+  }
+  function row(label, t, indent) {
+    const pad = indent === 1 ? 'pl-5' : indent === 2 ? 'pl-10' : '';
+    const weight = indent === 0 ? 'font-semibold' : 'font-normal';
+    const textColor = indent > 0 ? 'text-as-secondary' : '';
+    return `<tr class="border-b border-as-border/40 hover-row">
+      <td class="py-2 text-sm ${weight} ${textColor} ${pad}">${label}</td>
+      <td class="py-2 text-right text-as-secondary">${fmt.number(t.mqls)}</td>
+      <td class="py-2 text-right text-as-secondary">${fmt.number(t.sqls)}</td>
+      <td class="py-2 text-right text-as-secondary">${fmt.number(t.won)}</td>
+      <td class="py-2 text-right font-semibold">${fmt.currency(t.wonRevenue)}</td>
+    </tr>`;
+  }
+
+  // Group by product
+  const byProduct = {};
+  for (const d of deals) {
+    const p = d.product || 'Other';
+    (byProduct[p] = byProduct[p] || []).push(d);
+  }
+  const products = Object.keys(byProduct).sort((a, b) => byProduct[b].length - byProduct[a].length);
+
+  let html = '';
+  for (const prod of products) {
+    const prodDeals = byProduct[prod];
+    html += row(prod, tally(prodDeals), 0);
+
+    // Nested breakdown for Human-Made Transcription
+    if (prod === 'Human-Made Transcription') {
+      const byStyle = {};
+      for (const d of prodDeals) {
+        const s = d.transcriptionStyle || '(no style)';
+        (byStyle[s] = byStyle[s] || []).push(d);
+      }
+      const styles = Object.keys(byStyle).sort((a, b) => byStyle[b].length - byStyle[a].length);
+      for (const style of styles) {
+        const styleDeals = byStyle[style];
+        html += row(style, tally(styleDeals), 1);
+
+        // Further breakdown by additionalOptions (e.g. Dresing & Pehl)
+        const byOpt = {};
+        for (const d of styleDeals) {
+          if (d.additionalOptions) {
+            (byOpt[d.additionalOptions] = byOpt[d.additionalOptions] || []).push(d);
+          }
+        }
+        const opts = Object.keys(byOpt).sort((a, b) => byOpt[b].length - byOpt[a].length);
+        for (const opt of opts) {
+          html += row(opt, tally(byOpt[opt]), 2);
+        }
+      }
+    }
+  }
+  document.querySelector('#productTable tbody').innerHTML = html;
 }
 
 function renderBreakdownTable(deals, tableId, keyFn) {
