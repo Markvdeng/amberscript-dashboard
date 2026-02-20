@@ -84,9 +84,12 @@ function main() {
     }
   }
 
-  // Enrich HubSpot deals with channel from GA4
+  // Enrich HubSpot deals with channel and country from GA4
   for (const deal of hubspotDeals) {
     deal.channel = deal.formId ? (formToChannel[deal.formId] || 'Unknown') : 'Unknown';
+    // Country from formId (e.g. RequestQuote-nl_... → NL)
+    const langMatch = deal.formId ? deal.formId.match(/-([a-z]{2})_/) : null;
+    deal.country = langMatch ? langMatch[1].toUpperCase() : '';
   }
 
   // Classify Stripe charges (handle both old and new raw format)
@@ -310,6 +313,29 @@ function main() {
   const totalAdsCost = round(googleAds.reduce((s, r) => s + r.cost, 0));
   const roas = totalAdsCost > 0 ? round(totalStripeRevenue / totalAdsCost, 2) : 0;
 
+  // === DEAL-LEVEL DATA (for client-side filtering) ===
+  const deals = hubspotDeals.map(d => ({
+    week: d.createWeek,
+    product: d.product || '',
+    transcriptionStyle: d.transcriptionStyle || '',
+    additionalOptions: d.additionalOptions || '',
+    country: d.country || '',
+    channel: d.channel || 'Unknown',
+    ownerName: d.ownerName || d.ownerId || '',
+    lifecycleStage: d.lifecycleStage || '',
+    status: d.status || '',
+    amount: d.amount || 0,
+    formId: d.formId || '',
+  }));
+
+  // GA4 forms by week + country (for lead filtering by country)
+  const ga4Forms = formSubmissions.map(f => ({
+    week: f.week,
+    country: f.country || '',
+    channel: f.channel || '',
+    count: f.count,
+  }));
+
   // === BUILD OUTPUT ===
   const output = {
     updatedAt: new Date().toISOString(),
@@ -325,6 +351,8 @@ function main() {
       stripe: weeklyStripe,
       ga4: weeklyGA4,
     },
+    deals,
+    ga4Forms,
   };
 
   writeFileSync(join(ROOT, 'data.json'), JSON.stringify(output, null, 2));

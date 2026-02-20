@@ -107,6 +107,23 @@
       <div class="mb-10">
         <h3 class="sub-title">Inbound</h3>
 
+        <!-- Filters -->
+        <div class="flex flex-wrap items-center gap-3 mb-5" id="inboundFilters">
+          <select id="inbProductFilter" class="border border-as-border rounded-card px-3 py-1.5 text-sm bg-white text-as-text" onchange="onInboundFilterChange()">
+            <option value="all">All Products</option>
+          </select>
+          <select id="inbStyleFilter" class="border border-as-border rounded-card px-3 py-1.5 text-sm bg-white text-as-text hidden" onchange="onInboundFilterChange()">
+            <option value="all">All Styles</option>
+          </select>
+          <select id="inbOptionsFilter" class="border border-as-border rounded-card px-3 py-1.5 text-sm bg-white text-as-text hidden" onchange="onInboundFilterChange()">
+            <option value="all">All Options</option>
+          </select>
+          <select id="inbCountryFilter" class="border border-as-border rounded-card px-3 py-1.5 text-sm bg-white text-as-text" onchange="onInboundFilterChange()">
+            <option value="all">All Countries</option>
+            <option value="DACH">DACH (DE+AT+CH)</option>
+          </select>
+        </div>
+
         <!-- KPIs -->
         <div id="inboundKPIs" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-6"></div>
 
@@ -128,22 +145,58 @@
           </div>
         </div>
 
-        <!-- Geo Table -->
-        <div class="card mt-6">
-          <h4 class="text-sm font-medium text-as-secondary mb-3">Performance by Country</h4>
-          <div class="overflow-x-auto">
-            <table id="geoTable" class="w-full">
-              <thead class="text-left border-b border-as-border">
-                <tr>
-                  <th class="pb-2">Country</th>
-                  <th class="pb-2 text-right">MQLs</th>
-                  <th class="pb-2 text-right">SQLs</th>
-                  <th class="pb-2 text-right">Won</th>
-                  <th class="pb-2 text-right">Revenue</th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
+        <!-- Breakdown Tables -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
+          <div class="card">
+            <h4 class="text-sm font-medium text-as-secondary mb-3">By Product</h4>
+            <div class="overflow-x-auto">
+              <table id="productTable" class="w-full">
+                <thead class="text-left border-b border-as-border">
+                  <tr>
+                    <th class="pb-2">Product</th>
+                    <th class="pb-2 text-right">MQLs</th>
+                    <th class="pb-2 text-right">SQLs</th>
+                    <th class="pb-2 text-right">Won</th>
+                    <th class="pb-2 text-right">Revenue</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card">
+            <h4 class="text-sm font-medium text-as-secondary mb-3">By Deal Owner</h4>
+            <div class="overflow-x-auto">
+              <table id="ownerTable" class="w-full">
+                <thead class="text-left border-b border-as-border">
+                  <tr>
+                    <th class="pb-2">Owner</th>
+                    <th class="pb-2 text-right">MQLs</th>
+                    <th class="pb-2 text-right">SQLs</th>
+                    <th class="pb-2 text-right">Won</th>
+                    <th class="pb-2 text-right">Revenue</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card">
+            <h4 class="text-sm font-medium text-as-secondary mb-3">By Country</h4>
+            <div class="overflow-x-auto">
+              <table id="geoTable" class="w-full">
+                <thead class="text-left border-b border-as-border">
+                  <tr>
+                    <th class="pb-2">Country</th>
+                    <th class="pb-2 text-right">MQLs</th>
+                    <th class="pb-2 text-right">SQLs</th>
+                    <th class="pb-2 text-right">Won</th>
+                    <th class="pb-2 text-right">Revenue</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
@@ -332,6 +385,7 @@ function render() {
   document.getElementById('lastUpdated').textContent =
     `Last updated: ${new Date(DATA.updatedAt).toLocaleString('en-GB')} | ${DATA.dateRange.start} to ${DATA.dateRange.end}`;
 
+  populateInboundFilters();
   renderSummaryTable(weeks);
   renderSelfServe(weeks);
   renderInbound(weeks);
@@ -499,17 +553,113 @@ function renderSelfServe(weeks) {
   });
 }
 
+// ===== INBOUND FILTER LOGIC =====
+const DACH = ['DE', 'AT', 'CH'];
+
+function matchCountry(dealCountry, filterVal) {
+  if (filterVal === 'all') return true;
+  if (filterVal === 'DACH') return DACH.includes(dealCountry);
+  return dealCountry === filterVal;
+}
+
+function populateInboundFilters() {
+  if (!DATA.deals) return;
+  const deals = DATA.deals;
+
+  // Product dropdown
+  const products = [...new Set(deals.map(d => d.product).filter(Boolean))].sort();
+  const prodEl = document.getElementById('inbProductFilter');
+  prodEl.innerHTML = '<option value="all">All Products</option>' +
+    products.map(p => `<option value="${p}">${p}</option>`).join('');
+
+  // Country dropdown (from deal + GA4 forms)
+  const dealCountries = deals.map(d => d.country).filter(Boolean);
+  const formCountries = (DATA.ga4Forms || []).map(f => f.country).filter(Boolean);
+  const countries = [...new Set([...dealCountries, ...formCountries])].sort();
+  const countryEl = document.getElementById('inbCountryFilter');
+  countryEl.innerHTML = '<option value="all">All Countries</option><option value="DACH">DACH (DE+AT+CH)</option>' +
+    countries.map(c => `<option value="${c}">${c}</option>`).join('');
+}
+
+function onInboundFilterChange() {
+  const product = document.getElementById('inbProductFilter').value;
+  const styleEl = document.getElementById('inbStyleFilter');
+  const optionsEl = document.getElementById('inbOptionsFilter');
+
+  // Show transcription style only for Human-Made Transcription
+  if (product === 'Human-Made Transcription') {
+    const styles = [...new Set((DATA.deals || []).map(d => d.transcriptionStyle).filter(Boolean))].sort();
+    styleEl.innerHTML = '<option value="all">All Styles</option>' +
+      styles.map(s => `<option value="${s}">${s}</option>`).join('');
+    styleEl.classList.remove('hidden');
+  } else {
+    styleEl.classList.add('hidden');
+    styleEl.value = 'all';
+    optionsEl.classList.add('hidden');
+    optionsEl.value = 'all';
+  }
+
+  // Show additional options only for Verbatim or Clean-Verbatim
+  const style = styleEl.value;
+  if (product === 'Human-Made Transcription' && (style === 'Verbatim' || style === 'Clean-Verbatim')) {
+    const opts = [...new Set((DATA.deals || []).filter(d =>
+      d.product === product && d.transcriptionStyle === style && d.additionalOptions
+    ).map(d => d.additionalOptions))].sort();
+    if (opts.length > 0) {
+      optionsEl.innerHTML = '<option value="all">All Options</option>' +
+        opts.map(o => `<option value="${o}">${o}</option>`).join('');
+      optionsEl.classList.remove('hidden');
+    } else {
+      optionsEl.classList.add('hidden');
+      optionsEl.value = 'all';
+    }
+  } else {
+    optionsEl.classList.add('hidden');
+    optionsEl.value = 'all';
+  }
+
+  renderInbound(getFilteredWeeks());
+}
+
+function getFilteredDeals(weekSet) {
+  const product = document.getElementById('inbProductFilter').value;
+  const style = document.getElementById('inbStyleFilter').value;
+  const options = document.getElementById('inbOptionsFilter').value;
+  const country = document.getElementById('inbCountryFilter').value;
+
+  return (DATA.deals || []).filter(d => {
+    if (!weekSet.has(d.week)) return false;
+    if (product !== 'all' && d.product !== product) return false;
+    if (style !== 'all' && d.transcriptionStyle !== style) return false;
+    if (options !== 'all' && d.additionalOptions !== options) return false;
+    if (!matchCountry(d.country, country)) return false;
+    return true;
+  });
+}
+
+function getFilteredForms(weekSet) {
+  const country = document.getElementById('inbCountryFilter').value;
+  return (DATA.ga4Forms || []).filter(f => {
+    if (!weekSet.has(f.week)) return false;
+    if (!matchCountry(f.country, country)) return false;
+    return true;
+  });
+}
+
 // ===== INBOUND (HubSpot + GA4 Leads) =====
 function renderInbound(weeks) {
-  const funnel = filterByWeeks(DATA.weekly.funnel, weeks);
+  const weekSet = new Set(weeks);
+  const deals = getFilteredDeals(weekSet);
+  const forms = getFilteredForms(weekSet);
 
-  const leads = funnel.reduce((s, r) => s + r.leads, 0);
-  const mqls = funnel.reduce((s, r) => s + r.mqls, 0);
-  const mqlsFromLeads = funnel.reduce((s, r) => s + r.mqlsFromLeads, 0);
-  const sqls = funnel.reduce((s, r) => s + r.sqls, 0);
-  const sqlsFromLeads = funnel.reduce((s, r) => s + r.sqlsFromLeads, 0);
-  const won = funnel.reduce((s, r) => s + r.won, 0);
-  const wonRev = funnel.reduce((s, r) => s + r.wonRevenue, 0);
+  // Compute funnel from filtered deals
+  const leads = forms.reduce((s, r) => s + r.count, 0);
+  const mqls = deals.length;
+  const mqlsFromLeads = deals.filter(r => r.formId).length;
+  const sqls = deals.filter(r => ['SQL', 'Customer'].includes(r.lifecycleStage)).length;
+  const sqlsFromLeads = deals.filter(r => r.formId && ['SQL', 'Customer'].includes(r.lifecycleStage)).length;
+  const won = deals.filter(r => r.status === 'Won').length;
+  const wonRev = deals.filter(r => r.status === 'Won').reduce((s, r) => s + (r.amount || 0), 0);
 
   // KPIs
   document.getElementById('inboundKPIs').innerHTML = [
@@ -525,7 +675,7 @@ function renderInbound(weeks) {
     </div>
   `).join('');
 
-  // Funnel
+  // Funnel bar chart
   const max = Math.max(leads, 1);
   const stages = [
     { label: 'Leads', count: leads, color: '#F5A623', pct: 100 },
@@ -549,31 +699,36 @@ function renderInbound(weeks) {
     </div>
   `).join('') + `<div class="flex gap-4 mt-2 text-xs text-as-muted">${convRates.map(r => `<span>${r}</span>`).join('')}</div>`;
 
-  // Funnel trend
+  // Funnel trend (group filtered deals + forms by week)
+  const dealsByWeek = {};
+  const formsByWeek = {};
+  for (const d of deals) { (dealsByWeek[d.week] = dealsByWeek[d.week] || []).push(d); }
+  for (const f of forms) { (formsByWeek[f.week] = formsByWeek[f.week] || []).push(f); }
+
+  const trendWeeks = weeks.filter(w => dealsByWeek[w] || formsByWeek[w]);
   destroyChart('funnelTrendChart');
   charts.funnelTrendChart = new Chart(document.getElementById('funnelTrendChart'), {
     type: 'line',
     data: {
-      labels: funnel.map(r => fmt.shortDate(r.week)),
+      labels: trendWeeks.map(w => fmt.shortDate(w)),
       datasets: [
-        { label: 'Leads', data: funnel.map(r => r.leads), borderColor: '#F5A623', tension: 0.3, fill: false },
-        { label: 'MQLs', data: funnel.map(r => r.mqls), borderColor: '#1A7B6B', tension: 0.3, fill: false },
-        { label: 'SQLs', data: funnel.map(r => r.sqls), borderColor: '#7B1FA2', tension: 0.3, fill: false },
-        { label: 'Won', data: funnel.map(r => r.won), borderColor: '#2E7D32', tension: 0.3, fill: false },
+        { label: 'Leads', data: trendWeeks.map(w => (formsByWeek[w] || []).reduce((s, r) => s + r.count, 0)), borderColor: '#F5A623', tension: 0.3, fill: false },
+        { label: 'MQLs', data: trendWeeks.map(w => (dealsByWeek[w] || []).length), borderColor: '#1A7B6B', tension: 0.3, fill: false },
+        { label: 'SQLs', data: trendWeeks.map(w => (dealsByWeek[w] || []).filter(d => ['SQL','Customer'].includes(d.lifecycleStage)).length), borderColor: '#7B1FA2', tension: 0.3, fill: false },
+        { label: 'Won', data: trendWeeks.map(w => (dealsByWeek[w] || []).filter(d => d.status === 'Won').length), borderColor: '#2E7D32', tension: 0.3, fill: false },
       ],
     },
     options: chartOptions(''),
   });
 
-  // Channel chart (MQLs by channel)
+  // Channel chart (MQLs by channel from filtered deals)
   const channelTotals = {};
-  for (const row of funnel) {
-    for (const [ch, data] of Object.entries(row.byChannel || {})) {
-      if (!channelTotals[ch]) channelTotals[ch] = { mqls: 0, sqls: 0, won: 0 };
-      channelTotals[ch].mqls += data.mqls;
-      channelTotals[ch].sqls += data.sqls;
-      channelTotals[ch].won += data.won;
-    }
+  for (const d of deals) {
+    const ch = d.channel || 'Unknown';
+    if (!channelTotals[ch]) channelTotals[ch] = { mqls: 0, sqls: 0, won: 0 };
+    channelTotals[ch].mqls++;
+    if (['SQL', 'Customer'].includes(d.lifecycleStage)) channelTotals[ch].sqls++;
+    if (d.status === 'Won') channelTotals[ch].won++;
   }
   const chKeys = Object.keys(channelTotals).sort((a, b) => channelTotals[b].mqls - channelTotals[a].mqls);
   destroyChart('channelChart');
@@ -590,22 +745,26 @@ function renderInbound(weeks) {
     options: chartOptions(''),
   });
 
-  // Geo table
-  const geoTotals = {};
-  for (const row of funnel) {
-    for (const [geo, data] of Object.entries(row.byCountry || {})) {
-      if (!geoTotals[geo]) geoTotals[geo] = { mqls: 0, sqls: 0, won: 0, wonRevenue: 0 };
-      geoTotals[geo].mqls += data.mqls;
-      geoTotals[geo].sqls += data.sqls;
-      geoTotals[geo].won += data.won;
-      geoTotals[geo].wonRevenue += data.wonRevenue;
-    }
+  // === BREAKDOWN TABLES ===
+  renderBreakdownTable(deals, 'productTable', d => d.product || 'Unknown');
+  renderBreakdownTable(deals, 'ownerTable', d => d.ownerName || 'Unknown');
+  renderBreakdownTable(deals, 'geoTable', d => d.country || 'Unknown');
+}
+
+function renderBreakdownTable(deals, tableId, keyFn) {
+  const totals = {};
+  for (const d of deals) {
+    const key = keyFn(d);
+    if (!totals[key]) totals[key] = { mqls: 0, sqls: 0, won: 0, wonRevenue: 0 };
+    totals[key].mqls++;
+    if (['SQL', 'Customer'].includes(d.lifecycleStage)) totals[key].sqls++;
+    if (d.status === 'Won') { totals[key].won++; totals[key].wonRevenue += d.amount || 0; }
   }
-  const geos = Object.keys(geoTotals).sort((a, b) => geoTotals[b].mqls - geoTotals[a].mqls);
-  document.querySelector('#geoTable tbody').innerHTML = geos.map(g => {
-    const d = geoTotals[g];
+  const keys = Object.keys(totals).sort((a, b) => totals[b].mqls - totals[a].mqls);
+  document.querySelector(`#${tableId} tbody`).innerHTML = keys.map(k => {
+    const d = totals[k];
     return `<tr class="border-b border-as-border/30 hover:bg-as-bg">
-      <td class="py-2 font-medium">${g}</td>
+      <td class="py-2 font-medium">${k}</td>
       <td class="py-2 text-right text-as-secondary">${fmt.number(d.mqls)}</td>
       <td class="py-2 text-right text-as-secondary">${fmt.number(d.sqls)}</td>
       <td class="py-2 text-right text-as-secondary">${fmt.number(d.won)}</td>

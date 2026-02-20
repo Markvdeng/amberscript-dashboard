@@ -49,6 +49,14 @@ const PROPERTIES = [
   'hubspot_owner_id',
 ];
 
+async function hsGet(path) {
+  const res = await fetch(`${HS_BASE}${path}`, {
+    headers: { 'Authorization': `Bearer ${TOKEN}` },
+  });
+  if (!res.ok) throw new Error(`HubSpot API error: ${res.status} ${await res.text()}`);
+  return res.json();
+}
+
 async function hsPost(path, body) {
   const res = await fetch(`${HS_BASE}${path}`, {
     method: 'POST',
@@ -60,6 +68,19 @@ async function hsPost(path, body) {
   });
   if (!res.ok) throw new Error(`HubSpot API error: ${res.status} ${await res.text()}`);
   return res.json();
+}
+
+async function fetchOwnerNames(ownerIds) {
+  const map = {};
+  const data = await retry(() => hsGet('/crm/v3/owners'));
+  for (const owner of data.results || []) {
+    if (ownerIds.has(owner.id)) {
+      const first = owner.firstName || '';
+      const last = owner.lastName || '';
+      map[owner.id] = `${first} ${last}`.trim() || owner.email || owner.id;
+    }
+  }
+  return map;
 }
 
 async function fetchAllDeals(since) {
@@ -115,10 +136,16 @@ async function main() {
   const rawDeals = await fetchAllDeals(start);
   console.log(`Fetched ${rawDeals.length} deals`);
 
+  // Resolve owner names
+  const ownerIds = new Set(rawDeals.map(d => d.properties.hubspot_owner_id).filter(Boolean));
+  const ownerNames = await fetchOwnerNames(ownerIds);
+  console.log(`Resolved ${Object.keys(ownerNames).length} owner names`);
+
   const output = rawDeals.map(deal => {
     const p = deal.properties;
     const createDate = p.createdate ? p.createdate.slice(0, 10) : '';
     const closeDate = p.closedate ? p.closedate.slice(0, 10) : '';
+    const ownerId = p.hubspot_owner_id || '';
 
     return {
       id: deal.id,
@@ -140,7 +167,8 @@ async function main() {
       transcriptionStyle: p.deal_transcription_style || '',
       additionalOptions: p.deal_additional_options || '',
       formId: p.deal_form_id || '',
-      ownerId: p.hubspot_owner_id || '',
+      ownerId,
+      ownerName: ownerNames[ownerId] || ownerId,
     };
   });
 
