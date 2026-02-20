@@ -47,10 +47,15 @@
       </div>
       <div class="flex items-center gap-3">
         <select id="dateRange" class="bg-white/10 border border-white/20 text-white rounded-lg px-3 py-1.5 text-sm">
-          <option value="4">Last 4 weeks</option>
-          <option value="8">Last 8 weeks</option>
-          <option value="13" selected>Last 13 weeks (quarter)</option>
-          <option value="0">All time</option>
+          <option value="this-week">This week</option>
+          <option value="last-week">Last week</option>
+          <option value="last-2-weeks">Last 2 weeks</option>
+          <option value="last-4-weeks" selected>Last 4 weeks</option>
+          <option value="this-month">This month</option>
+          <option value="last-month">Last month</option>
+          <option value="last-2-months">Last 2 months</option>
+          <option value="last-4-months">Last 4 months</option>
+          <option value="all">All time</option>
         </select>
       </div>
     </div>
@@ -221,10 +226,45 @@ async function loadData() {
 }
 
 function getFilteredWeeks() {
-  const weeksBack = parseInt(document.getElementById('dateRange').value);
+  const mode = document.getElementById('dateRange').value;
   const allWeeks = DATA.weekly.ads.map(r => r.week).filter(Boolean);
-  if (weeksBack === 0 || !allWeeks.length) return allWeeks;
-  return allWeeks.slice(-weeksBack);
+  if (!allWeeks.length || mode === 'all') return allWeeks;
+
+  const today = new Date();
+  const dayOfWeek = today.getUTCDay() || 7; // 1=Mon, 7=Sun
+  const thisMonday = new Date(today);
+  thisMonday.setUTCDate(today.getUTCDate() - dayOfWeek + 1);
+  const thisMondayStr = thisMonday.toISOString().slice(0, 10);
+
+  const firstOfMonth = new Date(Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), 1));
+
+  if (mode === 'this-week') {
+    return allWeeks.filter(w => w >= thisMondayStr);
+  } else if (mode === 'last-week') {
+    const lastMonday = new Date(thisMonday);
+    lastMonday.setUTCDate(lastMonday.getUTCDate() - 7);
+    return allWeeks.filter(w => w >= lastMonday.toISOString().slice(0, 10) && w < thisMondayStr);
+  } else if (mode === 'last-2-weeks') {
+    const start = new Date(thisMonday);
+    start.setUTCDate(start.getUTCDate() - 14);
+    return allWeeks.filter(w => w >= start.toISOString().slice(0, 10) && w < thisMondayStr);
+  } else if (mode === 'last-4-weeks') {
+    const start = new Date(thisMonday);
+    start.setUTCDate(start.getUTCDate() - 28);
+    return allWeeks.filter(w => w >= start.toISOString().slice(0, 10) && w < thisMondayStr);
+  } else if (mode === 'this-month') {
+    return allWeeks.filter(w => w >= firstOfMonth.toISOString().slice(0, 10));
+  } else if (mode === 'last-month') {
+    const lastMonth = new Date(Date.UTC(today.getUTCFullYear(), today.getUTCMonth() - 1, 1));
+    return allWeeks.filter(w => w >= lastMonth.toISOString().slice(0, 10) && w < firstOfMonth.toISOString().slice(0, 10));
+  } else if (mode === 'last-2-months') {
+    const start = new Date(Date.UTC(today.getUTCFullYear(), today.getUTCMonth() - 2, 1));
+    return allWeeks.filter(w => w >= start.toISOString().slice(0, 10) && w < firstOfMonth.toISOString().slice(0, 10));
+  } else if (mode === 'last-4-months') {
+    const start = new Date(Date.UTC(today.getUTCFullYear(), today.getUTCMonth() - 4, 1));
+    return allWeeks.filter(w => w >= start.toISOString().slice(0, 10) && w < firstOfMonth.toISOString().slice(0, 10));
+  }
+  return allWeeks;
 }
 
 function filterByWeeks(arr, weeks) {
