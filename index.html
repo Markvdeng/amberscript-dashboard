@@ -932,9 +932,15 @@ function renderSelfServe(weeks) {
 // ===== INBOUND FILTER LOGIC =====
 const DACH = ['DE', 'AT', 'CH'];
 
+function getKnownCountries() {
+  const bu = getCurrentBU();
+  return new Set((DATA.deals || []).filter(d => d.bu === bu).map(d => d.country).filter(Boolean));
+}
+
 function matchCountry(dealCountry, filterVal) {
   if (filterVal === 'all') return true;
   if (filterVal === 'DACH') return DACH.includes(dealCountry);
+  if (filterVal === 'Other') return !getKnownCountries().has(dealCountry);
   return dealCountry === filterVal;
 }
 
@@ -948,13 +954,11 @@ function populateInboundFilters() {
   prodEl.innerHTML = '<option value="all">All Products</option>' +
     products.map(p => `<option value="${p}">${p}</option>`).join('');
 
-  const dealCountries = deals.map(d => d.country).filter(Boolean);
-  const forms = (DATA.ga4Forms || []).filter(f => !f.bu || f.bu === bu);
-  const formCountries = forms.map(f => f.country).filter(Boolean);
-  const countries = [...new Set([...dealCountries, ...formCountries])].sort();
+  const countries = [...new Set(deals.map(d => d.country).filter(Boolean))].sort();
   const countryEl = document.getElementById('inbCountryFilter');
   countryEl.innerHTML = '<option value="all">All Countries</option><option value="DACH">DACH (DE+AT+CH)</option>' +
-    countries.map(c => `<option value="${c}">${c}</option>`).join('');
+    countries.map(c => `<option value="${c}">${c}</option>`).join('') +
+    '<option value="Other">Other</option>';
 }
 
 function onInboundFilterChange() {
