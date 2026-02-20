@@ -136,6 +136,8 @@
       text-decoration: underline dotted #CFD9DE;
       text-underline-offset: 3px;
     }
+    th.sortable { cursor: pointer; user-select: none; transition: color 0.15s; }
+    th.sortable:hover { color: #1A7B6B; }
     td { font-size: 0.8125rem; }
     td.text-right, th.text-right { text-align: right; }
     tr.hover-row:hover { background: #F7F8FA; }
@@ -516,6 +518,11 @@ let charts = {};
 let inboundSummaryView = 'monthly';
 let selfServeSummaryView = 'monthly';
 let currentBU = 'Transcription';
+const tableSortState = {
+  productTable: { col: 'revenue', dir: 'desc' },
+  ownerTable: { col: 'revenue', dir: 'desc' },
+  geoTable: { col: 'revenue', dir: 'desc' },
+};
 
 const CHANNEL_COLORS = {
   'Direct': '#1A7B6B', 'Paid Search': '#005a50', 'Organic Search': '#2E7D32',
@@ -1122,6 +1129,30 @@ function renderInbound(weeks) {
 
 let productExpandState = {};
 
+function sortIndicator(tableId, col) {
+  const s = tableSortState[tableId];
+  if (s.col !== col) return '';
+  return s.dir === 'desc'
+    ? ' <span class="text-as-primary">&#9662;</span>'
+    : ' <span class="text-as-primary">&#9652;</span>';
+}
+
+function sortTableBy(tableId, col) {
+  const s = tableSortState[tableId];
+  if (s.col === col) { s.dir = s.dir === 'desc' ? 'asc' : 'desc'; }
+  else { s.col = col; s.dir = col === 'name' ? 'asc' : 'desc'; }
+  const weeks = getFilteredWeeks();
+  const weekSet = new Set(weeks);
+  const deals = getFilteredDeals(weekSet);
+  const closedDeals = getClosedDeals(weekSet);
+  if (tableId === 'productTable') {
+    renderProductTable(deals, closedDeals, getFilteredForms(weekSet));
+  } else {
+    const keyFn = tableId === 'ownerTable' ? d => d.ownerName || 'Unknown' : d => d.country || 'Unknown';
+    renderBreakdownTable(deals, closedDeals, tableId, keyFn);
+  }
+}
+
 function renderProductTable(deals, closedDeals, forms) {
   function tally(dealList) {
     const t = { mqls: 0, sqls: 0, won: 0, wonRevenue: 0 };
@@ -1171,9 +1202,26 @@ function renderProductTable(deals, closedDeals, forms) {
   for (const p of Object.keys(closeByProduct)) {
     if (!byProduct[p]) byProduct[p] = [];
   }
+  // Compute per-product metrics for sorting
+  const prodMetrics = {};
+  for (const p of Object.keys(byProduct)) {
+    const t = tally(byProduct[p]);
+    const ct = closeTally(closeByProduct[p] || []);
+    prodMetrics[p] = { leads: leadsByProduct[p] || 0, mqls: t.mqls, sqls: t.sqls, won: ct.won, revenue: ct.wonRevenue };
+  }
+  const ss = tableSortState.productTable;
   const products = Object.keys(byProduct).sort((a, b) => {
-    const aCount = byProduct[b].length - byProduct[a].length;
-    return aCount !== 0 ? aCount : (leadsByProduct[b] || 0) - (leadsByProduct[a] || 0);
+    const ma = prodMetrics[a], mb = prodMetrics[b];
+    let va, vb;
+    switch (ss.col) {
+      case 'name': return ss.dir === 'asc' ? a.localeCompare(b) : b.localeCompare(a);
+      case 'leads': va = ma.leads; vb = mb.leads; break;
+      case 'mqls': va = ma.mqls; vb = mb.mqls; break;
+      case 'sqls': va = ma.sqls; vb = mb.sqls; break;
+      case 'won': va = ma.won; vb = mb.won; break;
+      default: va = ma.revenue; vb = mb.revenue;
+    }
+    return ss.dir === 'desc' ? vb - va : va - vb;
   });
 
   let html = '';
@@ -1246,6 +1294,13 @@ function renderProductTable(deals, closedDeals, forms) {
     <td class="py-2 text-center font-bold text-sm">${fmt.number(closeTotal.won)} <span class="font-normal text-as-muted">(${fmt.number(total.won)})</span></td>
     <td class="py-2 text-right font-bold text-sm">${fmt.currency(closeTotal.wonRevenue)} <span class="font-normal text-as-muted">(${fmt.currency(total.wonRevenue)})</span></td>
   </tr>`;
+  document.querySelector('#productTable thead tr').innerHTML = `
+    <th class="pb-2 sortable" onclick="sortTableBy('productTable','name')">Product${sortIndicator('productTable','name')}</th>
+    <th class="pb-2 text-center sortable" onclick="sortTableBy('productTable','leads')">Leads${sortIndicator('productTable','leads')}</th>
+    <th class="pb-2 text-center sortable" onclick="sortTableBy('productTable','mqls')">MQL<span style="text-transform:none">s</span>${sortIndicator('productTable','mqls')}</th>
+    <th class="pb-2 text-center sortable" onclick="sortTableBy('productTable','sqls')">SQL<span style="text-transform:none">s</span>${sortIndicator('productTable','sqls')}</th>
+    <th class="pb-2 text-center sortable" onclick="sortTableBy('productTable','won')" title="By close date (by create date in brackets)">Won${sortIndicator('productTable','won')}</th>
+    <th class="pb-2 text-center sortable" onclick="sortTableBy('productTable','revenue')" title="By close date (by create date in brackets)">Revenue${sortIndicator('productTable','revenue')}</th>`;
   document.querySelector('#productTable tbody').innerHTML = html;
 }
 
@@ -1277,7 +1332,18 @@ function renderBreakdownTable(deals, closedDeals, tableId, keyFn) {
     totals[key].wonClose++;
     totals[key].wonRevClose += d.amount || 0;
   }
-  const keys = Object.keys(totals).sort((a, b) => totals[b].mqls - totals[a].mqls);
+  const ss = tableSortState[tableId];
+  const keys = Object.keys(totals).sort((a, b) => {
+    let va, vb;
+    switch (ss.col) {
+      case 'name': return ss.dir === 'asc' ? a.localeCompare(b) : b.localeCompare(a);
+      case 'mqls': va = totals[a].mqls; vb = totals[b].mqls; break;
+      case 'sqls': va = totals[a].sqls; vb = totals[b].sqls; break;
+      case 'won': va = totals[a].wonClose; vb = totals[b].wonClose; break;
+      default: va = totals[a].wonRevClose; vb = totals[b].wonRevClose;
+    }
+    return ss.dir === 'desc' ? vb - va : va - vb;
+  });
   const sum = { mqls: 0, sqls: 0, won: 0, wonRevenue: 0, wonClose: 0, wonRevClose: 0 };
   for (const k of keys) { sum.mqls += totals[k].mqls; sum.sqls += totals[k].sqls; sum.won += totals[k].won; sum.wonRevenue += totals[k].wonRevenue; sum.wonClose += totals[k].wonClose; sum.wonRevClose += totals[k].wonRevClose; }
 
@@ -1309,6 +1375,13 @@ function renderBreakdownTable(deals, closedDeals, tableId, keyFn) {
     <td class="py-2 text-right font-bold text-sm">${fmt.currency(sum.wonRevClose)} <span class="font-normal text-as-muted">(${fmt.currency(sum.wonRevenue)})</span></td>
   </tr>`;
 
+  const labelCol = tableId === 'ownerTable' ? 'Owner' : 'Country';
+  document.querySelector(`#${tableId} thead tr`).innerHTML = `
+    <th class="pb-2 sortable" onclick="sortTableBy('${tableId}','name')">${labelCol}${sortIndicator(tableId,'name')}</th>
+    <th class="pb-2 text-center sortable" onclick="sortTableBy('${tableId}','mqls')">MQL<span style="text-transform:none">s</span>${sortIndicator(tableId,'mqls')}</th>
+    <th class="pb-2 text-center sortable" onclick="sortTableBy('${tableId}','sqls')">SQL<span style="text-transform:none">s</span>${sortIndicator(tableId,'sqls')}</th>
+    <th class="pb-2 text-center sortable" onclick="sortTableBy('${tableId}','won')" title="By close date (by create date in brackets)">Won${sortIndicator(tableId,'won')}</th>
+    <th class="pb-2 text-center sortable" onclick="sortTableBy('${tableId}','revenue')" title="By close date (by create date in brackets)">Revenue${sortIndicator(tableId,'revenue')}</th>`;
   document.querySelector(`#${tableId} tbody`).innerHTML = rows + showMore;
   document.getElementById(`${tableId}Total`).innerHTML = `<table class="w-full">
     <colgroup><col><col style="width:14%"><col style="width:14%"><col style="width:20%"><col style="width:26%"></colgroup>
