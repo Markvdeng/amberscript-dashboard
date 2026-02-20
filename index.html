@@ -154,6 +154,27 @@
     .header-select:hover { background: rgba(255,255,255,0.2); }
     .header-select option { color: #0F1419; background: #fff; }
 
+    /* BU tabs */
+    .bu-tab {
+      padding: 8px 20px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.55);
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      letter-spacing: 0.01em;
+    }
+    .bu-tab:hover:not(.active) { color: rgba(255,255,255,0.8); }
+    .bu-tab.active {
+      color: #fff;
+      border-bottom-color: #F5A623;
+      background: rgba(255,255,255,0.08);
+      border-radius: 6px 6px 0 0;
+    }
+
     /* Body selects */
     .filter-select {
       border: 1px solid #E8ECF0;
@@ -224,18 +245,12 @@
 
   <!-- Header -->
   <header style="background: linear-gradient(135deg, #005a50 0%, #1A7B6B 60%, #228B7B 100%);">
-    <div class="max-w-7xl mx-auto px-4 py-5 sm:px-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-      <div>
-        <h1 class="text-lg font-bold tracking-tight text-white">Amberscript</h1>
-        <p class="text-white/50 text-xs mt-0.5 font-medium" id="lastUpdated">Loading...</p>
-      </div>
-      <div class="flex items-center gap-2">
-        <select id="buFilter" class="header-select">
-          <option value="all">All Business Units</option>
-          <option value="Transcription">Transcription (BUT)</option>
-          <option value="Media">Media (BUM)</option>
-          <option value="Innovations">Innovations (BUNS)</option>
-        </select>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 py-5">
+        <div>
+          <h1 class="text-lg font-bold tracking-tight text-white">Amberscript</h1>
+          <p class="text-white/50 text-xs mt-0.5 font-medium" id="lastUpdated">Loading...</p>
+        </div>
         <select id="dateRange" class="header-select">
           <option value="this-week">This week</option>
           <option value="last-week">Last week</option>
@@ -248,16 +263,24 @@
           <option value="all">All time</option>
         </select>
       </div>
+      <!-- BU Tabs -->
+      <nav class="flex gap-1 -mb-px" id="buTabs">
+        <button class="bu-tab active" data-bu="Transcription" onclick="switchBU('Transcription')">Transcription</button>
+        <button class="bu-tab" data-bu="Media" onclick="switchBU('Media')">Media</button>
+        <button class="bu-tab" data-bu="Innovations" onclick="switchBU('Innovations')">Innovations</button>
+      </nav>
     </div>
   </header>
 
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-10">
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8">
 
     <!-- ============================================ -->
-    <!-- TRANSCRIPTION & MEDIA                        -->
+    <!-- PAGE: TRANSCRIPTION (BUT)                    -->
     <!-- ============================================ -->
+    <div id="page-Transcription" class="bu-page space-y-10">
+
     <div>
-      <h2 class="section-title">Transcription & Media</h2>
+      <h2 class="section-title">Transcription</h2>
 
       <!-- ---- Inbound (HubSpot) ---- -->
       <div class="mb-10">
@@ -449,6 +472,36 @@
       </div>
     </div>
 
+    </div><!-- /page-Transcription -->
+
+    <!-- ============================================ -->
+    <!-- PAGE: MEDIA (BUM)                            -->
+    <!-- ============================================ -->
+    <div id="page-Media" class="bu-page hidden">
+      <div class="flex flex-col items-center justify-center py-24 text-center">
+        <div class="w-16 h-16 rounded-2xl bg-as-primary/10 flex items-center justify-center mb-5">
+          <svg class="w-8 h-8 text-as-primary" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 0 1-1.125-1.125M3.375 19.5h1.5C5.496 19.5 6 18.996 6 18.375m-2.625 0V5.625m0 12.75v-1.5c0-.621.504-1.125 1.125-1.125m18.375 2.625V5.625m0 12.75c0 .621-.504 1.125-1.125 1.125m1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125m0 3.75h-1.5A1.125 1.125 0 0 1 18 18.375M20.625 4.5H3.375m17.25 0c.621 0 1.125.504 1.125 1.125M20.625 4.5h-1.5C18.504 4.5 18 5.004 18 5.625m3.75 0v1.5c0 .621-.504 1.125-1.125 1.125M3.375 4.5c-.621 0-1.125.504-1.125 1.125M3.375 4.5h1.5C5.496 4.5 6 5.004 6 5.625m-2.625 0v1.5c0 .621.504 1.125 1.125 1.125m0 0h13.5c.621 0 1.125-.504 1.125-1.125m-14.625 0h14.625"/></svg>
+        </div>
+        <h2 class="text-xl font-bold text-as-text mb-2">Media (BUM)</h2>
+        <p class="text-as-secondary text-sm max-w-md">Subtitles, dubbing, audio description, and localisation metrics. This page is under development.</p>
+        <span class="mt-4 text-xs font-semibold uppercase tracking-wider text-as-accent bg-as-accent/10 px-3 py-1 rounded-full">Coming Soon</span>
+      </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- PAGE: INNOVATIONS (BUNS)                     -->
+    <!-- ============================================ -->
+    <div id="page-Innovations" class="bu-page hidden">
+      <div class="flex flex-col items-center justify-center py-24 text-center">
+        <div class="w-16 h-16 rounded-2xl bg-as-primary/10 flex items-center justify-center mb-5">
+          <svg class="w-8 h-8 text-as-primary" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/></svg>
+        </div>
+        <h2 class="text-xl font-bold text-as-text mb-2">Innovations (BUNS)</h2>
+        <p class="text-as-secondary text-sm max-w-md">AmberNotes and new product initiatives. This page is under development.</p>
+        <span class="mt-4 text-xs font-semibold uppercase tracking-wider text-as-accent bg-as-accent/10 px-3 py-1 rounded-full">Coming Soon</span>
+      </div>
+    </div>
+
   </main>
 
   <footer class="max-w-7xl mx-auto px-4 sm:px-6 py-8 text-center text-as-muted text-xs font-medium">
@@ -460,6 +513,7 @@ let DATA = null;
 let charts = {};
 let inboundSummaryView = 'monthly';
 let selfServeSummaryView = 'monthly';
+let currentBU = 'Transcription';
 
 const CHANNEL_COLORS = {
   'Direct': '#1A7B6B', 'Paid Search': '#005a50', 'Organic Search': '#2E7D32',
@@ -525,7 +579,21 @@ function filterByWeeks(arr, weeks) {
 
 // ===== BUSINESS UNIT =====
 function getCurrentBU() {
-  return document.getElementById('buFilter').value;
+  return currentBU;
+}
+
+function switchBU(bu) {
+  currentBU = bu;
+  // Update tab active states
+  document.querySelectorAll('#buTabs .bu-tab').forEach(tab => {
+    tab.classList.toggle('active', tab.dataset.bu === bu);
+  });
+  // Show/hide page containers
+  document.querySelectorAll('.bu-page').forEach(page => {
+    page.classList.toggle('hidden', page.id !== `page-${bu}`);
+  });
+  // Re-render if data is loaded
+  if (DATA) render();
 }
 
 function getBU(product) {
@@ -601,19 +669,16 @@ function kpiCard(label, value, color) {
 // ===== MAIN RENDER =====
 function render() {
   const weeks = getFilteredWeeks();
-  const bu = getCurrentBU();
   document.getElementById('lastUpdated').textContent =
     `Last updated: ${new Date(DATA.updatedAt).toLocaleString('en-GB')} \u00b7 ${DATA.dateRange.start} to ${DATA.dateRange.end}`;
 
-  const showSelfServe = bu === 'all' || bu === 'Transcription';
-  document.getElementById('selfServeSection').classList.toggle('hidden', !showSelfServe);
+  // Only render content for Transcription page (other pages are placeholders)
+  if (currentBU !== 'Transcription') return;
 
   populateInboundFilters();
   renderInboundSummary(weeks);
-  if (showSelfServe) {
-    renderSelfServeSummary(weeks);
-    renderSelfServe(weeks);
-  }
+  renderSelfServeSummary(weeks);
+  renderSelfServe(weeks);
   renderInbound(weeks);
   renderGoogleAds(weeks);
 }
@@ -633,15 +698,15 @@ function renderInboundSummary(weeks) {
     for (const w of weekList) {
       const a = adsMap[w];
       if (!a) continue;
-      cost += bu === 'all' ? (a.hmCost || 0) : (a.byBU?.[bu]?.hmCost || 0);
+      cost += (a.byBU?.[bu]?.hmCost || 0);
     }
     return cost;
   }
 
   function computeFunnel(weekList) {
     const ws = new Set(weekList);
-    const deals = allDeals.filter(d => ws.has(d.week) && (bu === 'all' || d.bu === bu));
-    const forms = (bu === 'all' || bu === 'Transcription')
+    const deals = allDeals.filter(d => ws.has(d.week) && d.bu === bu);
+    const forms = bu === 'Transcription'
       ? allForms.filter(f => ws.has(f.week))
       : [];
     const leads = forms.reduce((s, r) => s + r.count, 0);
@@ -733,7 +798,7 @@ function renderSelfServeSummary(weeks) {
     for (const w of weekList) {
       const a = adsMap[w];
       if (!a) continue;
-      cost += (bu === 'all') ? (a.mmCost || 0) : (a.byBU?.Transcription?.mmCost || 0);
+      cost += (a.byBU?.Transcription?.mmCost || 0);
     }
     return cost;
   }
@@ -935,7 +1000,7 @@ function getFilteredDeals(weekSet) {
 
   return (DATA.deals || []).filter(d => {
     if (!weekSet.has(d.week)) return false;
-    if (bu !== 'all' && d.bu !== bu) return false;
+    if (d.bu !== bu) return false;
     if (product !== 'all' && d.product !== product) return false;
     if (style !== 'all' && d.transcriptionStyle !== style) return false;
     if (options !== 'all' && d.additionalOptions !== options) return false;
@@ -946,7 +1011,7 @@ function getFilteredDeals(weekSet) {
 
 function getFilteredForms(weekSet) {
   const bu = getCurrentBU();
-  if (bu !== 'all' && bu !== 'Transcription') return [];
+  if (bu !== 'Transcription') return [];
   const country = document.getElementById('inbCountryFilter').value;
   return (DATA.ga4Forms || []).filter(f => {
     if (!weekSet.has(f.week)) return false;
@@ -1081,20 +1146,12 @@ function renderGoogleAds(weeks) {
   const ads = filterByWeeks(DATA.weekly.ads, weeks);
   const stripe = filterByWeeks(DATA.weekly.stripe, weeks);
 
-  let totalCost, mmCost, hmCost, brandCost;
-  if (bu === 'all') {
-    totalCost = ads.reduce((s, r) => s + r.totalCost, 0);
-    mmCost = ads.reduce((s, r) => s + r.mmCost, 0);
-    hmCost = ads.reduce((s, r) => s + r.hmCost, 0);
-    brandCost = ads.reduce((s, r) => s + r.brandCost, 0);
-  } else {
-    totalCost = ads.reduce((s, r) => s + (r.byBU?.[bu]?.totalCost || 0), 0);
-    mmCost = ads.reduce((s, r) => s + (r.byBU?.[bu]?.mmCost || 0), 0);
-    hmCost = ads.reduce((s, r) => s + (r.byBU?.[bu]?.hmCost || 0), 0);
-    brandCost = ads.reduce((s, r) => s + (r.byBU?.[bu]?.brandCost || 0), 0);
-  }
+  const totalCost = ads.reduce((s, r) => s + (r.byBU?.[bu]?.totalCost || 0), 0);
+  const mmCost = ads.reduce((s, r) => s + (r.byBU?.[bu]?.mmCost || 0), 0);
+  const hmCost = ads.reduce((s, r) => s + (r.byBU?.[bu]?.hmCost || 0), 0);
+  const brandCost = ads.reduce((s, r) => s + (r.byBU?.[bu]?.brandCost || 0), 0);
 
-  const stripeRev = (bu === 'all' || bu === 'Transcription')
+  const stripeRev = bu === 'Transcription'
     ? stripe.reduce((s, r) => s + r.totalRevenue, 0) : 0;
   const roas = totalCost > 0 && stripeRev > 0 ? (stripeRev / totalCost).toFixed(1) + 'x' : '-';
 
@@ -1111,9 +1168,9 @@ function renderGoogleAds(weeks) {
     data: {
       labels: ads.map(r => fmt.shortDate(r.week)),
       datasets: [
-        { label: 'Machine-Made', data: ads.map(r => bu === 'all' ? r.mmCost : (r.byBU?.[bu]?.mmCost || 0)), backgroundColor: 'rgba(26,123,107,0.2)', borderColor: '#1A7B6B', borderWidth: 1.5, borderRadius: 3 },
-        { label: 'Human-Made', data: ads.map(r => bu === 'all' ? r.hmCost : (r.byBU?.[bu]?.hmCost || 0)), backgroundColor: 'rgba(123,31,162,0.2)', borderColor: '#7B1FA2', borderWidth: 1.5, borderRadius: 3 },
-        { label: 'Brand', data: ads.map(r => bu === 'all' ? r.brandCost : (r.byBU?.[bu]?.brandCost || 0)), backgroundColor: 'rgba(245,166,35,0.2)', borderColor: '#F5A623', borderWidth: 1.5, borderRadius: 3 },
+        { label: 'Machine-Made', data: ads.map(r => r.byBU?.[bu]?.mmCost || 0), backgroundColor: 'rgba(26,123,107,0.2)', borderColor: '#1A7B6B', borderWidth: 1.5, borderRadius: 3 },
+        { label: 'Human-Made', data: ads.map(r => r.byBU?.[bu]?.hmCost || 0), backgroundColor: 'rgba(123,31,162,0.2)', borderColor: '#7B1FA2', borderWidth: 1.5, borderRadius: 3 },
+        { label: 'Brand', data: ads.map(r => r.byBU?.[bu]?.brandCost || 0), backgroundColor: 'rgba(245,166,35,0.2)', borderColor: '#F5A623', borderWidth: 1.5, borderRadius: 3 },
       ],
     },
     options: { ...chartOptions('EUR'), scales: { x: { stacked: true, grid: { display: false } }, y: { stacked: true, beginAtZero: true, grid: { color: 'rgba(0,0,0,0.04)' } } } },
@@ -1122,7 +1179,7 @@ function renderGoogleAds(weeks) {
   const productTotals = {};
   for (const row of ads) {
     for (const [prod, cost] of Object.entries(row.byProduct || {})) {
-      if (bu !== 'all' && getBU(prod) !== bu) continue;
+      if (getBU(prod) !== bu) continue;
       productTotals[prod] = (productTotals[prod] || 0) + cost;
     }
   }
@@ -1194,7 +1251,6 @@ function destroyChart(id) {
 
 // ===== EVENTS =====
 document.getElementById('dateRange').addEventListener('change', () => { if (DATA) render(); });
-document.getElementById('buFilter').addEventListener('change', () => { if (DATA) render(); });
 
 loadData();
 </script>
