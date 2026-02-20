@@ -1044,6 +1044,7 @@ function renderInbound(weeks) {
   const sqls = deals.filter(r => ['SQL', 'Customer'].includes(r.lifecycleStage)).length;
   const sqlsFromLeads = deals.filter(r => r.formId && ['SQL', 'Customer'].includes(r.lifecycleStage)).length;
   const won = deals.filter(r => r.status === 'Won').length;
+  const wonFromLeads = deals.filter(r => r.formId && r.status === 'Won').length;
   const wonRev = deals.filter(r => r.status === 'Won').reduce((s, r) => s + (r.amount || 0), 0);
 
   document.getElementById('inboundKPIs').innerHTML = [
@@ -1067,6 +1068,11 @@ function renderInbound(weeks) {
   if (mqls > 0) convRates.push(`MQL &gt; SQL ${(sqls/mqls*100).toFixed(1)}%`);
   if (sqls > 0) convRates.push(`SQL &gt; Won ${(won/sqls*100).toFixed(1)}%`);
 
+  const fromLeadRates = [];
+  if (leads > 0) fromLeadRates.push(`Lead &gt; MQL (from lead) ${(mqlsFromLeads/leads*100).toFixed(1)}%`);
+  if (mqlsFromLeads > 0) fromLeadRates.push(`MQL &gt; SQL (from lead) ${(sqlsFromLeads/mqlsFromLeads*100).toFixed(1)}%`);
+  if (sqlsFromLeads > 0) fromLeadRates.push(`SQL &gt; Won (from lead) ${(wonFromLeads/sqlsFromLeads*100).toFixed(1)}%`);
+
   document.getElementById('funnelChart').innerHTML = stages.map(s => `
     <div class="flex items-center gap-3">
       <span class="funnel-label">${s.label}</span>
@@ -1076,7 +1082,9 @@ function renderInbound(weeks) {
         </div>
       </div>
     </div>
-  `).join('') + `<div class="flex gap-2 mt-3 ml-16">${convRates.map(r => `<span class="conv-pill">${r}</span>`).join('')}</div>`;
+  `).join('') +
+    `<div class="flex flex-wrap gap-2 mt-3 ml-16">${convRates.map(r => `<span class="conv-pill">${r}</span>`).join('')}</div>` +
+    `<div class="flex flex-wrap gap-2 mt-1.5 ml-16">${fromLeadRates.map(r => `<span class="conv-pill" style="background:#E8ECF0">${r}</span>`).join('')}</div>`;
 
   // Funnel trend
   const dealsByWeek = {};
