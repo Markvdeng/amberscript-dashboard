@@ -1047,20 +1047,20 @@ function renderInbound(weeks) {
   const wonRev = deals.filter(r => r.status === 'Won').reduce((s, r) => s + (r.amount || 0), 0);
 
   document.getElementById('inboundKPIs').innerHTML = [
-    { label: 'Leads (GA4)', value: fmt.number(leads), color: '#F5A623' },
-    { label: 'MQLs', value: `${fmt.number(mqls)} <span class="text-[0.6875rem] text-as-muted font-normal">(${fmt.number(mqlsFromLeads)} from leads)</span>`, color: '#1A7B6B' },
-    { label: 'SQLs', value: `${fmt.number(sqls)} <span class="text-[0.6875rem] text-as-muted font-normal">(${fmt.number(sqlsFromLeads)} from leads)</span>`, color: '#7B1FA2' },
-    { label: 'Won Deals', value: fmt.number(won), color: '#2E7D32' },
-    { label: 'Deal Revenue', value: fmt.currency(wonRev), color: '#2E7D32' },
+    { label: 'Leads (GA4)', value: fmt.number(leads), color: '#005a50' },
+    { label: 'MQLs', value: `${fmt.number(mqls)} <span class="text-[0.6875rem] text-as-muted font-normal">(${fmt.number(mqlsFromLeads)} from leads)</span>`, color: '#0F6B5E' },
+    { label: 'SQLs', value: `${fmt.number(sqls)} <span class="text-[0.6875rem] text-as-muted font-normal">(${fmt.number(sqlsFromLeads)} from leads)</span>`, color: '#1A7B6B' },
+    { label: 'Won Deals', value: fmt.number(won), color: '#F5A623' },
+    { label: 'Deal Revenue', value: fmt.currency(wonRev), color: '#F5A623' },
   ].map(k => kpiCard(k.label, k.value, k.color)).join('');
 
   // Funnel
   const max = Math.max(leads, 1);
   const stages = [
-    { label: 'Leads', count: leads, color: '#F5A623', pct: 100 },
-    { label: 'MQLs', count: mqls, color: '#1A7B6B', pct: (mqls / max * 100) },
-    { label: 'SQLs', count: sqls, color: '#7B1FA2', pct: (sqls / max * 100) },
-    { label: 'Won', count: won, color: '#2E7D32', pct: (won / max * 100) },
+    { label: 'Leads', count: leads, color: '#005a50', pct: 100 },
+    { label: 'MQLs', count: mqls, color: '#0F6B5E', pct: (mqls / max * 100) },
+    { label: 'SQLs', count: sqls, color: '#1A7B6B', pct: (sqls / max * 100) },
+    { label: 'Won', count: won, color: '#F5A623', pct: (won / max * 100) },
   ];
   const convRates = [];
   if (leads > 0) convRates.push(`Lead &gt; MQL ${(mqls/leads*100).toFixed(1)}%`);
@@ -1091,10 +1091,10 @@ function renderInbound(weeks) {
     data: {
       labels: trendWeeks.map(w => fmt.shortDate(w)),
       datasets: [
-        { label: 'Leads', data: trendWeeks.map(w => (formsByWeek[w] || []).reduce((s, r) => s + r.count, 0)), borderColor: '#F5A623', backgroundColor: 'rgba(245,166,35,0.08)', tension: 0.3, fill: true, borderWidth: 2, pointRadius: 3 },
-        { label: 'MQLs', data: trendWeeks.map(w => (dealsByWeek[w] || []).length), borderColor: '#1A7B6B', backgroundColor: 'rgba(26,123,107,0.08)', tension: 0.3, fill: true, borderWidth: 2, pointRadius: 3 },
-        { label: 'SQLs', data: trendWeeks.map(w => (dealsByWeek[w] || []).filter(d => ['SQL','Customer'].includes(d.lifecycleStage)).length), borderColor: '#7B1FA2', tension: 0.3, fill: false, borderWidth: 2, pointRadius: 3 },
-        { label: 'Won', data: trendWeeks.map(w => (dealsByWeek[w] || []).filter(d => d.status === 'Won').length), borderColor: '#2E7D32', tension: 0.3, fill: false, borderWidth: 2, pointRadius: 3 },
+        { label: 'Leads', data: trendWeeks.map(w => (formsByWeek[w] || []).reduce((s, r) => s + r.count, 0)), borderColor: '#005a50', backgroundColor: 'rgba(0,90,80,0.08)', tension: 0.3, fill: true, borderWidth: 2, pointRadius: 3 },
+        { label: 'MQLs', data: trendWeeks.map(w => (dealsByWeek[w] || []).length), borderColor: '#0F6B5E', backgroundColor: 'rgba(15,107,94,0.08)', tension: 0.3, fill: true, borderWidth: 2, pointRadius: 3 },
+        { label: 'SQLs', data: trendWeeks.map(w => (dealsByWeek[w] || []).filter(d => ['SQL','Customer'].includes(d.lifecycleStage)).length), borderColor: '#1A7B6B', tension: 0.3, fill: false, borderWidth: 2, pointRadius: 3 },
+        { label: 'Won', data: trendWeeks.map(w => (dealsByWeek[w] || []).filter(d => d.status === 'Won').length), borderColor: '#F5A623', tension: 0.3, fill: false, borderWidth: 2, pointRadius: 3 },
       ],
     },
     options: chartOptions(''),
@@ -1116,9 +1116,9 @@ function renderInbound(weeks) {
     data: {
       labels: chKeys,
       datasets: [
-        { label: 'MQLs', data: chKeys.map(c => channelTotals[c].mqls), backgroundColor: 'rgba(26,123,107,0.7)', borderRadius: 3 },
-        { label: 'SQLs', data: chKeys.map(c => channelTotals[c].sqls), backgroundColor: 'rgba(123,31,162,0.7)', borderRadius: 3 },
-        { label: 'Won', data: chKeys.map(c => channelTotals[c].won), backgroundColor: 'rgba(46,125,50,0.7)', borderRadius: 3 },
+        { label: 'MQLs', data: chKeys.map(c => channelTotals[c].mqls), backgroundColor: 'rgba(15,107,94,0.7)', borderRadius: 3 },
+        { label: 'SQLs', data: chKeys.map(c => channelTotals[c].sqls), backgroundColor: 'rgba(26,123,107,0.7)', borderRadius: 3 },
+        { label: 'Won', data: chKeys.map(c => channelTotals[c].won), backgroundColor: 'rgba(245,166,35,0.7)', borderRadius: 3 },
       ],
     },
     options: chartOptions(''),
