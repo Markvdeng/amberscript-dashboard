@@ -250,30 +250,29 @@
         <h1 class="text-lg font-bold tracking-tight text-white">Amberscript</h1>
         <p class="text-white/50 text-xs mt-0.5 font-medium" id="lastUpdated">Loading...</p>
       </div>
-      <!-- BU Tabs -->
-      <nav class="flex gap-1 -mb-px" id="buTabs">
-        <button class="bu-tab active" data-bu="Transcription" onclick="switchBU('Transcription')">Transcription</button>
-        <button class="bu-tab" data-bu="Media" onclick="switchBU('Media')">Media</button>
-        <button class="bu-tab" data-bu="Innovations" onclick="switchBU('Innovations')">Innovations</button>
-      </nav>
+      <!-- BU Tabs + Date Range -->
+      <div class="flex items-end justify-between -mb-px">
+        <nav class="flex gap-1" id="buTabs">
+          <button class="bu-tab active" data-bu="Transcription" onclick="switchBU('Transcription')">Transcription</button>
+          <button class="bu-tab" data-bu="Media" onclick="switchBU('Media')">Media</button>
+          <button class="bu-tab" data-bu="Innovations" onclick="switchBU('Innovations')">Innovations</button>
+        </nav>
+        <select id="dateRange" class="header-select mb-1.5">
+          <option value="this-week">This week</option>
+          <option value="last-week">Last week</option>
+          <option value="last-2-weeks">Last 2 weeks</option>
+          <option value="last-4-weeks">Last 4 weeks</option>
+          <option value="this-month">This month</option>
+          <option value="last-month">Last month</option>
+          <option value="last-2-months">Last 2 months</option>
+          <option value="last-4-months">Last 4 months</option>
+          <option value="all" selected>All time</option>
+        </select>
+      </div>
     </div>
   </header>
 
   <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8">
-
-    <div class="mb-6">
-      <select id="dateRange" class="filter-select">
-        <option value="this-week">This week</option>
-        <option value="last-week">Last week</option>
-        <option value="last-2-weeks">Last 2 weeks</option>
-        <option value="last-4-weeks">Last 4 weeks</option>
-        <option value="this-month">This month</option>
-        <option value="last-month">Last month</option>
-        <option value="last-2-months">Last 2 months</option>
-        <option value="last-4-months">Last 4 months</option>
-        <option value="all" selected>All time</option>
-      </select>
-    </div>
 
     <!-- ============================================ -->
     <!-- PAGE: TRANSCRIPTION (BUT)                    -->
