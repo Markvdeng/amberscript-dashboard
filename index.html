@@ -939,11 +939,15 @@ function populateInboundFilters() {
     products.map(p => `<option value="${p}">${p}</option>`).join('') +
     '<option value="Other">Other</option>';
 
-  const countries = [...new Set(deals.map(d => d.country).filter(Boolean))].sort();
+  const countryCounts = {};
+  for (const d of deals) { if (d.country) countryCounts[d.country] = (countryCounts[d.country] || 0) + 1; }
+  const countries = Object.keys(countryCounts).sort((a, b) => countryCounts[b] - countryCounts[a]);
+  const topCountries = countries.slice(0, 4);
+  const moreCountries = countries.slice(4);
   const countryEl = document.getElementById('inbCountryFilter');
   countryEl.innerHTML = '<option value="all">All Countries</option><option value="DACH">DACH (DE+AT+CH)</option>' +
-    countries.map(c => `<option value="${c}">${c}</option>`).join('') +
-    '<option value="Other">Other</option>';
+    topCountries.map(c => `<option value="${c}">${c}</option>`).join('') +
+    (moreCountries.length ? '<optgroup label="More">' + moreCountries.map(c => `<option value="${c}">${c}</option>`).join('') + '<option value="Other">Other</option></optgroup>' : '<option value="Other">Other</option>');
 }
 
 function onInboundFilterChange() {
