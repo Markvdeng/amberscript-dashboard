@@ -231,8 +231,22 @@ function main() {
       addTo(byChannel, r.channel, r);
     }
 
+    // Pre-computed filter segments for dashboard
+    const seg = {
+      all:              cr(rows),
+      prepaid:          cr(rows.filter(r => r.planType === 'Prepaid')),
+      'prepaid-topup':  cr(rows.filter(r => r.planType === 'Prepaid' && r.planSubtype === 'Top-Up')),
+      'prepaid-job':    cr(rows.filter(r => r.planType === 'Prepaid' && r.planSubtype === 'Job Creation')),
+      subscription:     cr(rows.filter(r => r.planType === 'Subscription')),
+      'sub-update':     cr(rows.filter(r => r.planType === 'Subscription' && r.planSubtype === 'Update')),
+      'sub-creation':   cr(rows.filter(r => r.planType === 'Subscription' && r.planSubtype === 'Creation')),
+      'human-made':     cr(rows.filter(r => r.product === 'Human-Made')),
+      invoice:          cr(rows.filter(r => r.planType === 'Invoice')),
+    };
+
     return {
       week, totalRevenue: round(totalRevenue), count: rows.length,
+      seg,
       byPlanType: roundCountRev(byPlanType),
       byProduct: roundCountRev(byProduct),
       byCountry: roundCountRev(byCountry),
@@ -281,6 +295,17 @@ function main() {
     // Stripe
     const chargeRows = monthWeeks.flatMap(w => chargesByWeek[w] || []);
     const stripeRevenue = round(chargeRows.reduce((s, r) => s + r.amount, 0));
+    const stripeSeg = {
+      all:              cr(chargeRows),
+      prepaid:          cr(chargeRows.filter(r => r.planType === 'Prepaid')),
+      'prepaid-topup':  cr(chargeRows.filter(r => r.planType === 'Prepaid' && r.planSubtype === 'Top-Up')),
+      'prepaid-job':    cr(chargeRows.filter(r => r.planType === 'Prepaid' && r.planSubtype === 'Job Creation')),
+      subscription:     cr(chargeRows.filter(r => r.planType === 'Subscription')),
+      'sub-update':     cr(chargeRows.filter(r => r.planType === 'Subscription' && r.planSubtype === 'Update')),
+      'sub-creation':   cr(chargeRows.filter(r => r.planType === 'Subscription' && r.planSubtype === 'Creation')),
+      'human-made':     cr(chargeRows.filter(r => r.product === 'Human-Made')),
+      invoice:          cr(chargeRows.filter(r => r.planType === 'Invoice')),
+    };
 
     // GA4
     const formRows = monthWeeks.flatMap(w => formsByWeek[w] || []);
@@ -290,7 +315,7 @@ function main() {
       month, adsCost, mmCost, hmCost, brandCost,
       leads, sqls, won, wonRevenue,
       leadToSql, sqlToWon,
-      stripeRevenue, formSubmissions: formSubs,
+      stripeRevenue, stripeSeg, formSubmissions: formSubs,
     };
   });
 
@@ -324,6 +349,14 @@ function main() {
 
   writeFileSync(join(ROOT, 'data.json'), JSON.stringify(output, null, 2));
   console.log(`data.json written: ${allMonths.length} months, ${weeks.length} weeks`);
+}
+
+// Helper: compute count + rounded revenue for a filtered set
+function cr(rows) {
+  return {
+    count: rows.length,
+    revenue: round(rows.reduce((s, r) => s + r.amount, 0)),
+  };
 }
 
 // Helper: add count/revenue to a bucket

@@ -1,38 +1,76 @@
 {
-  "updatedAt": "2026-02-20T04:31:49.638Z",
+  "updatedAt": "2026-02-20T06:25:31.710Z",
   "dateRange": {
     "start": "2025-11-17",
     "end": "2026-02-16"
   },
   "kpis": {
-    "totalLeads": 240,
-    "totalSQLs": 199,
-    "totalWon": 70,
-    "totalDealRevenue": 77716.84,
-    "totalStripeRevenue": 235239.18,
-    "totalAdsCost": 33311.56,
-    "roas": 7.06,
-    "totalFormSubmissions": 633
+    "totalLeads": 241,
+    "totalSQLs": 201,
+    "totalWon": 71,
+    "totalDealRevenue": 81460.84,
+    "totalStripeRevenue": 237645.71,
+    "totalAdsCost": 38298.36,
+    "roas": 6.21,
+    "totalFormSubmissions": 637
   },
   "monthly": [
     {
       "month": "2025-11",
-      "adsCost": 2438.34,
-      "mmCost": 1983.79,
-      "hmCost": 426.2,
-      "brandCost": 28.35,
-      "leads": 30,
-      "sqls": 26,
-      "won": 16,
-      "wonRevenue": 32904.92,
-      "leadToSql": 86.7,
-      "sqlToWon": 61.5,
-      "stripeRevenue": 23046.25,
-      "formSubmissions": 82
+      "adsCost": 2995.43,
+      "mmCost": 2141.84,
+      "hmCost": 499.91,
+      "brandCost": 32.39,
+      "leads": 32,
+      "sqls": 28,
+      "won": 17,
+      "wonRevenue": 36648.92,
+      "leadToSql": 87.5,
+      "sqlToWon": 60.7,
+      "stripeRevenue": 25581.83,
+      "stripeSeg": {
+        "all": {
+          "count": 714,
+          "revenue": 25581.83
+        },
+        "prepaid": {
+          "count": 568,
+          "revenue": 17441.46
+        },
+        "prepaid-topup": {
+          "count": 144,
+          "revenue": 3811.49
+        },
+        "prepaid-job": {
+          "count": 424,
+          "revenue": 13629.97
+        },
+        "subscription": {
+          "count": 145,
+          "revenue": 7665.37
+        },
+        "sub-update": {
+          "count": 131,
+          "revenue": 6142.05
+        },
+        "sub-creation": {
+          "count": 14,
+          "revenue": 1523.32
+        },
+        "human-made": {
+          "count": 31,
+          "revenue": 4897.3
+        },
+        "invoice": {
+          "count": 1,
+          "revenue": 475
+        }
+      },
+      "formSubmissions": 90
     },
     {
       "month": "2025-12",
-      "adsCost": 13270.5,
+      "adsCost": 14687.54,
       "mmCost": 9492.53,
       "hmCost": 3669.09,
       "brandCost": 108.88,
@@ -43,11 +81,49 @@
       "leadToSql": 75.6,
       "sqlToWon": 36.9,
       "stripeRevenue": 87164.93,
+      "stripeSeg": {
+        "all": {
+          "count": 2270,
+          "revenue": 87164.93
+        },
+        "prepaid": {
+          "count": 1692,
+          "revenue": 55660.62
+        },
+        "prepaid-topup": {
+          "count": 460,
+          "revenue": 15600.46
+        },
+        "prepaid-job": {
+          "count": 1232,
+          "revenue": 40060.16
+        },
+        "subscription": {
+          "count": 577,
+          "revenue": 31254.31
+        },
+        "sub-update": {
+          "count": 527,
+          "revenue": 24162.48
+        },
+        "sub-creation": {
+          "count": 50,
+          "revenue": 7091.83
+        },
+        "human-made": {
+          "count": 82,
+          "revenue": 18261.47
+        },
+        "invoice": {
+          "count": 1,
+          "revenue": 250
+        }
+      },
       "formSubmissions": 258
     },
     {
       "month": "2026-01",
-      "adsCost": 13408.38,
+      "adsCost": 15131.08,
       "mmCost": 7569.46,
       "hmCost": 5733.72,
       "brandCost": 105.2,
@@ -58,46 +134,127 @@
       "leadToSql": 87.7,
       "sqlToWon": 31.3,
       "stripeRevenue": 77232.71,
+      "stripeSeg": {
+        "all": {
+          "count": 1994,
+          "revenue": 77232.71
+        },
+        "prepaid": {
+          "count": 1546,
+          "revenue": 51637.62
+        },
+        "prepaid-topup": {
+          "count": 450,
+          "revenue": 15498.75
+        },
+        "prepaid-job": {
+          "count": 1096,
+          "revenue": 36138.87
+        },
+        "subscription": {
+          "count": 446,
+          "revenue": 25107.29
+        },
+        "sub-update": {
+          "count": 397,
+          "revenue": 17844.52
+        },
+        "sub-creation": {
+          "count": 49,
+          "revenue": 7262.77
+        },
+        "human-made": {
+          "count": 68,
+          "revenue": 16045.59
+        },
+        "invoice": {
+          "count": 2,
+          "revenue": 487.8
+        }
+      },
       "formSubmissions": 189
     },
     {
       "month": "2026-02",
-      "adsCost": 4194.34,
-      "mmCost": 2030.6,
-      "hmCost": 2099.21,
-      "brandCost": 64.53,
-      "leads": 51,
+      "adsCost": 5484.3,
+      "mmCost": 2026.73,
+      "hmCost": 2076.25,
+      "brandCost": 64.21,
+      "leads": 50,
       "sqls": 44,
       "won": 10,
       "wonRevenue": 5363.5,
-      "leadToSql": 86.3,
+      "leadToSql": 88,
       "sqlToWon": 22.7,
-      "stripeRevenue": 47795.29,
-      "formSubmissions": 104
+      "stripeRevenue": 47666.24,
+      "stripeSeg": {
+        "all": {
+          "count": 1282,
+          "revenue": 47666.24
+        },
+        "prepaid": {
+          "count": 987,
+          "revenue": 30706.88
+        },
+        "prepaid-topup": {
+          "count": 290,
+          "revenue": 8772.05
+        },
+        "prepaid-job": {
+          "count": 697,
+          "revenue": 21934.83
+        },
+        "subscription": {
+          "count": 292,
+          "revenue": 16577.81
+        },
+        "sub-update": {
+          "count": 269,
+          "revenue": 12263.44
+        },
+        "sub-creation": {
+          "count": 23,
+          "revenue": 4314.37
+        },
+        "human-made": {
+          "count": 43,
+          "revenue": 9058.15
+        },
+        "invoice": {
+          "count": 3,
+          "revenue": 381.55
+        }
+      },
+      "formSubmissions": 100
     }
   ],
   "weekly": {
     "ads": [
       {
         "week": "2025-11-17",
-        "totalCost": 311.34,
-        "mmCost": 300.67,
-        "hmCost": 7.21,
-        "brandCost": 3.45,
+        "totalCost": 626.1,
+        "mmCost": 458.73,
+        "hmCost": 80.93,
+        "brandCost": 7.49,
         "byCountry": {
-          "NL": 56.18,
-          "DE": 254.39,
-          "FR": 0.27,
-          "IT": 0.5
+          "NL": 101.82,
+          "DE": 443.64,
+          "FR": 0.71,
+          "IT": 0.98,
+          "EU": 78.95
         },
         "byProduct": {
-          "Brand": 3.45,
-          "Transcription": 307.89
+          "Brand": 7.49,
+          "Transcription": 476.41,
+          "Subtitles": 63.25,
+          "AI Meeting Notes": 27.33,
+          "Competitors": 1.56,
+          "Meeting Notes": 50.06
         }
       },
       {
         "week": "2025-11-24",
-        "totalCost": 2127,
+        "totalCost": 2369.33,
         "mmCost": 1683.11,
         "hmCost": 418.98,
         "brandCost": 24.91,
@@ -105,17 +262,21 @@
           "NL": 707.78,
           "DE": 1413.93,
           "FR": 2.79,
-          "IT": 2.5
+          "IT": 2.5,
+          "EU": 242.33
         },
         "byProduct": {
           "Brand": 24.91,
           "Transcription": 1883.46,
-          "Subtitles": 218.63
+          "Subtitles": 218.63,
+          "AI Meeting Notes": 110.39,
+          "Competitors": 2.65,
+          "Meeting Notes": 129.29
         }
       },
       {
         "week": "2025-12-01",
-        "totalCost": 2231.82,
+        "totalCost": 2535.35,
         "mmCost": 1668.72,
         "hmCost": 535.07,
         "brandCost": 28.03,
@@ -123,17 +284,21 @@
           "NL": 793.8,
           "DE": 1432.58,
           "FR": 2.51,
-          "IT": 2.94
+          "IT": 2.94,
+          "EU": 303.53
         },
         "byProduct": {
           "Brand": 28.03,
           "Transcription": 1942.16,
-          "Subtitles": 261.64
+          "Subtitles": 261.64,
+          "AI Meeting Notes": 141.53,
+          "Competitors": 14.6,
+          "Meeting Notes": 147.4
         }
       },
       {
         "week": "2025-12-08",
-        "totalCost": 2480.18,
+        "totalCost": 2789.5,
         "mmCost": 1504.3,
         "hmCost": 944.94,
         "brandCost": 30.94,
@@ -141,17 +306,21 @@
           "NL": 912.39,
           "DE": 1563,
           "FR": 2.45,
-          "IT": 2.35
+          "IT": 2.35,
+          "EU": 309.32
         },
         "byProduct": {
           "Brand": 30.94,
           "Transcription": 2192.81,
-          "Subtitles": 256.43
+          "Subtitles": 256.43,
+          "AI Meeting Notes": 140.13,
+          "Competitors": 25.49,
+          "Meeting Notes": 143.7
         }
       },
       {
         "week": "2025-12-15",
-        "totalCost": 4766.35,
+        "totalCost": 5074.16,
         "mmCost": 3569.4,
         "hmCost": 1171.58,
         "brandCost": 25.38,
@@ -159,17 +328,21 @@
           "NL": 1505.71,
           "DE": 3257.06,
           "FR": 2,
-          "IT": 1.59
+          "IT": 1.59,
+          "EU": 307.81
         },
         "byProduct": {
           "Brand": 25.38,
           "Transcription": 4526.78,
-          "Subtitles": 214.2
+          "Subtitles": 214.2,
+          "AI Meeting Notes": 150.53,
+          "Competitors": 29.18,
+          "Meeting Notes": 128.09
         }
       },
       {
         "week": "2025-12-22",
-        "totalCost": 1974.12,
+        "totalCost": 2212.07,
         "mmCost": 1563.95,
         "hmCost": 399.06,
         "brandCost": 11.1,
@@ -177,16 +350,20 @@
           "NL": 463.85,
           "DE": 1507.84,
           "FR": 1.43,
-          "IT": 1
+          "IT": 1,
+          "EU": 237.95
         },
         "byProduct": {
           "Brand": 11.1,
-          "Transcription": 1963.02
+          "Transcription": 1963.02,
+          "AI Meeting Notes": 128.04,
+          "Competitors": 16.45,
+          "Meeting Notes": 93.45
         }
       },
       {
         "week": "2025-12-29",
-        "totalCost": 1818.02,
+        "totalCost": 2076.46,
         "mmCost": 1186.16,
         "hmCost": 618.44,
         "brandCost": 13.43,
@@ -194,16 +371,20 @@
           "NL": 673.35,
           "DE": 1142.67,
           "FR": 0.94,
-          "IT": 1.06
+          "IT": 1.06,
+          "EU": 258.44
         },
         "byProduct": {
           "Brand": 13.43,
-          "Transcription": 1804.59
+          "Transcription": 1804.59,
+          "AI Meeting Notes": 135.44,
+          "Competitors": 21.44,
+          "Meeting Notes": 101.57
         }
       },
       {
         "week": "2026-01-05",
-        "totalCost": 3005.94,
+        "totalCost": 3452.71,
         "mmCost": 1514.63,
         "hmCost": 1464.08,
         "brandCost": 27.23,
@@ -211,16 +392,20 @@
           "NL": 1124.48,
           "DE": 1877.66,
           "FR": 1.93,
-          "IT": 1.87
+          "IT": 1.87,
+          "EU": 446.77
         },
         "byProduct": {
           "Brand": 27.23,
-          "Transcription": 2978.71
+          "Transcription": 2978.71,
+          "AI Meeting Notes": 137.81,
+          "Competitors": 127.29,
+          "Meeting Notes": 181.67
         }
       },
       {
         "week": "2026-01-12",
-        "totalCost": 4327.69,
+        "totalCost": 4711.43,
         "mmCost": 2968.05,
         "hmCost": 1330.5,
         "brandCost": 29.14,
@@ -228,16 +413,20 @@
           "NL": 1303.63,
           "DE": 3020.31,
           "FR": 1.77,
-          "IT": 1.99
+          "IT": 1.99,
+          "EU": 383.73
         },
         "byProduct": {
           "Brand": 29.14,
-          "Transcription": 4298.55
+          "Transcription": 4298.55,
+          "AI Meeting Notes": 137.65,
+          "Competitors": 102.73,
+          "Meeting Notes": 143.35
         }
       },
       {
         "week": "2026-01-19",
-        "totalCost": 3730.86,
+        "totalCost": 4181.41,
         "mmCost": 2028.79,
         "hmCost": 1677.97,
         "brandCost": 24.1,
@@ -245,16 +434,20 @@
           "NL": 1280.7,
           "DE": 2446.82,
           "FR": 1.22,
-          "IT": 2.12
+          "IT": 2.12,
+          "EU": 450.55
         },
         "byProduct": {
           "Brand": 24.1,
-          "Transcription": 3706.75
+          "Transcription": 3706.75,
+          "AI Meeting Notes": 130.08,
+          "Competitors": 182.24,
+          "Meeting Notes": 138.22
         }
       },
       {
         "week": "2026-01-26",
-        "totalCost": 2343.89,
+        "totalCost": 2785.54,
         "mmCost": 1057.99,
         "hmCost": 1261.18,
         "brandCost": 24.72,
@@ -262,16 +455,20 @@
           "NL": 999.38,
           "DE": 1339.63,
           "FR": 1.86,
-          "IT": 3.02
+          "IT": 3.02,
+          "EU": 441.65
         },
         "byProduct": {
           "Brand": 24.72,
-          "Transcription": 2319.17
+          "Transcription": 2319.17,
+          "AI Meeting Notes": 140.45,
+          "Competitors": 174.12,
+          "Meeting Notes": 127.08
         }
       },
       {
         "week": "2026-02-02",
-        "totalCost": 1763.54,
+        "totalCost": 2322.21,
         "mmCost": 609.42,
         "hmCost": 1129.15,
         "brandCost": 24.97,
@@ -279,16 +476,20 @@
           "NL": 727.31,
           "DE": 1031.72,
           "FR": 1.96,
-          "IT": 2.55
+          "IT": 2.55,
+          "EU": 558.68
         },
         "byProduct": {
           "Brand": 24.97,
-          "Transcription": 1738.56
+          "Transcription": 1738.56,
+          "AI Meeting Notes": 160.78,
+          "Competitors": 237.61,
+          "Meeting Notes": 160.29
         }
       },
       {
         "week": "2026-02-09",
-        "totalCost": 1429.03,
+        "totalCost": 1906.05,
         "mmCost": 807.58,
         "hmCost": 598.97,
         "brandCost": 22.48,
@@ -296,40 +497,74 @@
           "NL": 425.82,
           "DE": 999.43,
           "FR": 1.65,
-          "IT": 2.14
+          "IT": 2.14,
+          "EU": 477.01
         },
         "byProduct": {
           "Brand": 22.48,
-          "Transcription": 1406.55
+          "Transcription": 1406.55,
+          "AI Meeting Notes": 160.4,
+          "Competitors": 161.29,
+          "Meeting Notes": 155.33
         }
       },
       {
         "week": "2026-02-16",
-        "totalCost": 1001.77,
-        "mmCost": 613.61,
-        "hmCost": 371.09,
-        "brandCost": 17.07,
+        "totalCost": 1256.04,
+        "mmCost": 609.74,
+        "hmCost": 348.13,
+        "brandCost": 16.75,
         "byCountry": {
-          "NL": 455.47,
-          "DE": 543.26,
+          "NL": 451.75,
+          "DE": 519.88,
           "FR": 1.59,
-          "IT": 1.46
+          "IT": 1.4,
+          "EU": 281.43
         },
         "byProduct": {
-          "Brand": 17.07,
-          "Transcription": 984.7
+          "Brand": 16.75,
+          "Transcription": 957.87,
+          "AI Meeting Notes": 75.15,
+          "Competitors": 109.97,
+          "Meeting Notes": 96.31
         }
       }
     ],
     "funnel": [
       {
         "week": "2025-11-17",
-        "leads": 0,
-        "sqls": 0,
-        "won": 0,
-        "wonRevenue": 0,
-        "byChannel": {},
-        "byCountry": {}
+        "leads": 2,
+        "sqls": 2,
+        "won": 1,
+        "wonRevenue": 3744,
+        "byChannel": {
+          "Unknown": {
+            "leads": 1,
+            "sqls": 1,
+            "won": 1,
+            "wonRevenue": 3744
+          },
+          "Paid Search": {
+            "leads": 1,
+            "sqls": 1,
+            "won": 0,
+            "wonRevenue": 0
+          }
+        },
+        "byCountry": {
+          "Unknown": {
+            "leads": 1,
+            "sqls": 1,
+            "won": 1,
+            "wonRevenue": 3744
+          },
+          "NL": {
+            "leads": 1,
+            "sqls": 1,
+            "won": 0,
+            "wonRevenue": 0
+          }
+        }
       },
       {
         "week": "2025-11-24",
@@ -1101,14 +1336,14 @@
       },
       {
         "week": "2026-02-16",
-        "leads": 14,
+        "leads": 13,
         "sqls": 13,
         "won": 1,
         "wonRevenue": 307.5,
         "byChannel": {
           "Unknown": {
-            "leads": 3,
-            "sqls": 3,
+            "leads": 5,
+            "sqls": 5,
             "won": 1,
             "wonRevenue": 307.5
           },
@@ -1119,20 +1354,8 @@
             "wonRevenue": 0
           },
           "Direct": {
-            "leads": 5,
-            "sqls": 5,
-            "won": 0,
-            "wonRevenue": 0
-          },
-          "Referral": {
-            "leads": 1,
-            "sqls": 1,
-            "won": 0,
-            "wonRevenue": 0
-          },
-          "Organic Search": {
-            "leads": 1,
-            "sqls": 0,
+            "leads": 4,
+            "sqls": 4,
             "won": 0,
             "wonRevenue": 0
           }
@@ -1161,12 +1384,6 @@
             "sqls": 3,
             "won": 0,
             "wonRevenue": 0
-          },
-          "ES": {
-            "leads": 1,
-            "sqls": 0,
-            "won": 0,
-            "wonRevenue": 0
           }
         }
       }
@@ -1174,112 +1391,170 @@
     "stripe": [
       {
         "week": "2025-11-17",
-        "totalRevenue": 3006.59,
-        "count": 99,
+        "totalRevenue": 5542.17,
+        "count": 182,
+        "seg": {
+          "all": {
+            "count": 182,
+            "revenue": 5542.17
+          },
+          "prepaid": {
+            "count": 131,
+            "revenue": 3157.19
+          },
+          "prepaid-topup": {
+            "count": 36,
+            "revenue": 854.27
+          },
+          "prepaid-job": {
+            "count": 95,
+            "revenue": 2302.92
+          },
+          "subscription": {
+            "count": 51,
+            "revenue": 2384.98
+          },
+          "sub-update": {
+            "count": 47,
+            "revenue": 2184.98
+          },
+          "sub-creation": {
+            "count": 4,
+            "revenue": 200
+          },
+          "human-made": {
+            "count": 1,
+            "revenue": 142.8
+          },
+          "invoice": {
+            "count": 0,
+            "revenue": 0
+          }
+        },
         "byPlanType": {
           "Prepaid": {
-            "count": 68,
-            "revenue": 1633.25
+            "count": 131,
+            "revenue": 3157.19
           },
           "Subscription": {
-            "count": 31,
-            "revenue": 1373.34
+            "count": 51,
+            "revenue": 2384.98
           }
         },
         "byProduct": {
           "Machine-Made": {
-            "count": 99,
-            "revenue": 3006.59
+            "count": 181,
+            "revenue": 5399.37
+          },
+          "Human-Made": {
+            "count": 1,
+            "revenue": 142.8
           }
         },
         "byCountry": {
           "NL": {
-            "count": 31,
-            "revenue": 555
+            "count": 58,
+            "revenue": 1125
           },
           "IT": {
-            "count": 5,
-            "revenue": 145.6
+            "count": 13,
+            "revenue": 306.6
           },
           "WO": {
-            "count": 1,
-            "revenue": 16
+            "count": 3,
+            "revenue": 32
           },
           "DE": {
-            "count": 14,
-            "revenue": 465
+            "count": 27,
+            "revenue": 865.88
           },
           "NO": {
             "count": 1,
             "revenue": 20
           },
           "FR": {
-            "count": 3,
-            "revenue": 71.65
+            "count": 5,
+            "revenue": 224.45
           },
           "GB": {
-            "count": 2,
-            "revenue": 30
+            "count": 4,
+            "revenue": 90
           },
           "CA": {
             "count": 4,
             "revenue": 190
           },
           "BE": {
-            "count": 2,
-            "revenue": 60
+            "count": 3,
+            "revenue": 75
           },
           "HU": {
             "count": 1,
             "revenue": 30
           },
           "ES": {
-            "count": 1,
-            "revenue": 10
+            "count": 2,
+            "revenue": 18.26
           },
           "LT": {
             "count": 1,
             "revenue": 15
+          },
+          "CH": {
+            "count": 2,
+            "revenue": 45
+          },
+          "AR": {
+            "count": 2,
+            "revenue": 10
+          },
+          "AT": {
+            "count": 2,
+            "revenue": 45
+          },
+          "DK": {
+            "count": 1,
+            "revenue": 40
           }
         },
         "byCurrency": {
           "EUR": {
-            "count": 87,
-            "revenue": 2639.59
+            "count": 165,
+            "revenue": 5079.17
           },
           "USD": {
-            "count": 12,
-            "revenue": 367
+            "count": 17,
+            "revenue": 463
           }
         },
         "byChannel": {
           "Paid Search": {
-            "count": 14,
-            "revenue": 325
+            "count": 29,
+            "revenue": 713.02
           },
           "Organic Search": {
-            "count": 15,
-            "revenue": 330
+            "count": 33,
+            "revenue": 817.83
           },
           "Referral": {
             "count": 3,
             "revenue": 45
           },
           "Unassigned": {
-            "count": 13,
-            "revenue": 302.65
+            "count": 28,
+            "revenue": 550.48
           },
           "Subscription": {
-            "count": 31,
-            "revenue": 1373.34
+            "count": 51,
+            "revenue": 2384.98
           },
           "Direct": {
-            "count": 8,
-            "revenue": 170
+            "count": 17,
+            "revenue": 417
           },
           "Unknown": {
-            "count": 14,
-            "revenue": 430.6
+            "count": 20,
+            "revenue": 583.86
           },
           "Affiliates": {
             "count": 1,
@@ -1291,6 +1566,44 @@
         "week": "2025-11-24",
         "totalRevenue": 20039.66,
         "count": 532,
+        "seg": {
+          "all": {
+            "count": 532,
+            "revenue": 20039.66
+          },
+          "prepaid": {
+            "count": 437,
+            "revenue": 14284.27
+          },
+          "prepaid-topup": {
+            "count": 108,
+            "revenue": 2957.22
+          },
+          "prepaid-job": {
+            "count": 329,
+            "revenue": 11327.05
+          },
+          "subscription": {
+            "count": 94,
+            "revenue": 5280.39
+          },
+          "sub-update": {
+            "count": 84,
+            "revenue": 3957.07
+          },
+          "sub-creation": {
+            "count": 10,
+            "revenue": 1323.32
+          },
+          "human-made": {
+            "count": 30,
+            "revenue": 4754.5
+          },
+          "invoice": {
+            "count": 1,
+            "revenue": 475
+          }
+        },
         "byPlanType": {
           "Prepaid": {
             "count": 437,
@@ -1438,6 +1751,44 @@
         "week": "2025-12-01",
         "totalRevenue": 21464.41,
         "count": 569,
+        "seg": {
+          "all": {
+            "count": 569,
+            "revenue": 21464.41
+          },
+          "prepaid": {
+            "count": 436,
+            "revenue": 13461
+          },
+          "prepaid-topup": {
+            "count": 113,
+            "revenue": 4320.9
+          },
+          "prepaid-job": {
+            "count": 323,
+            "revenue": 9140.1
+          },
+          "subscription": {
+            "count": 132,
+            "revenue": 7753.41
+          },
+          "sub-update": {
+            "count": 114,
+            "revenue": 5117.6
+          },
+          "sub-creation": {
+            "count": 18,
+            "revenue": 2635.81
+          },
+          "human-made": {
+            "count": 20,
+            "revenue": 3702.44
+          },
+          "invoice": {
+            "count": 1,
+            "revenue": 250
+          }
+        },
         "byPlanType": {
           "Subscription": {
             "count": 132,
@@ -1605,6 +1956,44 @@
         "week": "2025-12-08",
         "totalRevenue": 23987.88,
         "count": 591,
+        "seg": {
+          "all": {
+            "count": 591,
+            "revenue": 23987.88
+          },
+          "prepaid": {
+            "count": 450,
+            "revenue": 15913.22
+          },
+          "prepaid-topup": {
+            "count": 131,
+            "revenue": 4607.46
+          },
+          "prepaid-job": {
+            "count": 319,
+            "revenue": 11305.76
+          },
+          "subscription": {
+            "count": 141,
+            "revenue": 8074.66
+          },
+          "sub-update": {
+            "count": 125,
+            "revenue": 5564.66
+          },
+          "sub-creation": {
+            "count": 16,
+            "revenue": 2510
+          },
+          "human-made": {
+            "count": 22,
+            "revenue": 5253.99
+          },
+          "invoice": {
+            "count": 0,
+            "revenue": 0
+          }
+        },
         "byPlanType": {
           "Subscription": {
             "count": 141,
@@ -1776,6 +2165,44 @@
         "week": "2025-12-15",
         "totalRevenue": 20532.94,
         "count": 537,
+        "seg": {
+          "all": {
+            "count": 537,
+            "revenue": 20532.94
+          },
+          "prepaid": {
+            "count": 416,
+            "revenue": 14042.62
+          },
+          "prepaid-topup": {
+            "count": 124,
+            "revenue": 4688.67
+          },
+          "prepaid-job": {
+            "count": 292,
+            "revenue": 9353.95
+          },
+          "subscription": {
+            "count": 121,
+            "revenue": 6490.32
+          },
+          "sub-update": {
+            "count": 111,
+            "revenue": 5148.3
+          },
+          "sub-creation": {
+            "count": 10,
+            "revenue": 1342.02
+          },
+          "human-made": {
+            "count": 16,
+            "revenue": 4268.53
+          },
+          "invoice": {
+            "count": 0,
+            "revenue": 0
+          }
+        },
         "byPlanType": {
           "Subscription": {
             "count": 121,
@@ -1931,6 +2358,44 @@
         "week": "2025-12-22",
         "totalRevenue": 11307.12,
         "count": 294,
+        "seg": {
+          "all": {
+            "count": 294,
+            "revenue": 11307.12
+          },
+          "prepaid": {
+            "count": 201,
+            "revenue": 6687.57
+          },
+          "prepaid-topup": {
+            "count": 44,
+            "revenue": 1110.4
+          },
+          "prepaid-job": {
+            "count": 157,
+            "revenue": 5577.17
+          },
+          "subscription": {
+            "count": 93,
+            "revenue": 4619.55
+          },
+          "sub-update": {
+            "count": 91,
+            "revenue": 4547.55
+          },
+          "sub-creation": {
+            "count": 2,
+            "revenue": 72
+          },
+          "human-made": {
+            "count": 12,
+            "revenue": 2924.04
+          },
+          "invoice": {
+            "count": 0,
+            "revenue": 0
+          }
+        },
         "byPlanType": {
           "Prepaid": {
             "count": 201,
@@ -2078,6 +2543,44 @@
         "week": "2025-12-29",
         "totalRevenue": 9872.58,
         "count": 279,
+        "seg": {
+          "all": {
+            "count": 279,
+            "revenue": 9872.58
+          },
+          "prepaid": {
+            "count": 189,
+            "revenue": 5556.21
+          },
+          "prepaid-topup": {
+            "count": 48,
+            "revenue": 873.03
+          },
+          "prepaid-job": {
+            "count": 141,
+            "revenue": 4683.18
+          },
+          "subscription": {
+            "count": 90,
+            "revenue": 4316.37
+          },
+          "sub-update": {
+            "count": 86,
+            "revenue": 3784.37
+          },
+          "sub-creation": {
+            "count": 4,
+            "revenue": 532
+          },
+          "human-made": {
+            "count": 12,
+            "revenue": 2112.47
+          },
+          "invoice": {
+            "count": 0,
+            "revenue": 0
+          }
+        },
         "byPlanType": {
           "Subscription": {
             "count": 90,
@@ -2209,6 +2712,44 @@
         "week": "2026-01-05",
         "totalRevenue": 18317.94,
         "count": 491,
+        "seg": {
+          "all": {
+            "count": 491,
+            "revenue": 18317.94
+          },
+          "prepaid": {
+            "count": 353,
+            "revenue": 10200.5
+          },
+          "prepaid-topup": {
+            "count": 96,
+            "revenue": 2995.12
+          },
+          "prepaid-job": {
+            "count": 257,
+            "revenue": 7205.38
+          },
+          "subscription": {
+            "count": 137,
+            "revenue": 8104.64
+          },
+          "sub-update": {
+            "count": 124,
+            "revenue": 5435.64
+          },
+          "sub-creation": {
+            "count": 13,
+            "revenue": 2669
+          },
+          "human-made": {
+            "count": 8,
+            "revenue": 2454.9
+          },
+          "invoice": {
+            "count": 1,
+            "revenue": 12.8
+          }
+        },
         "byPlanType": {
           "Prepaid": {
             "count": 353,
@@ -2376,6 +2917,44 @@
         "week": "2026-01-12",
         "totalRevenue": 23188.02,
         "count": 533,
+        "seg": {
+          "all": {
+            "count": 533,
+            "revenue": 23188.02
+          },
+          "prepaid": {
+            "count": 407,
+            "revenue": 16896.47
+          },
+          "prepaid-topup": {
+            "count": 125,
+            "revenue": 4350.88
+          },
+          "prepaid-job": {
+            "count": 282,
+            "revenue": 12545.59
+          },
+          "subscription": {
+            "count": 126,
+            "revenue": 6291.55
+          },
+          "sub-update": {
+            "count": 115,
+            "revenue": 5349.55
+          },
+          "sub-creation": {
+            "count": 11,
+            "revenue": 942
+          },
+          "human-made": {
+            "count": 26,
+            "revenue": 8004.14
+          },
+          "invoice": {
+            "count": 0,
+            "revenue": 0
+          }
+        },
         "byPlanType": {
           "Prepaid": {
             "count": 407,
@@ -2531,6 +3110,44 @@
         "week": "2026-01-19",
         "totalRevenue": 18280.33,
         "count": 494,
+        "seg": {
+          "all": {
+            "count": 494,
+            "revenue": 18280.33
+          },
+          "prepaid": {
+            "count": 385,
+            "revenue": 11591.56
+          },
+          "prepaid-topup": {
+            "count": 128,
+            "revenue": 3857.11
+          },
+          "prepaid-job": {
+            "count": 257,
+            "revenue": 7734.45
+          },
+          "subscription": {
+            "count": 108,
+            "revenue": 6213.77
+          },
+          "sub-update": {
+            "count": 92,
+            "revenue": 3809
+          },
+          "sub-creation": {
+            "count": 16,
+            "revenue": 2404.77
+          },
+          "human-made": {
+            "count": 15,
+            "revenue": 2679.4
+          },
+          "invoice": {
+            "count": 1,
+            "revenue": 475
+          }
+        },
         "byPlanType": {
           "Prepaid": {
             "count": 385,
@@ -2698,6 +3315,44 @@
         "week": "2026-01-26",
         "totalRevenue": 17446.42,
         "count": 476,
+        "seg": {
+          "all": {
+            "count": 476,
+            "revenue": 17446.42
+          },
+          "prepaid": {
+            "count": 401,
+            "revenue": 12949.09
+          },
+          "prepaid-topup": {
+            "count": 101,
+            "revenue": 4295.64
+          },
+          "prepaid-job": {
+            "count": 300,
+            "revenue": 8653.45
+          },
+          "subscription": {
+            "count": 75,
+            "revenue": 4497.33
+          },
+          "sub-update": {
+            "count": 66,
+            "revenue": 3250.33
+          },
+          "sub-creation": {
+            "count": 9,
+            "revenue": 1247
+          },
+          "human-made": {
+            "count": 19,
+            "revenue": 2907.15
+          },
+          "invoice": {
+            "count": 0,
+            "revenue": 0
+          }
+        },
         "byPlanType": {
           "Subscription": {
             "count": 75,
@@ -2853,6 +3508,44 @@
         "week": "2026-02-02",
         "totalRevenue": 18640.52,
         "count": 484,
+        "seg": {
+          "all": {
+            "count": 484,
+            "revenue": 18640.52
+          },
+          "prepaid": {
+            "count": 358,
+            "revenue": 11195.22
+          },
+          "prepaid-topup": {
+            "count": 107,
+            "revenue": 3521.31
+          },
+          "prepaid-job": {
+            "count": 251,
+            "revenue": 7673.91
+          },
+          "subscription": {
+            "count": 124,
+            "revenue": 7113.75
+          },
+          "sub-update": {
+            "count": 115,
+            "revenue": 5270.75
+          },
+          "sub-creation": {
+            "count": 9,
+            "revenue": 1843
+          },
+          "human-made": {
+            "count": 15,
+            "revenue": 2751.62
+          },
+          "invoice": {
+            "count": 2,
+            "revenue": 331.55
+          }
+        },
         "byPlanType": {
           "Prepaid": {
             "count": 358,
@@ -3014,12 +3707,50 @@
       },
       {
         "week": "2026-02-09",
-        "totalRevenue": 18582.42,
-        "count": 509,
+        "totalRevenue": 18499.37,
+        "count": 507,
+        "seg": {
+          "all": {
+            "count": 507,
+            "revenue": 18499.37
+          },
+          "prepaid": {
+            "count": 389,
+            "revenue": 11694.72
+          },
+          "prepaid-topup": {
+            "count": 120,
+            "revenue": 3352.7
+          },
+          "prepaid-job": {
+            "count": 269,
+            "revenue": 8342.02
+          },
+          "subscription": {
+            "count": 118,
+            "revenue": 6804.65
+          },
+          "sub-update": {
+            "count": 110,
+            "revenue": 5210.65
+          },
+          "sub-creation": {
+            "count": 8,
+            "revenue": 1594
+          },
+          "human-made": {
+            "count": 16,
+            "revenue": 3709.87
+          },
+          "invoice": {
+            "count": 0,
+            "revenue": 0
+          }
+        },
         "byPlanType": {
           "Subscription": {
-            "count": 120,
-            "revenue": 6887.7
+            "count": 118,
+            "revenue": 6804.65
           },
           "Prepaid": {
             "count": 389,
@@ -3028,8 +3759,8 @@
         },
         "byProduct": {
           "Machine-Made": {
-            "count": 493,
-            "revenue": 14872.55
+            "count": 491,
+            "revenue": 14789.5
           },
           "Human-Made": {
             "count": 16,
@@ -3132,14 +3863,14 @@
             "revenue": 2123.23
           },
           "EUR": {
-            "count": 441,
-            "revenue": 16459.19
+            "count": 439,
+            "revenue": 16376.14
           }
         },
         "byChannel": {
           "Subscription": {
-            "count": 120,
-            "revenue": 6887.7
+            "count": 118,
+            "revenue": 6804.65
           },
           "Unassigned": {
             "count": 62,
@@ -3173,16 +3904,54 @@
       },
       {
         "week": "2026-02-16",
-        "totalRevenue": 10572.35,
-        "count": 294,
+        "totalRevenue": 10526.35,
+        "count": 291,
+        "seg": {
+          "all": {
+            "count": 291,
+            "revenue": 10526.35
+          },
+          "prepaid": {
+            "count": 240,
+            "revenue": 7816.94
+          },
+          "prepaid-topup": {
+            "count": 63,
+            "revenue": 1898.04
+          },
+          "prepaid-job": {
+            "count": 177,
+            "revenue": 5918.9
+          },
+          "subscription": {
+            "count": 50,
+            "revenue": 2659.41
+          },
+          "sub-update": {
+            "count": 44,
+            "revenue": 1782.04
+          },
+          "sub-creation": {
+            "count": 6,
+            "revenue": 877.37
+          },
+          "human-made": {
+            "count": 12,
+            "revenue": 2596.66
+          },
+          "invoice": {
+            "count": 1,
+            "revenue": 50
+          }
+        },
         "byPlanType": {
           "Subscription": {
-            "count": 51,
-            "revenue": 2675.41
+            "count": 50,
+            "revenue": 2659.41
           },
           "Prepaid": {
-            "count": 242,
-            "revenue": 7846.94
+            "count": 240,
+            "revenue": 7816.94
           },
           "Invoice": {
             "count": 1,
@@ -3191,8 +3960,8 @@
         },
         "byProduct": {
           "Machine-Made": {
-            "count": 282,
-            "revenue": 7975.69
+            "count": 279,
+            "revenue": 7929.69
           },
           "Human-Made": {
             "count": 12,
@@ -3200,13 +3969,13 @@
           }
         },
         "byCountry": {
-          "DE": {
-            "count": 51,
-            "revenue": 1862.66
-          },
           "NL": {
-            "count": 101,
-            "revenue": 3725.29
+            "count": 100,
+            "revenue": 3710.29
+          },
+          "DE": {
+            "count": 50,
+            "revenue": 1847.66
           },
           "CA": {
             "count": 4,
@@ -3270,27 +4039,27 @@
           }
         },
         "byCurrency": {
-          "USD": {
-            "count": 43,
-            "revenue": 1404.4
-          },
           "EUR": {
-            "count": 251,
-            "revenue": 9167.95
+            "count": 249,
+            "revenue": 9137.95
+          },
+          "USD": {
+            "count": 42,
+            "revenue": 1388.4
           }
         },
         "byChannel": {
           "Subscription": {
-            "count": 51,
-            "revenue": 2675.41
-          },
-          "Unassigned": {
-            "count": 85,
-            "revenue": 2446.72
+            "count": 50,
+            "revenue": 2659.41
           },
           "Unknown": {
-            "count": 31,
-            "revenue": 1908.71
+            "count": 35,
+            "revenue": 2008.71
+          },
+          "Unassigned": {
+            "count": 79,
+            "revenue": 2316.72
           },
           "Direct": {
             "count": 41,
@@ -3322,9 +4091,9 @@
     "ga4": [
       {
         "week": "2025-11-17",
-        "formSubmissions": 6,
-        "purchases": 55,
-        "purchaseRevenue": 1218.62
+        "formSubmissions": 14,
+        "purchases": 112,
+        "purchaseRevenue": 2585.81
       },
       {
         "week": "2025-11-24",
@@ -3400,9 +4169,9 @@
       },
       {
         "week": "2026-02-16",
-        "formSubmissions": 28,
-        "purchases": 218,
-        "purchaseRevenue": 6612.45
+        "formSubmissions": 24,
+        "purchases": 212,
+        "purchaseRevenue": 6484
       }
     ]
   }
