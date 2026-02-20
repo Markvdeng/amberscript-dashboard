@@ -350,7 +350,7 @@
         </div>
 
         <!-- Owner + Country side by side -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6" style="align-items:end">
           <div class="card">
             <span class="summary-header">By Deal Owner</span>
             <div class="overflow-x-auto mt-3">
@@ -1154,7 +1154,11 @@ function renderProductTable(deals) {
   }
   const total = tally(deals);
   html += `<tr class="border-t-2 border-as-border">
-    <td class="py-2 text-sm font-bold">Total</td>${cells(total, 'sm')}
+    <td class="py-2 text-sm font-bold">Total</td>
+    <td class="py-2 text-right font-bold text-sm">${fmt.number(total.mqls)}</td>
+    <td class="py-2 text-right font-bold text-sm">${fmt.number(total.sqls)}</td>
+    <td class="py-2 text-right font-bold text-sm">${fmt.number(total.won)}</td>
+    <td class="py-2 text-right font-bold text-sm">${fmt.currency(total.wonRevenue)}</td>
   </tr>`;
   document.querySelector('#productTable tbody').innerHTML = html;
 }
