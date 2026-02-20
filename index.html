@@ -341,7 +341,7 @@
     <div id="page-Transcription" class="bu-page space-y-10">
 
     <div>
-      <h2 class="section-title">Transcription</h2>
+      <h2 class="section-title" id="buSectionTitle">Transcription</h2>
 
       <!-- ---- Inbound (HubSpot) ---- -->
       <div class="mb-10">
@@ -556,7 +556,7 @@
     <!-- ============================================ -->
     <!-- GOOGLE ADS                                   -->
     <!-- ============================================ -->
-    <div>
+    <div id="adsSection">
       <h2 class="section-title">Google Ads</h2>
 
       <div id="adsKPIs" class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6"></div>
@@ -579,14 +579,7 @@
     <!-- PAGE: MEDIA (BUM)                            -->
     <!-- ============================================ -->
     <div id="page-Media" class="bu-page hidden">
-      <div class="flex flex-col items-center justify-center py-24 text-center">
-        <div class="w-16 h-16 rounded-2xl bg-as-primary/10 flex items-center justify-center mb-5">
-          <svg class="w-8 h-8 text-as-primary" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 0 1-1.125-1.125M3.375 19.5h1.5C5.496 19.5 6 18.996 6 18.375m-2.625 0V5.625m0 12.75v-1.5c0-.621.504-1.125 1.125-1.125m18.375 2.625V5.625m0 12.75c0 .621-.504 1.125-1.125 1.125m1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125m0 3.75h-1.5A1.125 1.125 0 0 1 18 18.375M20.625 4.5H3.375m17.25 0c.621 0 1.125.504 1.125 1.125M20.625 4.5h-1.5C18.504 4.5 18 5.004 18 5.625m3.75 0v1.5c0 .621-.504 1.125-1.125 1.125M3.375 4.5c-.621 0-1.125.504-1.125 1.125M3.375 4.5h1.5C5.496 4.5 6 5.004 6 5.625m-2.625 0v1.5c0 .621.504 1.125 1.125 1.125m0 0h13.5c.621 0 1.125-.504 1.125-1.125m-14.625 0h14.625"/></svg>
-        </div>
-        <h2 class="text-xl font-bold text-as-text mb-2">Media (BUM)</h2>
-        <p class="text-as-secondary text-sm max-w-md">Subtitles, dubbing, audio description, and localisation metrics. This page is under development.</p>
-        <span class="mt-4 text-xs font-semibold uppercase tracking-wider text-as-accent bg-as-accent/10 px-3 py-1 rounded-full">Coming Soon</span>
-      </div>
+      <!-- Media shares the Transcription page layout with Inbound data filtered for Media products -->
     </div>
 
     <!-- ============================================ -->
@@ -697,10 +690,20 @@ function switchBU(bu) {
   document.querySelectorAll('#buTabs .bu-tab').forEach(tab => {
     tab.classList.toggle('active', tab.dataset.bu === bu);
   });
-  // Show/hide page containers
+  // Show/hide page containers - Transcription & Media share the same page
   document.querySelectorAll('.bu-page').forEach(page => {
-    page.classList.toggle('hidden', page.id !== `page-${bu}`);
+    const showPage = (bu === 'Transcription' || bu === 'Media')
+      ? page.id === 'page-Transcription'
+      : page.id === `page-${bu}`;
+    page.classList.toggle('hidden', !showPage);
   });
+  // Update section title and show/hide Transcription-only sections
+  const titleEl = document.getElementById('buSectionTitle');
+  if (titleEl) titleEl.textContent = bu === 'Media' ? 'Media' : 'Transcription';
+  const ssEl = document.getElementById('selfServeSection');
+  const adsEl = document.getElementById('adsSection');
+  if (ssEl) ssEl.classList.toggle('hidden', bu !== 'Transcription');
+  if (adsEl) adsEl.classList.toggle('hidden', bu !== 'Transcription');
   // Re-render if data is loaded
   if (DATA) render();
 }
@@ -786,15 +789,17 @@ function render() {
   document.getElementById('lastUpdated').textContent =
     `Last updated: ${new Date(DATA.updatedAt).toLocaleString('en-GB')} \u00b7 ${DATA.dateRange.start} to ${DATA.dateRange.end}`;
 
-  // Only render content for Transcription page (other pages are placeholders)
-  if (currentBU !== 'Transcription') return;
+  // Only render for Transcription and Media (Innovations is a placeholder)
+  if (currentBU !== 'Transcription' && currentBU !== 'Media') return;
 
   populateInboundFilters();
   renderInboundSummary(weeks);
-  renderSelfServeSummary(weeks);
-  renderSelfServe(weeks);
   renderInbound(weeks);
-  renderGoogleAds(weeks);
+  if (currentBU === 'Transcription') {
+    renderSelfServeSummary(weeks);
+    renderSelfServe(weeks);
+    renderGoogleAds(weeks);
+  }
 }
 
 // ===== INBOUND SUMMARY =====
