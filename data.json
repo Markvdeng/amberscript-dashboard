@@ -1,20 +1,20 @@
 {
-  "updatedAt": "2026-02-20T09:34:45.475Z",
+  "updatedAt": "2026-02-20T09:51:20.519Z",
   "dateRange": {
     "start": "2025-11-17",
     "end": "2026-02-16"
   },
   "kpis": {
     "totalLeads": 635,
-    "totalMQLs": 242,
-    "totalMQLsFromLeads": 147,
-    "totalSQLs": 201,
-    "totalSQLsFromLeads": 107,
+    "totalMQLs": 243,
+    "totalMQLsFromLeads": 148,
+    "totalSQLs": 202,
+    "totalSQLsFromLeads": 108,
     "totalWon": 70,
     "totalDealRevenue": 77716.84,
-    "totalStripeRevenue": 235412.18,
-    "totalAdsCost": 33352.37,
-    "roas": 7.06
+    "totalStripeRevenue": 235462.18,
+    "totalAdsCost": 33410.45,
+    "roas": 7.05
   },
   "monthly": [
     {
@@ -268,24 +268,24 @@
     },
     {
       "month": "2026-02",
-      "adsCost": 4235.15,
-      "mmCost": 2056.35,
-      "hmCost": 2113.63,
-      "brandCost": 65.18,
+      "adsCost": 4293.23,
+      "mmCost": 2058.29,
+      "hmCost": 2169.7,
+      "brandCost": 65.25,
       "leads": 106,
-      "mqls": 53,
-      "mqlsFromLeads": 38,
-      "sqls": 46,
-      "sqlsFromLeads": 32,
+      "mqls": 54,
+      "mqlsFromLeads": 39,
+      "sqls": 47,
+      "sqlsFromLeads": 33,
       "won": 10,
       "wonRevenue": 5363.5,
-      "mqlToSql": 86.8,
-      "sqlToWon": 21.7,
-      "stripeRevenue": 47968.29,
+      "mqlToSql": 87,
+      "sqlToWon": 21.3,
+      "stripeRevenue": 48018.29,
       "stripeSeg": {
         "all.all.all": {
-          "count": 1300,
-          "revenue": 47968.29
+          "count": 1301,
+          "revenue": 48018.29
         },
         "all.prepaid.all": {
           "count": 1002,
@@ -300,20 +300,20 @@
           "revenue": 22077.83
         },
         "all.sub.all": {
-          "count": 295,
-          "revenue": 16676.86
+          "count": 296,
+          "revenue": 16726.86
         },
         "all.sub.update": {
           "count": 272,
           "revenue": 12362.49
         },
         "all.sub.creation": {
-          "count": 23,
-          "revenue": 4314.37
+          "count": 24,
+          "revenue": 4364.37
         },
         "mm.all.all": {
-          "count": 1254,
-          "revenue": 38528.59
+          "count": 1255,
+          "revenue": 38578.59
         },
         "mm.prepaid.all": {
           "count": 959,
@@ -328,16 +328,16 @@
           "revenue": 13019.68
         },
         "mm.sub.all": {
-          "count": 295,
-          "revenue": 16676.86
+          "count": 296,
+          "revenue": 16726.86
         },
         "mm.sub.update": {
           "count": 272,
           "revenue": 12362.49
         },
         "mm.sub.creation": {
-          "count": 23,
-          "revenue": 4314.37
+          "count": 24,
+          "revenue": 4364.37
         },
         "hm.all.all": {
           "count": 43,
@@ -707,26 +707,26 @@
       },
       {
         "week": "2026-02-16",
-        "totalCost": 1042.58,
-        "mmCost": 639.35,
-        "hmCost": 385.51,
-        "brandCost": 17.72,
+        "totalCost": 1100.66,
+        "mmCost": 641.29,
+        "hmCost": 441.58,
+        "brandCost": 17.79,
         "byCountry": {
-          "NL": 478.02,
-          "DE": 561.4,
+          "NL": 479.97,
+          "DE": 617.53,
           "FR": 1.65,
           "IT": 1.51
         },
         "byProduct": {
-          "Brand": 17.72,
-          "Transcription": 1024.86
+          "Brand": 17.79,
+          "Transcription": 1082.87
         },
         "byBU": {
           "Transcription": {
-            "totalCost": 1042.58,
-            "mmCost": 639.35,
-            "hmCost": 385.51,
-            "brandCost": 17.72
+            "totalCost": 1100.66,
+            "mmCost": 641.29,
+            "hmCost": 441.58,
+            "brandCost": 17.79
           }
         }
       }
@@ -1551,10 +1551,10 @@
       {
         "week": "2026-02-16",
         "leads": 30,
-        "mqls": 16,
-        "mqlsFromLeads": 15,
-        "sqls": 15,
-        "sqlsFromLeads": 14,
+        "mqls": 17,
+        "mqlsFromLeads": 16,
+        "sqls": 16,
+        "sqlsFromLeads": 15,
         "won": 1,
         "wonRevenue": 307.5,
         "byChannel": {
@@ -1571,8 +1571,8 @@
             "wonRevenue": 0
           },
           "Direct": {
-            "mqls": 5,
-            "sqls": 5,
+            "mqls": 6,
+            "sqls": 6,
             "won": 0,
             "wonRevenue": 0
           },
@@ -1603,8 +1603,8 @@
             "wonRevenue": 0
           },
           "NL": {
-            "mqls": 4,
-            "sqls": 4,
+            "mqls": 5,
+            "sqls": 5,
             "won": 0,
             "wonRevenue": 0
           },
@@ -4483,12 +4483,12 @@
       },
       {
         "week": "2026-02-16",
-        "totalRevenue": 10745.35,
-        "count": 307,
+        "totalRevenue": 10795.35,
+        "count": 308,
         "seg": {
           "all.all.all": {
-            "count": 307,
-            "revenue": 10745.35
+            "count": 308,
+            "revenue": 10795.35
           },
           "all.prepaid.all": {
             "count": 255,
@@ -4503,20 +4503,20 @@
             "revenue": 6061.9
           },
           "all.sub.all": {
-            "count": 51,
-            "revenue": 2675.41
+            "count": 52,
+            "revenue": 2725.41
           },
           "all.sub.update": {
             "count": 45,
             "revenue": 1798.04
           },
           "all.sub.creation": {
-            "count": 6,
-            "revenue": 877.37
+            "count": 7,
+            "revenue": 927.37
           },
           "mm.all.all": {
-            "count": 294,
-            "revenue": 8098.69
+            "count": 295,
+            "revenue": 8148.69
           },
           "mm.prepaid.all": {
             "count": 243,
@@ -4531,16 +4531,16 @@
             "revenue": 3465.24
           },
           "mm.sub.all": {
-            "count": 51,
-            "revenue": 2675.41
+            "count": 52,
+            "revenue": 2725.41
           },
           "mm.sub.update": {
             "count": 45,
             "revenue": 1798.04
           },
           "mm.sub.creation": {
-            "count": 6,
-            "revenue": 877.37
+            "count": 7,
+            "revenue": 927.37
           },
           "hm.all.all": {
             "count": 12,
@@ -4552,13 +4552,13 @@
           }
         },
         "byPlanType": {
+          "Subscription": {
+            "count": 52,
+            "revenue": 2725.41
+          },
           "Prepaid": {
             "count": 255,
             "revenue": 8019.94
-          },
-          "Subscription": {
-            "count": 51,
-            "revenue": 2675.41
           },
           "Invoice": {
             "count": 1,
@@ -4567,8 +4567,8 @@
         },
         "byProduct": {
           "Machine-Made": {
-            "count": 295,
-            "revenue": 8148.69
+            "count": 296,
+            "revenue": 8198.69
           },
           "Human-Made": {
             "count": 12,
@@ -4647,8 +4647,8 @@
         },
         "byCurrency": {
           "EUR": {
-            "count": 261,
-            "revenue": 9312.95
+            "count": 262,
+            "revenue": 9362.95
           },
           "USD": {
             "count": 46,
@@ -4656,13 +4656,17 @@
           }
         },
         "byChannel": {
-          "Unknown": {
-            "count": 37,
-            "revenue": 1993.71
+          "Subscription": {
+            "count": 52,
+            "revenue": 2725.41
           },
           "Unassigned": {
-            "count": 42,
-            "revenue": 1201.64
+            "count": 45,
+            "revenue": 1246.64
+          },
+          "Unknown": {
+            "count": 34,
+            "revenue": 1948.71
           },
           "Paid Search": {
             "count": 61,
@@ -4671,10 +4675,6 @@
           "Direct": {
             "count": 61,
             "revenue": 1560.24
-          },
-          "Subscription": {
-            "count": 51,
-            "revenue": 2675.41
           },
           "Organic Search": {
             "count": 52,
@@ -4763,14 +4763,15 @@
       },
       {
         "week": "2026-02-16",
-        "purchases": 224,
-        "purchaseRevenue": 6659.89
+        "purchases": 227,
+        "purchaseRevenue": 6704.89
       }
     ]
   },
   "deals": [
     {
       "week": "2025-11-24",
+      "closeWeek": "2025-12-22",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -4785,6 +4786,7 @@
     },
     {
       "week": "2025-11-24",
+      "closeWeek": "2025-12-08",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Verbatim",
@@ -4799,6 +4801,7 @@
     },
     {
       "week": "2025-11-24",
+      "closeWeek": "2025-12-22",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Verbatim",
@@ -4813,6 +4816,7 @@
     },
     {
       "week": "2025-11-24",
+      "closeWeek": "2025-12-22",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -4827,6 +4831,7 @@
     },
     {
       "week": "2025-11-24",
+      "closeWeek": "2025-11-24",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -4841,6 +4846,7 @@
     },
     {
       "week": "2025-11-24",
+      "closeWeek": "2025-12-15",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -4855,6 +4861,7 @@
     },
     {
       "week": "2025-11-24",
+      "closeWeek": "2025-12-01",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -4869,6 +4876,7 @@
     },
     {
       "week": "2025-11-24",
+      "closeWeek": "2025-11-24",
       "product": "Other",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -4883,6 +4891,7 @@
     },
     {
       "week": "2025-11-24",
+      "closeWeek": "2025-11-24",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -4897,6 +4906,7 @@
     },
     {
       "week": "2025-11-24",
+      "closeWeek": "2025-12-08",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -4911,6 +4921,7 @@
     },
     {
       "week": "2025-11-24",
+      "closeWeek": "2025-12-01",
       "product": "Speech-to-Text API",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -4925,6 +4936,7 @@
     },
     {
       "week": "2025-11-24",
+      "closeWeek": "2025-12-15",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -4939,6 +4951,7 @@
     },
     {
       "week": "2025-11-24",
+      "closeWeek": "2025-11-24",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Verbatim",
@@ -4953,6 +4966,7 @@
     },
     {
       "week": "2025-11-24",
+      "closeWeek": "2025-12-01",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -4967,6 +4981,7 @@
     },
     {
       "week": "2025-11-24",
+      "closeWeek": "2025-11-24",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Verbatim",
@@ -4981,6 +4996,7 @@
     },
     {
       "week": "2025-11-24",
+      "closeWeek": "2025-11-24",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -4995,6 +5011,7 @@
     },
     {
       "week": "2025-11-24",
+      "closeWeek": "2025-12-08",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Read",
@@ -5009,6 +5026,7 @@
     },
     {
       "week": "2025-11-24",
+      "closeWeek": "2025-12-08",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5023,6 +5041,7 @@
     },
     {
       "week": "2025-11-24",
+      "closeWeek": "2025-12-01",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5037,6 +5056,7 @@
     },
     {
       "week": "2025-11-24",
+      "closeWeek": "2025-11-24",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5051,6 +5071,7 @@
     },
     {
       "week": "2025-11-24",
+      "closeWeek": "2025-12-15",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5065,6 +5086,7 @@
     },
     {
       "week": "2025-11-24",
+      "closeWeek": "2025-12-22",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Verbatim",
@@ -5079,6 +5101,7 @@
     },
     {
       "week": "2025-11-24",
+      "closeWeek": "2026-01-19",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Verbatim",
@@ -5093,6 +5116,7 @@
     },
     {
       "week": "2025-11-24",
+      "closeWeek": "2025-11-24",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Read",
@@ -5107,6 +5131,7 @@
     },
     {
       "week": "2025-11-24",
+      "closeWeek": "2025-12-22",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5121,6 +5146,7 @@
     },
     {
       "week": "2025-11-24",
+      "closeWeek": "2025-11-24",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5135,6 +5161,7 @@
     },
     {
       "week": "2025-11-24",
+      "closeWeek": "2025-11-24",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5149,6 +5176,7 @@
     },
     {
       "week": "2025-11-24",
+      "closeWeek": "2025-12-15",
       "product": "Translations",
       "bu": "Media",
       "transcriptionStyle": "",
@@ -5163,6 +5191,7 @@
     },
     {
       "week": "2025-11-24",
+      "closeWeek": "2025-12-01",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Verbatim",
@@ -5177,6 +5206,7 @@
     },
     {
       "week": "2025-11-24",
+      "closeWeek": "2025-11-24",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5191,6 +5221,7 @@
     },
     {
       "week": "2025-12-01",
+      "closeWeek": "2025-12-22",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5205,6 +5236,7 @@
     },
     {
       "week": "2025-12-01",
+      "closeWeek": "2026-01-19",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5219,6 +5251,7 @@
     },
     {
       "week": "2025-12-01",
+      "closeWeek": "2026-03-30",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5233,6 +5266,7 @@
     },
     {
       "week": "2025-12-01",
+      "closeWeek": "2025-12-22",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5247,6 +5281,7 @@
     },
     {
       "week": "2025-12-01",
+      "closeWeek": "2025-12-08",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Read",
@@ -5261,6 +5296,7 @@
     },
     {
       "week": "2025-12-01",
+      "closeWeek": "2026-01-05",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Verbatim",
@@ -5275,6 +5311,7 @@
     },
     {
       "week": "2025-12-01",
+      "closeWeek": "2025-12-22",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Read",
@@ -5289,6 +5326,7 @@
     },
     {
       "week": "2025-12-01",
+      "closeWeek": "2025-12-15",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5303,6 +5341,7 @@
     },
     {
       "week": "2025-12-01",
+      "closeWeek": "2025-12-01",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5317,6 +5356,7 @@
     },
     {
       "week": "2025-12-01",
+      "closeWeek": "2025-12-15",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Verbatim",
@@ -5331,6 +5371,7 @@
     },
     {
       "week": "2025-12-01",
+      "closeWeek": "2025-12-08",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Verbatim",
@@ -5345,6 +5386,7 @@
     },
     {
       "week": "2025-12-01",
+      "closeWeek": "2025-12-29",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Verbatim",
@@ -5359,6 +5401,7 @@
     },
     {
       "week": "2025-12-01",
+      "closeWeek": "2025-12-15",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Verbatim",
@@ -5373,6 +5416,7 @@
     },
     {
       "week": "2025-12-01",
+      "closeWeek": "2025-12-08",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Verbatim",
@@ -5387,6 +5431,7 @@
     },
     {
       "week": "2025-12-01",
+      "closeWeek": "2025-12-15",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5401,6 +5446,7 @@
     },
     {
       "week": "2025-12-01",
+      "closeWeek": "2025-12-15",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5415,6 +5461,7 @@
     },
     {
       "week": "2025-12-01",
+      "closeWeek": "2026-01-05",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Verbatim",
@@ -5429,6 +5476,7 @@
     },
     {
       "week": "2025-12-01",
+      "closeWeek": "2025-12-08",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5443,6 +5491,7 @@
     },
     {
       "week": "2025-12-08",
+      "closeWeek": "2025-12-22",
       "product": "Speech-to-Text API",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5457,6 +5506,7 @@
     },
     {
       "week": "2025-12-08",
+      "closeWeek": "2025-12-08",
       "product": "Speech-to-Text API",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5471,6 +5521,7 @@
     },
     {
       "week": "2025-12-08",
+      "closeWeek": "2026-01-12",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Verbatim",
@@ -5485,6 +5536,7 @@
     },
     {
       "week": "2025-12-08",
+      "closeWeek": "2025-12-15",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5499,6 +5551,7 @@
     },
     {
       "week": "2025-12-08",
+      "closeWeek": "2025-12-22",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5513,6 +5566,7 @@
     },
     {
       "week": "2025-12-08",
+      "closeWeek": "2025-12-08",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5527,6 +5581,7 @@
     },
     {
       "week": "2025-12-08",
+      "closeWeek": "2025-12-08",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5541,6 +5596,7 @@
     },
     {
       "week": "2025-12-08",
+      "closeWeek": "2025-12-15",
       "product": "Human-Made Subtitles",
       "bu": "Media",
       "transcriptionStyle": "",
@@ -5555,6 +5611,7 @@
     },
     {
       "week": "2025-12-08",
+      "closeWeek": "2025-12-15",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Read",
@@ -5569,6 +5626,7 @@
     },
     {
       "week": "2025-12-08",
+      "closeWeek": "2026-02-23",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Verbatim",
@@ -5583,6 +5641,7 @@
     },
     {
       "week": "2025-12-08",
+      "closeWeek": "2025-12-15",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5597,6 +5656,7 @@
     },
     {
       "week": "2025-12-08",
+      "closeWeek": "2026-01-12",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Verbatim",
@@ -5611,6 +5671,7 @@
     },
     {
       "week": "2025-12-08",
+      "closeWeek": "2025-12-15",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Verbatim",
@@ -5625,6 +5686,7 @@
     },
     {
       "week": "2025-12-08",
+      "closeWeek": "2025-12-22",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5639,6 +5701,7 @@
     },
     {
       "week": "2025-12-08",
+      "closeWeek": "2025-12-08",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5653,6 +5716,7 @@
     },
     {
       "week": "2025-12-08",
+      "closeWeek": "2025-12-22",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Verbatim",
@@ -5667,6 +5731,7 @@
     },
     {
       "week": "2025-12-08",
+      "closeWeek": "2025-12-15",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5681,6 +5746,7 @@
     },
     {
       "week": "2025-12-08",
+      "closeWeek": "2025-12-15",
       "product": "Speech-to-Text API",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5695,6 +5761,7 @@
     },
     {
       "week": "2025-12-08",
+      "closeWeek": "2025-12-22",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5709,6 +5776,7 @@
     },
     {
       "week": "2025-12-08",
+      "closeWeek": "2026-01-12",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Verbatim",
@@ -5723,6 +5791,7 @@
     },
     {
       "week": "2025-12-08",
+      "closeWeek": "2025-12-08",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5737,6 +5806,7 @@
     },
     {
       "week": "2025-12-08",
+      "closeWeek": "2025-12-08",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Verbatim",
@@ -5751,6 +5821,7 @@
     },
     {
       "week": "2025-12-08",
+      "closeWeek": "2026-02-16",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Read",
@@ -5765,6 +5836,7 @@
     },
     {
       "week": "2025-12-08",
+      "closeWeek": "2025-12-08",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5779,6 +5851,7 @@
     },
     {
       "week": "2025-12-08",
+      "closeWeek": "2025-12-22",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5793,6 +5866,7 @@
     },
     {
       "week": "2025-12-08",
+      "closeWeek": "2026-01-19",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Verbatim",
@@ -5807,6 +5881,7 @@
     },
     {
       "week": "2025-12-08",
+      "closeWeek": "2025-12-15",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5821,6 +5896,7 @@
     },
     {
       "week": "2025-12-08",
+      "closeWeek": "2026-01-19",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5835,6 +5911,7 @@
     },
     {
       "week": "2025-12-08",
+      "closeWeek": "2025-12-08",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5849,6 +5926,7 @@
     },
     {
       "week": "2025-12-08",
+      "closeWeek": "2025-12-15",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Verbatim",
@@ -5863,6 +5941,7 @@
     },
     {
       "week": "2025-12-08",
+      "closeWeek": "2025-12-15",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Read",
@@ -5877,6 +5956,7 @@
     },
     {
       "week": "2025-12-08",
+      "closeWeek": "2025-12-15",
       "product": "Speech-to-Text API",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5891,6 +5971,7 @@
     },
     {
       "week": "2025-12-08",
+      "closeWeek": "2025-12-15",
       "product": "Human-Made Subtitles",
       "bu": "Media",
       "transcriptionStyle": "",
@@ -5905,6 +5986,7 @@
     },
     {
       "week": "2025-12-08",
+      "closeWeek": "2025-12-29",
       "product": "Translated Subtitles",
       "bu": "Media",
       "transcriptionStyle": "",
@@ -5919,6 +6001,7 @@
     },
     {
       "week": "2025-12-08",
+      "closeWeek": "2026-01-12",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Read",
@@ -5933,6 +6016,7 @@
     },
     {
       "week": "2025-12-15",
+      "closeWeek": "2026-01-05",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5947,6 +6031,7 @@
     },
     {
       "week": "2025-12-15",
+      "closeWeek": "2025-12-22",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Verbatim",
@@ -5961,6 +6046,7 @@
     },
     {
       "week": "2025-12-15",
+      "closeWeek": "2026-01-05",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5975,6 +6061,7 @@
     },
     {
       "week": "2025-12-15",
+      "closeWeek": "2026-01-12",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -5989,6 +6076,7 @@
     },
     {
       "week": "2025-12-15",
+      "closeWeek": "2026-03-30",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Verbatim",
@@ -6003,6 +6091,7 @@
     },
     {
       "week": "2025-12-15",
+      "closeWeek": "2026-01-26",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6017,6 +6106,7 @@
     },
     {
       "week": "2025-12-15",
+      "closeWeek": "2026-01-05",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6031,6 +6121,7 @@
     },
     {
       "week": "2025-12-15",
+      "closeWeek": "2026-02-16",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6045,6 +6136,7 @@
     },
     {
       "week": "2025-12-15",
+      "closeWeek": "2026-01-19",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Verbatim",
@@ -6059,6 +6151,7 @@
     },
     {
       "week": "2025-12-15",
+      "closeWeek": "2026-01-12",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Verbatim",
@@ -6073,6 +6166,7 @@
     },
     {
       "week": "2025-12-15",
+      "closeWeek": "2025-12-15",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6087,6 +6181,7 @@
     },
     {
       "week": "2025-12-15",
+      "closeWeek": "2025-12-15",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Verbatim",
@@ -6101,6 +6196,7 @@
     },
     {
       "week": "2025-12-15",
+      "closeWeek": "2026-01-12",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6115,6 +6211,7 @@
     },
     {
       "week": "2025-12-15",
+      "closeWeek": "2025-12-15",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6129,6 +6226,7 @@
     },
     {
       "week": "2025-12-15",
+      "closeWeek": "2026-02-09",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6143,6 +6241,7 @@
     },
     {
       "week": "2025-12-15",
+      "closeWeek": "2025-12-29",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6157,6 +6256,7 @@
     },
     {
       "week": "2025-12-15",
+      "closeWeek": "2026-01-12",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6171,6 +6271,7 @@
     },
     {
       "week": "2025-12-15",
+      "closeWeek": "2026-01-05",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6185,6 +6286,7 @@
     },
     {
       "week": "2025-12-15",
+      "closeWeek": "2026-01-26",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6199,6 +6301,7 @@
     },
     {
       "week": "2025-12-15",
+      "closeWeek": "2026-01-05",
       "product": "Speech-to-Text API",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6213,6 +6316,7 @@
     },
     {
       "week": "2025-12-15",
+      "closeWeek": "2026-01-05",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6227,6 +6331,7 @@
     },
     {
       "week": "2025-12-15",
+      "closeWeek": "2026-01-05",
       "product": "Speech-to-Text API",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6241,6 +6346,7 @@
     },
     {
       "week": "2025-12-22",
+      "closeWeek": "2026-01-05",
       "product": "Speech-to-Text API",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6255,6 +6361,7 @@
     },
     {
       "week": "2025-12-22",
+      "closeWeek": "2026-01-19",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6269,6 +6376,7 @@
     },
     {
       "week": "2025-12-22",
+      "closeWeek": "2026-01-26",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6283,6 +6391,7 @@
     },
     {
       "week": "2025-12-22",
+      "closeWeek": "2026-01-19",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Read",
@@ -6297,6 +6406,7 @@
     },
     {
       "week": "2025-12-22",
+      "closeWeek": "2026-01-26",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6311,6 +6421,7 @@
     },
     {
       "week": "2025-12-22",
+      "closeWeek": "2025-12-29",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6325,6 +6436,7 @@
     },
     {
       "week": "2025-12-22",
+      "closeWeek": "2026-02-23",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6339,6 +6451,7 @@
     },
     {
       "week": "2025-12-29",
+      "closeWeek": "2026-01-05",
       "product": "Translated Subtitles",
       "bu": "Media",
       "transcriptionStyle": "",
@@ -6353,6 +6466,7 @@
     },
     {
       "week": "2025-12-29",
+      "closeWeek": "2026-01-19",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6367,6 +6481,7 @@
     },
     {
       "week": "2025-12-29",
+      "closeWeek": "2026-01-05",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6381,6 +6496,7 @@
     },
     {
       "week": "2025-12-29",
+      "closeWeek": "2026-01-05",
       "product": "Speech-to-Text API",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6395,6 +6511,7 @@
     },
     {
       "week": "2026-01-05",
+      "closeWeek": "2026-01-19",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6409,6 +6526,7 @@
     },
     {
       "week": "2026-01-05",
+      "closeWeek": "2026-01-12",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6423,6 +6541,7 @@
     },
     {
       "week": "2026-01-05",
+      "closeWeek": "2026-01-05",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Verbatim",
@@ -6437,6 +6556,7 @@
     },
     {
       "week": "2026-01-05",
+      "closeWeek": "2026-01-19",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6451,6 +6571,7 @@
     },
     {
       "week": "2026-01-05",
+      "closeWeek": "2026-01-05",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6465,6 +6586,7 @@
     },
     {
       "week": "2026-01-05",
+      "closeWeek": "2026-01-05",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6479,6 +6601,7 @@
     },
     {
       "week": "2026-01-05",
+      "closeWeek": "2026-01-26",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Verbatim",
@@ -6493,6 +6616,7 @@
     },
     {
       "week": "2026-01-05",
+      "closeWeek": "2026-01-26",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6507,6 +6631,7 @@
     },
     {
       "week": "2026-01-05",
+      "closeWeek": "2026-01-19",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6521,6 +6646,7 @@
     },
     {
       "week": "2026-01-05",
+      "closeWeek": "2026-02-02",
       "product": "Human-Made Subtitles",
       "bu": "Media",
       "transcriptionStyle": "",
@@ -6535,6 +6661,7 @@
     },
     {
       "week": "2026-01-05",
+      "closeWeek": "2026-01-12",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Verbatim",
@@ -6549,6 +6676,7 @@
     },
     {
       "week": "2026-01-05",
+      "closeWeek": "2026-01-26",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6563,6 +6691,7 @@
     },
     {
       "week": "2026-01-05",
+      "closeWeek": "2026-01-12",
       "product": "Speech-to-Text API",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6577,6 +6706,7 @@
     },
     {
       "week": "2026-01-05",
+      "closeWeek": "2026-02-02",
       "product": "Translated Subtitles",
       "bu": "Media",
       "transcriptionStyle": "",
@@ -6591,6 +6721,7 @@
     },
     {
       "week": "2026-01-05",
+      "closeWeek": "2026-01-12",
       "product": "Translated Subtitles",
       "bu": "Media",
       "transcriptionStyle": "",
@@ -6605,6 +6736,7 @@
     },
     {
       "week": "2026-01-05",
+      "closeWeek": "2026-03-30",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6619,6 +6751,7 @@
     },
     {
       "week": "2026-01-05",
+      "closeWeek": "2026-01-12",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6633,6 +6766,7 @@
     },
     {
       "week": "2026-01-05",
+      "closeWeek": "2026-01-19",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6647,6 +6781,7 @@
     },
     {
       "week": "2026-01-12",
+      "closeWeek": "2026-11-02",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6661,6 +6796,7 @@
     },
     {
       "week": "2026-01-12",
+      "closeWeek": "2026-01-26",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6675,6 +6811,7 @@
     },
     {
       "week": "2026-01-12",
+      "closeWeek": "2026-01-26",
       "product": "Speech-to-Text API",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6689,6 +6826,7 @@
     },
     {
       "week": "2026-01-12",
+      "closeWeek": "2026-01-26",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6703,6 +6841,7 @@
     },
     {
       "week": "2026-01-12",
+      "closeWeek": "2026-01-12",
       "product": "Human-Made Subtitles",
       "bu": "Media",
       "transcriptionStyle": "",
@@ -6717,6 +6856,7 @@
     },
     {
       "week": "2026-01-12",
+      "closeWeek": "2026-02-09",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6731,6 +6871,7 @@
     },
     {
       "week": "2026-01-12",
+      "closeWeek": "2026-02-02",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6745,6 +6886,7 @@
     },
     {
       "week": "2026-01-12",
+      "closeWeek": "2026-01-12",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6759,6 +6901,7 @@
     },
     {
       "week": "2026-01-12",
+      "closeWeek": "2026-01-26",
       "product": "Speech-to-Text API",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6773,6 +6916,7 @@
     },
     {
       "week": "2026-01-12",
+      "closeWeek": "2026-01-26",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Read",
@@ -6787,6 +6931,7 @@
     },
     {
       "week": "2026-01-12",
+      "closeWeek": "2026-01-19",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6801,6 +6946,7 @@
     },
     {
       "week": "2026-01-12",
+      "closeWeek": "2026-04-27",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6815,6 +6961,7 @@
     },
     {
       "week": "2026-01-12",
+      "closeWeek": "2026-01-12",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6829,6 +6976,7 @@
     },
     {
       "week": "2026-01-12",
+      "closeWeek": "2026-02-16",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6843,6 +6991,7 @@
     },
     {
       "week": "2026-01-12",
+      "closeWeek": "2026-02-09",
       "product": "Translated Subtitles",
       "bu": "Media",
       "transcriptionStyle": "",
@@ -6857,6 +7006,7 @@
     },
     {
       "week": "2026-01-12",
+      "closeWeek": "2026-01-19",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6871,6 +7021,7 @@
     },
     {
       "week": "2026-01-12",
+      "closeWeek": "2026-02-23",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6885,6 +7036,7 @@
     },
     {
       "week": "2026-01-12",
+      "closeWeek": "2026-01-19",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6899,6 +7051,7 @@
     },
     {
       "week": "2026-01-12",
+      "closeWeek": "2026-02-23",
       "product": "Amber Notes",
       "bu": "Innovations",
       "transcriptionStyle": "",
@@ -6913,6 +7066,7 @@
     },
     {
       "week": "2026-01-12",
+      "closeWeek": "2026-01-19",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6927,6 +7081,7 @@
     },
     {
       "week": "2026-01-12",
+      "closeWeek": "2026-02-09",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Verbatim",
@@ -6941,6 +7096,7 @@
     },
     {
       "week": "2026-01-19",
+      "closeWeek": "2026-01-26",
       "product": "Speech-to-Text API",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6955,6 +7111,7 @@
     },
     {
       "week": "2026-01-19",
+      "closeWeek": "2026-01-26",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Read",
@@ -6969,6 +7126,7 @@
     },
     {
       "week": "2026-01-19",
+      "closeWeek": "2026-01-19",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -6983,6 +7141,7 @@
     },
     {
       "week": "2026-01-19",
+      "closeWeek": "2026-02-02",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Verbatim",
@@ -6997,6 +7156,7 @@
     },
     {
       "week": "2026-01-19",
+      "closeWeek": "2026-01-19",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -7011,6 +7171,7 @@
     },
     {
       "week": "2026-01-19",
+      "closeWeek": "2026-02-23",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -7025,6 +7186,7 @@
     },
     {
       "week": "2026-01-19",
+      "closeWeek": "2026-01-19",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -7039,6 +7201,7 @@
     },
     {
       "week": "2026-01-19",
+      "closeWeek": "2026-01-19",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -7053,6 +7216,7 @@
     },
     {
       "week": "2026-01-19",
+      "closeWeek": "2026-02-02",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Verbatim",
@@ -7067,6 +7231,7 @@
     },
     {
       "week": "2026-01-19",
+      "closeWeek": "2026-01-19",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -7081,6 +7246,7 @@
     },
     {
       "week": "2026-01-19",
+      "closeWeek": "2026-02-02",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -7095,6 +7261,7 @@
     },
     {
       "week": "2026-01-19",
+      "closeWeek": "2026-02-09",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Verbatim",
@@ -7109,6 +7276,7 @@
     },
     {
       "week": "2026-01-19",
+      "closeWeek": "2026-02-09",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -7123,6 +7291,7 @@
     },
     {
       "week": "2026-01-19",
+      "closeWeek": "2026-01-26",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Read",
@@ -7137,6 +7306,7 @@
     },
     {
       "week": "2026-01-19",
+      "closeWeek": "2026-03-30",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Verbatim",
@@ -7151,6 +7321,7 @@
     },
     {
       "week": "2026-01-19",
+      "closeWeek": "2026-02-09",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -7165,6 +7336,7 @@
     },
     {
       "week": "2026-01-26",
+      "closeWeek": "2026-02-09",
       "product": "Speech-to-Text API",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -7179,6 +7351,7 @@
     },
     {
       "week": "2026-01-26",
+      "closeWeek": "2026-02-02",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Verbatim",
@@ -7193,6 +7366,7 @@
     },
     {
       "week": "2026-01-26",
+      "closeWeek": "2026-02-16",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -7207,6 +7381,7 @@
     },
     {
       "week": "2026-01-26",
+      "closeWeek": "2026-01-26",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -7221,6 +7396,7 @@
     },
     {
       "week": "2026-01-26",
+      "closeWeek": "2026-01-26",
       "product": "Human-Made Subtitles",
       "bu": "Media",
       "transcriptionStyle": "",
@@ -7235,6 +7411,7 @@
     },
     {
       "week": "2026-01-26",
+      "closeWeek": "2026-02-23",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -7249,6 +7426,7 @@
     },
     {
       "week": "2026-01-26",
+      "closeWeek": "2026-03-30",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -7263,6 +7441,7 @@
     },
     {
       "week": "2026-01-26",
+      "closeWeek": "2026-02-02",
       "product": "Machine-Made Subtitles",
       "bu": "Media",
       "transcriptionStyle": "",
@@ -7277,6 +7456,7 @@
     },
     {
       "week": "2026-01-26",
+      "closeWeek": "2026-02-23",
       "product": "Human-Made Subtitles",
       "bu": "Media",
       "transcriptionStyle": "",
@@ -7291,6 +7471,7 @@
     },
     {
       "week": "2026-01-26",
+      "closeWeek": "2026-02-02",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Read",
@@ -7305,6 +7486,7 @@
     },
     {
       "week": "2026-01-26",
+      "closeWeek": "2026-02-02",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Verbatim",
@@ -7319,6 +7501,7 @@
     },
     {
       "week": "2026-01-26",
+      "closeWeek": "2026-02-23",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Read",
@@ -7333,6 +7516,7 @@
     },
     {
       "week": "2026-01-26",
+      "closeWeek": "2026-03-30",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -7347,6 +7531,7 @@
     },
     {
       "week": "2026-01-26",
+      "closeWeek": "2026-01-26",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -7361,6 +7546,7 @@
     },
     {
       "week": "2026-01-26",
+      "closeWeek": "2026-02-02",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Verbatim",
@@ -7375,6 +7561,7 @@
     },
     {
       "week": "2026-01-26",
+      "closeWeek": "2026-02-02",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Verbatim",
@@ -7389,6 +7576,7 @@
     },
     {
       "week": "2026-01-26",
+      "closeWeek": "2026-01-26",
       "product": "Translated Subtitles",
       "bu": "Media",
       "transcriptionStyle": "",
@@ -7403,6 +7591,7 @@
     },
     {
       "week": "2026-01-26",
+      "closeWeek": "2026-02-09",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -7417,6 +7606,7 @@
     },
     {
       "week": "2026-02-02",
+      "closeWeek": "2026-03-30",
       "product": "",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -7431,6 +7621,7 @@
     },
     {
       "week": "2026-02-02",
+      "closeWeek": "2026-02-02",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Verbatim",
@@ -7445,6 +7636,7 @@
     },
     {
       "week": "2026-02-02",
+      "closeWeek": "2026-02-02",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -7459,6 +7651,7 @@
     },
     {
       "week": "2026-02-02",
+      "closeWeek": "2026-02-16",
       "product": "Machine-Made Subtitles",
       "bu": "Media",
       "transcriptionStyle": "",
@@ -7473,6 +7666,7 @@
     },
     {
       "week": "2026-02-02",
+      "closeWeek": "2026-03-30",
       "product": "Speech-to-Text API",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -7487,6 +7681,7 @@
     },
     {
       "week": "2026-02-02",
+      "closeWeek": "2026-02-02",
       "product": "Machine-Made Subtitles",
       "bu": "Media",
       "transcriptionStyle": "",
@@ -7501,6 +7696,7 @@
     },
     {
       "week": "2026-02-02",
+      "closeWeek": "2026-02-02",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -7515,6 +7711,7 @@
     },
     {
       "week": "2026-02-02",
+      "closeWeek": "2026-02-09",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Verbatim",
@@ -7529,6 +7726,7 @@
     },
     {
       "week": "2026-02-02",
+      "closeWeek": "2026-03-02",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Read",
@@ -7543,6 +7741,7 @@
     },
     {
       "week": "2026-02-02",
+      "closeWeek": "2026-02-16",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Verbatim",
@@ -7557,6 +7756,7 @@
     },
     {
       "week": "2026-02-02",
+      "closeWeek": "2026-02-09",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -7571,6 +7771,7 @@
     },
     {
       "week": "2026-02-02",
+      "closeWeek": "2026-07-27",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Verbatim",
@@ -7585,6 +7786,7 @@
     },
     {
       "week": "2026-02-02",
+      "closeWeek": "2026-02-09",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -7599,6 +7801,7 @@
     },
     {
       "week": "2026-02-02",
+      "closeWeek": "2026-02-09",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -7613,6 +7816,7 @@
     },
     {
       "week": "2026-02-02",
+      "closeWeek": "2026-02-02",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -7627,6 +7831,7 @@
     },
     {
       "week": "2026-02-02",
+      "closeWeek": "2026-03-02",
       "product": "",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -7641,6 +7846,7 @@
     },
     {
       "week": "2026-02-02",
+      "closeWeek": "2026-02-16",
       "product": "Speech-to-Text API",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -7655,6 +7861,7 @@
     },
     {
       "week": "2026-02-02",
+      "closeWeek": "2026-03-02",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Verbatim",
@@ -7669,6 +7876,7 @@
     },
     {
       "week": "2026-02-09",
+      "closeWeek": "2026-02-16",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -7683,6 +7891,7 @@
     },
     {
       "week": "2026-02-09",
+      "closeWeek": "2026-03-09",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Verbatim",
@@ -7697,6 +7906,7 @@
     },
     {
       "week": "2026-02-09",
+      "closeWeek": "2026-03-09",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Verbatim",
@@ -7711,6 +7921,7 @@
     },
     {
       "week": "2026-02-09",
+      "closeWeek": "2026-03-09",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Verbatim",
@@ -7725,6 +7936,7 @@
     },
     {
       "week": "2026-02-09",
+      "closeWeek": "2026-02-09",
       "product": "Translated Subtitles",
       "bu": "Media",
       "transcriptionStyle": "",
@@ -7739,6 +7951,7 @@
     },
     {
       "week": "2026-02-09",
+      "closeWeek": "2026-03-09",
       "product": "",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -7753,6 +7966,7 @@
     },
     {
       "week": "2026-02-09",
+      "closeWeek": "2026-03-09",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Read",
@@ -7767,6 +7981,7 @@
     },
     {
       "week": "2026-02-09",
+      "closeWeek": "2026-03-09",
       "product": "",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -7781,6 +7996,7 @@
     },
     {
       "week": "2026-02-09",
+      "closeWeek": "2026-02-09",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -7795,6 +8011,7 @@
     },
     {
       "week": "2026-02-09",
+      "closeWeek": "2026-02-09",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -7809,6 +8026,7 @@
     },
     {
       "week": "2026-02-09",
+      "closeWeek": "2026-02-09",
       "product": "Human-Made Subtitles",
       "bu": "Media",
       "transcriptionStyle": "",
@@ -7823,6 +8041,7 @@
     },
     {
       "week": "2026-02-09",
+      "closeWeek": "2026-02-16",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Read",
@@ -7837,6 +8056,7 @@
     },
     {
       "week": "2026-02-09",
+      "closeWeek": "2026-03-09",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Verbatim",
@@ -7851,6 +8071,7 @@
     },
     {
       "week": "2026-02-09",
+      "closeWeek": "2026-03-09",
       "product": "Human-Made Subtitles",
       "bu": "Media",
       "transcriptionStyle": "",
@@ -7865,6 +8086,7 @@
     },
     {
       "week": "2026-02-09",
+      "closeWeek": "2026-02-09",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -7879,6 +8101,7 @@
     },
     {
       "week": "2026-02-09",
+      "closeWeek": "2026-03-09",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -7893,6 +8116,7 @@
     },
     {
       "week": "2026-02-09",
+      "closeWeek": "2026-02-16",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -7907,6 +8131,7 @@
     },
     {
       "week": "2026-02-09",
+      "closeWeek": "2026-02-16",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Verbatim",
@@ -7921,6 +8146,7 @@
     },
     {
       "week": "2026-02-09",
+      "closeWeek": "2026-03-09",
       "product": "Translated Subtitles",
       "bu": "Media",
       "transcriptionStyle": "",
@@ -7935,6 +8161,7 @@
     },
     {
       "week": "2026-02-16",
+      "closeWeek": "2026-02-16",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -7949,6 +8176,7 @@
     },
     {
       "week": "2026-02-16",
+      "closeWeek": "2026-03-16",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Verbatim",
@@ -7963,6 +8191,7 @@
     },
     {
       "week": "2026-02-16",
+      "closeWeek": "2026-03-16",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -7977,6 +8206,7 @@
     },
     {
       "week": "2026-02-16",
+      "closeWeek": "2026-03-30",
       "product": "Translated Subtitles",
       "bu": "Media",
       "transcriptionStyle": "",
@@ -7991,6 +8221,7 @@
     },
     {
       "week": "2026-02-16",
+      "closeWeek": "2026-03-16",
       "product": "",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -8005,6 +8236,7 @@
     },
     {
       "week": "2026-02-16",
+      "closeWeek": "2026-03-16",
       "product": "Machine-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -8019,6 +8251,7 @@
     },
     {
       "week": "2026-02-16",
+      "closeWeek": "2026-03-16",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Verbatim",
@@ -8033,6 +8266,7 @@
     },
     {
       "week": "2026-02-16",
+      "closeWeek": "2026-03-16",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Verbatim",
@@ -8047,6 +8281,7 @@
     },
     {
       "week": "2026-02-16",
+      "closeWeek": "2026-03-16",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Verbatim",
@@ -8061,6 +8296,7 @@
     },
     {
       "week": "2026-02-16",
+      "closeWeek": "2026-03-16",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Verbatim",
@@ -8075,6 +8311,7 @@
     },
     {
       "week": "2026-02-16",
+      "closeWeek": "2026-03-16",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Verbatim",
@@ -8089,6 +8326,7 @@
     },
     {
       "week": "2026-02-16",
+      "closeWeek": "2026-03-16",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Read",
@@ -8103,6 +8341,7 @@
     },
     {
       "week": "2026-02-16",
+      "closeWeek": "2026-02-16",
       "product": "Other",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -8117,6 +8356,7 @@
     },
     {
       "week": "2026-02-16",
+      "closeWeek": "2026-03-16",
       "product": "",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -8131,6 +8371,7 @@
     },
     {
       "week": "2026-02-16",
+      "closeWeek": "2026-03-16",
       "product": "Human-Made Transcription",
       "bu": "Transcription",
       "transcriptionStyle": "Clean-Verbatim",
@@ -8145,6 +8386,7 @@
     },
     {
       "week": "2026-02-16",
+      "closeWeek": "2026-03-16",
       "product": "",
       "bu": "Transcription",
       "transcriptionStyle": "",
@@ -8156,6 +8398,21 @@
       "status": "Open",
       "amount": 565.2,
       "formId": "RequestQuote-nl_a4e568300c1f47bab0b0e2cdd929e592"
+    },
+    {
+      "week": "2026-02-16",
+      "closeWeek": "2026-03-16",
+      "product": "",
+      "bu": "Transcription",
+      "transcriptionStyle": "",
+      "additionalOptions": "",
+      "country": "NL",
+      "channel": "Direct",
+      "ownerName": "Jeroen Niessen",
+      "lifecycleStage": "SQL",
+      "status": "Open",
+      "amount": 375,
+      "formId": "RequestQuote-nl_9160d128939f4c869b7f4e8b472052d4"
     }
   ],
   "ga4Forms": [
