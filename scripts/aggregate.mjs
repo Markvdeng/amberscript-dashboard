@@ -165,7 +165,6 @@ function main() {
   hubspotDeals.forEach(r => { if (r.createWeek) allWeeks.add(r.createWeek); });
   formSubmissions.forEach(r => { if (r.week) allWeeks.add(r.week); });
   ga4Purchases.forEach(r => { if (r.week) allWeeks.add(r.week); });
-  stripeSubs.forEach(r => { if (r.createdWeek) allWeeks.add(r.createdWeek); });
   const weeks = [...allWeeks].sort();
 
   // === WEEKLY: GOOGLE ADS ===
