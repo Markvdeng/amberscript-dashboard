@@ -2,7 +2,20 @@ name: Update Dashboard Data
 on:
   schedule:
     - cron: '0 7 * * *' # Daily at 7 AM UTC (8 AM CET)
-  workflow_dispatch: {} # Manual trigger
+  workflow_dispatch:
+    inputs:
+      script:
+        description: 'Which script to run'
+        required: false
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - google-ads
+          - stripe-charges
+          - stripe-subs
+          - hubspot-deals
+          - ga4
 
 permissions:
   contents: write
@@ -17,6 +30,7 @@ jobs:
           node-version: 20
       - run: npm ci
       - name: Fetch Google Ads
+        if: inputs.script == 'all' || inputs.script == 'google-ads'
         run: node scripts/fetch-google-ads.mjs
         env:
           GOOGLE_ADS_DEVELOPER_TOKEN: ${{ secrets.GOOGLE_ADS_DEVELOPER_TOKEN }}
@@ -24,18 +38,22 @@ jobs:
           GOOGLE_ADS_CLIENT_SECRET: ${{ secrets.GOOGLE_ADS_CLIENT_SECRET }}
           GOOGLE_ADS_REFRESH_TOKEN: ${{ secrets.GOOGLE_ADS_REFRESH_TOKEN }}
       - name: Fetch Stripe Charges
+        if: inputs.script == 'all' || inputs.script == 'stripe-charges'
         run: node scripts/fetch-stripe-charges.mjs
         env:
           STRIPE_AMBERSCRIPT_API_KEY: ${{ secrets.STRIPE_AMBERSCRIPT_API_KEY }}
       - name: Fetch Stripe Subscriptions
+        if: inputs.script == 'all' || inputs.script == 'stripe-subs'
         run: node scripts/fetch-stripe-subs.mjs
         env:
           STRIPE_AMBERSCRIPT_API_KEY: ${{ secrets.STRIPE_AMBERSCRIPT_API_KEY }}
       - name: Fetch HubSpot Deals
+        if: inputs.script == 'all' || inputs.script == 'hubspot-deals'
         run: node scripts/fetch-hubspot-deals.mjs
         env:
           HUBSPOT_AMBERSCRIPT_TOKEN: ${{ secrets.HUBSPOT_AMBERSCRIPT_TOKEN }}
       - name: Fetch GA4 Data
+        if: inputs.script == 'all' || inputs.script == 'ga4'
         run: node scripts/fetch-ga4.mjs
         env:
           GOOGLE_ADS_CLIENT_ID: ${{ secrets.GOOGLE_ADS_CLIENT_ID }}
@@ -46,4 +64,4 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 'data: daily update'
-          file_pattern: data.json
+          file_pattern: 'data.json raw/*.json'

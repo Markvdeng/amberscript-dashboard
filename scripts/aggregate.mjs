@@ -78,10 +78,16 @@ function main() {
   }));
   const ga4Purchases = ga4.purchases || [];
 
+  // Stripe subscriptions (new format with snapshot + individual subs)
+  const stripSubsRaw = loadRaw('stripe-subs.json');
+  const stripeSubs = stripSubsRaw?.subscriptions || [];
+  const subSnapshot = stripSubsRaw?.snapshot || null;
+
   console.log(`  Google Ads: ${googleAds.length} rows`);
-  console.log(`  Stripe: ${stripeCharges.length} charges`);
+  console.log(`  Stripe: ${stripeCharges.length} charges, ${stripeSubs.length} subscriptions`);
   console.log(`  HubSpot: ${hubspotDeals.length} deals`);
   console.log(`  GA4: ${formSubmissions.length} form submissions, ${ga4Purchases.length} purchases`);
+  if (subSnapshot) console.log(`  MRR snapshot: ${subSnapshot.mrr} (${subSnapshot.totalActiveSubs} active subs)`);
 
   // === BUILD LOOKUP TABLES ===
 
@@ -159,6 +165,7 @@ function main() {
   hubspotDeals.forEach(r => { if (r.createWeek) allWeeks.add(r.createWeek); });
   formSubmissions.forEach(r => { if (r.week) allWeeks.add(r.week); });
   ga4Purchases.forEach(r => { if (r.week) allWeeks.add(r.week); });
+  stripeSubs.forEach(r => { if (r.createdWeek) allWeeks.add(r.createdWeek); });
   const weeks = [...allWeeks].sort();
 
   // === WEEKLY: GOOGLE ADS ===
@@ -369,6 +376,28 @@ function main() {
     count: f.count,
   }));
 
+  // === SUBSCRIPTION METRICS (weekly new, churn, MRR) ===
+  const subsByCreatedWeek = groupBy(stripeSubs.filter(s => s.createdWeek), s => s.createdWeek);
+  const subsByCanceledWeek = groupBy(stripeSubs.filter(s => s.canceledWeek), s => s.canceledWeek);
+  const weeklySubMetrics = weeks.map(week => {
+    const created = subsByCreatedWeek[week] || [];
+    const canceled = subsByCanceledWeek[week] || [];
+    const newMrr = round(created.reduce((s, r) => s + (r.monthlyAmount || 0), 0));
+    const churnedMrr = round(canceled.reduce((s, r) => s + (r.monthlyAmount || 0), 0));
+    return {
+      week,
+      newSubs: created.length,
+      newMrr,
+      churnedSubs: canceled.length,
+      churnedMrr,
+      netMrr: round(newMrr - churnedMrr),
+      byPlan: {
+        monthly: { new: created.filter(s => s.planType === 'monthly').length, churned: canceled.filter(s => s.planType === 'monthly').length },
+        yearly: { new: created.filter(s => s.planType === 'yearly').length, churned: canceled.filter(s => s.planType === 'yearly').length },
+      },
+    };
+  });
+
   // === BUILD OUTPUT ===
   const output = {
     updatedAt: new Date().toISOString(),
@@ -377,12 +406,14 @@ function main() {
       totalLeads, totalMQLs, totalMQLsFromLeads, totalSQLs, totalSQLsFromLeads, totalWon,
       totalDealRevenue, totalStripeRevenue, totalAdsCost, roas,
     },
+    subSnapshot,
     monthly: monthlyData,
     weekly: {
       ads: weeklyAds,
       funnel: weeklyFunnel,
       stripe: weeklyStripe,
       ga4: weeklyGA4,
+      subs: weeklySubMetrics,
     },
     deals,
     ga4Forms,
