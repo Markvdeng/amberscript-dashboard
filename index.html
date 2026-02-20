@@ -864,23 +864,41 @@ function renderSelfServeSummary(weeks) {
     }
     return { payments, revenue, newSubs };
   }
+  function getSubMetrics(weekList) {
+    const subs = filterByWeeks(DATA.weekly.subs || [], weekList);
+    let churned = 0, newMrr = 0, churnedMrr = 0;
+    for (const s of subs) {
+      churned += s.churnedSubs || 0;
+      newMrr += s.newMrr || 0;
+      churnedMrr += s.churnedMrr || 0;
+    }
+    return { churned, netMrr: newMrr - churnedMrr };
+  }
 
+  const g = 'pl-5';
   const ssHead = (label) => `
     <th class="pb-2">${label}</th>
     <th class="pb-2 text-center">MM Spend</th>
-    <th class="pb-2 text-center">Payments</th>
+    <th class="pb-2 text-center ${g}">Payments</th>
     <th class="pb-2 text-center">Revenue</th>
-    <th class="pb-2 text-center">New Subs</th>
+    <th class="pb-2 text-center ${g}">New Subs</th>
+    <th class="pb-2 text-center">Churned</th>
+    <th class="pb-2 text-center ${g}">Net MRR</th>
   `;
   function ssRow(label, weekList) {
     const mmCost = getMmCost(weekList);
     const m = getStripeMetrics(weekList);
+    const sub = getSubMetrics(weekList);
+    const mrrClass = sub.netMrr >= 0 ? 'text-green-600' : 'text-red-500';
+    const mrrSign = sub.netMrr >= 0 ? '+' : '';
     return `<tr class="border-b border-as-border/40 hover-row">
       <td class="py-2.5 font-semibold text-sm">${label}</td>
       <td class="py-2.5 text-center text-as-secondary">${fmt.currency(mmCost)}</td>
-      <td class="py-2.5 text-center text-as-secondary">${fmt.number(m.payments)}</td>
+      <td class="py-2.5 text-center text-as-secondary ${g}">${fmt.number(m.payments)}</td>
       <td class="py-2.5 text-center font-semibold">${fmt.currency(m.revenue)}</td>
-      <td class="py-2.5 text-center text-as-secondary">${fmt.number(m.newSubs)}</td>
+      <td class="py-2.5 text-center text-as-secondary ${g}">${fmt.number(m.newSubs)}</td>
+      <td class="py-2.5 text-center text-as-secondary">${fmt.number(sub.churned)}</td>
+      <td class="py-2.5 text-center font-semibold ${g} ${mrrClass}">${mrrSign}${fmt.currency(Math.round(sub.netMrr))}</td>
     </tr>`;
   }
 
