@@ -343,11 +343,11 @@
               <thead class="text-left border-b border-as-border">
                 <tr>
                   <th class="pb-2">Product</th>
-                  <th class="pb-2 text-right">Leads</th>
-                  <th class="pb-2 text-right">MQL<span style="text-transform:none">s</span></th>
-                  <th class="pb-2 text-right">SQL<span style="text-transform:none">s</span></th>
-                  <th class="pb-2 text-right" title="By close date (by create date in brackets)">Won</th>
-                  <th class="pb-2 text-right" title="By close date (by create date in brackets)">Revenue</th>
+                  <th class="pb-2 text-center">Leads</th>
+                  <th class="pb-2 text-center">MQL<span style="text-transform:none">s</span></th>
+                  <th class="pb-2 text-center">SQL<span style="text-transform:none">s</span></th>
+                  <th class="pb-2 text-center" title="By close date (by create date in brackets)">Won</th>
+                  <th class="pb-2 text-center" title="By close date (by create date in brackets)">Revenue</th>
                 </tr>
               </thead>
               <tbody></tbody>
@@ -364,10 +364,10 @@
                 <thead class="text-left border-b border-as-border">
                   <tr>
                     <th class="pb-2">Owner</th>
-                    <th class="pb-2 text-right">MQL<span style="text-transform:none">s</span></th>
-                    <th class="pb-2 text-right">SQL<span style="text-transform:none">s</span></th>
-                    <th class="pb-2 text-right" title="By close date (by create date in brackets)">Won</th>
-                    <th class="pb-2 text-right" title="By close date (by create date in brackets)">Revenue</th>
+                    <th class="pb-2 text-center">MQL<span style="text-transform:none">s</span></th>
+                    <th class="pb-2 text-center">SQL<span style="text-transform:none">s</span></th>
+                    <th class="pb-2 text-center" title="By close date (by create date in brackets)">Won</th>
+                    <th class="pb-2 text-center" title="By close date (by create date in brackets)">Revenue</th>
                   </tr>
                 </thead>
                 <tbody></tbody>
@@ -382,10 +382,10 @@
                 <thead class="text-left border-b border-as-border">
                   <tr>
                     <th class="pb-2">Country</th>
-                    <th class="pb-2 text-right">MQL<span style="text-transform:none">s</span></th>
-                    <th class="pb-2 text-right">SQL<span style="text-transform:none">s</span></th>
-                    <th class="pb-2 text-right" title="By close date (by create date in brackets)">Won</th>
-                    <th class="pb-2 text-right" title="By close date (by create date in brackets)">Revenue</th>
+                    <th class="pb-2 text-center">MQL<span style="text-transform:none">s</span></th>
+                    <th class="pb-2 text-center">SQL<span style="text-transform:none">s</span></th>
+                    <th class="pb-2 text-center" title="By close date (by create date in brackets)">Won</th>
+                    <th class="pb-2 text-center" title="By close date (by create date in brackets)">Revenue</th>
                   </tr>
                 </thead>
                 <tbody></tbody>
@@ -726,16 +726,16 @@ function renderInboundSummary(weeks) {
   const g = 'pl-5'; // group separator
   const summaryHead = (label) => `
       <th class="pb-2">${label}</th>
-      <th class="pb-2 text-right">Spend</th>
-      <th class="pb-2 text-right ${g}">Leads</th>
-      <th class="pb-2 text-right">MQL<span style="text-transform:none">s</span></th>
-      <th class="pb-2 text-right">L&gt;MQL</th>
-      <th class="pb-2 text-right ${g}">SQL<span style="text-transform:none">s</span></th>
-      <th class="pb-2 text-right">MQL&gt;SQL</th>
-      <th class="pb-2 text-right ${g}" title="By close date (by create date in brackets)">Won</th>
-      <th class="pb-2 text-right">SQL&gt;Won</th>
-      <th class="pb-2 text-right ${g}" title="By close date (by create date in brackets)">Revenue</th>
-      <th class="pb-2 text-right ${g}">AOV</th>
+      <th class="pb-2 text-center">Spend</th>
+      <th class="pb-2 text-center ${g}">Leads</th>
+      <th class="pb-2 text-center">MQL<span style="text-transform:none">s</span></th>
+      <th class="pb-2 text-center">L&gt;MQL</th>
+      <th class="pb-2 text-center ${g}">SQL<span style="text-transform:none">s</span></th>
+      <th class="pb-2 text-center">MQL&gt;SQL</th>
+      <th class="pb-2 text-center ${g}" title="By close date (by create date in brackets)">Won</th>
+      <th class="pb-2 text-center">SQL&gt;Won</th>
+      <th class="pb-2 text-center ${g}" title="By close date (by create date in brackets)">Revenue</th>
+      <th class="pb-2 text-center ${g}">AOV</th>
   `;
   function summaryRow(label, hmCost, f) {
     const l2m = f.leads > 0 ? (f.mqlsFL / f.leads * 100).toFixed(1) + '%' : '-';
@@ -744,16 +744,16 @@ function renderInboundSummary(weeks) {
     const aov = f.wonClose > 0 ? fmt.currency(Math.round(f.wonRevClose / f.wonClose)) : '-';
     return `<tr class="border-b border-as-border/40 hover-row">
       <td class="py-2.5 font-semibold text-sm">${label}</td>
-      <td class="py-2.5 text-right text-as-secondary">${fmt.currency(hmCost)}</td>
-      <td class="py-2.5 text-right text-as-secondary ${g}">${fmt.number(f.leads)}</td>
-      <td class="py-2.5 text-right text-as-secondary">${mqlCell(f.mqls, f.mqlsFL)}</td>
-      <td class="py-2.5 text-right text-as-muted">${l2m}</td>
-      <td class="py-2.5 text-right text-as-secondary ${g}">${fmt.number(f.sqls)}</td>
-      <td class="py-2.5 text-right text-as-muted">${m2s}</td>
-      <td class="py-2.5 text-right text-as-secondary ${g}">${fmt.number(f.wonClose)} <span class="text-as-muted">(${fmt.number(f.won)})</span></td>
-      <td class="py-2.5 text-right text-as-muted">${s2w}</td>
-      <td class="py-2.5 text-right font-semibold ${g}">${fmt.currency(f.wonRevClose)} <span class="text-as-muted font-normal">(${fmt.currency(f.wonRev)})</span></td>
-      <td class="py-2.5 text-right text-as-secondary ${g}">${aov}</td>
+      <td class="py-2.5 text-center text-as-secondary">${fmt.currency(hmCost)}</td>
+      <td class="py-2.5 text-center text-as-secondary ${g}">${fmt.number(f.leads)}</td>
+      <td class="py-2.5 text-center text-as-secondary">${mqlCell(f.mqls, f.mqlsFL)}</td>
+      <td class="py-2.5 text-center text-as-muted">${l2m}</td>
+      <td class="py-2.5 text-center text-as-secondary ${g}">${fmt.number(f.sqls)}</td>
+      <td class="py-2.5 text-center text-as-muted">${m2s}</td>
+      <td class="py-2.5 text-center text-as-secondary ${g}">${fmt.number(f.wonClose)} <span class="text-as-muted">(${fmt.number(f.won)})</span></td>
+      <td class="py-2.5 text-center text-as-muted">${s2w}</td>
+      <td class="py-2.5 text-center font-semibold ${g}">${fmt.currency(f.wonRevClose)} <span class="text-as-muted font-normal">(${fmt.currency(f.wonRev)})</span></td>
+      <td class="py-2.5 text-center text-as-secondary ${g}">${aov}</td>
     </tr>`;
   }
 
@@ -795,11 +795,11 @@ function renderSelfServeSummary(weeks) {
     const allMonths = [...new Set(weeks.map(w => w.slice(0, 7)))].sort();
     head.innerHTML = `
       <th class="pb-2">Month</th>
-      <th class="pb-2 text-right">MM Spend</th>
-      <th class="pb-2 text-right">Payments</th>
-      <th class="pb-2 text-right">Revenue</th>
-      <th class="pb-2 text-right">New Subs</th>
-      <th class="pb-2 text-right">Active Subs</th>
+      <th class="pb-2 text-center">MM Spend</th>
+      <th class="pb-2 text-center">Payments</th>
+      <th class="pb-2 text-center">Revenue</th>
+      <th class="pb-2 text-center">New Subs</th>
+      <th class="pb-2 text-center">Active Subs</th>
     `;
     body.innerHTML = allMonths.map(month => {
       const monthWeeks = weeks.filter(w => w.slice(0, 7) === month);
@@ -814,20 +814,20 @@ function renderSelfServeSummary(weeks) {
       }
       return `<tr class="border-b border-as-border/40 hover-row">
         <td class="py-2.5 font-semibold text-sm">${fmt.monthLabel(month)}</td>
-        <td class="py-2.5 text-right text-as-secondary">${fmt.currency(mmCost)}</td>
-        <td class="py-2.5 text-right text-as-secondary">${fmt.number(payments)}</td>
-        <td class="py-2.5 text-right font-semibold">${fmt.currency(revenue)}</td>
-        <td class="py-2.5 text-right text-as-secondary">${fmt.number(newSubs)}</td>
-        <td class="py-2.5 text-right text-as-muted">-</td>
+        <td class="py-2.5 text-center text-as-secondary">${fmt.currency(mmCost)}</td>
+        <td class="py-2.5 text-center text-as-secondary">${fmt.number(payments)}</td>
+        <td class="py-2.5 text-center font-semibold">${fmt.currency(revenue)}</td>
+        <td class="py-2.5 text-center text-as-secondary">${fmt.number(newSubs)}</td>
+        <td class="py-2.5 text-center text-as-muted">-</td>
       </tr>`;
     }).join('');
   } else {
     head.innerHTML = `
       <th class="pb-2">Week</th>
-      <th class="pb-2 text-right">MM Spend</th>
-      <th class="pb-2 text-right">Payments</th>
-      <th class="pb-2 text-right">Revenue</th>
-      <th class="pb-2 text-right">New Subs</th>
+      <th class="pb-2 text-center">MM Spend</th>
+      <th class="pb-2 text-center">Payments</th>
+      <th class="pb-2 text-center">Revenue</th>
+      <th class="pb-2 text-center">New Subs</th>
     `;
     body.innerHTML = weeks.map(w => {
       const mmCost = getMmCost([w], adsMap);
@@ -838,10 +838,10 @@ function renderSelfServeSummary(weeks) {
       const newSubs = (seg['all.sub.creation'] || {}).count || 0;
       return `<tr class="border-b border-as-border/40 hover-row">
         <td class="py-2.5 font-semibold text-sm">${fmt.shortDate(w)}</td>
-        <td class="py-2.5 text-right text-as-secondary">${fmt.currency(mmCost)}</td>
-        <td class="py-2.5 text-right text-as-secondary">${fmt.number(payments)}</td>
-        <td class="py-2.5 text-right font-semibold">${fmt.currency(revenue)}</td>
-        <td class="py-2.5 text-right text-as-secondary">${fmt.number(newSubs)}</td>
+        <td class="py-2.5 text-center text-as-secondary">${fmt.currency(mmCost)}</td>
+        <td class="py-2.5 text-center text-as-secondary">${fmt.number(payments)}</td>
+        <td class="py-2.5 text-center font-semibold">${fmt.currency(revenue)}</td>
+        <td class="py-2.5 text-center text-as-secondary">${fmt.number(newSubs)}</td>
       </tr>`;
     }).join('');
   }
@@ -1089,22 +1089,22 @@ function renderInbound(weeks) {
     <table class="mt-3 ml-14" style="border-spacing:0">
       <thead><tr>
         <th></th>
-        <th class="text-right pb-1 px-3" style="min-width:90px">Lead &gt; MQL</th>
-        <th class="text-right pb-1 px-3" style="min-width:90px">MQL &gt; SQL</th>
-        <th class="text-right pb-1 px-3" style="min-width:90px">SQL &gt; Won</th>
+        <th class="text-center pb-1 px-3" style="min-width:90px">Lead &gt; MQL</th>
+        <th class="text-center pb-1 px-3" style="min-width:90px">MQL &gt; SQL</th>
+        <th class="text-center pb-1 px-3" style="min-width:90px">SQL &gt; Won</th>
       </tr></thead>
       <tbody>
         <tr>
           <td class="pr-2"><span class="conv-pill">All deals</span></td>
-          <td class="text-right px-3 text-sm font-semibold text-as-secondary">${l2m}</td>
-          <td class="text-right px-3 text-sm font-semibold text-as-secondary">${m2s}</td>
-          <td class="text-right px-3 text-sm font-semibold text-as-secondary">${s2w}</td>
+          <td class="text-center px-3 text-sm font-semibold text-as-secondary">${l2m}</td>
+          <td class="text-center px-3 text-sm font-semibold text-as-secondary">${m2s}</td>
+          <td class="text-center px-3 text-sm font-semibold text-as-secondary">${s2w}</td>
         </tr>
         <tr>
           <td class="pr-2"><span class="conv-pill" style="background:#E8ECF0">From lead</span></td>
-          <td class="text-right px-3 text-sm font-semibold text-as-secondary">${l2mFL}</td>
-          <td class="text-right px-3 text-sm font-semibold text-as-secondary">${m2sFL}</td>
-          <td class="text-right px-3 text-sm font-semibold text-as-secondary">${s2wFL}</td>
+          <td class="text-center px-3 text-sm font-semibold text-as-secondary">${l2mFL}</td>
+          <td class="text-center px-3 text-sm font-semibold text-as-secondary">${m2sFL}</td>
+          <td class="text-center px-3 text-sm font-semibold text-as-secondary">${s2wFL}</td>
         </tr>
       </tbody>
     </table>`;
@@ -1133,11 +1133,11 @@ function renderProductTable(deals, closedDeals, forms) {
   function cells(t, ct, leads, size) {
     const cls = size === 'sm' ? 'text-sm' : 'text-xs';
     return `
-      <td class="py-1.5 text-right text-as-secondary ${cls}">${fmt.number(leads)}</td>
-      <td class="py-1.5 text-right text-as-secondary ${cls}">${fmt.number(t.mqls)}</td>
-      <td class="py-1.5 text-right text-as-secondary ${cls}">${fmt.number(t.sqls)}</td>
-      <td class="py-1.5 text-right text-as-secondary ${cls}">${fmt.number(ct.won)} <span class="text-as-muted">(${fmt.number(t.won)})</span></td>
-      <td class="py-1.5 text-right font-semibold ${cls}">${fmt.currency(ct.wonRevenue)} <span class="text-as-muted font-normal">(${fmt.currency(t.wonRevenue)})</span></td>`;
+      <td class="py-1.5 text-center text-as-secondary ${cls}">${fmt.number(leads)}</td>
+      <td class="py-1.5 text-center text-as-secondary ${cls}">${fmt.number(t.mqls)}</td>
+      <td class="py-1.5 text-center text-as-secondary ${cls}">${fmt.number(t.sqls)}</td>
+      <td class="py-1.5 text-center text-as-secondary ${cls}">${fmt.number(ct.won)} <span class="text-as-muted">(${fmt.number(t.won)})</span></td>
+      <td class="py-1.5 text-center font-semibold ${cls}">${fmt.currency(ct.wonRevenue)} <span class="text-as-muted font-normal">(${fmt.currency(t.wonRevenue)})</span></td>`;
   }
 
   // Count leads by product from GA4 forms
@@ -1235,11 +1235,11 @@ function renderProductTable(deals, closedDeals, forms) {
   const closeTotal = closeTally(closedDeals);
   html += `<tr class="border-t-2 border-as-border">
     <td class="py-2 text-sm font-bold">Total</td>
-    <td class="py-2 text-right font-bold text-sm">${fmt.number(totalLeads)}</td>
-    <td class="py-2 text-right font-bold text-sm">${fmt.number(total.mqls)}</td>
-    <td class="py-2 text-right font-bold text-sm">${fmt.number(total.sqls)}</td>
-    <td class="py-2 text-right font-bold text-sm">${fmt.number(closeTotal.won)} <span class="font-normal text-as-muted">(${fmt.number(total.won)})</span></td>
-    <td class="py-2 text-right font-bold text-sm">${fmt.currency(closeTotal.wonRevenue)} <span class="font-normal text-as-muted">(${fmt.currency(total.wonRevenue)})</span></td>
+    <td class="py-2 text-center font-bold text-sm">${fmt.number(totalLeads)}</td>
+    <td class="py-2 text-center font-bold text-sm">${fmt.number(total.mqls)}</td>
+    <td class="py-2 text-center font-bold text-sm">${fmt.number(total.sqls)}</td>
+    <td class="py-2 text-center font-bold text-sm">${fmt.number(closeTotal.won)} <span class="font-normal text-as-muted">(${fmt.number(total.won)})</span></td>
+    <td class="py-2 text-center font-bold text-sm">${fmt.currency(closeTotal.wonRevenue)} <span class="font-normal text-as-muted">(${fmt.currency(total.wonRevenue)})</span></td>
   </tr>`;
   document.querySelector('#productTable tbody').innerHTML = html;
 }
@@ -1279,19 +1279,19 @@ function renderBreakdownTable(deals, closedDeals, tableId, keyFn) {
     const d = totals[k];
     return `<tr class="border-b border-as-border/40 hover-row">
       <td class="py-2 font-medium text-sm">${k}</td>
-      <td class="py-2 text-right text-as-secondary">${fmt.number(d.mqls)}</td>
-      <td class="py-2 text-right text-as-secondary">${fmt.number(d.sqls)}</td>
-      <td class="py-2 text-right text-as-secondary">${fmt.number(d.wonClose)} <span class="text-as-muted">(${fmt.number(d.won)})</span></td>
-      <td class="py-2 text-right font-semibold">${fmt.currency(d.wonRevClose)} <span class="text-as-muted font-normal">(${fmt.currency(d.wonRevenue)})</span></td>
+      <td class="py-2 text-center text-as-secondary">${fmt.number(d.mqls)}</td>
+      <td class="py-2 text-center text-as-secondary">${fmt.number(d.sqls)}</td>
+      <td class="py-2 text-center text-as-secondary">${fmt.number(d.wonClose)} <span class="text-as-muted">(${fmt.number(d.won)})</span></td>
+      <td class="py-2 text-center font-semibold">${fmt.currency(d.wonRevClose)} <span class="text-as-muted font-normal">(${fmt.currency(d.wonRevenue)})</span></td>
     </tr>`;
   }).join('');
   document.getElementById(`${tableId}Total`).innerHTML = `<table class="w-full">
     <tr class="border-t-2 border-as-border">
       <td class="py-2 font-bold text-sm">Total</td>
-      <td class="py-2 text-right font-bold text-sm">${fmt.number(sum.mqls)}</td>
-      <td class="py-2 text-right font-bold text-sm">${fmt.number(sum.sqls)}</td>
-      <td class="py-2 text-right font-bold text-sm">${fmt.number(sum.wonClose)} <span class="font-normal text-as-muted">(${fmt.number(sum.won)})</span></td>
-      <td class="py-2 text-right font-bold text-sm">${fmt.currency(sum.wonRevClose)} <span class="font-normal text-as-muted">(${fmt.currency(sum.wonRevenue)})</span></td>
+      <td class="py-2 text-center font-bold text-sm">${fmt.number(sum.mqls)}</td>
+      <td class="py-2 text-center font-bold text-sm">${fmt.number(sum.sqls)}</td>
+      <td class="py-2 text-center font-bold text-sm">${fmt.number(sum.wonClose)} <span class="font-normal text-as-muted">(${fmt.number(sum.won)})</span></td>
+      <td class="py-2 text-center font-bold text-sm">${fmt.currency(sum.wonRevClose)} <span class="font-normal text-as-muted">(${fmt.currency(sum.wonRevenue)})</span></td>
     </tr>
   </table>`;
 }
