@@ -1,19 +1,19 @@
 {
-  "updatedAt": "2026-02-20T08:18:37.613Z",
+  "updatedAt": "2026-02-20T08:48:54.602Z",
   "dateRange": {
     "start": "2025-11-17",
     "end": "2026-02-16"
   },
   "kpis": {
-    "totalLeads": 633,
-    "totalMQLs": 240,
-    "totalMQLsFromLeads": 145,
+    "totalLeads": 634,
+    "totalMQLs": 241,
+    "totalMQLsFromLeads": 146,
     "totalSQLs": 199,
     "totalSQLsFromLeads": 105,
     "totalWon": 70,
     "totalDealRevenue": 77716.84,
-    "totalStripeRevenue": 235322.18,
-    "totalAdsCost": 33318.21,
+    "totalStripeRevenue": 235352.18,
+    "totalAdsCost": 33345.96,
     "roas": 7.06
   },
   "monthly": [
@@ -268,36 +268,36 @@
     },
     {
       "month": "2026-02",
-      "adsCost": 4201,
-      "mmCost": 2036.9,
-      "hmCost": 2099.21,
-      "brandCost": 64.89,
-      "leads": 104,
-      "mqls": 51,
-      "mqlsFromLeads": 36,
+      "adsCost": 4228.75,
+      "mmCost": 2050.19,
+      "hmCost": 2113.63,
+      "brandCost": 64.93,
+      "leads": 105,
+      "mqls": 52,
+      "mqlsFromLeads": 37,
       "sqls": 44,
       "sqlsFromLeads": 30,
       "won": 10,
       "wonRevenue": 5363.5,
-      "mqlToSql": 86.3,
+      "mqlToSql": 84.6,
       "sqlToWon": 22.7,
-      "stripeRevenue": 47878.29,
+      "stripeRevenue": 47908.29,
       "stripeSeg": {
         "all.all.all": {
-          "count": 1294,
-          "revenue": 47878.29
+          "count": 1296,
+          "revenue": 47908.29
         },
         "all.prepaid.all": {
-          "count": 996,
-          "revenue": 30819.88
+          "count": 998,
+          "revenue": 30849.88
         },
         "all.prepaid.topup": {
-          "count": 293,
-          "revenue": 8817.05
+          "count": 294,
+          "revenue": 8832.05
         },
         "all.prepaid.job": {
-          "count": 703,
-          "revenue": 22002.83
+          "count": 704,
+          "revenue": 22017.83
         },
         "all.sub.all": {
           "count": 295,
@@ -312,20 +312,20 @@
           "revenue": 4314.37
         },
         "mm.all.all": {
-          "count": 1248,
-          "revenue": 38438.59
+          "count": 1250,
+          "revenue": 38468.59
         },
         "mm.prepaid.all": {
-          "count": 953,
-          "revenue": 21761.73
+          "count": 955,
+          "revenue": 21791.73
         },
         "mm.prepaid.topup": {
-          "count": 293,
-          "revenue": 8817.05
+          "count": 294,
+          "revenue": 8832.05
         },
         "mm.prepaid.job": {
-          "count": 660,
-          "revenue": 12944.68
+          "count": 661,
+          "revenue": 12959.68
         },
         "mm.sub.all": {
           "count": 295,
@@ -707,26 +707,26 @@
       },
       {
         "week": "2026-02-16",
-        "totalCost": 1008.43,
-        "mmCost": 619.91,
-        "hmCost": 371.09,
-        "brandCost": 17.43,
+        "totalCost": 1036.18,
+        "mmCost": 633.2,
+        "hmCost": 385.51,
+        "brandCost": 17.47,
         "byCountry": {
-          "NL": 458.45,
-          "DE": 546.87,
+          "NL": 471.78,
+          "DE": 561.29,
           "FR": 1.6,
           "IT": 1.51
         },
         "byProduct": {
-          "Brand": 17.43,
-          "Transcription": 991
+          "Brand": 17.47,
+          "Transcription": 1018.71
         },
         "byBU": {
           "Transcription": {
-            "totalCost": 1008.43,
-            "mmCost": 619.91,
-            "hmCost": 371.09,
-            "brandCost": 17.43
+            "totalCost": 1036.18,
+            "mmCost": 633.2,
+            "hmCost": 385.51,
+            "brandCost": 17.47
           }
         }
       }
@@ -1550,16 +1550,16 @@
       },
       {
         "week": "2026-02-16",
-        "leads": 28,
-        "mqls": 14,
-        "mqlsFromLeads": 13,
+        "leads": 29,
+        "mqls": 15,
+        "mqlsFromLeads": 14,
         "sqls": 13,
         "sqlsFromLeads": 12,
         "won": 1,
         "wonRevenue": 307.5,
         "byChannel": {
           "Unknown": {
-            "mqls": 3,
+            "mqls": 4,
             "sqls": 3,
             "won": 1,
             "wonRevenue": 307.5
@@ -1597,7 +1597,7 @@
             "wonRevenue": 307.5
           },
           "DE": {
-            "mqls": 6,
+            "mqls": 7,
             "sqls": 6,
             "won": 0,
             "wonRevenue": 0
@@ -4483,24 +4483,24 @@
       },
       {
         "week": "2026-02-16",
-        "totalRevenue": 10655.35,
-        "count": 301,
+        "totalRevenue": 10685.35,
+        "count": 303,
         "seg": {
           "all.all.all": {
-            "count": 301,
-            "revenue": 10655.35
+            "count": 303,
+            "revenue": 10685.35
           },
           "all.prepaid.all": {
-            "count": 249,
-            "revenue": 7929.94
+            "count": 251,
+            "revenue": 7959.94
           },
           "all.prepaid.topup": {
-            "count": 66,
-            "revenue": 1943.04
+            "count": 67,
+            "revenue": 1958.04
           },
           "all.prepaid.job": {
-            "count": 183,
-            "revenue": 5986.9
+            "count": 184,
+            "revenue": 6001.9
           },
           "all.sub.all": {
             "count": 51,
@@ -4515,20 +4515,20 @@
             "revenue": 877.37
           },
           "mm.all.all": {
-            "count": 288,
-            "revenue": 8008.69
+            "count": 290,
+            "revenue": 8038.69
           },
           "mm.prepaid.all": {
-            "count": 237,
-            "revenue": 5333.28
+            "count": 239,
+            "revenue": 5363.28
           },
           "mm.prepaid.topup": {
-            "count": 66,
-            "revenue": 1943.04
+            "count": 67,
+            "revenue": 1958.04
           },
           "mm.prepaid.job": {
-            "count": 171,
-            "revenue": 3390.24
+            "count": 172,
+            "revenue": 3405.24
           },
           "mm.sub.all": {
             "count": 51,
@@ -4553,8 +4553,8 @@
         },
         "byPlanType": {
           "Prepaid": {
-            "count": 249,
-            "revenue": 7929.94
+            "count": 251,
+            "revenue": 7959.94
           },
           "Subscription": {
             "count": 51,
@@ -4567,8 +4567,8 @@
         },
         "byProduct": {
           "Machine-Made": {
-            "count": 289,
-            "revenue": 8058.69
+            "count": 291,
+            "revenue": 8088.69
           },
           "Human-Made": {
             "count": 12,
@@ -4576,9 +4576,13 @@
           }
         },
         "byCountry": {
+          "DE": {
+            "count": 52,
+            "revenue": 1877.66
+          },
           "NL": {
-            "count": 103,
-            "revenue": 3755.29
+            "count": 104,
+            "revenue": 3770.29
           },
           "CA": {
             "count": 5,
@@ -4599,10 +4603,6 @@
           "US": {
             "count": 6,
             "revenue": 60
-          },
-          "DE": {
-            "count": 51,
-            "revenue": 1862.66
           },
           "BE": {
             "count": 8,
@@ -4647,8 +4647,8 @@
         },
         "byCurrency": {
           "EUR": {
-            "count": 255,
-            "revenue": 9222.95
+            "count": 257,
+            "revenue": 9252.95
           },
           "USD": {
             "count": 46,
@@ -4657,8 +4657,8 @@
         },
         "byChannel": {
           "Unknown": {
-            "count": 34,
-            "revenue": 1948.71
+            "count": 36,
+            "revenue": 1978.71
           },
           "Unassigned": {
             "count": 88,
@@ -8128,6 +8128,20 @@
       "status": "Open",
       "amount": 0,
       "formId": "RequestQuote-en_"
+    },
+    {
+      "week": "2026-02-16",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
+      "transcriptionStyle": "Clean-Verbatim",
+      "additionalOptions": "",
+      "country": "DE",
+      "channel": "Unknown",
+      "ownerName": "Harry Wiesner",
+      "lifecycleStage": "MQL",
+      "status": "Open",
+      "amount": 976,
+      "formId": "RequestQuote-de_59d5868525924de2987ff185ed1a1427"
     }
   ],
   "ga4Forms": [
@@ -8135,3744 +8149,5000 @@
       "week": "2025-11-24",
       "country": "BE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 2
     },
     {
       "week": "2025-11-24",
       "country": "BE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 2
     },
     {
       "week": "2025-11-24",
       "country": "DE",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 2
     },
     {
       "week": "2025-12-01",
       "country": "NL",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 2
     },
     {
       "week": "2025-12-15",
       "country": "MX",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 2
     },
     {
       "week": "2025-12-15",
       "country": "US",
       "channel": "Organic Search",
+      "product": "Translated Subtitles",
+      "bu": "Media",
       "count": 2
     },
     {
       "week": "2025-12-29",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 2
     },
     {
       "week": "2026-01-05",
       "country": "NL",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 2
     },
     {
       "week": "2026-01-19",
       "country": "BE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 2
     },
     {
       "week": "2025-11-17",
       "country": "AT",
       "channel": "Referral",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-17",
       "country": "EC",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-17",
       "country": "FR",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-17",
       "country": "KE",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-17",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-17",
       "country": "US",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "AT",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "BE",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "CH",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "CH",
       "channel": "Referral",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "DE",
       "channel": "Referral",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "DE",
       "channel": "Referral",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "DE",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "DE",
       "channel": "Referral",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "DK",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "ES",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "ES",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "FI",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "FR",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "GB",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "ID",
       "channel": "Organic Video",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "IT",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "IT",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "LI",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "NC",
       "channel": "Referral",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "NL",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "NL",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "NL",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "NL",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "NL",
       "channel": "Direct",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "NL",
       "channel": "Direct",
+      "product": "Machine-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "NL",
       "channel": "Organic Search",
+      "product": "Speech-to-Text API",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "NL",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "NL",
       "channel": "Direct",
+      "product": "Machine-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "NL",
       "channel": "Direct",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "NL",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "NL",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "NL",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "NL",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "NL",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "PH",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "PH",
       "channel": "Paid Search",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Speech-to-Text API",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "PH",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "PH",
       "channel": "Direct",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "SE",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "SE",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-11-24",
       "country": "US",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "BE",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "BR",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "CI",
       "channel": "Organic Search",
+      "product": "Speech-to-Text API",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "DE",
       "channel": "Affiliates",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "DE",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "DE",
       "channel": "Referral",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "DE",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "DE",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "DE",
       "channel": "Affiliates",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "DE",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "DE",
       "channel": "Referral",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "DE",
       "channel": "Referral",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "DE",
       "channel": "Referral",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "DE",
       "channel": "Referral",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "DE",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "DE",
       "channel": "Referral",
+      "product": "Machine-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "ES",
       "channel": "Referral",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "ES",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "FI",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "FR",
       "channel": "Organic Search",
+      "product": "Machine-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "IT",
       "channel": "Organic Search",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "NL",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "NL",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Speech-to-Text API",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "NL",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "NL",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "NL",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "NL",
       "channel": "Organic Social",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "NL",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "PE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Speech-to-Text API",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "PH",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "PH",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Machine-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-01",
       "country": "US",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "AT",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "CA",
       "channel": "Organic Search",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "DE",
       "channel": "Unassigned",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "DE",
       "channel": "Direct",
+      "product": "Machine-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "DE",
       "channel": "Direct",
+      "product": "Translated Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "DE",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "DE",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "DE",
       "channel": "Referral",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "DE",
       "channel": "Email",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "DE",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "DE",
       "channel": "Direct",
+      "product": "Machine-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "DE",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "DE",
       "channel": "Direct",
+      "product": "Translated Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "DE",
       "channel": "Referral",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "DE",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "DE",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "DE",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "DE",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "EC",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "ES",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "ES",
       "channel": "Direct",
+      "product": "Machine-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "ES",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "ET",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "FR",
       "channel": "Organic Search",
+      "product": "Speech-to-Text API",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "FR",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "FR",
       "channel": "Organic Search",
+      "product": "Speech-to-Text API",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "GB",
       "channel": "Direct",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "GB",
       "channel": "Organic Search",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "GB",
       "channel": "Direct",
+      "product": "Translated Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "IL",
       "channel": "Organic Search",
+      "product": "Speech-to-Text API",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "IN",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "IN",
       "channel": "Organic Search",
+      "product": "Translated Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "IN",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "IR",
       "channel": "Organic Search",
+      "product": "Speech-to-Text API",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "IT",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "IT",
       "channel": "Organic Search",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "NL",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "NL",
       "channel": "Direct",
+      "product": "Translated Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "NL",
       "channel": "Organic Search",
+      "product": "Translated Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "NL",
       "channel": "Direct",
+      "product": "Speech-to-Text API",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "NL",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "NL",
       "channel": "Organic Search",
+      "product": "Translated Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "NL",
       "channel": "Direct",
+      "product": "Other",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "NL",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "NL",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "NL",
       "channel": "Direct",
+      "product": "Speech-to-Text API",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "NL",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "NL",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "NL",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "NL",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "NL",
       "channel": "Direct",
+      "product": "Speech-to-Text API",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "NL",
       "channel": "Direct",
+      "product": "Machine-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "NL",
       "channel": "Direct",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "NL",
       "channel": "Organic Search",
+      "product": "Translated Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "NL",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "PH",
       "channel": "Direct",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "PK",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "SA",
       "channel": "Direct",
+      "product": "Machine-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "SA",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "SA",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "TR",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-08",
       "country": "ZM",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "AT",
       "channel": "Referral",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "AT",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "DE",
       "channel": "Referral",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "DE",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "DE",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "DE",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "DE",
       "channel": "Referral",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "DE",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "DE",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "FR",
       "channel": "Paid Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "ID",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "ID",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "ID",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "ID",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "IN",
       "channel": "Organic Search",
+      "product": "Translated Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "IN",
       "channel": "Organic Search",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "IN",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "IN",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "IN",
       "channel": "Organic Search",
+      "product": "Other",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "IN",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "IQ",
       "channel": "Organic Search",
+      "product": "Speech-to-Text API",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "KR",
       "channel": "Referral",
+      "product": "Speech-to-Text API",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "MA",
       "channel": "Direct",
+      "product": "Speech-to-Text API",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Speech-to-Text API",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "NL",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "NL",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "NL",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "NL",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "NL",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "NL",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "NL",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "NL",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "NL",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "NL",
       "channel": "Direct",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "NL",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "NL",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "NL",
       "channel": "Direct",
+      "product": "Other",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "NL",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "NL",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Speech-to-Text API",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Speech-to-Text API",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "PH",
       "channel": "Direct",
+      "product": "Machine-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "RO",
       "channel": "Organic Social",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-15",
       "country": "US",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-22",
       "country": "BE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-22",
       "country": "CL",
       "channel": "Organic Search",
+      "product": "Translated Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-22",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-22",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-22",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-22",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-22",
       "country": "FR",
       "channel": "Unassigned",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-22",
       "country": "IL",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-22",
       "country": "IN",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-22",
       "country": "IN",
       "channel": "Organic Search",
+      "product": "Machine-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-22",
       "country": "IN",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-22",
       "country": "NL",
       "channel": "Organic Search",
+      "product": "Speech-to-Text API",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-22",
       "country": "NL",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-22",
       "country": "NL",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-22",
       "country": "NL",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-22",
       "country": "NL",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-22",
       "country": "PE",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-22",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-22",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Translated Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-22",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-22",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-22",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-22",
       "country": "TN",
       "channel": "Direct",
+      "product": "Translated Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-29",
       "country": "AT",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-29",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-29",
       "country": "DE",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-29",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-29",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-29",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-29",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-29",
       "country": "ES",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-29",
       "country": "IN",
       "channel": "Organic Search",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-29",
       "country": "IN",
       "channel": "Referral",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-29",
       "country": "IN",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-29",
       "country": "IN",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-29",
       "country": "IN",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-29",
       "country": "IN",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-29",
       "country": "IN",
       "channel": "Organic Search",
+      "product": "Machine-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-29",
       "country": "IN",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-29",
       "country": "MG",
       "channel": "Organic Search",
+      "product": "Machine-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-29",
       "country": "MX",
       "channel": "Organic Search",
+      "product": "Translated Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-29",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-29",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-29",
       "country": "NL",
       "channel": "Direct",
+      "product": "Speech-to-Text API",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-29",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Speech-to-Text API",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-29",
       "country": "NL",
       "channel": "Direct",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-29",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-29",
       "country": "PH",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-29",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Speech-to-Text API",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-29",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Machine-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2025-12-29",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-29",
       "country": "PK",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-29",
       "country": "SI",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-29",
       "country": "US",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-29",
       "country": "US",
       "channel": "Referral",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2025-12-29",
       "country": "VE",
       "channel": "Referral",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "AT",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "BE",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "BE",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "CA",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "CO",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "DE",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "DE",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "DE",
       "channel": "Referral",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "DE",
       "channel": "Referral",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "DE",
       "channel": "Organic Search",
+      "product": "Speech-to-Text API",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "DE",
       "channel": "Organic Search",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "DE",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "DE",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "DK",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "ES",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "ES",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "ES",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "GB",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "IN",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "IN",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "IT",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "IT",
       "channel": "Organic Search",
+      "product": "Machine-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "MA",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "NL",
       "channel": "Organic Search",
+      "product": "Speech-to-Text API",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "NL",
       "channel": "Referral",
+      "product": "Speech-to-Text API",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "NL",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "NL",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "NL",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "NL",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "NL",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "NL",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "PH",
       "channel": "Direct",
+      "product": "Machine-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "PH",
       "channel": "Direct",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "SE",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "TR",
       "channel": "Organic Search",
+      "product": "Translated Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "US",
       "channel": "Organic Search",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "US",
       "channel": "Organic Search",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-01-05",
       "country": "US",
       "channel": "Organic Search",
+      "product": "Translated Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "AT",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "AT",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "BE",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "BE",
       "channel": "Organic Search",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "BE",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "DE",
       "channel": "Referral",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Translated Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "DE",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "DE",
       "channel": "Referral",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "DE",
       "channel": "Referral",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "DE",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Speech-to-Text API",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "DE",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "FR",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "FR",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "FR",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "FR",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "IN",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "IN",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "IN",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "IN",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "IN",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "IN",
       "channel": "Organic Search",
+      "product": "Translated Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "IN",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "IN",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "IT",
       "channel": "Paid Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "IT",
       "channel": "Unassigned",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "IT",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "MX",
       "channel": "Direct",
+      "product": "Machine-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "MX",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "NL",
       "channel": "Direct",
+      "product": "Machine-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "NL",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "NL",
       "channel": "Direct",
+      "product": "Speech-to-Text API",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "NL",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "NL",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "NL",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "NL",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "NL",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "NL",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "NL",
       "channel": "Direct",
+      "product": "Speech-to-Text API",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "NL",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "NL",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "NL",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "NL",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "NL",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-01-12",
       "country": "ZA",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "AT",
       "channel": "Paid Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "AT",
       "channel": "Organic Search",
+      "product": "Other",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "BE",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "BE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "BE",
       "channel": "Paid Search",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "BR",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "CH",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "DE",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "DE",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "DE",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "DE",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "ES",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "ES",
       "channel": "Organic Video",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "GH",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "IN",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "IN",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "IN",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "MQ",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "NL",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "NL",
       "channel": "Organic Search",
+      "product": "Speech-to-Text API",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "NL",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "NL",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "NL",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Translated Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "SE",
       "channel": "Organic Search",
+      "product": "Speech-to-Text API",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-19",
       "country": "ZA",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "CH",
       "channel": "Organic Search",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "DE",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "DE",
       "channel": "Email",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "DE",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "DE",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "DE",
       "channel": "Referral",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "DE",
       "channel": "Organic Search",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "DE",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "DE",
       "channel": "Referral",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "DE",
       "channel": "Direct",
+      "product": "Machine-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "DE",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "DE",
       "channel": "Referral",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "DE",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Machine-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "DE",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "FR",
       "channel": "Paid Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "FR",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "ID",
       "channel": "Organic Search",
+      "product": "Translated Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "IR",
       "channel": "Direct",
+      "product": "Speech-to-Text API",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "IT",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "MX",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "MX",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "NL",
       "channel": "Organic Search",
+      "product": "Speech-to-Text API",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "NL",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "NL",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "NL",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "NL",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "NL",
       "channel": "Organic Search",
+      "product": "Translated Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "NL",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "NL",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "NL",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "NL",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "NL",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "NL",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "NL",
       "channel": "Direct",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "US",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-01-26",
       "country": "VG",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-02",
       "country": "BE",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-02",
       "country": "CH",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-02",
       "country": "CH",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-02",
       "country": "CH",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-02",
       "country": "CM",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-02",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-02",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-02",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-02",
       "country": "DE",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-02",
       "country": "DE",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-02",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-02",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-02",
       "country": "DE",
       "channel": "Referral",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-02",
       "country": "DE",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-02",
       "country": "DE",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-02",
       "country": "DE",
       "channel": "Referral",
+      "product": "Speech-to-Text API",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-02",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-02",
       "country": "DZ",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-02",
       "country": "ES",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-02",
       "country": "ES",
       "channel": "Email",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-02",
       "country": "ES",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-02",
       "country": "ID",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-02",
       "country": "IN",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-02",
       "country": "LY",
       "channel": "Direct",
+      "product": "Machine-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-02-02",
       "country": "MG",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-02",
       "country": "NL",
       "channel": "Direct",
+      "product": "Machine-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-02-02",
       "country": "NL",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-02",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-02",
       "country": "NL",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-02",
       "country": "NL",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-02",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-02",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-02",
       "country": "NL",
       "channel": "Direct",
+      "product": "Machine-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-02-02",
       "country": "NL",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-02",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-02",
       "country": "PL",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-02",
       "country": "SK",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "AT",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "AT",
       "channel": "Affiliates",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "BE",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "BE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "BR",
       "channel": "Direct",
+      "product": "Machine-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "CH",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "CH",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "CH",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "CH",
       "channel": "Organic Search",
+      "product": "Translated Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "DE",
       "channel": "Referral",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "DE",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "DE",
       "channel": "Referral",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "DE",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "FR",
       "channel": "Direct",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "IN",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "NL",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "NL",
       "channel": "Referral",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "NL",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "NL",
       "channel": "Referral",
+      "product": "Speech-to-Text API",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "NL",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "PH",
       "channel": "Direct",
+      "product": "Translated Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "US",
       "channel": "Direct",
+      "product": "Translated Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-02-09",
       "country": "US",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-16",
       "country": "AT",
       "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-16",
       "country": "AT",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-16",
       "country": "BE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-16",
       "country": "CH",
       "channel": "Paid Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-16",
       "country": "CH",
       "channel": "Referral",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-16",
       "country": "CO",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-16",
       "country": "CO",
       "channel": "Organic Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-16",
       "country": "DE",
       "channel": "Referral",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-16",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-16",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-16",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-16",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-16",
       "country": "DE",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-16",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-16",
       "country": "DE",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-16",
       "country": "ES",
       "channel": "Organic Search",
+      "product": "Other",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-16",
       "country": "ID",
       "channel": "Paid Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-16",
       "country": "NL",
       "channel": "Direct",
+      "product": "Translated Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-02-16",
       "country": "NL",
       "channel": "Affiliates",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-16",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-16",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-16",
       "country": "NL",
       "channel": "Cross-network",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
+      "count": 1
+    },
+    {
+      "week": "2026-02-16",
+      "country": "NL",
+      "channel": "Direct",
+      "product": "Machine-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-16",
       "country": "NL",
       "channel": "Organic Search",
+      "product": "Human-Made Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-02-16",
       "country": "NL",
       "channel": "Paid Search",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-16",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Translated Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-02-16",
       "country": "PH",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     },
     {
       "week": "2026-02-16",
       "country": "PH",
       "channel": "Organic Search",
+      "product": "Translated Subtitles",
+      "bu": "Media",
       "count": 1
     },
     {
       "week": "2026-02-16",
       "country": "US",
       "channel": "Direct",
+      "product": "Human-Made Transcription",
+      "bu": "Transcription",
       "count": 1
     }
   ]
