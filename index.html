@@ -362,6 +362,7 @@
             <span class="summary-header">By Deal Owner</span>
             <div class="overflow-x-auto mt-3 flex-1">
               <table id="ownerTable" class="w-full">
+                <colgroup><col><col style="width:14%"><col style="width:14%"><col style="width:20%"><col style="width:26%"></colgroup>
                 <thead class="text-left border-b border-as-border">
                   <tr>
                     <th class="pb-2">Owner</th>
@@ -374,12 +375,13 @@
                 <tbody></tbody>
               </table>
             </div>
-            <div id="ownerTableTotal" class="overflow-x-auto"></div>
+            <div id="ownerTableTotal" class="overflow-x-auto mt-auto"></div>
           </div>
           <div class="card flex flex-col">
             <span class="summary-header">By Country</span>
             <div class="overflow-x-auto mt-3 flex-1">
               <table id="geoTable" class="w-full">
+                <colgroup><col><col style="width:14%"><col style="width:14%"><col style="width:20%"><col style="width:26%"></colgroup>
                 <thead class="text-left border-b border-as-border">
                   <tr>
                     <th class="pb-2">Country</th>
@@ -392,7 +394,7 @@
                 <tbody></tbody>
               </table>
             </div>
-            <div id="geoTableTotal" class="overflow-x-auto"></div>
+            <div id="geoTableTotal" class="overflow-x-auto mt-auto"></div>
           </div>
         </div>
       </div>
@@ -1307,8 +1309,11 @@ function renderBreakdownTable(deals, closedDeals, tableId, keyFn) {
     <td class="py-2 text-right font-bold text-sm">${fmt.currency(sum.wonRevClose)} <span class="font-normal text-as-muted">(${fmt.currency(sum.wonRevenue)})</span></td>
   </tr>`;
 
-  document.querySelector(`#${tableId} tbody`).innerHTML = rows + showMore + totalRow;
-  document.getElementById(`${tableId}Total`).innerHTML = '';
+  document.querySelector(`#${tableId} tbody`).innerHTML = rows + showMore;
+  document.getElementById(`${tableId}Total`).innerHTML = `<table class="w-full">
+    <colgroup><col><col style="width:14%"><col style="width:14%"><col style="width:20%"><col style="width:26%"></colgroup>
+    ${totalRow}
+  </table>`;
 }
 
 function toggleGeoShowMore() {
