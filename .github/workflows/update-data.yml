@@ -64,4 +64,4 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 'data: daily update'
-          file_pattern: 'data.json raw/*.json'
+          file_pattern: data.json
