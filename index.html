@@ -286,23 +286,6 @@
       <div class="mb-10">
         <h3 class="sub-title">Inbound</h3>
 
-        <!-- Inbound Summary -->
-        <section class="card mb-6">
-          <div class="flex items-center justify-between mb-4">
-            <span class="summary-header">Summary</span>
-            <div class="flex" id="inboundSummaryToggle">
-              <button class="toggle-btn active" data-view="monthly" onclick="toggleInboundSummary('monthly')">Monthly</button>
-              <button class="toggle-btn" data-view="weekly" onclick="toggleInboundSummary('weekly')">Weekly</button>
-            </div>
-          </div>
-          <div class="overflow-x-auto">
-            <table class="w-full">
-              <thead class="text-left border-b border-as-border"><tr id="inboundSummaryHead"></tr></thead>
-              <tbody id="inboundSummaryBody"></tbody>
-            </table>
-          </div>
-        </section>
-
         <!-- Filters -->
         <div class="flex flex-wrap items-center gap-2 mb-5" id="inboundFilters">
           <select id="inbProductFilter" class="filter-select" onchange="onInboundFilterChange()">
@@ -319,6 +302,23 @@
             <option value="DACH">DACH (DE+AT+CH)</option>
           </select>
         </div>
+
+        <!-- Inbound Summary -->
+        <section class="card mb-6">
+          <div class="flex items-center justify-between mb-4">
+            <span class="summary-header">Summary</span>
+            <div class="flex" id="inboundSummaryToggle">
+              <button class="toggle-btn active" data-view="monthly" onclick="toggleInboundSummary('monthly')">Monthly</button>
+              <button class="toggle-btn" data-view="weekly" onclick="toggleInboundSummary('weekly')">Weekly</button>
+            </div>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full">
+              <thead class="text-left border-b border-as-border"><tr id="inboundSummaryHead"></tr></thead>
+              <tbody id="inboundSummaryBody"></tbody>
+            </table>
+          </div>
+        </section>
 
         <!-- KPIs -->
         <div id="inboundKPIs" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-6"></div>
@@ -688,8 +688,6 @@ function renderInboundSummary(weeks) {
   const bu = getCurrentBU();
   const head = document.getElementById('inboundSummaryHead');
   const body = document.getElementById('inboundSummaryBody');
-  const allDeals = DATA.deals || [];
-  const allForms = DATA.ga4Forms || [];
   const ads = filterByWeeks(DATA.weekly.ads, weeks);
   const adsMap = Object.fromEntries(ads.map(r => [r.week, r]));
 
@@ -703,35 +701,37 @@ function renderInboundSummary(weeks) {
     return cost;
   }
 
+  // Use the same filters as the rest of the inbound section
   function computeFunnel(weekList) {
     const ws = new Set(weekList);
-    const deals = allDeals.filter(d => ws.has(d.week) && d.bu === bu);
-    const forms = allForms.filter(f => ws.has(f.week) && (!f.bu || f.bu === bu));
+    const deals = getFilteredDeals(ws);
+    const forms = getFilteredForms(ws);
     const leads = forms.reduce((s, r) => s + r.count, 0);
     const mqls = deals.length;
     const mqlsFL = deals.filter(d => d.formId).length;
     const sqls = deals.filter(d => ['SQL', 'Customer'].includes(d.lifecycleStage)).length;
-    const sqlsFL = deals.filter(d => d.formId && ['SQL', 'Customer'].includes(d.lifecycleStage)).length;
     const won = deals.filter(d => d.status === 'Won').length;
     const wonRev = deals.filter(d => d.status === 'Won').reduce((s, d) => s + (d.amount || 0), 0);
-    return { leads, mqls, mqlsFL, sqls, sqlsFL, won, wonRev };
+    return { leads, mqls, mqlsFL, sqls, won, wonRev };
+  }
+
+  function mqlCell(mqls, mqlsFL) {
+    return `${fmt.number(mqls)} <span class="text-as-muted">(${fmt.number(mqlsFL)})</span>`;
   }
 
   if (inboundSummaryView === 'monthly') {
     const allMonths = [...new Set(weeks.map(w => w.slice(0, 7)))].sort();
     head.innerHTML = `
       <th class="pb-2">Month</th>
-      <th class="pb-2 text-right">HM Spend</th>
+      <th class="pb-2 text-right">Spend</th>
       <th class="pb-2 text-right">Leads</th>
       <th class="pb-2 text-right">MQLs</th>
-      <th class="pb-2 text-right">from Leads</th>
-      <th class="pb-2 text-right">SQLs</th>
-      <th class="pb-2 text-right">from Leads</th>
-      <th class="pb-2 text-right">Won</th>
-      <th class="pb-2 text-right">Revenue</th>
       <th class="pb-2 text-right">L&gt;MQL</th>
+      <th class="pb-2 text-right">SQLs</th>
       <th class="pb-2 text-right">MQL&gt;SQL</th>
+      <th class="pb-2 text-right">Won</th>
       <th class="pb-2 text-right">SQL&gt;Won</th>
+      <th class="pb-2 text-right">Revenue</th>
     `;
     body.innerHTML = allMonths.map(month => {
       const monthWeeks = weeks.filter(w => w.slice(0, 7) === month);
@@ -744,41 +744,44 @@ function renderInboundSummary(weeks) {
         <td class="py-2.5 font-semibold text-sm">${fmt.monthLabel(month)}</td>
         <td class="py-2.5 text-right text-as-secondary">${fmt.currency(hmCost)}</td>
         <td class="py-2.5 text-right text-as-secondary">${fmt.number(f.leads)}</td>
-        <td class="py-2.5 text-right text-as-secondary">${fmt.number(f.mqls)}</td>
-        <td class="py-2.5 text-right text-as-muted">${fmt.number(f.mqlsFL)}</td>
+        <td class="py-2.5 text-right text-as-secondary">${mqlCell(f.mqls, f.mqlsFL)}</td>
+        <td class="py-2.5 text-right text-as-muted">${l2m}</td>
         <td class="py-2.5 text-right text-as-secondary">${fmt.number(f.sqls)}</td>
-        <td class="py-2.5 text-right text-as-muted">${fmt.number(f.sqlsFL)}</td>
+        <td class="py-2.5 text-right text-as-muted">${m2s}</td>
         <td class="py-2.5 text-right text-as-secondary">${fmt.number(f.won)}</td>
+        <td class="py-2.5 text-right text-as-muted">${s2w}</td>
         <td class="py-2.5 text-right font-semibold">${fmt.currency(f.wonRev)}</td>
-        <td class="py-2.5 text-right text-as-secondary">${l2m}</td>
-        <td class="py-2.5 text-right text-as-secondary">${m2s}</td>
-        <td class="py-2.5 text-right text-as-secondary">${s2w}</td>
       </tr>`;
     }).join('');
   } else {
     head.innerHTML = `
       <th class="pb-2">Week</th>
-      <th class="pb-2 text-right">HM Spend</th>
+      <th class="pb-2 text-right">Spend</th>
       <th class="pb-2 text-right">Leads</th>
       <th class="pb-2 text-right">MQLs</th>
-      <th class="pb-2 text-right">from Leads</th>
+      <th class="pb-2 text-right">L&gt;MQL</th>
       <th class="pb-2 text-right">SQLs</th>
-      <th class="pb-2 text-right">from Leads</th>
+      <th class="pb-2 text-right">MQL&gt;SQL</th>
       <th class="pb-2 text-right">Won</th>
+      <th class="pb-2 text-right">SQL&gt;Won</th>
       <th class="pb-2 text-right">Revenue</th>
     `;
     body.innerHTML = weeks.map(w => {
       const hmCost = getHmCost([w]);
       const f = computeFunnel([w]);
+      const l2m = f.leads > 0 ? (f.mqlsFL / f.leads * 100).toFixed(1) + '%' : '-';
+      const m2s = f.mqls > 0 ? (f.sqls / f.mqls * 100).toFixed(1) + '%' : '-';
+      const s2w = f.sqls > 0 ? (f.won / f.sqls * 100).toFixed(1) + '%' : '-';
       return `<tr class="border-b border-as-border/40 hover-row">
         <td class="py-2.5 font-semibold text-sm">${fmt.shortDate(w)}</td>
         <td class="py-2.5 text-right text-as-secondary">${fmt.currency(hmCost)}</td>
         <td class="py-2.5 text-right text-as-secondary">${fmt.number(f.leads)}</td>
-        <td class="py-2.5 text-right text-as-secondary">${fmt.number(f.mqls)}</td>
-        <td class="py-2.5 text-right text-as-muted">${fmt.number(f.mqlsFL)}</td>
+        <td class="py-2.5 text-right text-as-secondary">${mqlCell(f.mqls, f.mqlsFL)}</td>
+        <td class="py-2.5 text-right text-as-muted">${l2m}</td>
         <td class="py-2.5 text-right text-as-secondary">${fmt.number(f.sqls)}</td>
-        <td class="py-2.5 text-right text-as-muted">${fmt.number(f.sqlsFL)}</td>
+        <td class="py-2.5 text-right text-as-muted">${m2s}</td>
         <td class="py-2.5 text-right text-as-secondary">${fmt.number(f.won)}</td>
+        <td class="py-2.5 text-right text-as-muted">${s2w}</td>
         <td class="py-2.5 text-right font-semibold">${fmt.currency(f.wonRev)}</td>
       </tr>`;
     }).join('');
@@ -986,7 +989,9 @@ function onInboundFilterChange() {
     optionsEl.value = 'all';
   }
 
-  renderInbound(getFilteredWeeks());
+  const weeks = getFilteredWeeks();
+  renderInboundSummary(weeks);
+  renderInbound(weeks);
 }
 
 function getFilteredDeals(weekSet) {
