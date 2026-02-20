@@ -1170,7 +1170,7 @@ function renderProductTable(deals, closedDeals, forms) {
     const cls = size === 'sm' ? 'text-sm' : 'text-xs';
     const aov = ct.won > 0 ? fmt.currency(Math.round(ct.wonRevenue / ct.won)) : '-';
     return `
-      <td class="py-1.5 text-center text-as-secondary ${cls}">${fmt.number(leads)}</td>
+      <td class="py-1.5 text-center text-as-secondary ${cls}">${typeof leads === 'number' ? fmt.number(leads) : '-'}</td>
       <td class="py-1.5 text-center text-as-secondary ${cls}">${fmt.number(t.mqls)}</td>
       <td class="py-1.5 text-center text-as-secondary ${cls}">${fmt.number(t.sqls)}</td>
       <td class="py-1.5 text-center text-as-secondary ${cls}">${fmt.number(ct.won)}</td>
