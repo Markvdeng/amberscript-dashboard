@@ -710,7 +710,9 @@ function toggleSelfServeSummary(view) {
   document.querySelectorAll('#selfServeSummaryToggle .toggle-btn').forEach(b => {
     b.classList.toggle('active', b.dataset.view === view);
   });
-  renderSelfServeSummary(getFilteredWeeks());
+  const weeks = getFilteredWeeks();
+  renderSelfServeSummary(weeks);
+  renderSelfServe(weeks);
 }
 
 // ===== KPI CARD HELPER =====
@@ -918,15 +920,29 @@ function renderSelfServe(weeks) {
     { label: 'New Subscriptions', value: fmt.number(newSubs), color: '#7B1FA2' },
   ].map(k => kpiCard(k.label, k.value, k.color)).join('');
 
-  // Revenue trend chart
+  // Revenue trend chart - follows monthly/weekly toggle
+  let chartLabels, chartData;
+  if (selfServeSummaryView === 'monthly') {
+    const allMonths = [...new Set(weeks.map(w => w.slice(0, 7)))].sort();
+    chartLabels = allMonths.map(m => fmt.monthLabel(m));
+    chartData = allMonths.map(month => {
+      const monthWeeks = weeks.filter(w => w.slice(0, 7) === month);
+      const monthStripe = filterByWeeks(DATA.weekly.stripe, monthWeeks);
+      return monthStripe.reduce((s, r) => s + (r.seg?.[segKey] || { revenue: 0 }).revenue, 0);
+    });
+  } else {
+    chartLabels = stripe.map(r => fmt.shortDate(r.week));
+    chartData = stripe.map(r => (r.seg?.[segKey] || { revenue: 0 }).revenue);
+  }
+
   destroyChart('selfServeRevenueChart');
   charts.selfServeRevenueChart = new Chart(document.getElementById('selfServeRevenueChart'), {
     type: 'bar',
     data: {
-      labels: stripe.map(r => fmt.shortDate(r.week)),
+      labels: chartLabels,
       datasets: [{
         label: 'Revenue',
-        data: stripe.map(r => (r.seg?.[segKey] || { revenue: 0 }).revenue),
+        data: chartData,
         backgroundColor: 'rgba(26,123,107,0.15)',
         borderColor: '#1A7B6B',
         borderWidth: 1.5,
