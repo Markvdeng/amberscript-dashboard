@@ -86,7 +86,6 @@ export const GOOGLE_ADS_ACCOUNTS = {
   'FR': '1161689617',
   'WW': '5291727311',
   'IT': '4116625392',
-  'AmberNotes': '6307359695',
 };
 
 export const GOOGLE_ADS_MCC = '2439612811';

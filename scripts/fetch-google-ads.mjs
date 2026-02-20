@@ -1,15 +1,18 @@
 /**
  * Fetch Google Ads cost data for all Amberscript accounts.
- * Uses REST API v19 with OAuth refresh token flow.
+ * Only fetches: campaign name + cost, segmented by week.
+ * Parses campaign name for: country, product, user type (Machine-Made/Human-Made).
+ *
+ * Campaign naming convention:
+ *   {Country}_{lang}_SEA_{NB|Brand}_{Product}_{Quality}_{Light|Heavy}_(GA)
+ *   e.g. NL_(nl)_SEA_NB_Transcription_Automatic_Light_(GA)
+ *
  * Outputs: raw/google-ads.json
  */
 
 import {
   GOOGLE_ADS_ACCOUNTS,
-  GOOGLE_ADS_MCC,
   getDateRange,
-  getWeekStart,
-  getProductType,
   saveRaw,
   retry,
 } from './utils.mjs';
@@ -21,8 +24,10 @@ const {
   GOOGLE_ADS_REFRESH_TOKEN,
 } = process.env;
 
+const LOGIN_CUSTOMER_ID = '7738847492';
+
 if (!GOOGLE_ADS_DEVELOPER_TOKEN || !GOOGLE_ADS_REFRESH_TOKEN) {
-  console.error('Missing Google Ads credentials. Set GOOGLE_ADS_DEVELOPER_TOKEN, GOOGLE_ADS_CLIENT_ID, GOOGLE_ADS_CLIENT_SECRET, GOOGLE_ADS_REFRESH_TOKEN');
+  console.error('Missing Google Ads credentials');
   process.exit(1);
 }
 
@@ -38,28 +43,23 @@ async function getAccessToken() {
     }),
   });
   if (!res.ok) throw new Error(`OAuth failed: ${res.status} ${await res.text()}`);
-  const data = await res.json();
-  return data.access_token;
+  return (await res.json()).access_token;
 }
 
 async function queryGoogleAds(accessToken, customerId, query) {
-  const url = `https://googleads.googleapis.com/v19/customers/${customerId}/googleAds:searchStream`;
+  const url = `https://googleads.googleapis.com/v23/customers/${customerId}/googleAds:searchStream`;
   const res = await fetch(url, {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${accessToken}`,
       'developer-token': GOOGLE_ADS_DEVELOPER_TOKEN,
-      'login-customer-id': GOOGLE_ADS_MCC,
+      'login-customer-id': LOGIN_CUSTOMER_ID,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({ query }),
   });
-  if (!res.ok) {
-    const text = await res.text();
-    throw new Error(`Google Ads API error (${customerId}): ${res.status} ${text}`);
-  }
+  if (!res.ok) throw new Error(`Google Ads API error (${customerId}): ${res.status} ${await res.text()}`);
   const results = await res.json();
-  // searchStream returns array of batches
   const rows = [];
   for (const batch of results) {
     if (batch.results) rows.push(...batch.results);
@@ -67,8 +67,47 @@ async function queryGoogleAds(accessToken, customerId, query) {
   return rows;
 }
 
+/**
+ * Parse campaign name into structured dimensions.
+ *
+ * Examples:
+ *   NL_(nl)_SEA_NB_Transcription_Automatic_Light_(GA) → { country: NL, product: Transcription, userType: Machine-Made, campaignType: NB }
+ *   DE_(de)_SEA_Brand_Amberscript_(GA)                → { country: DE, product: Brand, userType: Brand, campaignType: Brand }
+ *   EU_(en)_SEA_NB_AI Meeting Notes_(GA)              → { country: EU, product: AI Meeting Notes, userType: Other, campaignType: NB }
+ */
+function parseCampaignName(name) {
+  const country = (name || '').slice(0, 2).toUpperCase();
+
+  // Detect Brand
+  if (/_Brand_/i.test(name)) {
+    return { country, product: 'Brand', userType: 'Brand', campaignType: 'Brand' };
+  }
+
+  // Detect user type from Light/Heavy in campaign name
+  let userType = 'Other';
+  if (/_Light[_( ]/i.test(name)) userType = 'Machine-Made';
+  if (/_Heavy[_( ]/i.test(name)) userType = 'Human-Made';
+
+  // Extract product from the NB_ part
+  // Pattern: _NB_{Product}_{Quality}_{Weight}_\(GA\)
+  // Also handles DGN_ prefix: DE_(de)_DGN_NB_Subtitles_Manual_Heavy_(GA)
+  const nbMatch = name.match(/_NB_(.+?)_\(GA\)/);
+  let product = 'Other';
+  if (nbMatch) {
+    // Remove experiment comments (after //)
+    let raw = nbMatch[1].split('//')[0].trim();
+    // Remove quality/weight suffixes
+    raw = raw.replace(/_(Automatic|Manual|Light|Heavy)/gi, '');
+    // Remove trailing underscores and spaces
+    raw = raw.replace(/[_ ]+$/, '');
+    product = raw || 'Other';
+  }
+
+  return { country, product, userType, campaignType: 'NB' };
+}
+
 async function main() {
-  const { start, end } = getDateRange(365);
+  const { start, end } = getDateRange();
   console.log(`Fetching Google Ads data: ${start} to ${end}`);
 
   const accessToken = await getAccessToken();
@@ -78,11 +117,7 @@ async function main() {
     SELECT
       campaign.name,
       segments.week,
-      metrics.cost_micros,
-      metrics.clicks,
-      metrics.impressions,
-      metrics.conversions,
-      metrics.conversions_value
+      metrics.cost_micros
     FROM campaign
     WHERE segments.date BETWEEN '${start}' AND '${end}'
       AND metrics.cost_micros > 0
@@ -94,16 +129,17 @@ async function main() {
     try {
       const rows = await retry(() => queryGoogleAds(accessToken, customerId, query));
       for (const row of rows) {
+        const campaignName = row.campaign?.name || '';
+        const parsed = parseCampaignName(campaignName);
         allRows.push({
           account: accountName,
-          campaign: row.campaign?.name || '',
+          campaign: campaignName,
           week: row.segments?.week || '',
           cost: (row.metrics?.costMicros || 0) / 1_000_000,
-          clicks: parseInt(row.metrics?.clicks || 0),
-          impressions: parseInt(row.metrics?.impressions || 0),
-          conversions: parseFloat(row.metrics?.conversions || 0),
-          conversionsValue: parseFloat(row.metrics?.conversionsValue || 0),
-          productType: getProductType(row.campaign?.name || ''),
+          country: parsed.country,
+          product: parsed.product,
+          userType: parsed.userType,
+          campaignType: parsed.campaignType,
         });
       }
       console.log(`    ${rows.length} rows`);
@@ -112,32 +148,8 @@ async function main() {
     }
   }
 
-  // Aggregate by week + account + productType
-  const weeklyMap = {};
-  for (const row of allRows) {
-    const key = `${row.week}|${row.account}|${row.productType}`;
-    if (!weeklyMap[key]) {
-      weeklyMap[key] = {
-        week: row.week,
-        account: row.account,
-        productType: row.productType,
-        cost: 0,
-        clicks: 0,
-        impressions: 0,
-        conversions: 0,
-        conversionsValue: 0,
-      };
-    }
-    weeklyMap[key].cost += row.cost;
-    weeklyMap[key].clicks += row.clicks;
-    weeklyMap[key].impressions += row.impressions;
-    weeklyMap[key].conversions += row.conversions;
-    weeklyMap[key].conversionsValue += row.conversionsValue;
-  }
-
-  const output = Object.values(weeklyMap).sort((a, b) => a.week.localeCompare(b.week));
-  saveRaw('google-ads.json', output);
-  console.log(`Done: ${output.length} weekly aggregates`);
+  saveRaw('google-ads.json', allRows);
+  console.log(`Done: ${allRows.length} rows`);
 }
 
 main().catch(err => {
