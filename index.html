@@ -100,6 +100,7 @@
     }
 
     .hidden { display: none !important; }
+    .rotate-90 { transform: rotate(90deg); }
 
     /* Toggle buttons */
     .toggle-btn {
@@ -1076,6 +1077,8 @@ function renderInbound(weeks) {
   renderBreakdownTable(deals, 'geoTable', d => d.country || 'Unknown');
 }
 
+let productExpandState = {};
+
 function renderProductTable(deals) {
   function tally(list) {
     const t = { mqls: 0, sqls: 0, won: 0, wonRevenue: 0 };
@@ -1086,17 +1089,13 @@ function renderProductTable(deals) {
     }
     return t;
   }
-  function row(label, t, indent) {
-    const pad = indent === 1 ? 'pl-5' : indent === 2 ? 'pl-10' : '';
-    const weight = indent === 0 ? 'font-semibold' : 'font-normal';
-    const textColor = indent > 0 ? 'text-as-secondary' : '';
-    return `<tr class="border-b border-as-border/40 hover-row">
-      <td class="py-2 text-sm ${weight} ${textColor} ${pad}">${label}</td>
-      <td class="py-2 text-right text-as-secondary">${fmt.number(t.mqls)}</td>
-      <td class="py-2 text-right text-as-secondary">${fmt.number(t.sqls)}</td>
-      <td class="py-2 text-right text-as-secondary">${fmt.number(t.won)}</td>
-      <td class="py-2 text-right font-semibold">${fmt.currency(t.wonRevenue)}</td>
-    </tr>`;
+  function cells(t, size) {
+    const cls = size === 'sm' ? 'text-xs' : 'text-sm';
+    return `
+      <td class="py-1.5 text-right text-as-secondary ${cls}">${fmt.number(t.mqls)}</td>
+      <td class="py-1.5 text-right text-as-secondary ${cls}">${fmt.number(t.sqls)}</td>
+      <td class="py-1.5 text-right text-as-secondary ${cls}">${fmt.number(t.won)}</td>
+      <td class="py-1.5 text-right font-semibold ${cls}">${fmt.currency(t.wonRevenue)}</td>`;
   }
 
   // Group by product
@@ -1110,7 +1109,9 @@ function renderProductTable(deals) {
   let html = '';
   for (const prod of products) {
     const prodDeals = byProduct[prod];
-    html += row(prod, tally(prodDeals), 0);
+    html += `<tr class="border-b border-as-border/40 hover-row">
+      <td class="py-2 text-sm font-semibold">${prod}</td>${cells(tally(prodDeals), 'sm')}
+    </tr>`;
 
     // Nested breakdown for Human-Made Transcription
     if (prod === 'Human-Made Transcription') {
@@ -1122,9 +1123,9 @@ function renderProductTable(deals) {
       const styles = Object.keys(byStyle).sort((a, b) => byStyle[b].length - byStyle[a].length);
       for (const style of styles) {
         const styleDeals = byStyle[style];
-        html += row(style, tally(styleDeals), 1);
+        const styleId = style.replace(/[^a-zA-Z]/g, '');
 
-        // Further breakdown by additionalOptions (e.g. Dresing & Pehl)
+        // Check if this style has expandable options
         const byOpt = {};
         for (const d of styleDeals) {
           if (d.additionalOptions) {
@@ -1132,13 +1133,39 @@ function renderProductTable(deals) {
           }
         }
         const opts = Object.keys(byOpt).sort((a, b) => byOpt[b].length - byOpt[a].length);
+        const hasOpts = opts.length > 0;
+        const expanded = productExpandState[styleId] || false;
+        const chevron = hasOpts
+          ? `<svg class="inline w-3 h-3 ml-1 transition-transform ${expanded ? 'rotate-90' : ''}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>`
+          : '';
+        const clickAttr = hasOpts ? `style="cursor:pointer" onclick="toggleProductStyle('${styleId}')"` : '';
+
+        html += `<tr class="border-b border-as-border/40 hover-row" ${clickAttr}>
+          <td class="py-1.5 text-xs text-as-secondary pl-5">${style}${chevron}</td>${cells(tally(styleDeals), 'xs')}
+        </tr>`;
+
         for (const opt of opts) {
-          html += row(opt, tally(byOpt[opt]), 2);
+          html += `<tr class="border-b border-as-border/40 hover-row prod-opt-${styleId}" ${expanded ? '' : 'style="display:none"'}>
+            <td class="py-1 text-xs text-as-muted pl-10">${opt}</td>${cells(tally(byOpt[opt]), 'xs')}
+          </tr>`;
         }
       }
     }
   }
   document.querySelector('#productTable tbody').innerHTML = html;
+}
+
+function toggleProductStyle(styleId) {
+  productExpandState[styleId] = !productExpandState[styleId];
+  const rows = document.querySelectorAll(`.prod-opt-${styleId}`);
+  const show = productExpandState[styleId];
+  rows.forEach(r => r.style.display = show ? '' : 'none');
+  // Rotate chevron
+  const parentRow = rows[0]?.previousElementSibling;
+  if (parentRow) {
+    const svg = parentRow.querySelector('svg');
+    if (svg) svg.classList.toggle('rotate-90', show);
+  }
 }
 
 function renderBreakdownTable(deals, tableId, keyFn) {
