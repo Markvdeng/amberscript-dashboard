@@ -940,7 +940,8 @@ function matchCountry(dealCountry, filterVal) {
 
 function populateInboundFilters() {
   if (!DATA.deals) return;
-  const deals = DATA.deals;
+  const bu = getCurrentBU();
+  const deals = DATA.deals.filter(d => d.bu === bu);
 
   const products = [...new Set(deals.map(d => d.product).filter(Boolean))].sort();
   const prodEl = document.getElementById('inbProductFilter');
@@ -948,7 +949,8 @@ function populateInboundFilters() {
     products.map(p => `<option value="${p}">${p}</option>`).join('');
 
   const dealCountries = deals.map(d => d.country).filter(Boolean);
-  const formCountries = (DATA.ga4Forms || []).map(f => f.country).filter(Boolean);
+  const forms = (DATA.ga4Forms || []).filter(f => !f.bu || f.bu === bu);
+  const formCountries = forms.map(f => f.country).filter(Boolean);
   const countries = [...new Set([...dealCountries, ...formCountries])].sort();
   const countryEl = document.getElementById('inbCountryFilter');
   countryEl.innerHTML = '<option value="all">All Countries</option><option value="DACH">DACH (DE+AT+CH)</option>' +
