@@ -338,6 +338,7 @@
               <thead class="text-left border-b border-as-border">
                 <tr>
                   <th class="pb-2">Product</th>
+                  <th class="pb-2 text-right">Leads</th>
                   <th class="pb-2 text-right">MQLs</th>
                   <th class="pb-2 text-right">SQLs</th>
                   <th class="pb-2 text-right">Won</th>
@@ -1074,45 +1075,62 @@ function renderInbound(weeks) {
     </table>`;
 
   // Breakdown tables
-  renderProductTable(deals);
+  renderProductTable(deals, forms);
   renderBreakdownTable(deals, 'ownerTable', d => d.ownerName || 'Unknown');
   renderBreakdownTable(deals, 'geoTable', d => d.country || 'Unknown');
 }
 
 let productExpandState = {};
 
-function renderProductTable(deals) {
-  function tally(list) {
+function renderProductTable(deals, forms) {
+  function tally(dealList) {
     const t = { mqls: 0, sqls: 0, won: 0, wonRevenue: 0 };
-    for (const d of list) {
+    for (const d of dealList) {
       t.mqls++;
       if (['SQL', 'Customer'].includes(d.lifecycleStage)) t.sqls++;
       if (d.status === 'Won') { t.won++; t.wonRevenue += d.amount || 0; }
     }
     return t;
   }
-  function cells(t, size) {
+  function cells(t, leads, size) {
     const cls = size === 'sm' ? 'text-sm' : 'text-xs';
     return `
+      <td class="py-1.5 text-right text-as-secondary ${cls}">${fmt.number(leads)}</td>
       <td class="py-1.5 text-right text-as-secondary ${cls}">${fmt.number(t.mqls)}</td>
       <td class="py-1.5 text-right text-as-secondary ${cls}">${fmt.number(t.sqls)}</td>
       <td class="py-1.5 text-right text-as-secondary ${cls}">${fmt.number(t.won)}</td>
       <td class="py-1.5 text-right font-semibold ${cls}">${fmt.currency(t.wonRevenue)}</td>`;
   }
 
-  // Group by product
+  // Count leads by product from GA4 forms
+  const leadsByProduct = {};
+  for (const f of forms) {
+    const p = f.product || 'Other';
+    leadsByProduct[p] = (leadsByProduct[p] || 0) + f.count;
+  }
+  const totalLeads = forms.reduce((s, f) => s + f.count, 0);
+
+  // Group deals by product
   const byProduct = {};
   for (const d of deals) {
     const p = d.product || 'Other';
     (byProduct[p] = byProduct[p] || []).push(d);
   }
-  const products = Object.keys(byProduct).sort((a, b) => byProduct[b].length - byProduct[a].length);
+  // Include products that only have leads but no deals
+  for (const p of Object.keys(leadsByProduct)) {
+    if (!byProduct[p]) byProduct[p] = [];
+  }
+  const products = Object.keys(byProduct).sort((a, b) => {
+    const aCount = byProduct[b].length - byProduct[a].length;
+    return aCount !== 0 ? aCount : (leadsByProduct[b] || 0) - (leadsByProduct[a] || 0);
+  });
 
   let html = '';
   for (const prod of products) {
     const prodDeals = byProduct[prod];
+    const prodLeads = leadsByProduct[prod] || 0;
     html += `<tr class="border-b border-as-border/40 hover-row">
-      <td class="py-2 text-sm font-semibold">${prod}</td>${cells(tally(prodDeals), 'sm')}
+      <td class="py-2 text-sm font-semibold">${prod}</td>${cells(tally(prodDeals), prodLeads, 'sm')}
     </tr>`;
 
     // Nested breakdown for Human-Made Transcription
@@ -1143,12 +1161,12 @@ function renderProductTable(deals) {
         const clickAttr = hasOpts ? `style="cursor:pointer" onclick="toggleProductStyle('${styleId}')"` : '';
 
         html += `<tr class="border-b border-as-border/40 hover-row" ${clickAttr}>
-          <td class="py-1.5 text-xs text-as-secondary pl-5">${style}${chevron}</td>${cells(tally(styleDeals), 'xs')}
+          <td class="py-1.5 text-xs text-as-secondary pl-5">${style}${chevron}</td>${cells(tally(styleDeals), '-', 'xs')}
         </tr>`;
 
         for (const opt of opts) {
           html += `<tr class="border-b border-as-border/40 hover-row prod-opt-${styleId}" ${expanded ? '' : 'style="display:none"'}>
-            <td class="py-1 text-xs text-as-muted pl-10">${opt}</td>${cells(tally(byOpt[opt]), 'xs')}
+            <td class="py-1 text-xs text-as-muted pl-10">${opt}</td>${cells(tally(byOpt[opt]), '-', 'xs')}
           </tr>`;
         }
       }
@@ -1157,6 +1175,7 @@ function renderProductTable(deals) {
   const total = tally(deals);
   html += `<tr class="border-t-2 border-as-border">
     <td class="py-2 text-sm font-bold">Total</td>
+    <td class="py-2 text-right font-bold text-sm">${fmt.number(totalLeads)}</td>
     <td class="py-2 text-right font-bold text-sm">${fmt.number(total.mqls)}</td>
     <td class="py-2 text-right font-bold text-sm">${fmt.number(total.sqls)}</td>
     <td class="py-2 text-right font-bold text-sm">${fmt.number(total.won)}</td>
