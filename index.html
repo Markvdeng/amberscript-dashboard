@@ -1090,7 +1090,7 @@ function renderProductTable(deals) {
     return t;
   }
   function cells(t, size) {
-    const cls = size === 'sm' ? 'text-xs' : 'text-sm';
+    const cls = size === 'sm' ? 'text-sm' : 'text-xs';
     return `
       <td class="py-1.5 text-right text-as-secondary ${cls}">${fmt.number(t.mqls)}</td>
       <td class="py-1.5 text-right text-as-secondary ${cls}">${fmt.number(t.sqls)}</td>
