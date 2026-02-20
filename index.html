@@ -1174,7 +1174,7 @@ function renderProductTable(deals, closedDeals, forms) {
       <td class="py-1.5 text-center text-as-secondary ${cls}">${fmt.number(t.mqls)}</td>
       <td class="py-1.5 text-center text-as-secondary ${cls}">${fmt.number(t.sqls)}</td>
       <td class="py-1.5 text-center text-as-secondary ${cls}">${fmt.number(ct.won)}</td>
-      <td class="py-1.5 text-right font-semibold ${cls}">${fmt.currency(ct.wonRevenue)}</td>
+      <td class="py-1.5 text-center font-semibold ${cls}">${fmt.currency(ct.wonRevenue)}</td>
       <td class="py-1.5 text-center text-as-secondary ${cls}">${aov}</td>`;
   }
 
@@ -1296,7 +1296,7 @@ function renderProductTable(deals, closedDeals, forms) {
     <td class="py-2 text-center font-bold text-sm">${fmt.number(total.mqls)}</td>
     <td class="py-2 text-center font-bold text-sm">${fmt.number(total.sqls)}</td>
     <td class="py-2 text-center font-bold text-sm">${fmt.number(closeTotal.won)}</td>
-    <td class="py-2 text-right font-bold text-sm">${fmt.currency(closeTotal.wonRevenue)}</td>
+    <td class="py-2 text-center font-bold text-sm">${fmt.currency(closeTotal.wonRevenue)}</td>
     <td class="py-2 text-center font-bold text-sm">${totalAov}</td>
   </tr>`;
   document.querySelector('#productTable thead tr').innerHTML = `
@@ -1366,7 +1366,7 @@ function renderBreakdownTable(deals, closedDeals, tableId, keyFn) {
       <td class="py-2 text-center text-as-secondary">${fmt.number(d.mqls)}</td>
       <td class="py-2 text-center text-as-secondary">${fmt.number(d.sqls)}</td>
       <td class="py-2 text-center text-as-secondary">${fmt.number(d.wonClose)}</td>
-      <td class="py-2 text-right font-semibold">${fmt.currency(d.wonRevClose)}</td>
+      <td class="py-2 text-center font-semibold">${fmt.currency(d.wonRevClose)}</td>
       <td class="py-2 text-center text-as-secondary">${aov}</td>
     </tr>`;
   }).join('');
@@ -1382,7 +1382,7 @@ function renderBreakdownTable(deals, closedDeals, tableId, keyFn) {
     <td class="py-2 text-center font-bold text-sm">${fmt.number(sum.mqls)}</td>
     <td class="py-2 text-center font-bold text-sm">${fmt.number(sum.sqls)}</td>
     <td class="py-2 text-center font-bold text-sm">${fmt.number(sum.wonClose)}</td>
-    <td class="py-2 text-right font-bold text-sm">${fmt.currency(sum.wonRevClose)}</td>
+    <td class="py-2 text-center font-bold text-sm">${fmt.currency(sum.wonRevClose)}</td>
     <td class="py-2 text-center font-bold text-sm">${sumAov}</td>
   </tr>`;
 
