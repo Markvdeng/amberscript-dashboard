@@ -440,7 +440,7 @@
         </section>
 
         <!-- KPIs -->
-        <div id="selfServeKPIs" class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6"></div>
+        <div id="selfServeKPIs" class="grid grid-cols-2 sm:grid-cols-5 gap-4 mb-6"></div>
 
         <!-- Revenue Trend -->
         <div class="card mb-6">
@@ -935,11 +935,13 @@ function renderSelfServe(weeks) {
   }
 
   const aov = totalPayments > 0 ? fmt.currency(Math.round(totalRevenue / totalPayments)) : '-';
+  const mrr = DATA.subSnapshot ? fmt.currency(DATA.subSnapshot.mrr) : '-';
   document.getElementById('selfServeKPIs').innerHTML = [
     { label: 'Payments', value: fmt.number(totalPayments), color: '#0F1419' },
     { label: 'Revenue', value: fmt.currency(totalRevenue), color: '#1A7B6B' },
     { label: 'AOV', value: aov, color: '#E69100' },
     { label: 'New Subscriptions', value: fmt.number(newSubs), color: '#7B1FA2' },
+    { label: 'Current MRR', value: mrr, color: '#1565C0' },
   ].map(k => kpiCard(k.label, k.value, k.color)).join('');
 
   // Revenue trend chart - follows monthly/weekly toggle
