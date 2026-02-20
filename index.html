@@ -131,6 +131,11 @@
       text-transform: uppercase;
       letter-spacing: 0.06em;
     }
+    th[title] {
+      cursor: help;
+      text-decoration: underline dotted #CFD9DE;
+      text-underline-offset: 3px;
+    }
     td { font-size: 0.8125rem; }
     tr.hover-row:hover { background: #F7F8FA; }
 
@@ -339,12 +344,12 @@
                 <tr>
                   <th class="pb-2">Product</th>
                   <th class="pb-2 text-right">Leads</th>
-                  <th class="pb-2 text-right">MQLs</th>
-                  <th class="pb-2 text-right">SQLs</th>
-                  <th class="pb-2 text-right">Won (crt)</th>
-                  <th class="pb-2 text-right">Won (cls)</th>
-                  <th class="pb-2 text-right">Rev (crt)</th>
-                  <th class="pb-2 text-right">Rev (cls)</th>
+                  <th class="pb-2 text-right" title="Marketing Qualified Leads">MQLs</th>
+                  <th class="pb-2 text-right" title="Sales Qualified Leads">SQLs</th>
+                  <th class="pb-2 text-right" title="Won deals by deal creation date">Won (crt)</th>
+                  <th class="pb-2 text-right" title="Won deals by deal close date">Won (cls)</th>
+                  <th class="pb-2 text-right" title="Revenue by deal creation date">Rev (crt)</th>
+                  <th class="pb-2 text-right" title="Revenue by deal close date">Rev (cls)</th>
                 </tr>
               </thead>
               <tbody></tbody>
@@ -361,12 +366,12 @@
                 <thead class="text-left border-b border-as-border">
                   <tr>
                     <th class="pb-2">Owner</th>
-                    <th class="pb-2 text-right">MQLs</th>
-                    <th class="pb-2 text-right">SQLs</th>
-                    <th class="pb-2 text-right">Won (crt)</th>
-                    <th class="pb-2 text-right">Won (cls)</th>
-                    <th class="pb-2 text-right">Rev (crt)</th>
-                    <th class="pb-2 text-right">Rev (cls)</th>
+                    <th class="pb-2 text-right" title="Marketing Qualified Leads">MQLs</th>
+                    <th class="pb-2 text-right" title="Sales Qualified Leads">SQLs</th>
+                    <th class="pb-2 text-right" title="Won deals by deal creation date">Won (crt)</th>
+                    <th class="pb-2 text-right" title="Won deals by deal close date">Won (cls)</th>
+                    <th class="pb-2 text-right" title="Revenue by deal creation date">Rev (crt)</th>
+                    <th class="pb-2 text-right" title="Revenue by deal close date">Rev (cls)</th>
                   </tr>
                 </thead>
                 <tbody></tbody>
@@ -381,12 +386,12 @@
                 <thead class="text-left border-b border-as-border">
                   <tr>
                     <th class="pb-2">Country</th>
-                    <th class="pb-2 text-right">MQLs</th>
-                    <th class="pb-2 text-right">SQLs</th>
-                    <th class="pb-2 text-right">Won (crt)</th>
-                    <th class="pb-2 text-right">Won (cls)</th>
-                    <th class="pb-2 text-right">Rev (crt)</th>
-                    <th class="pb-2 text-right">Rev (cls)</th>
+                    <th class="pb-2 text-right" title="Marketing Qualified Leads">MQLs</th>
+                    <th class="pb-2 text-right" title="Sales Qualified Leads">SQLs</th>
+                    <th class="pb-2 text-right" title="Won deals by deal creation date">Won (crt)</th>
+                    <th class="pb-2 text-right" title="Won deals by deal close date">Won (cls)</th>
+                    <th class="pb-2 text-right" title="Revenue by deal creation date">Rev (crt)</th>
+                    <th class="pb-2 text-right" title="Revenue by deal close date">Rev (cls)</th>
                   </tr>
                 </thead>
                 <tbody></tbody>
@@ -729,16 +734,16 @@ function renderInboundSummary(weeks) {
       <th class="pb-2">${label}</th>
       <th class="pb-2 text-right">Spend</th>
       <th class="pb-2 text-right ${g}">Leads</th>
-      <th class="pb-2 text-right">MQLs</th>
-      <th class="pb-2 text-right">L&gt;MQL</th>
-      <th class="pb-2 text-right ${g}">SQLs</th>
-      <th class="pb-2 text-right">MQL&gt;SQL</th>
-      <th class="pb-2 text-right ${g}">Won (crt)</th>
-      <th class="pb-2 text-right">Won (cls)</th>
-      <th class="pb-2 text-right">SQL&gt;Won</th>
-      <th class="pb-2 text-right ${g}">Rev (crt)</th>
-      <th class="pb-2 text-right">Rev (cls)</th>
-      <th class="pb-2 text-right ${g}">AOV</th>
+      <th class="pb-2 text-right" title="Marketing Qualified Leads">MQLs</th>
+      <th class="pb-2 text-right" title="Lead to MQL conversion rate (from leads only)">L&gt;MQL</th>
+      <th class="pb-2 text-right ${g}" title="Sales Qualified Leads">SQLs</th>
+      <th class="pb-2 text-right" title="MQL to SQL conversion rate">MQL&gt;SQL</th>
+      <th class="pb-2 text-right ${g}" title="Won deals by deal creation date">Won (crt)</th>
+      <th class="pb-2 text-right" title="Won deals by deal close date">Won (cls)</th>
+      <th class="pb-2 text-right" title="SQL to Won conversion rate">SQL&gt;Won</th>
+      <th class="pb-2 text-right ${g}" title="Revenue by deal creation date">Rev (crt)</th>
+      <th class="pb-2 text-right" title="Revenue by deal close date">Rev (cls)</th>
+      <th class="pb-2 text-right ${g}" title="Average Order Value (revenue / won deals)">AOV</th>
   `;
   function summaryRow(label, hmCost, f) {
     const l2m = f.leads > 0 ? (f.mqlsFL / f.leads * 100).toFixed(1) + '%' : '-';
