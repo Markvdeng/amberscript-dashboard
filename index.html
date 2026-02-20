@@ -1040,15 +1040,12 @@ function renderInbound(weeks) {
     { label: 'SQLs', count: sqls, color: '#1A7B6B', pct: (sqls / max * 100) },
     { label: 'Won', count: won, color: '#F5A623', pct: (won / max * 100) },
   ];
-  const convRates = [];
-  if (leads > 0) convRates.push(`Lead &gt; MQL ${(mqls/leads*100).toFixed(1)}%`);
-  if (mqls > 0) convRates.push(`MQL &gt; SQL ${(sqls/mqls*100).toFixed(1)}%`);
-  if (sqls > 0) convRates.push(`SQL &gt; Won ${(won/sqls*100).toFixed(1)}%`);
-
-  const fromLeadRates = [];
-  if (leads > 0) fromLeadRates.push(`Lead &gt; MQL (from lead) ${(mqlsFromLeads/leads*100).toFixed(1)}%`);
-  if (mqlsFromLeads > 0) fromLeadRates.push(`MQL &gt; SQL (from lead) ${(sqlsFromLeads/mqlsFromLeads*100).toFixed(1)}%`);
-  if (sqlsFromLeads > 0) fromLeadRates.push(`SQL &gt; Won (from lead) ${(wonFromLeads/sqlsFromLeads*100).toFixed(1)}%`);
+  const l2m = leads > 0 ? (mqls/leads*100).toFixed(1) + '%' : '-';
+  const m2s = mqls > 0 ? (sqls/mqls*100).toFixed(1) + '%' : '-';
+  const s2w = sqls > 0 ? (won/sqls*100).toFixed(1) + '%' : '-';
+  const l2mFL = leads > 0 ? (mqlsFromLeads/leads*100).toFixed(1) + '%' : '-';
+  const m2sFL = mqlsFromLeads > 0 ? (sqlsFromLeads/mqlsFromLeads*100).toFixed(1) + '%' : '-';
+  const s2wFL = sqlsFromLeads > 0 ? (wonFromLeads/sqlsFromLeads*100).toFixed(1) + '%' : '-';
 
   document.getElementById('funnelChart').innerHTML = stages.map(s => `
     <div class="flex items-center gap-3">
@@ -1059,9 +1056,29 @@ function renderInbound(weeks) {
         </div>
       </div>
     </div>
-  `).join('') +
-    `<div class="flex flex-wrap gap-2 mt-3 ml-16">${convRates.map(r => `<span class="conv-pill">${r}</span>`).join('')}</div>` +
-    `<div class="flex flex-wrap gap-2 mt-1.5 ml-16">${fromLeadRates.map(r => `<span class="conv-pill" style="background:#E8ECF0">${r}</span>`).join('')}</div>`;
+  `).join('') + `
+    <table class="mt-3 ml-14" style="border-spacing:0">
+      <thead><tr>
+        <th></th>
+        <th class="text-right pb-1 px-3" style="min-width:90px">Lead &gt; MQL</th>
+        <th class="text-right pb-1 px-3" style="min-width:90px">MQL &gt; SQL</th>
+        <th class="text-right pb-1 px-3" style="min-width:90px">SQL &gt; Won</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="pr-2"><span class="conv-pill">All deals</span></td>
+          <td class="text-right px-3 text-sm font-semibold text-as-secondary">${l2m}</td>
+          <td class="text-right px-3 text-sm font-semibold text-as-secondary">${m2s}</td>
+          <td class="text-right px-3 text-sm font-semibold text-as-secondary">${s2w}</td>
+        </tr>
+        <tr>
+          <td class="pr-2"><span class="conv-pill" style="background:#E8ECF0">From lead</span></td>
+          <td class="text-right px-3 text-sm font-semibold text-as-secondary">${l2mFL}</td>
+          <td class="text-right px-3 text-sm font-semibold text-as-secondary">${m2sFL}</td>
+          <td class="text-right px-3 text-sm font-semibold text-as-secondary">${s2wFL}</td>
+        </tr>
+      </tbody>
+    </table>`;
 
   // Funnel trend
   const dealsByWeek = {};
