@@ -348,7 +348,7 @@
                   <th class="pb-2 text-center">MQL<span style="text-transform:none">s</span></th>
                   <th class="pb-2 text-center">SQL<span style="text-transform:none">s</span></th>
                   <th class="pb-2 text-center" title="By close date (by create date in brackets)">Won</th>
-                  <th class="pb-2 text-right" title="By close date (by create date in brackets)">Revenue</th>
+                  <th class="pb-2 text-center" title="By close date (by create date in brackets)">Revenue</th>
                 </tr>
               </thead>
               <tbody></tbody>
@@ -368,7 +368,7 @@
                     <th class="pb-2 text-center">MQL<span style="text-transform:none">s</span></th>
                     <th class="pb-2 text-center">SQL<span style="text-transform:none">s</span></th>
                     <th class="pb-2 text-center" title="By close date (by create date in brackets)">Won</th>
-                    <th class="pb-2 text-right" title="By close date (by create date in brackets)">Revenue</th>
+                    <th class="pb-2 text-center" title="By close date (by create date in brackets)">Revenue</th>
                   </tr>
                 </thead>
                 <tbody></tbody>
@@ -386,7 +386,7 @@
                     <th class="pb-2 text-center">MQL<span style="text-transform:none">s</span></th>
                     <th class="pb-2 text-center">SQL<span style="text-transform:none">s</span></th>
                     <th class="pb-2 text-center" title="By close date (by create date in brackets)">Won</th>
-                    <th class="pb-2 text-right" title="By close date (by create date in brackets)">Revenue</th>
+                    <th class="pb-2 text-center" title="By close date (by create date in brackets)">Revenue</th>
                   </tr>
                 </thead>
                 <tbody></tbody>
@@ -735,7 +735,7 @@ function renderInboundSummary(weeks) {
       <th class="pb-2 text-center">MQL&gt;SQL</th>
       <th class="pb-2 text-center ${g}" title="By close date (by create date in brackets)">Won</th>
       <th class="pb-2 text-center">SQL&gt;Won</th>
-      <th class="pb-2 text-right ${g}" title="By close date (by create date in brackets)">Revenue</th>
+      <th class="pb-2 text-center ${g}" title="By close date (by create date in brackets)">Revenue</th>
       <th class="pb-2 text-center ${g}">AOV</th>
   `;
   function summaryRow(label, hmCost, f) {
@@ -798,7 +798,7 @@ function renderSelfServeSummary(weeks) {
       <th class="pb-2">Month</th>
       <th class="pb-2 text-center">MM Spend</th>
       <th class="pb-2 text-center">Payments</th>
-      <th class="pb-2 text-right">Revenue</th>
+      <th class="pb-2 text-center">Revenue</th>
       <th class="pb-2 text-center">New Subs</th>
       <th class="pb-2 text-center">Active Subs</th>
     `;
@@ -827,7 +827,7 @@ function renderSelfServeSummary(weeks) {
       <th class="pb-2">Week</th>
       <th class="pb-2 text-center">MM Spend</th>
       <th class="pb-2 text-center">Payments</th>
-      <th class="pb-2 text-right">Revenue</th>
+      <th class="pb-2 text-center">Revenue</th>
       <th class="pb-2 text-center">New Subs</th>
     `;
     body.innerHTML = weeks.map(w => {
