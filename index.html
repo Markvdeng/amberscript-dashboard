@@ -103,45 +103,8 @@
     <div>
       <h2 class="section-title">Transcription & Media</h2>
 
-      <!-- ---- Self-Serve (Stripe) ---- -->
-      <div class="mb-10">
-        <h3 class="sub-title">Self-Serve</h3>
-
-        <!-- Filters -->
-        <div class="flex flex-wrap items-center gap-3 mb-5" id="selfServeFilters">
-          <select id="filterProduct" class="border border-as-border rounded-card px-3 py-1.5 text-sm bg-white text-as-text" onchange="onFilterChange()">
-            <option value="all">All</option>
-            <option value="mm">Machine-Made</option>
-            <option value="hm">Human-Made</option>
-            <option value="inv">Invoice</option>
-          </select>
-          <select id="filterPlanType" class="border border-as-border rounded-card px-3 py-1.5 text-sm bg-white text-as-text" onchange="onFilterChange()">
-            <option value="all">All Types</option>
-            <option value="prepaid">Prepaid</option>
-            <option value="sub">Subscription</option>
-          </select>
-          <select id="filterSubtype" class="border border-as-border rounded-card px-3 py-1.5 text-sm bg-white text-as-text hidden" onchange="onFilterChange()">
-          </select>
-        </div>
-
-        <!-- KPIs -->
-        <div id="selfServeKPIs" class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6"></div>
-
-        <!-- Charts -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div class="card">
-            <h4 class="text-sm font-medium text-as-secondary mb-3">Revenue Trend</h4>
-            <div class="chart-container"><canvas id="selfServeRevenueChart"></canvas></div>
-          </div>
-          <div class="card">
-            <h4 class="text-sm font-medium text-as-secondary mb-3">Revenue by Channel</h4>
-            <div class="chart-container"><canvas id="selfServeChannelChart"></canvas></div>
-          </div>
-        </div>
-      </div>
-
       <!-- ---- Inbound (HubSpot) ---- -->
-      <div>
+      <div class="mb-10">
         <h3 class="sub-title">Inbound</h3>
 
         <!-- KPIs -->
@@ -181,6 +144,43 @@
               </thead>
               <tbody></tbody>
             </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---- Self-Serve (Stripe) ---- -->
+      <div>
+        <h3 class="sub-title">Self-Serve</h3>
+
+        <!-- Filters -->
+        <div class="flex flex-wrap items-center gap-3 mb-5" id="selfServeFilters">
+          <select id="filterProduct" class="border border-as-border rounded-card px-3 py-1.5 text-sm bg-white text-as-text" onchange="onFilterChange()">
+            <option value="all">All</option>
+            <option value="mm">Machine-Made</option>
+            <option value="hm">Human-Made</option>
+            <option value="inv">Invoice</option>
+          </select>
+          <select id="filterPlanType" class="border border-as-border rounded-card px-3 py-1.5 text-sm bg-white text-as-text" onchange="onFilterChange()">
+            <option value="all">All Types</option>
+            <option value="prepaid">Prepaid</option>
+            <option value="sub">Subscription</option>
+          </select>
+          <select id="filterSubtype" class="border border-as-border rounded-card px-3 py-1.5 text-sm bg-white text-as-text hidden" onchange="onFilterChange()">
+          </select>
+        </div>
+
+        <!-- KPIs -->
+        <div id="selfServeKPIs" class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6"></div>
+
+        <!-- Charts -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div class="card">
+            <h4 class="text-sm font-medium text-as-secondary mb-3">Revenue Trend</h4>
+            <div class="chart-container"><canvas id="selfServeRevenueChart"></canvas></div>
+          </div>
+          <div class="card">
+            <h4 class="text-sm font-medium text-as-secondary mb-3">Revenue by Channel</h4>
+            <div class="chart-container"><canvas id="selfServeChannelChart"></canvas></div>
           </div>
         </div>
       </div>
