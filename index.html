@@ -108,7 +108,7 @@
         <h3 class="sub-title">Inbound</h3>
 
         <!-- KPIs -->
-        <div id="inboundKPIs" class="grid grid-cols-2 sm:grid-cols-5 gap-4 mb-6"></div>
+        <div id="inboundKPIs" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-6"></div>
 
         <!-- Funnel -->
         <div class="card mb-6">
@@ -119,11 +119,11 @@
         <!-- Charts -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div class="card">
-            <h4 class="text-sm font-medium text-as-secondary mb-3">Weekly Leads & SQLs</h4>
+            <h4 class="text-sm font-medium text-as-secondary mb-3">Weekly Funnel Trend</h4>
             <div class="chart-container"><canvas id="funnelTrendChart"></canvas></div>
           </div>
           <div class="card">
-            <h4 class="text-sm font-medium text-as-secondary mb-3">Leads by Channel</h4>
+            <h4 class="text-sm font-medium text-as-secondary mb-3">MQLs by Channel</h4>
             <div class="chart-container"><canvas id="channelChart"></canvas></div>
           </div>
         </div>
@@ -136,7 +136,7 @@
               <thead class="text-left border-b border-as-border">
                 <tr>
                   <th class="pb-2">Country</th>
-                  <th class="pb-2 text-right">Leads</th>
+                  <th class="pb-2 text-right">MQLs</th>
                   <th class="pb-2 text-right">SQLs</th>
                   <th class="pb-2 text-right">Won</th>
                   <th class="pb-2 text-right">Revenue</th>
@@ -349,12 +349,14 @@ function renderSummaryTable(weeks) {
       <th class="pb-2 text-right">Ad Spend</th>
       <th class="pb-2 text-right">Stripe Rev</th>
       <th class="pb-2 text-right">ROAS</th>
-      <th class="pb-2 text-right">Forms</th>
       <th class="pb-2 text-right">Leads</th>
+      <th class="pb-2 text-right">MQLs</th>
+      <th class="pb-2 text-right">from Leads</th>
       <th class="pb-2 text-right">SQLs</th>
+      <th class="pb-2 text-right">from Leads</th>
       <th class="pb-2 text-right">Won</th>
       <th class="pb-2 text-right">Deal Rev</th>
-      <th class="pb-2 text-right">Lead>SQL</th>
+      <th class="pb-2 text-right">MQL>SQL</th>
       <th class="pb-2 text-right">SQL>Won</th>
     `;
     body.innerHTML = (DATA.monthly || []).map(m => {
@@ -364,12 +366,14 @@ function renderSummaryTable(weeks) {
         <td class="py-2 text-right text-as-secondary">${fmt.currency(m.adsCost)}</td>
         <td class="py-2 text-right font-medium">${fmt.currency(m.stripeRevenue)}</td>
         <td class="py-2 text-right text-as-primary font-medium">${roas}</td>
-        <td class="py-2 text-right text-as-secondary">${fmt.number(m.formSubmissions)}</td>
         <td class="py-2 text-right text-as-secondary">${fmt.number(m.leads)}</td>
+        <td class="py-2 text-right text-as-secondary">${fmt.number(m.mqls)}</td>
+        <td class="py-2 text-right text-as-muted">${fmt.number(m.mqlsFromLeads)}</td>
         <td class="py-2 text-right text-as-secondary">${fmt.number(m.sqls)}</td>
+        <td class="py-2 text-right text-as-muted">${fmt.number(m.sqlsFromLeads)}</td>
         <td class="py-2 text-right text-as-secondary">${fmt.number(m.won)}</td>
         <td class="py-2 text-right font-medium">${fmt.currency(m.wonRevenue)}</td>
-        <td class="py-2 text-right text-as-secondary">${fmt.pct(m.leadToSql)}</td>
+        <td class="py-2 text-right text-as-secondary">${fmt.pct(m.mqlToSql)}</td>
         <td class="py-2 text-right text-as-secondary">${fmt.pct(m.sqlToWon)}</td>
       </tr>`;
     }).join('');
@@ -378,21 +382,21 @@ function renderSummaryTable(weeks) {
     const ads = filterByWeeks(DATA.weekly.ads, weeks);
     const funnel = filterByWeeks(DATA.weekly.funnel, weeks);
     const stripe = filterByWeeks(DATA.weekly.stripe, weeks);
-    const ga4 = filterByWeeks(DATA.weekly.ga4, weeks);
 
     const adsMap = Object.fromEntries(ads.map(r => [r.week, r]));
     const funnelMap = Object.fromEntries(funnel.map(r => [r.week, r]));
     const stripeMap = Object.fromEntries(stripe.map(r => [r.week, r]));
-    const ga4Map = Object.fromEntries(ga4.map(r => [r.week, r]));
 
     head.innerHTML = `
       <th class="pb-2">Week</th>
       <th class="pb-2 text-right">Ad Spend</th>
       <th class="pb-2 text-right">Stripe Rev</th>
       <th class="pb-2 text-right">Payments</th>
-      <th class="pb-2 text-right">Forms</th>
       <th class="pb-2 text-right">Leads</th>
+      <th class="pb-2 text-right">MQLs</th>
+      <th class="pb-2 text-right">from Leads</th>
       <th class="pb-2 text-right">SQLs</th>
+      <th class="pb-2 text-right">from Leads</th>
       <th class="pb-2 text-right">Won</th>
       <th class="pb-2 text-right">Deal Rev</th>
     `;
@@ -400,15 +404,16 @@ function renderSummaryTable(weeks) {
       const a = adsMap[w] || {};
       const f = funnelMap[w] || {};
       const s = stripeMap[w] || {};
-      const g = ga4Map[w] || {};
       return `<tr class="border-b border-as-border/30 hover:bg-as-bg">
         <td class="py-2 font-medium">${fmt.shortDate(w)}</td>
         <td class="py-2 text-right text-as-secondary">${fmt.currency(a.totalCost || 0)}</td>
         <td class="py-2 text-right font-medium">${fmt.currency(s.totalRevenue || 0)}</td>
         <td class="py-2 text-right text-as-secondary">${fmt.number(s.count || 0)}</td>
-        <td class="py-2 text-right text-as-secondary">${fmt.number(g.formSubmissions || 0)}</td>
         <td class="py-2 text-right text-as-secondary">${fmt.number(f.leads || 0)}</td>
+        <td class="py-2 text-right text-as-secondary">${fmt.number(f.mqls || 0)}</td>
+        <td class="py-2 text-right text-as-muted">${fmt.number(f.mqlsFromLeads || 0)}</td>
         <td class="py-2 text-right text-as-secondary">${fmt.number(f.sqls || 0)}</td>
+        <td class="py-2 text-right text-as-muted">${fmt.number(f.sqlsFromLeads || 0)}</td>
         <td class="py-2 text-right text-as-secondary">${fmt.number(f.won || 0)}</td>
         <td class="py-2 text-right font-medium">${fmt.currency(f.wonRevenue || 0)}</td>
       </tr>`;
@@ -494,22 +499,23 @@ function renderSelfServe(weeks) {
   });
 }
 
-// ===== INBOUND (HubSpot) =====
+// ===== INBOUND (HubSpot + GA4 Leads) =====
 function renderInbound(weeks) {
   const funnel = filterByWeeks(DATA.weekly.funnel, weeks);
-  const ga4 = filterByWeeks(DATA.weekly.ga4, weeks);
 
   const leads = funnel.reduce((s, r) => s + r.leads, 0);
+  const mqls = funnel.reduce((s, r) => s + r.mqls, 0);
+  const mqlsFromLeads = funnel.reduce((s, r) => s + r.mqlsFromLeads, 0);
   const sqls = funnel.reduce((s, r) => s + r.sqls, 0);
+  const sqlsFromLeads = funnel.reduce((s, r) => s + r.sqlsFromLeads, 0);
   const won = funnel.reduce((s, r) => s + r.won, 0);
   const wonRev = funnel.reduce((s, r) => s + r.wonRevenue, 0);
-  const forms = ga4.reduce((s, r) => s + r.formSubmissions, 0);
 
   // KPIs
   document.getElementById('inboundKPIs').innerHTML = [
-    { label: 'GA4 Forms', value: fmt.number(forms), color: '#F5A623' },
-    { label: 'Leads', value: fmt.number(leads), color: '#1A7B6B' },
-    { label: 'SQLs', value: fmt.number(sqls), color: '#7B1FA2' },
+    { label: 'Leads (GA4)', value: fmt.number(leads), color: '#F5A623' },
+    { label: 'MQLs', value: `${fmt.number(mqls)} <span class="text-xs text-as-muted font-normal">(${fmt.number(mqlsFromLeads)} from leads)</span>`, color: '#1A7B6B' },
+    { label: 'SQLs', value: `${fmt.number(sqls)} <span class="text-xs text-as-muted font-normal">(${fmt.number(sqlsFromLeads)} from leads)</span>`, color: '#7B1FA2' },
     { label: 'Won Deals', value: fmt.number(won), color: '#2E7D32' },
     { label: 'Deal Revenue', value: fmt.currency(wonRev), color: '#2E7D32' },
   ].map(k => `
@@ -522,12 +528,14 @@ function renderInbound(weeks) {
   // Funnel
   const max = Math.max(leads, 1);
   const stages = [
-    { label: 'Leads', count: leads, color: '#1A7B6B', pct: 100 },
+    { label: 'Leads', count: leads, color: '#F5A623', pct: 100 },
+    { label: 'MQLs', count: mqls, color: '#1A7B6B', pct: (mqls / max * 100) },
     { label: 'SQLs', count: sqls, color: '#7B1FA2', pct: (sqls / max * 100) },
     { label: 'Won', count: won, color: '#2E7D32', pct: (won / max * 100) },
   ];
   const convRates = [];
-  if (leads > 0) convRates.push(`Lead > SQL: ${(sqls/leads*100).toFixed(1)}%`);
+  if (leads > 0) convRates.push(`Lead > MQL: ${(mqls/leads*100).toFixed(1)}%`);
+  if (mqls > 0) convRates.push(`MQL > SQL: ${(sqls/mqls*100).toFixed(1)}%`);
   if (sqls > 0) convRates.push(`SQL > Won: ${(won/sqls*100).toFixed(1)}%`);
 
   document.getElementById('funnelChart').innerHTML = stages.map(s => `
@@ -543,14 +551,13 @@ function renderInbound(weeks) {
 
   // Funnel trend
   destroyChart('funnelTrendChart');
-  const ga4Map = Object.fromEntries(ga4.map(r => [r.week, r.formSubmissions]));
   charts.funnelTrendChart = new Chart(document.getElementById('funnelTrendChart'), {
     type: 'line',
     data: {
       labels: funnel.map(r => fmt.shortDate(r.week)),
       datasets: [
-        { label: 'GA4 Forms', data: funnel.map(r => ga4Map[r.week] || 0), borderColor: '#F5A623', tension: 0.3, fill: false, borderDash: [5,5] },
-        { label: 'Leads', data: funnel.map(r => r.leads), borderColor: '#1A7B6B', tension: 0.3, fill: false },
+        { label: 'Leads', data: funnel.map(r => r.leads), borderColor: '#F5A623', tension: 0.3, fill: false },
+        { label: 'MQLs', data: funnel.map(r => r.mqls), borderColor: '#1A7B6B', tension: 0.3, fill: false },
         { label: 'SQLs', data: funnel.map(r => r.sqls), borderColor: '#7B1FA2', tension: 0.3, fill: false },
         { label: 'Won', data: funnel.map(r => r.won), borderColor: '#2E7D32', tension: 0.3, fill: false },
       ],
@@ -558,24 +565,24 @@ function renderInbound(weeks) {
     options: chartOptions(''),
   });
 
-  // Channel chart
+  // Channel chart (MQLs by channel)
   const channelTotals = {};
   for (const row of funnel) {
     for (const [ch, data] of Object.entries(row.byChannel || {})) {
-      if (!channelTotals[ch]) channelTotals[ch] = { leads: 0, sqls: 0, won: 0 };
-      channelTotals[ch].leads += data.leads;
+      if (!channelTotals[ch]) channelTotals[ch] = { mqls: 0, sqls: 0, won: 0 };
+      channelTotals[ch].mqls += data.mqls;
       channelTotals[ch].sqls += data.sqls;
       channelTotals[ch].won += data.won;
     }
   }
-  const chKeys = Object.keys(channelTotals).sort((a, b) => channelTotals[b].leads - channelTotals[a].leads);
+  const chKeys = Object.keys(channelTotals).sort((a, b) => channelTotals[b].mqls - channelTotals[a].mqls);
   destroyChart('channelChart');
   charts.channelChart = new Chart(document.getElementById('channelChart'), {
     type: 'bar',
     data: {
       labels: chKeys,
       datasets: [
-        { label: 'Leads', data: chKeys.map(c => channelTotals[c].leads), backgroundColor: '#1A7B6B99' },
+        { label: 'MQLs', data: chKeys.map(c => channelTotals[c].mqls), backgroundColor: '#1A7B6B99' },
         { label: 'SQLs', data: chKeys.map(c => channelTotals[c].sqls), backgroundColor: '#7B1FA299' },
         { label: 'Won', data: chKeys.map(c => channelTotals[c].won), backgroundColor: '#2E7D3299' },
       ],
@@ -587,19 +594,19 @@ function renderInbound(weeks) {
   const geoTotals = {};
   for (const row of funnel) {
     for (const [geo, data] of Object.entries(row.byCountry || {})) {
-      if (!geoTotals[geo]) geoTotals[geo] = { leads: 0, sqls: 0, won: 0, wonRevenue: 0 };
-      geoTotals[geo].leads += data.leads;
+      if (!geoTotals[geo]) geoTotals[geo] = { mqls: 0, sqls: 0, won: 0, wonRevenue: 0 };
+      geoTotals[geo].mqls += data.mqls;
       geoTotals[geo].sqls += data.sqls;
       geoTotals[geo].won += data.won;
       geoTotals[geo].wonRevenue += data.wonRevenue;
     }
   }
-  const geos = Object.keys(geoTotals).sort((a, b) => geoTotals[b].leads - geoTotals[a].leads);
+  const geos = Object.keys(geoTotals).sort((a, b) => geoTotals[b].mqls - geoTotals[a].mqls);
   document.querySelector('#geoTable tbody').innerHTML = geos.map(g => {
     const d = geoTotals[g];
     return `<tr class="border-b border-as-border/30 hover:bg-as-bg">
       <td class="py-2 font-medium">${g}</td>
-      <td class="py-2 text-right text-as-secondary">${fmt.number(d.leads)}</td>
+      <td class="py-2 text-right text-as-secondary">${fmt.number(d.mqls)}</td>
       <td class="py-2 text-right text-as-secondary">${fmt.number(d.sqls)}</td>
       <td class="py-2 text-right text-as-secondary">${fmt.number(d.won)}</td>
       <td class="py-2 text-right font-medium">${fmt.currency(d.wonRevenue)}</td>

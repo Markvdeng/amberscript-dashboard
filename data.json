@@ -1,18 +1,20 @@
 {
-  "updatedAt": "2026-02-20T06:37:07.152Z",
+  "updatedAt": "2026-02-20T06:51:58.474Z",
   "dateRange": {
     "start": "2025-11-17",
     "end": "2026-02-16"
   },
   "kpis": {
-    "totalLeads": 241,
+    "totalLeads": 637,
+    "totalMQLs": 241,
+    "totalMQLsFromLeads": 145,
     "totalSQLs": 201,
+    "totalSQLsFromLeads": 106,
     "totalWon": 71,
     "totalDealRevenue": 81460.84,
     "totalStripeRevenue": 237645.71,
     "totalAdsCost": 38298.36,
-    "roas": 6.21,
-    "totalFormSubmissions": 637
+    "roas": 6.21
   },
   "monthly": [
     {
@@ -21,11 +23,14 @@
       "mmCost": 2141.84,
       "hmCost": 499.91,
       "brandCost": 32.39,
-      "leads": 32,
+      "leads": 90,
+      "mqls": 32,
+      "mqlsFromLeads": 17,
       "sqls": 28,
+      "sqlsFromLeads": 13,
       "won": 17,
       "wonRevenue": 36648.92,
-      "leadToSql": 87.5,
+      "mqlToSql": 87.5,
       "sqlToWon": 60.7,
       "stripeRevenue": 25581.83,
       "stripeSeg": {
@@ -93,8 +98,7 @@
           "count": 1,
           "revenue": 475
         }
-      },
-      "formSubmissions": 90
+      }
     },
     {
       "month": "2025-12",
@@ -102,11 +106,14 @@
       "mmCost": 9492.53,
       "hmCost": 3669.09,
       "brandCost": 108.88,
-      "leads": 86,
+      "leads": 258,
+      "mqls": 86,
+      "mqlsFromLeads": 55,
       "sqls": 65,
+      "sqlsFromLeads": 34,
       "won": 24,
       "wonRevenue": 21105.97,
-      "leadToSql": 75.6,
+      "mqlToSql": 75.6,
       "sqlToWon": 36.9,
       "stripeRevenue": 87164.93,
       "stripeSeg": {
@@ -174,8 +181,7 @@
           "count": 1,
           "revenue": 250
         }
-      },
-      "formSubmissions": 258
+      }
     },
     {
       "month": "2026-01",
@@ -183,11 +189,14 @@
       "mmCost": 7569.46,
       "hmCost": 5733.72,
       "brandCost": 105.2,
-      "leads": 73,
+      "leads": 189,
+      "mqls": 73,
+      "mqlsFromLeads": 38,
       "sqls": 64,
+      "sqlsFromLeads": 29,
       "won": 20,
       "wonRevenue": 18342.45,
-      "leadToSql": 87.7,
+      "mqlToSql": 87.7,
       "sqlToWon": 31.3,
       "stripeRevenue": 77232.71,
       "stripeSeg": {
@@ -255,8 +264,7 @@
           "count": 2,
           "revenue": 487.8
         }
-      },
-      "formSubmissions": 189
+      }
     },
     {
       "month": "2026-02",
@@ -264,11 +272,14 @@
       "mmCost": 2026.73,
       "hmCost": 2076.25,
       "brandCost": 64.21,
-      "leads": 50,
+      "leads": 100,
+      "mqls": 50,
+      "mqlsFromLeads": 35,
       "sqls": 44,
+      "sqlsFromLeads": 30,
       "won": 10,
       "wonRevenue": 5363.5,
-      "leadToSql": 88,
+      "mqlToSql": 88,
       "sqlToWon": 22.7,
       "stripeRevenue": 47666.24,
       "stripeSeg": {
@@ -336,8 +347,7 @@
           "count": 3,
           "revenue": 381.55
         }
-      },
-      "formSubmissions": 100
+      }
     }
   ],
   "weekly": {
@@ -645,19 +655,22 @@
     "funnel": [
       {
         "week": "2025-11-17",
-        "leads": 2,
+        "leads": 14,
+        "mqls": 2,
+        "mqlsFromLeads": 1,
         "sqls": 2,
+        "sqlsFromLeads": 1,
         "won": 1,
         "wonRevenue": 3744,
         "byChannel": {
           "Unknown": {
-            "leads": 1,
+            "mqls": 1,
             "sqls": 1,
             "won": 1,
             "wonRevenue": 3744
           },
           "Paid Search": {
-            "leads": 1,
+            "mqls": 1,
             "sqls": 1,
             "won": 0,
             "wonRevenue": 0
@@ -665,13 +678,13 @@
         },
         "byCountry": {
           "Unknown": {
-            "leads": 1,
+            "mqls": 1,
             "sqls": 1,
             "won": 1,
             "wonRevenue": 3744
           },
           "NL": {
-            "leads": 1,
+            "mqls": 1,
             "sqls": 1,
             "won": 0,
             "wonRevenue": 0
@@ -680,31 +693,34 @@
       },
       {
         "week": "2025-11-24",
-        "leads": 30,
+        "leads": 76,
+        "mqls": 30,
+        "mqlsFromLeads": 16,
         "sqls": 26,
+        "sqlsFromLeads": 12,
         "won": 16,
         "wonRevenue": 32904.92,
         "byChannel": {
           "Unknown": {
-            "leads": 17,
+            "mqls": 17,
             "sqls": 15,
             "won": 12,
             "wonRevenue": 25738.92
           },
           "Direct": {
-            "leads": 9,
+            "mqls": 9,
             "sqls": 7,
             "won": 3,
             "wonRevenue": 6536
           },
           "Paid Search": {
-            "leads": 3,
+            "mqls": 3,
             "sqls": 3,
             "won": 1,
             "wonRevenue": 630
           },
           "Organic Search": {
-            "leads": 1,
+            "mqls": 1,
             "sqls": 1,
             "won": 0,
             "wonRevenue": 0
@@ -712,37 +728,37 @@
         },
         "byCountry": {
           "Unknown": {
-            "leads": 14,
+            "mqls": 14,
             "sqls": 14,
             "won": 11,
             "wonRevenue": 23738.92
           },
           "ES": {
-            "leads": 1,
+            "mqls": 1,
             "sqls": 0,
             "won": 0,
             "wonRevenue": 0
           },
           "DE": {
-            "leads": 6,
+            "mqls": 6,
             "sqls": 5,
             "won": 2,
             "wonRevenue": 4536
           },
           "EN": {
-            "leads": 5,
+            "mqls": 5,
             "sqls": 4,
             "won": 1,
             "wonRevenue": 2000
           },
           "NL": {
-            "leads": 3,
+            "mqls": 3,
             "sqls": 2,
             "won": 1,
             "wonRevenue": 630
           },
           "IT": {
-            "leads": 1,
+            "mqls": 1,
             "sqls": 1,
             "won": 1,
             "wonRevenue": 2000
@@ -751,37 +767,40 @@
       },
       {
         "week": "2025-12-01",
-        "leads": 18,
+        "leads": 55,
+        "mqls": 18,
+        "mqlsFromLeads": 13,
         "sqls": 15,
+        "sqlsFromLeads": 10,
         "won": 6,
         "wonRevenue": 6154.37,
         "byChannel": {
           "Unknown": {
-            "leads": 8,
+            "mqls": 8,
             "sqls": 8,
             "won": 5,
             "wonRevenue": 4054.37
           },
           "Direct": {
-            "leads": 3,
+            "mqls": 3,
             "sqls": 2,
             "won": 1,
             "wonRevenue": 2100
           },
           "Paid Search": {
-            "leads": 3,
+            "mqls": 3,
             "sqls": 3,
             "won": 0,
             "wonRevenue": 0
           },
           "Organic Search": {
-            "leads": 3,
+            "mqls": 3,
             "sqls": 2,
             "won": 0,
             "wonRevenue": 0
           },
           "Referral": {
-            "leads": 1,
+            "mqls": 1,
             "sqls": 0,
             "won": 0,
             "wonRevenue": 0
@@ -789,25 +808,25 @@
         },
         "byCountry": {
           "Unknown": {
-            "leads": 5,
+            "mqls": 5,
             "sqls": 5,
             "won": 2,
             "wonRevenue": 614
           },
           "DE": {
-            "leads": 6,
+            "mqls": 6,
             "sqls": 6,
             "won": 2,
             "wonRevenue": 2906.47
           },
           "EN": {
-            "leads": 4,
+            "mqls": 4,
             "sqls": 1,
             "won": 1,
             "wonRevenue": 2100
           },
           "NL": {
-            "leads": 3,
+            "mqls": 3,
             "sqls": 3,
             "won": 1,
             "wonRevenue": 533.9
@@ -816,43 +835,46 @@
       },
       {
         "week": "2025-12-08",
-        "leads": 35,
+        "leads": 81,
+        "mqls": 35,
+        "mqlsFromLeads": 22,
         "sqls": 27,
+        "sqlsFromLeads": 14,
         "won": 10,
         "wonRevenue": 7969.2,
         "byChannel": {
           "Unknown": {
-            "leads": 16,
+            "mqls": 16,
             "sqls": 16,
             "won": 8,
             "wonRevenue": 5598
           },
           "Organic Search": {
-            "leads": 4,
+            "mqls": 4,
             "sqls": 1,
             "won": 0,
             "wonRevenue": 0
           },
           "Unassigned": {
-            "leads": 1,
+            "mqls": 1,
             "sqls": 1,
             "won": 0,
             "wonRevenue": 0
           },
           "Direct": {
-            "leads": 9,
+            "mqls": 9,
             "sqls": 5,
             "won": 2,
             "wonRevenue": 2371.2
           },
           "Referral": {
-            "leads": 2,
+            "mqls": 2,
             "sqls": 2,
             "won": 0,
             "wonRevenue": 0
           },
           "Paid Search": {
-            "leads": 3,
+            "mqls": 3,
             "sqls": 2,
             "won": 0,
             "wonRevenue": 0
@@ -860,31 +882,31 @@
         },
         "byCountry": {
           "EN": {
-            "leads": 9,
+            "mqls": 9,
             "sqls": 4,
             "won": 0,
             "wonRevenue": 0
           },
           "DE": {
-            "leads": 7,
+            "mqls": 7,
             "sqls": 7,
             "won": 0,
             "wonRevenue": 0
           },
           "Unknown": {
-            "leads": 13,
+            "mqls": 13,
             "sqls": 13,
             "won": 7,
             "wonRevenue": 5238
           },
           "FR": {
-            "leads": 1,
+            "mqls": 1,
             "sqls": 0,
             "won": 0,
             "wonRevenue": 0
           },
           "NL": {
-            "leads": 5,
+            "mqls": 5,
             "sqls": 3,
             "won": 3,
             "wonRevenue": 2731.2
@@ -893,37 +915,40 @@
       },
       {
         "week": "2025-12-15",
-        "leads": 22,
+        "leads": 64,
+        "mqls": 22,
+        "mqlsFromLeads": 14,
         "sqls": 15,
+        "sqlsFromLeads": 7,
         "won": 5,
         "wonRevenue": 3629,
         "byChannel": {
           "Unknown": {
-            "leads": 10,
+            "mqls": 10,
             "sqls": 9,
             "won": 2,
             "wonRevenue": 330
           },
           "Direct": {
-            "leads": 5,
+            "mqls": 5,
             "sqls": 3,
             "won": 1,
             "wonRevenue": 800
           },
           "Paid Search": {
-            "leads": 4,
+            "mqls": 4,
             "sqls": 1,
             "won": 0,
             "wonRevenue": 0
           },
           "Referral": {
-            "leads": 1,
+            "mqls": 1,
             "sqls": 1,
             "won": 1,
             "wonRevenue": 1239
           },
           "Organic Search": {
-            "leads": 2,
+            "mqls": 2,
             "sqls": 1,
             "won": 1,
             "wonRevenue": 1260
@@ -931,31 +956,31 @@
         },
         "byCountry": {
           "Unknown": {
-            "leads": 8,
+            "mqls": 8,
             "sqls": 8,
             "won": 2,
             "wonRevenue": 330
           },
           "DE": {
-            "leads": 8,
+            "mqls": 8,
             "sqls": 7,
             "won": 3,
             "wonRevenue": 3299
           },
           "NL": {
-            "leads": 3,
+            "mqls": 3,
             "sqls": 0,
             "won": 0,
             "wonRevenue": 0
           },
           "FR": {
-            "leads": 1,
+            "mqls": 1,
             "sqls": 0,
             "won": 0,
             "wonRevenue": 0
           },
           "EN": {
-            "leads": 2,
+            "mqls": 2,
             "sqls": 0,
             "won": 0,
             "wonRevenue": 0
@@ -964,25 +989,28 @@
       },
       {
         "week": "2025-12-22",
-        "leads": 7,
+        "leads": 23,
+        "mqls": 7,
+        "mqlsFromLeads": 3,
         "sqls": 6,
+        "sqlsFromLeads": 2,
         "won": 3,
         "wonRevenue": 3353.4,
         "byChannel": {
           "Organic Search": {
-            "leads": 2,
+            "mqls": 2,
             "sqls": 1,
             "won": 0,
             "wonRevenue": 0
           },
           "Paid Search": {
-            "leads": 1,
+            "mqls": 1,
             "sqls": 1,
             "won": 0,
             "wonRevenue": 0
           },
           "Unknown": {
-            "leads": 4,
+            "mqls": 4,
             "sqls": 4,
             "won": 3,
             "wonRevenue": 3353.4
@@ -990,25 +1018,25 @@
         },
         "byCountry": {
           "EN": {
-            "leads": 1,
+            "mqls": 1,
             "sqls": 0,
             "won": 0,
             "wonRevenue": 0
           },
           "DE": {
-            "leads": 1,
+            "mqls": 1,
             "sqls": 1,
             "won": 0,
             "wonRevenue": 0
           },
           "Unknown": {
-            "leads": 4,
+            "mqls": 4,
             "sqls": 4,
             "won": 3,
             "wonRevenue": 3353.4
           },
           "NL": {
-            "leads": 1,
+            "mqls": 1,
             "sqls": 1,
             "won": 0,
             "wonRevenue": 0
@@ -1017,19 +1045,22 @@
       },
       {
         "week": "2025-12-29",
-        "leads": 4,
+        "leads": 35,
+        "mqls": 4,
+        "mqlsFromLeads": 3,
         "sqls": 2,
+        "sqlsFromLeads": 1,
         "won": 0,
         "wonRevenue": 0,
         "byChannel": {
           "Unknown": {
-            "leads": 1,
+            "mqls": 1,
             "sqls": 1,
             "won": 0,
             "wonRevenue": 0
           },
           "Paid Search": {
-            "leads": 3,
+            "mqls": 3,
             "sqls": 1,
             "won": 0,
             "wonRevenue": 0
@@ -1037,19 +1068,19 @@
         },
         "byCountry": {
           "Unknown": {
-            "leads": 1,
+            "mqls": 1,
             "sqls": 1,
             "won": 0,
             "wonRevenue": 0
           },
           "DE": {
-            "leads": 1,
+            "mqls": 1,
             "sqls": 1,
             "won": 0,
             "wonRevenue": 0
           },
           "NL": {
-            "leads": 2,
+            "mqls": 2,
             "sqls": 0,
             "won": 0,
             "wonRevenue": 0
@@ -1058,25 +1089,28 @@
       },
       {
         "week": "2026-01-05",
-        "leads": 18,
+        "leads": 50,
+        "mqls": 18,
+        "mqlsFromLeads": 8,
         "sqls": 14,
+        "sqlsFromLeads": 4,
         "won": 5,
         "wonRevenue": 4687.1,
         "byChannel": {
           "Unknown": {
-            "leads": 11,
+            "mqls": 11,
             "sqls": 11,
             "won": 5,
             "wonRevenue": 4687.1
           },
           "Direct": {
-            "leads": 2,
+            "mqls": 2,
             "sqls": 1,
             "won": 0,
             "wonRevenue": 0
           },
           "Organic Search": {
-            "leads": 5,
+            "mqls": 5,
             "sqls": 2,
             "won": 0,
             "wonRevenue": 0
@@ -1084,31 +1118,31 @@
         },
         "byCountry": {
           "Unknown": {
-            "leads": 10,
+            "mqls": 10,
             "sqls": 10,
             "won": 4,
             "wonRevenue": 3840
           },
           "DE": {
-            "leads": 2,
+            "mqls": 2,
             "sqls": 2,
             "won": 0,
             "wonRevenue": 0
           },
           "NL": {
-            "leads": 2,
+            "mqls": 2,
             "sqls": 2,
             "won": 1,
             "wonRevenue": 847.1
           },
           "EN": {
-            "leads": 3,
+            "mqls": 3,
             "sqls": 0,
             "won": 0,
             "wonRevenue": 0
           },
           "ES": {
-            "leads": 1,
+            "mqls": 1,
             "sqls": 0,
             "won": 0,
             "wonRevenue": 0
@@ -1117,37 +1151,40 @@
       },
       {
         "week": "2026-01-12",
-        "leads": 21,
+        "leads": 55,
+        "mqls": 21,
+        "mqlsFromLeads": 8,
         "sqls": 18,
+        "sqlsFromLeads": 5,
         "won": 6,
         "wonRevenue": 2079.2,
         "byChannel": {
           "Unknown": {
-            "leads": 13,
+            "mqls": 13,
             "sqls": 13,
             "won": 5,
             "wonRevenue": 1359.2
           },
           "Paid Search": {
-            "leads": 2,
+            "mqls": 2,
             "sqls": 1,
             "won": 0,
             "wonRevenue": 0
           },
           "Organic Search": {
-            "leads": 3,
+            "mqls": 3,
             "sqls": 1,
             "won": 1,
             "wonRevenue": 720
           },
           "Direct": {
-            "leads": 2,
+            "mqls": 2,
             "sqls": 2,
             "won": 0,
             "wonRevenue": 0
           },
           "Referral": {
-            "leads": 1,
+            "mqls": 1,
             "sqls": 1,
             "won": 0,
             "wonRevenue": 0
@@ -1155,31 +1192,31 @@
         },
         "byCountry": {
           "Unknown": {
-            "leads": 13,
+            "mqls": 13,
             "sqls": 13,
             "won": 5,
             "wonRevenue": 1359.2
           },
           "DE": {
-            "leads": 3,
+            "mqls": 3,
             "sqls": 2,
             "won": 0,
             "wonRevenue": 0
           },
           "FR": {
-            "leads": 1,
+            "mqls": 1,
             "sqls": 0,
             "won": 0,
             "wonRevenue": 0
           },
           "NL": {
-            "leads": 3,
+            "mqls": 3,
             "sqls": 2,
             "won": 0,
             "wonRevenue": 0
           },
           "EN": {
-            "leads": 1,
+            "mqls": 1,
             "sqls": 1,
             "won": 1,
             "wonRevenue": 720
@@ -1188,31 +1225,34 @@
       },
       {
         "week": "2026-01-19",
-        "leads": 16,
+        "leads": 44,
+        "mqls": 16,
+        "mqlsFromLeads": 10,
         "sqls": 15,
+        "sqlsFromLeads": 9,
         "won": 5,
         "wonRevenue": 7972.15,
         "byChannel": {
           "Organic Search": {
-            "leads": 3,
+            "mqls": 3,
             "sqls": 2,
             "won": 1,
             "wonRevenue": 1440
           },
           "Paid Search": {
-            "leads": 3,
+            "mqls": 3,
             "sqls": 3,
             "won": 1,
             "wonRevenue": 1378.15
           },
           "Unknown": {
-            "leads": 9,
+            "mqls": 9,
             "sqls": 9,
             "won": 3,
             "wonRevenue": 5154
           },
           "Direct": {
-            "leads": 1,
+            "mqls": 1,
             "sqls": 1,
             "won": 0,
             "wonRevenue": 0
@@ -1220,25 +1260,25 @@
         },
         "byCountry": {
           "NL": {
-            "leads": 4,
+            "mqls": 4,
             "sqls": 3,
             "won": 2,
             "wonRevenue": 2818.15
           },
           "Unknown": {
-            "leads": 6,
+            "mqls": 6,
             "sqls": 6,
             "won": 2,
             "wonRevenue": 998
           },
           "DE": {
-            "leads": 5,
+            "mqls": 5,
             "sqls": 5,
             "won": 1,
             "wonRevenue": 4156
           },
           "EN": {
-            "leads": 1,
+            "mqls": 1,
             "sqls": 1,
             "won": 0,
             "wonRevenue": 0
@@ -1247,37 +1287,40 @@
       },
       {
         "week": "2026-01-26",
-        "leads": 18,
+        "leads": 40,
+        "mqls": 18,
+        "mqlsFromLeads": 12,
         "sqls": 17,
+        "sqlsFromLeads": 11,
         "won": 4,
         "wonRevenue": 3604,
         "byChannel": {
           "Organic Search": {
-            "leads": 4,
+            "mqls": 4,
             "sqls": 3,
             "won": 1,
             "wonRevenue": 1522.5
           },
           "Referral": {
-            "leads": 1,
+            "mqls": 1,
             "sqls": 1,
             "won": 0,
             "wonRevenue": 0
           },
           "Direct": {
-            "leads": 6,
+            "mqls": 6,
             "sqls": 6,
             "won": 0,
             "wonRevenue": 0
           },
           "Unknown": {
-            "leads": 6,
+            "mqls": 6,
             "sqls": 6,
             "won": 2,
             "wonRevenue": 1381.5
           },
           "Paid Search": {
-            "leads": 1,
+            "mqls": 1,
             "sqls": 1,
             "won": 1,
             "wonRevenue": 700
@@ -1285,31 +1328,31 @@
         },
         "byCountry": {
           "EN": {
-            "leads": 4,
+            "mqls": 4,
             "sqls": 3,
             "won": 0,
             "wonRevenue": 0
           },
           "DE": {
-            "leads": 3,
+            "mqls": 3,
             "sqls": 3,
             "won": 1,
             "wonRevenue": 700
           },
           "Unknown": {
-            "leads": 6,
+            "mqls": 6,
             "sqls": 6,
             "won": 2,
             "wonRevenue": 1381.5
           },
           "NL": {
-            "leads": 4,
+            "mqls": 4,
             "sqls": 4,
             "won": 1,
             "wonRevenue": 1522.5
           },
           "FR": {
-            "leads": 1,
+            "mqls": 1,
             "sqls": 1,
             "won": 0,
             "wonRevenue": 0
@@ -1318,37 +1361,40 @@
       },
       {
         "week": "2026-02-02",
-        "leads": 18,
+        "leads": 37,
+        "mqls": 18,
+        "mqlsFromLeads": 10,
         "sqls": 15,
+        "sqlsFromLeads": 7,
         "won": 5,
         "wonRevenue": 3028,
         "byChannel": {
           "Unknown": {
-            "leads": 9,
+            "mqls": 9,
             "sqls": 8,
             "won": 3,
             "wonRevenue": 1750.8
           },
           "Paid Search": {
-            "leads": 2,
+            "mqls": 2,
             "sqls": 2,
             "won": 0,
             "wonRevenue": 0
           },
           "Direct": {
-            "leads": 3,
+            "mqls": 3,
             "sqls": 3,
             "won": 0,
             "wonRevenue": 0
           },
           "Organic Search": {
-            "leads": 3,
+            "mqls": 3,
             "sqls": 2,
             "won": 2,
             "wonRevenue": 1277.2
           },
           "Referral": {
-            "leads": 1,
+            "mqls": 1,
             "sqls": 0,
             "won": 0,
             "wonRevenue": 0
@@ -1356,25 +1402,25 @@
         },
         "byCountry": {
           "Unknown": {
-            "leads": 8,
+            "mqls": 8,
             "sqls": 8,
             "won": 3,
             "wonRevenue": 1750.8
           },
           "NL": {
-            "leads": 6,
+            "mqls": 6,
             "sqls": 5,
             "won": 1,
             "wonRevenue": 877.2
           },
           "EN": {
-            "leads": 2,
+            "mqls": 2,
             "sqls": 0,
             "won": 0,
             "wonRevenue": 0
           },
           "DE": {
-            "leads": 2,
+            "mqls": 2,
             "sqls": 2,
             "won": 1,
             "wonRevenue": 400
@@ -1383,37 +1429,40 @@
       },
       {
         "week": "2026-02-09",
-        "leads": 19,
+        "leads": 39,
+        "mqls": 19,
+        "mqlsFromLeads": 13,
         "sqls": 16,
+        "sqlsFromLeads": 11,
         "won": 4,
         "wonRevenue": 2028,
         "byChannel": {
           "Unknown": {
-            "leads": 6,
+            "mqls": 6,
             "sqls": 5,
             "won": 1,
             "wonRevenue": 500
           },
           "Referral": {
-            "leads": 3,
+            "mqls": 3,
             "sqls": 3,
             "won": 0,
             "wonRevenue": 0
           },
           "Organic Search": {
-            "leads": 2,
+            "mqls": 2,
             "sqls": 1,
             "won": 0,
             "wonRevenue": 0
           },
           "Paid Search": {
-            "leads": 5,
+            "mqls": 5,
             "sqls": 5,
             "won": 2,
             "wonRevenue": 1398
           },
           "Direct": {
-            "leads": 3,
+            "mqls": 3,
             "sqls": 2,
             "won": 1,
             "wonRevenue": 130
@@ -1421,25 +1470,25 @@
         },
         "byCountry": {
           "Unknown": {
-            "leads": 6,
+            "mqls": 6,
             "sqls": 5,
             "won": 1,
             "wonRevenue": 500
           },
           "DE": {
-            "leads": 6,
+            "mqls": 6,
             "sqls": 5,
             "won": 1,
             "wonRevenue": 130
           },
           "NL": {
-            "leads": 5,
+            "mqls": 5,
             "sqls": 5,
             "won": 2,
             "wonRevenue": 1398
           },
           "EN": {
-            "leads": 2,
+            "mqls": 2,
             "sqls": 1,
             "won": 0,
             "wonRevenue": 0
@@ -1448,25 +1497,28 @@
       },
       {
         "week": "2026-02-16",
-        "leads": 13,
+        "leads": 24,
+        "mqls": 13,
+        "mqlsFromLeads": 12,
         "sqls": 13,
+        "sqlsFromLeads": 12,
         "won": 1,
         "wonRevenue": 307.5,
         "byChannel": {
           "Unknown": {
-            "leads": 5,
+            "mqls": 5,
             "sqls": 5,
             "won": 1,
             "wonRevenue": 307.5
           },
           "Paid Search": {
-            "leads": 4,
+            "mqls": 4,
             "sqls": 4,
             "won": 0,
             "wonRevenue": 0
           },
           "Direct": {
-            "leads": 4,
+            "mqls": 4,
             "sqls": 4,
             "won": 0,
             "wonRevenue": 0
@@ -1474,25 +1526,25 @@
         },
         "byCountry": {
           "EN": {
-            "leads": 3,
+            "mqls": 3,
             "sqls": 3,
             "won": 0,
             "wonRevenue": 0
           },
           "Unknown": {
-            "leads": 1,
+            "mqls": 1,
             "sqls": 1,
             "won": 1,
             "wonRevenue": 307.5
           },
           "DE": {
-            "leads": 6,
+            "mqls": 6,
             "sqls": 6,
             "won": 0,
             "wonRevenue": 0
           },
           "NL": {
-            "leads": 3,
+            "mqls": 3,
             "sqls": 3,
             "won": 0,
             "wonRevenue": 0
@@ -4595,85 +4647,71 @@
     "ga4": [
       {
         "week": "2025-11-17",
-        "formSubmissions": 14,
         "purchases": 112,
         "purchaseRevenue": 2585.81
       },
       {
         "week": "2025-11-24",
-        "formSubmissions": 76,
         "purchases": 391,
         "purchaseRevenue": 12845.83
       },
       {
         "week": "2025-12-01",
-        "formSubmissions": 55,
         "purchases": 399,
         "purchaseRevenue": 13747.98
       },
       {
         "week": "2025-12-08",
-        "formSubmissions": 81,
         "purchases": 428,
         "purchaseRevenue": 15728.27
       },
       {
         "week": "2025-12-15",
-        "formSubmissions": 64,
         "purchases": 385,
         "purchaseRevenue": 13841.37
       },
       {
         "week": "2025-12-22",
-        "formSubmissions": 23,
         "purchases": 184,
         "purchaseRevenue": 6207.84
       },
       {
         "week": "2025-12-29",
-        "formSubmissions": 35,
         "purchases": 170,
         "purchaseRevenue": 5180.58
       },
       {
         "week": "2026-01-05",
-        "formSubmissions": 50,
         "purchases": 332,
         "purchaseRevenue": 11591.3
       },
       {
         "week": "2026-01-12",
-        "formSubmissions": 55,
         "purchases": 366,
         "purchaseRevenue": 16181.32
       },
       {
         "week": "2026-01-19",
-        "formSubmissions": 44,
         "purchases": 349,
         "purchaseRevenue": 12300.65
       },
       {
         "week": "2026-01-26",
-        "formSubmissions": 40,
         "purchases": 357,
         "purchaseRevenue": 12299.2
       },
       {
         "week": "2026-02-02",
-        "formSubmissions": 37,
         "purchases": 317,
         "purchaseRevenue": 10063.31
       },
       {
         "week": "2026-02-09",
-        "formSubmissions": 39,
         "purchases": 357,
         "purchaseRevenue": 12648.35
       },
       {
         "week": "2026-02-16",
-        "formSubmissions": 24,
         "purchases": 212,
         "purchaseRevenue": 6484
       }
