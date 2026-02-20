@@ -105,12 +105,9 @@ function main() {
     }
   }
 
-  // Enrich HubSpot deals with channel and country from GA4
+  // Enrich HubSpot deals with channel from GA4
   for (const deal of hubspotDeals) {
     deal.channel = deal.formId ? (formToChannel[deal.formId] || 'Unknown') : 'Unknown';
-    // Country from formId (e.g. RequestQuote-nl_... → NL)
-    const langMatch = deal.formId ? deal.formId.match(/-([a-z]{2})_/) : null;
-    deal.country = langMatch ? langMatch[1].toUpperCase() : '';
   }
 
   // Classify Stripe charges (handle both old and new raw format)

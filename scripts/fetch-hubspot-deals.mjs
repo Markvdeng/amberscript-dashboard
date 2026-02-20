@@ -47,6 +47,7 @@ const PROPERTIES = [
   'brand_source',
   'deal_product', 'deal_transcription_style', 'deal_additional_options', 'deal_form_id',
   'hubspot_owner_id',
+  'country',
 ];
 
 async function hsGet(path) {
@@ -167,6 +168,7 @@ async function main() {
       transcriptionStyle: p.deal_transcription_style || '',
       additionalOptions: p.deal_additional_options || '',
       formId: p.deal_form_id || '',
+      country: p.country || '',
       ownerId,
       ownerName: ownerNames[ownerId] || ownerId,
     };
