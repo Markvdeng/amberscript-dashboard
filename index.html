@@ -267,10 +267,6 @@
           <button class="bu-tab" data-bu="Innovations" onclick="switchBU('Innovations')">Innovations</button>
         </nav>
         <div class="flex items-center gap-2 mb-1.5">
-        <button onclick="openRawData()" class="header-select flex items-center gap-1 cursor-pointer" style="padding:6px 12px;">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M3 14h18M3 6h18M3 18h18"/></svg>
-          Raw Data
-        </button>
         <select id="dateRange" class="header-select">
           <option value="this-week">This week</option>
           <option value="last-week">Last week</option>
@@ -286,28 +282,6 @@
       </div>
     </div>
   </header>
-
-  <!-- Raw Data Overlay -->
-  <div id="rawDataOverlay" class="fixed inset-0 bg-black/60 z-50 hidden" onclick="if(event.target===this)closeRawData()">
-    <div class="absolute inset-4 sm:inset-8 bg-white rounded-xl shadow-2xl flex flex-col overflow-hidden">
-      <div class="flex items-center justify-between px-6 py-4 border-b border-gray-200 bg-gray-50">
-        <div class="flex items-center gap-4">
-          <h2 class="text-lg font-bold text-gray-900">Raw Data</h2>
-          <nav class="flex gap-1" id="rawDataTabs"></nav>
-        </div>
-        <div class="flex items-center gap-3">
-          <button onclick="downloadRawCSV()" class="px-3 py-1.5 bg-as-primary text-white text-sm font-semibold rounded-lg hover:opacity-90 transition-opacity flex items-center gap-1.5">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-            Download CSV
-          </button>
-          <button onclick="closeRawData()" class="text-gray-400 hover:text-gray-600 transition-colors">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-          </button>
-        </div>
-      </div>
-      <div id="rawDataContent" class="flex-1 overflow-auto p-6"></div>
-    </div>
-  </div>
 
   <!-- AI Chat Panel -->
   <div id="chatPanel" class="fixed bottom-6 right-6 z-40 flex flex-col items-end">
@@ -1915,124 +1889,6 @@ async function sendChat() {
 }
 
 // ===== RAW DATA OVERLAY =====
-let rawDataTab = 'deals';
-const RAW_TABS = [
-  { id: 'deals', label: 'Deals' },
-  { id: 'forms', label: 'Form Submissions' },
-  { id: 'stripe', label: 'Stripe (Weekly)' },
-  { id: 'subs', label: 'Subscriptions' },
-  { id: 'ads', label: 'Google Ads (Weekly)' },
-];
-
-function openRawData() {
-  document.getElementById('rawDataOverlay').classList.remove('hidden');
-  document.body.style.overflow = 'hidden';
-  renderRawTabs();
-  renderRawTable();
-}
-function closeRawData() {
-  document.getElementById('rawDataOverlay').classList.add('hidden');
-  document.body.style.overflow = '';
-}
-function switchRawTab(tab) {
-  rawDataTab = tab;
-  renderRawTabs();
-  renderRawTable();
-}
-function renderRawTabs() {
-  document.getElementById('rawDataTabs').innerHTML = RAW_TABS.map(t =>
-    `<button onclick="switchRawTab('${t.id}')" class="px-3 py-1.5 text-sm font-medium rounded-lg transition-colors ${rawDataTab === t.id ? 'bg-as-primary text-white' : 'text-gray-600 hover:bg-gray-200'}">${t.label}</button>`
-  ).join('');
-}
-
-function getRawData() {
-  if (!DATA) return { headers: [], rows: [] };
-  const weeks = getFilteredWeeks();
-  const weekSet = new Set(weeks);
-
-  switch (rawDataTab) {
-    case 'deals': {
-      const deals = (DATA.deals || []).filter(d => weekSet.has(d.week));
-      return {
-        headers: ['Week', 'Close Week', 'Product', 'Style', 'Options', 'Country', 'Channel', 'Owner', 'Stage', 'Status', 'Amount'],
-        rows: deals.map(d => [d.week, d.closeWeek, d.product, d.transcriptionStyle, d.additionalOptions, d.country, d.channel, d.ownerName, d.lifecycleStage, d.status, d.amount]),
-      };
-    }
-    case 'forms': {
-      const forms = (DATA.ga4Forms || []).filter(f => weekSet.has(f.week));
-      return {
-        headers: ['Week', 'Country', 'Channel', 'Product', 'BU', 'Count'],
-        rows: forms.map(f => [f.week, f.country, f.channel, f.product, f.bu, f.count]),
-      };
-    }
-    case 'stripe': {
-      const stripe = filterByWeeks(DATA.weekly.stripe, weeks);
-      return {
-        headers: ['Week', 'Payments', 'Revenue', 'By Product', 'By Plan Type', 'By Country', 'By Channel'],
-        rows: stripe.map(r => [
-          r.week, r.count, r.totalRevenue,
-          Object.entries(r.byProduct || {}).map(([k, v]) => `${k}: ${v.count} / ${fmt.currency(v.revenue)}`).join('; '),
-          Object.entries(r.byPlanType || {}).map(([k, v]) => `${k}: ${v.count} / ${fmt.currency(v.revenue)}`).join('; '),
-          Object.entries(r.byCountry || {}).map(([k, v]) => `${k}: ${v.count} / ${fmt.currency(v.revenue)}`).join('; '),
-          Object.entries(r.byChannel || {}).map(([k, v]) => `${k}: ${v.count} / ${fmt.currency(v.revenue)}`).join('; '),
-        ]),
-      };
-    }
-    case 'subs': {
-      const subs = filterByWeeks(DATA.weekly.subs || [], weeks);
-      const snap = DATA.subSnapshot;
-      const snapRow = snap ? [['Current', '-', '-', snap.totalActiveSubs, '-', '-', fmt.currency(snap.mrr)]] : [];
-      return {
-        headers: ['Week', 'New Subs', 'New MRR', 'Churned Subs', 'Churned MRR', 'Net MRR', 'MRR'],
-        rows: [...subs.map(s => [s.week, s.newSubs, fmt.currency(s.newMrr), s.churnedSubs, fmt.currency(s.churnedMrr), fmt.currency(s.netMrr), '-']), ...snapRow],
-      };
-    }
-    case 'ads': {
-      const ads = filterByWeeks(DATA.weekly.ads, weeks);
-      return {
-        headers: ['Week', 'Total Cost', 'MM Cost', 'HM Cost', 'Brand Cost', 'By Country', 'By Product'],
-        rows: ads.map(r => [
-          r.week, fmt.currency(r.totalCost), fmt.currency(r.mmCost), fmt.currency(r.hmCost), fmt.currency(r.brandCost),
-          Object.entries(r.byCountry || {}).map(([k, v]) => `${k}: ${fmt.currency(v)}`).join('; '),
-          Object.entries(r.byProduct || {}).map(([k, v]) => `${k}: ${fmt.currency(v)}`).join('; '),
-        ]),
-      };
-    }
-    default: return { headers: [], rows: [] };
-  }
-}
-
-function renderRawTable() {
-  const { headers, rows } = getRawData();
-  const el = document.getElementById('rawDataContent');
-  if (rows.length === 0) {
-    el.innerHTML = '<p class="text-gray-500 text-center py-12">No data for selected date range</p>';
-    return;
-  }
-  el.innerHTML = `
-    <p class="text-sm text-gray-500 mb-3">${rows.length} rows</p>
-    <table class="w-full text-sm border-collapse">
-      <thead><tr class="border-b-2 border-gray-200 bg-gray-50 sticky top-0">
-        ${headers.map(h => `<th class="py-2 px-3 text-left font-semibold text-gray-700 whitespace-nowrap">${h}</th>`).join('')}
-      </tr></thead>
-      <tbody>
-        ${rows.map(r => `<tr class="border-b border-gray-100 hover:bg-gray-50">${r.map(v => `<td class="py-1.5 px-3 text-gray-700 whitespace-nowrap">${v ?? ''}</td>`).join('')}</tr>`).join('')}
-      </tbody>
-    </table>`;
-}
-
-function downloadRawCSV() {
-  const { headers, rows } = getRawData();
-  const esc = v => { const s = String(v ?? ''); return s.includes(',') || s.includes('"') || s.includes('\n') ? '"' + s.replace(/"/g, '""') + '"' : s; };
-  const csv = [headers.map(esc).join(','), ...rows.map(r => r.map(esc).join(','))].join('\n');
-  const blob = new Blob([csv], { type: 'text/csv' });
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = `amberscript-${rawDataTab}-${new Date().toISOString().slice(0, 10)}.csv`;
-  a.click();
-  URL.revokeObjectURL(a.href);
-}
-
 // ===== EVENTS =====
 document.getElementById('dateRange').addEventListener('change', () => { if (DATA) render(); });
 
