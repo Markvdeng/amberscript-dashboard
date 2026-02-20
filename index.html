@@ -344,12 +344,10 @@
                 <tr>
                   <th class="pb-2">Product</th>
                   <th class="pb-2 text-right">Leads</th>
-                  <th class="pb-2 text-right" title="Marketing Qualified Leads">MQLs</th>
-                  <th class="pb-2 text-right" title="Sales Qualified Leads">SQLs</th>
-                  <th class="pb-2 text-right" title="Won deals by deal creation date">Won (crt)</th>
-                  <th class="pb-2 text-right" title="Won deals by deal close date">Won (cls)</th>
-                  <th class="pb-2 text-right" title="Revenue by deal creation date">Rev (crt)</th>
-                  <th class="pb-2 text-right" title="Revenue by deal close date">Rev (cls)</th>
+                  <th class="pb-2 text-right">MQLs</th>
+                  <th class="pb-2 text-right">SQLs</th>
+                  <th class="pb-2 text-right" title="By close date (by create date in brackets)">Won</th>
+                  <th class="pb-2 text-right" title="By close date (by create date in brackets)">Revenue</th>
                 </tr>
               </thead>
               <tbody></tbody>
@@ -366,12 +364,10 @@
                 <thead class="text-left border-b border-as-border">
                   <tr>
                     <th class="pb-2">Owner</th>
-                    <th class="pb-2 text-right" title="Marketing Qualified Leads">MQLs</th>
-                    <th class="pb-2 text-right" title="Sales Qualified Leads">SQLs</th>
-                    <th class="pb-2 text-right" title="Won deals by deal creation date">Won (crt)</th>
-                    <th class="pb-2 text-right" title="Won deals by deal close date">Won (cls)</th>
-                    <th class="pb-2 text-right" title="Revenue by deal creation date">Rev (crt)</th>
-                    <th class="pb-2 text-right" title="Revenue by deal close date">Rev (cls)</th>
+                    <th class="pb-2 text-right">MQLs</th>
+                    <th class="pb-2 text-right">SQLs</th>
+                    <th class="pb-2 text-right" title="By close date (by create date in brackets)">Won</th>
+                    <th class="pb-2 text-right" title="By close date (by create date in brackets)">Revenue</th>
                   </tr>
                 </thead>
                 <tbody></tbody>
@@ -386,12 +382,10 @@
                 <thead class="text-left border-b border-as-border">
                   <tr>
                     <th class="pb-2">Country</th>
-                    <th class="pb-2 text-right" title="Marketing Qualified Leads">MQLs</th>
-                    <th class="pb-2 text-right" title="Sales Qualified Leads">SQLs</th>
-                    <th class="pb-2 text-right" title="Won deals by deal creation date">Won (crt)</th>
-                    <th class="pb-2 text-right" title="Won deals by deal close date">Won (cls)</th>
-                    <th class="pb-2 text-right" title="Revenue by deal creation date">Rev (crt)</th>
-                    <th class="pb-2 text-right" title="Revenue by deal close date">Rev (cls)</th>
+                    <th class="pb-2 text-right">MQLs</th>
+                    <th class="pb-2 text-right">SQLs</th>
+                    <th class="pb-2 text-right" title="By close date (by create date in brackets)">Won</th>
+                    <th class="pb-2 text-right" title="By close date (by create date in brackets)">Revenue</th>
                   </tr>
                 </thead>
                 <tbody></tbody>
@@ -734,22 +728,20 @@ function renderInboundSummary(weeks) {
       <th class="pb-2">${label}</th>
       <th class="pb-2 text-right">Spend</th>
       <th class="pb-2 text-right ${g}">Leads</th>
-      <th class="pb-2 text-right" title="Marketing Qualified Leads">MQLs</th>
-      <th class="pb-2 text-right" title="Lead to MQL conversion rate (from leads only)">L&gt;MQL</th>
-      <th class="pb-2 text-right ${g}" title="Sales Qualified Leads">SQLs</th>
-      <th class="pb-2 text-right" title="MQL to SQL conversion rate">MQL&gt;SQL</th>
-      <th class="pb-2 text-right ${g}" title="Won deals by deal creation date">Won (crt)</th>
-      <th class="pb-2 text-right" title="Won deals by deal close date">Won (cls)</th>
-      <th class="pb-2 text-right" title="SQL to Won conversion rate">SQL&gt;Won</th>
-      <th class="pb-2 text-right ${g}" title="Revenue by deal creation date">Rev (crt)</th>
-      <th class="pb-2 text-right" title="Revenue by deal close date">Rev (cls)</th>
-      <th class="pb-2 text-right ${g}" title="Average Order Value (revenue / won deals)">AOV</th>
+      <th class="pb-2 text-right">MQLs</th>
+      <th class="pb-2 text-right">L&gt;MQL</th>
+      <th class="pb-2 text-right ${g}">SQLs</th>
+      <th class="pb-2 text-right">MQL&gt;SQL</th>
+      <th class="pb-2 text-right ${g}" title="By close date (by create date in brackets)">Won</th>
+      <th class="pb-2 text-right">SQL&gt;Won</th>
+      <th class="pb-2 text-right ${g}" title="By close date (by create date in brackets)">Revenue</th>
+      <th class="pb-2 text-right ${g}">AOV</th>
   `;
   function summaryRow(label, hmCost, f) {
     const l2m = f.leads > 0 ? (f.mqlsFL / f.leads * 100).toFixed(1) + '%' : '-';
     const m2s = f.mqls > 0 ? (f.sqls / f.mqls * 100).toFixed(1) + '%' : '-';
     const s2w = f.sqls > 0 ? (f.won / f.sqls * 100).toFixed(1) + '%' : '-';
-    const aov = f.won > 0 ? fmt.currency(Math.round(f.wonRev / f.won)) : '-';
+    const aov = f.wonClose > 0 ? fmt.currency(Math.round(f.wonRevClose / f.wonClose)) : '-';
     return `<tr class="border-b border-as-border/40 hover-row">
       <td class="py-2.5 font-semibold text-sm">${label}</td>
       <td class="py-2.5 text-right text-as-secondary">${fmt.currency(hmCost)}</td>
@@ -758,11 +750,9 @@ function renderInboundSummary(weeks) {
       <td class="py-2.5 text-right text-as-muted">${l2m}</td>
       <td class="py-2.5 text-right text-as-secondary ${g}">${fmt.number(f.sqls)}</td>
       <td class="py-2.5 text-right text-as-muted">${m2s}</td>
-      <td class="py-2.5 text-right text-as-secondary ${g}">${fmt.number(f.won)}</td>
-      <td class="py-2.5 text-right text-as-secondary">${fmt.number(f.wonClose)}</td>
+      <td class="py-2.5 text-right text-as-secondary ${g}">${fmt.number(f.wonClose)} <span class="text-as-muted">(${fmt.number(f.won)})</span></td>
       <td class="py-2.5 text-right text-as-muted">${s2w}</td>
-      <td class="py-2.5 text-right font-semibold ${g}">${fmt.currency(f.wonRev)}</td>
-      <td class="py-2.5 text-right font-semibold">${fmt.currency(f.wonRevClose)}</td>
+      <td class="py-2.5 text-right font-semibold ${g}">${fmt.currency(f.wonRevClose)} <span class="text-as-muted font-normal">(${fmt.currency(f.wonRev)})</span></td>
       <td class="py-2.5 text-right text-as-secondary ${g}">${aov}</td>
     </tr>`;
   }
@@ -1066,8 +1056,8 @@ function renderInbound(weeks) {
     { label: 'Leads (GA4)', value: fmt.number(leads), color: '#005a50' },
     { label: 'MQLs', value: `${fmt.number(mqls)} <span class="text-[0.6875rem] text-as-muted font-normal">(${fmt.number(mqlsFromLeads)} from leads)</span>`, color: '#0F6B5E' },
     { label: 'SQLs', value: `${fmt.number(sqls)} <span class="text-[0.6875rem] text-as-muted font-normal">(${fmt.number(sqlsFromLeads)} from leads)</span>`, color: '#1A7B6B' },
-    { label: 'Won Deals (created)', value: fmt.number(won), color: '#F5A623', sub: `${fmt.number(wonClose)} by close date` },
-    { label: 'Deal Revenue (created)', value: fmt.currency(wonRev), color: '#F5A623', sub: `${fmt.currency(wonRevClose)} by close date` },
+    { label: 'Won Deals', value: fmt.number(wonClose), color: '#F5A623', sub: `${fmt.number(won)} by create date` },
+    { label: 'Deal Revenue', value: fmt.currency(wonRevClose), color: '#F5A623', sub: `${fmt.currency(wonRev)} by create date` },
     { label: 'Deal AOV', value: aov, color: '#E69100' },
   ].map(k => kpiCard(k.label, k.value, k.color, k.sub)).join('');
 
@@ -1146,10 +1136,8 @@ function renderProductTable(deals, closedDeals, forms) {
       <td class="py-1.5 text-right text-as-secondary ${cls}">${fmt.number(leads)}</td>
       <td class="py-1.5 text-right text-as-secondary ${cls}">${fmt.number(t.mqls)}</td>
       <td class="py-1.5 text-right text-as-secondary ${cls}">${fmt.number(t.sqls)}</td>
-      <td class="py-1.5 text-right text-as-secondary ${cls}">${fmt.number(t.won)}</td>
-      <td class="py-1.5 text-right text-as-secondary ${cls}">${fmt.number(ct.won)}</td>
-      <td class="py-1.5 text-right font-semibold ${cls}">${fmt.currency(t.wonRevenue)}</td>
-      <td class="py-1.5 text-right font-semibold ${cls}">${fmt.currency(ct.wonRevenue)}</td>`;
+      <td class="py-1.5 text-right text-as-secondary ${cls}">${fmt.number(ct.won)} <span class="text-as-muted">(${fmt.number(t.won)})</span></td>
+      <td class="py-1.5 text-right font-semibold ${cls}">${fmt.currency(ct.wonRevenue)} <span class="text-as-muted font-normal">(${fmt.currency(t.wonRevenue)})</span></td>`;
   }
 
   // Count leads by product from GA4 forms
@@ -1250,10 +1238,8 @@ function renderProductTable(deals, closedDeals, forms) {
     <td class="py-2 text-right font-bold text-sm">${fmt.number(totalLeads)}</td>
     <td class="py-2 text-right font-bold text-sm">${fmt.number(total.mqls)}</td>
     <td class="py-2 text-right font-bold text-sm">${fmt.number(total.sqls)}</td>
-    <td class="py-2 text-right font-bold text-sm">${fmt.number(total.won)}</td>
-    <td class="py-2 text-right font-bold text-sm">${fmt.number(closeTotal.won)}</td>
-    <td class="py-2 text-right font-bold text-sm">${fmt.currency(total.wonRevenue)}</td>
-    <td class="py-2 text-right font-bold text-sm">${fmt.currency(closeTotal.wonRevenue)}</td>
+    <td class="py-2 text-right font-bold text-sm">${fmt.number(closeTotal.won)} <span class="font-normal text-as-muted">(${fmt.number(total.won)})</span></td>
+    <td class="py-2 text-right font-bold text-sm">${fmt.currency(closeTotal.wonRevenue)} <span class="font-normal text-as-muted">(${fmt.currency(total.wonRevenue)})</span></td>
   </tr>`;
   document.querySelector('#productTable tbody').innerHTML = html;
 }
@@ -1295,10 +1281,8 @@ function renderBreakdownTable(deals, closedDeals, tableId, keyFn) {
       <td class="py-2 font-medium text-sm">${k}</td>
       <td class="py-2 text-right text-as-secondary">${fmt.number(d.mqls)}</td>
       <td class="py-2 text-right text-as-secondary">${fmt.number(d.sqls)}</td>
-      <td class="py-2 text-right text-as-secondary">${fmt.number(d.won)}</td>
-      <td class="py-2 text-right text-as-secondary">${fmt.number(d.wonClose)}</td>
-      <td class="py-2 text-right font-semibold">${fmt.currency(d.wonRevenue)}</td>
-      <td class="py-2 text-right font-semibold">${fmt.currency(d.wonRevClose)}</td>
+      <td class="py-2 text-right text-as-secondary">${fmt.number(d.wonClose)} <span class="text-as-muted">(${fmt.number(d.won)})</span></td>
+      <td class="py-2 text-right font-semibold">${fmt.currency(d.wonRevClose)} <span class="text-as-muted font-normal">(${fmt.currency(d.wonRevenue)})</span></td>
     </tr>`;
   }).join('');
   document.getElementById(`${tableId}Total`).innerHTML = `<table class="w-full">
@@ -1306,10 +1290,8 @@ function renderBreakdownTable(deals, closedDeals, tableId, keyFn) {
       <td class="py-2 font-bold text-sm">Total</td>
       <td class="py-2 text-right font-bold text-sm">${fmt.number(sum.mqls)}</td>
       <td class="py-2 text-right font-bold text-sm">${fmt.number(sum.sqls)}</td>
-      <td class="py-2 text-right font-bold text-sm">${fmt.number(sum.won)}</td>
-      <td class="py-2 text-right font-bold text-sm">${fmt.number(sum.wonClose)}</td>
-      <td class="py-2 text-right font-bold text-sm">${fmt.currency(sum.wonRevenue)}</td>
-      <td class="py-2 text-right font-bold text-sm">${fmt.currency(sum.wonRevClose)}</td>
+      <td class="py-2 text-right font-bold text-sm">${fmt.number(sum.wonClose)} <span class="font-normal text-as-muted">(${fmt.number(sum.won)})</span></td>
+      <td class="py-2 text-right font-bold text-sm">${fmt.currency(sum.wonRevClose)} <span class="font-normal text-as-muted">(${fmt.currency(sum.wonRevenue)})</span></td>
     </tr>
   </table>`;
 }
