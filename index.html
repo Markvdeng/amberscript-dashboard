@@ -350,10 +350,10 @@
         </div>
 
         <!-- Owner + Country side by side -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6" style="align-items:end">
-          <div class="card">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div class="card flex flex-col">
             <span class="summary-header">By Deal Owner</span>
-            <div class="overflow-x-auto mt-3">
+            <div class="overflow-x-auto mt-3 flex-1">
               <table id="ownerTable" class="w-full">
                 <thead class="text-left border-b border-as-border">
                   <tr>
@@ -367,10 +367,11 @@
                 <tbody></tbody>
               </table>
             </div>
+            <div id="ownerTableTotal" class="overflow-x-auto"></div>
           </div>
-          <div class="card">
+          <div class="card flex flex-col">
             <span class="summary-header">By Country</span>
-            <div class="overflow-x-auto mt-3">
+            <div class="overflow-x-auto mt-3 flex-1">
               <table id="geoTable" class="w-full">
                 <thead class="text-left border-b border-as-border">
                   <tr>
@@ -384,6 +385,7 @@
                 <tbody></tbody>
               </table>
             </div>
+            <div id="geoTableTotal" class="overflow-x-auto"></div>
           </div>
         </div>
       </div>
@@ -1197,13 +1199,16 @@ function renderBreakdownTable(deals, tableId, keyFn) {
       <td class="py-2 text-right text-as-secondary">${fmt.number(d.won)}</td>
       <td class="py-2 text-right font-semibold">${fmt.currency(d.wonRevenue)}</td>
     </tr>`;
-  }).join('') + `<tr class="border-t-2 border-as-border">
-    <td class="py-2 font-bold text-sm">Total</td>
-    <td class="py-2 text-right font-bold text-sm">${fmt.number(sum.mqls)}</td>
-    <td class="py-2 text-right font-bold text-sm">${fmt.number(sum.sqls)}</td>
-    <td class="py-2 text-right font-bold text-sm">${fmt.number(sum.won)}</td>
-    <td class="py-2 text-right font-bold text-sm">${fmt.currency(sum.wonRevenue)}</td>
-  </tr>`;
+  }).join('');
+  document.getElementById(`${tableId}Total`).innerHTML = `<table class="w-full">
+    <tr class="border-t-2 border-as-border">
+      <td class="py-2 font-bold text-sm">Total</td>
+      <td class="py-2 text-right font-bold text-sm">${fmt.number(sum.mqls)}</td>
+      <td class="py-2 text-right font-bold text-sm">${fmt.number(sum.sqls)}</td>
+      <td class="py-2 text-right font-bold text-sm">${fmt.number(sum.won)}</td>
+      <td class="py-2 text-right font-bold text-sm">${fmt.currency(sum.wonRevenue)}</td>
+    </tr>
+  </table>`;
 }
 
 // ===== GOOGLE ADS =====
