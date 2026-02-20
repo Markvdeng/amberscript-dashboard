@@ -451,6 +451,34 @@
         <!-- Breakdown tables -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
           <div class="card flex flex-col">
+            <span class="summary-header">By Product</span>
+            <div class="overflow-x-auto mt-3 flex-1">
+              <table id="ssProductTable" class="w-full">
+                <thead class="text-left border-b border-as-border"><tr></tr></thead>
+                <tbody></tbody>
+              </table>
+            </div>
+            <div id="ssProductTableTotal" class="overflow-x-auto mt-auto"></div>
+          </div>
+          <div class="card flex flex-col">
+            <span class="summary-header">By Plan Type</span>
+            <div class="overflow-x-auto mt-3 flex-1">
+              <table id="ssPlanTable" class="w-full">
+                <thead class="text-left border-b border-as-border">
+                  <tr>
+                    <th class="pb-2">Plan Type</th>
+                    <th class="pb-2 text-center">Payments</th>
+                    <th class="pb-2 text-center">Revenue</th>
+                    <th class="pb-2 text-center">AOV</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div class="card flex flex-col">
             <span class="summary-header">By Country</span>
             <div class="overflow-x-auto mt-3 flex-1">
               <table id="ssCountryTable" class="w-full">
@@ -471,29 +499,6 @@
             <div id="ssChannelTableTotal" class="overflow-x-auto mt-auto"></div>
           </div>
         </div>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div class="card flex flex-col">
-            <span class="summary-header">By Product</span>
-            <div class="overflow-x-auto mt-3 flex-1">
-              <table id="ssProductTable" class="w-full">
-                <thead class="text-left border-b border-as-border"><tr></tr></thead>
-                <tbody></tbody>
-              </table>
-            </div>
-            <div id="ssProductTableTotal" class="overflow-x-auto mt-auto"></div>
-          </div>
-          <div class="card flex flex-col">
-            <span class="summary-header">By Plan Type</span>
-            <div class="overflow-x-auto mt-3 flex-1">
-              <table id="ssPlanTable" class="w-full">
-                <thead class="text-left border-b border-as-border"><tr></tr></thead>
-                <tbody></tbody>
-              </table>
-            </div>
-            <div id="ssPlanTableTotal" class="overflow-x-auto mt-auto"></div>
-          </div>
-        </div>
-      </div>
     </div>
 
     <!-- ============================================ -->
@@ -565,7 +570,6 @@ const tableSortState = {
   ssCountryTable: { col: 'revenue', dir: 'desc' },
   ssChannelTable: { col: 'revenue', dir: 'desc' },
   ssProductTable: { col: 'revenue', dir: 'desc' },
-  ssPlanTable: { col: 'revenue', dir: 'desc' },
 };
 
 const CHANNEL_COLORS = {
@@ -953,10 +957,10 @@ function renderSelfServe(weeks) {
   });
 
   // Breakdown tables
+  renderSSBreakdown(stripe, 'ssProductTable', 'Product', 'byProduct');
+  renderSSPlanTable(stripe);
   renderSSBreakdown(stripe, 'ssCountryTable', 'Country', 'byCountry');
   renderSSBreakdown(stripe, 'ssChannelTable', 'Channel', 'byChannel');
-  renderSSBreakdown(stripe, 'ssProductTable', 'Product', 'byProduct');
-  renderSSBreakdown(stripe, 'ssPlanTable', 'Plan Type', 'byPlanType');
 }
 
 function renderSSBreakdown(stripe, tableId, labelCol, dataKey) {
@@ -1013,6 +1017,71 @@ function renderSSBreakdown(stripe, tableId, labelCol, dataKey) {
       <td class="py-2 text-center font-bold text-sm">${sumAov}</td>
     </tr>
   </table>`;
+}
+
+function renderSSPlanTable(stripe) {
+  const product = document.getElementById('filterProduct').value;
+
+  function sumSeg(segKey) {
+    let payments = 0, revenue = 0;
+    for (const row of stripe) {
+      payments += (row.seg?.[segKey] || {}).count || 0;
+      revenue += (row.seg?.[segKey] || {}).revenue || 0;
+    }
+    return { payments, revenue };
+  }
+  function aovStr(d) { return d.payments > 0 ? fmt.currency(Math.round(d.revenue / d.payments)) : '-'; }
+
+  const planTypes = [];
+  if (product !== 'inv') {
+    planTypes.push({
+      key: 'prepaid', label: 'Prepaid',
+      subtypes: [{ key: 'topup', label: 'Top-Up' }, { key: 'job', label: 'Job Creation' }],
+    });
+    planTypes.push({
+      key: 'sub', label: 'Subscription',
+      subtypes: [{ key: 'update', label: 'Update' }, { key: 'creation', label: 'Creation' }],
+    });
+  }
+  if (product === 'all' || product === 'inv') {
+    planTypes.push({ key: 'inv', label: 'Invoice', subtypes: [], isInvoice: true });
+  }
+
+  let html = '';
+  let totalPayments = 0, totalRevenue = 0;
+
+  for (const pt of planTypes) {
+    const data = pt.isInvoice ? sumSeg('inv.all.all') : sumSeg(`${product}.${pt.key}.all`);
+    totalPayments += data.payments;
+    totalRevenue += data.revenue;
+
+    html += `<tr class="border-b border-as-border/40 hover-row">
+      <td class="py-2 text-sm font-semibold">${pt.label}</td>
+      <td class="py-2 text-center text-as-secondary text-sm">${fmt.number(data.payments)}</td>
+      <td class="py-2 text-center font-semibold text-sm">${fmt.currency(data.revenue)}</td>
+      <td class="py-2 text-center text-as-secondary text-sm">${aovStr(data)}</td>
+    </tr>`;
+
+    for (const st of pt.subtypes) {
+      const sub = sumSeg(`${product}.${pt.key}.${st.key}`);
+      html += `<tr class="border-b border-as-border/40 hover-row">
+        <td class="py-1.5 text-xs text-as-secondary pl-5">${st.label}</td>
+        <td class="py-1.5 text-center text-as-secondary text-xs">${fmt.number(sub.payments)}</td>
+        <td class="py-1.5 text-center font-semibold text-xs">${fmt.currency(sub.revenue)}</td>
+        <td class="py-1.5 text-center text-as-secondary text-xs">${aovStr(sub)}</td>
+      </tr>`;
+    }
+  }
+
+  const totalAov = totalPayments > 0 ? fmt.currency(Math.round(totalRevenue / totalPayments)) : '-';
+  html += `<tr class="border-t-2 border-as-border">
+    <td class="py-2 text-sm font-bold">Total</td>
+    <td class="py-2 text-center font-bold text-sm">${fmt.number(totalPayments)}</td>
+    <td class="py-2 text-center font-bold text-sm">${fmt.currency(totalRevenue)}</td>
+    <td class="py-2 text-center font-bold text-sm">${totalAov}</td>
+  </tr>`;
+
+  document.querySelector('#ssPlanTable tbody').innerHTML = html;
 }
 
 function sortSSTable(tableId, col) {
