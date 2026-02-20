@@ -320,10 +320,6 @@
         <div class="text-xs text-gray-400 text-center py-2">Ask questions about your dashboard data. Uses the current date range filter.</div>
       </div>
       <div class="border-t border-gray-200 p-3">
-        <div id="chatKeyPrompt" class="text-xs text-gray-500 mb-2 hidden">
-          <input id="chatApiKey" type="password" placeholder="Enter Anthropic API key" class="w-full px-3 py-1.5 border border-gray-300 rounded-lg text-xs focus:outline-none focus:border-as-primary">
-          <button onclick="saveChatKey()" class="mt-1 px-3 py-1 bg-as-primary text-white text-xs rounded-lg hover:opacity-90">Save key</button>
-        </div>
         <div class="flex gap-2">
           <input id="chatInput" type="text" placeholder="e.g. What's the trend in MRR?" class="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-as-primary" onkeydown="if(event.key==='Enter')sendChat()">
           <button onclick="sendChat()" class="px-3 py-2 bg-as-primary text-white rounded-lg hover:opacity-90 transition-opacity">
@@ -1805,19 +1801,7 @@ let chatOpen = false;
 function toggleChat() {
   chatOpen = !chatOpen;
   document.getElementById('chatWindow').classList.toggle('hidden', !chatOpen);
-  if (chatOpen) {
-    const key = localStorage.getItem('amberscript_chat_key');
-    document.getElementById('chatKeyPrompt').classList.toggle('hidden', !!key);
-    document.getElementById('chatInput').focus();
-  }
-}
-function saveChatKey() {
-  const key = document.getElementById('chatApiKey').value.trim();
-  if (key) {
-    localStorage.setItem('amberscript_chat_key', key);
-    document.getElementById('chatKeyPrompt').classList.add('hidden');
-    document.getElementById('chatInput').focus();
-  }
+  if (chatOpen) document.getElementById('chatInput').focus();
 }
 
 function buildChatContext() {
@@ -1895,12 +1879,6 @@ async function sendChat() {
   const q = input.value.trim();
   if (!q) return;
 
-  const key = localStorage.getItem('amberscript_chat_key');
-  if (!key) {
-    document.getElementById('chatKeyPrompt').classList.remove('hidden');
-    return;
-  }
-
   input.value = '';
   addChatMsg('user', q);
   const bubble = addChatMsg('assistant', '...');
@@ -1911,7 +1889,6 @@ async function sendChat() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        key,
         messages: [
           { role: 'user', content: `Here is the current dashboard data:\n\n${context}\n\nQuestion: ${q}` }
         ],

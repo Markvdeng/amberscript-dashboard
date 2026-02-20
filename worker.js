@@ -1,15 +1,8 @@
 /**
  * Cloudflare Worker: Claude API proxy for Amberscript Dashboard chat.
  *
- * Deploy:
- *   1. Go to Cloudflare Dashboard > Workers & Pages > Create
- *   2. Name it "dashboard-chat" (or whatever you like)
- *   3. Paste this code
- *   4. Add a custom domain: dashboard-chat.amberscript.com
- *      (or update CHAT_WORKER_URL in index.html to match your worker URL)
- *
- * The API key is passed from the client (stored in their browser localStorage).
- * No secrets needed on the worker itself.
+ * The Anthropic API key is stored as a Worker secret (ANTHROPIC_API_KEY).
+ * Set it with: npx wrangler secret put ANTHROPIC_API_KEY
  */
 
 const ALLOWED_ORIGINS = [
@@ -42,11 +35,19 @@ export default {
 
     try {
       const body = await request.json();
-      const { key, messages, system } = body;
+      const { messages, system } = body;
 
-      if (!key || !messages) {
-        return new Response(JSON.stringify({ error: 'Missing key or messages' }), {
+      if (!messages) {
+        return new Response(JSON.stringify({ error: 'Missing messages' }), {
           status: 400,
+          headers: { ...corsHeaders(origin), 'Content-Type': 'application/json' },
+        });
+      }
+
+      const apiKey = env.ANTHROPIC_API_KEY;
+      if (!apiKey) {
+        return new Response(JSON.stringify({ error: 'API key not configured on server' }), {
+          status: 500,
           headers: { ...corsHeaders(origin), 'Content-Type': 'application/json' },
         });
       }
@@ -56,7 +57,7 @@ export default {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'x-api-key': key,
+          'x-api-key': apiKey,
           'anthropic-version': '2023-06-01',
         },
         body: JSON.stringify({
